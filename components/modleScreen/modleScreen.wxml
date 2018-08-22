@@ -1,0 +1,56 @@
+<!--components/modleScreen/modleScreen.wxml-->
+<view class="screen">
+  <view class='flex-wrapper screen-wrapper border-box'>
+    <view 
+      class='flex-item screen-item text-center' 
+      wx:for="{{screenData}}" 
+      wx:key="index"
+      data-index="{{index}}"
+      bindtap="itemClick">
+      <text 
+        style="color: {{(highLightArr[index] || (clickIndex.currentIndex == index && clickIndex.currentIndex != 1 && isScreenOpen)) ? focusColor : initColor}}">{{item.name}}</text>
+      <image 
+        class='icon-angle' 
+        style="transform:rotate({{isScreenOpen && (clickIndex.currentIndex == index  && clickIndex.currentIndex != 1) ? '180deg' : '0deg'}});" 
+        src='{{(highLightArr[index] || (isScreenOpen && clickIndex.currentIndex == index && clickIndex.currentIndex != 1)) ? focusAngle : initAngle}}'></image>
+    </view>
+  </view>
+  <view class="content-wrapper" animation="{{animationData}}">
+    <!-- 默认排序 -->
+    <view class="content-item item0" hidden="{{clickIndex.currentIndex != 0}}">
+      <view 
+        wx:for="{{screenData[0].items}}" 
+        wx:key="{{item.index}}" 
+        data-index="{{item.index}}" 
+        class="sort-item" 
+        style='color: {{sort == item.index ? focusColor : initColor}}'
+        bindtap='clickSortItem'>{{item.value}}</view>
+    </view>
+    <!-- 品牌 -->
+    <view class="content-item item1" hidden="{{clickIndex.currentIndex != 1}}"></view>
+    <!-- 价格 -->
+    <view class="content-item item2" hidden="{{clickIndex.currentIndex != 2}}">
+      <select selectType="radio" radioData="{{screenData[2].items}}" bindradioChange="clickPriceItem"></select>
+    </view>
+    <!-- 更多条件 -->
+    <view class="content-item item3" hidden="{{clickIndex.currentIndex != 3}}">
+      <view class="type-group" wx:for="{{screenData[3].items}}" wx:key="{{item.title}}">
+        <view class="group-ttl">{{item.title}}</view>
+        <select 
+          selectType="checkbox"
+          checkboxIndexArr="{{checkboxIndexArr}}"
+          checkboxData="{{item.subItems}}" 
+          maxLength="{{item.subItems.length}}"
+          data-which="{{item.which}}"
+          checked="{{checked}}"
+          bindcheckboxChange="checkboxChange"></select>
+      </view>
+
+      <view class="btn-group flex-wrapper">
+        <view class="flex-item text-center" bindtap='resetMore'>重置</view>
+        <view class="flex-item text-center" bindtap='screenMore'>筛选</view>
+      </view>
+    </view>
+  </view>
+  <view class='shadow' hidden='{{!isShowShadow}}' data-which="shadow" bindtap="clickShadow"></view>
+</view>

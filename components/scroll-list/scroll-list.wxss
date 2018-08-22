@@ -1,0 +1,94 @@
+/* pages/city.wxss */
+/*数据列表*/
+.data-list {
+  width: 100%;
+  height: 100%;
+}
+
+/*选择头部*/
+.list_tit {
+  display: block;
+  padding-left: 40rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  background: #f1f1f1;
+  font-size: 26rpx;
+  color: #999;
+}
+.list_con {
+  position: relative;
+  padding-left: 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #2c2c2c;
+  background-color: #fff;
+}
+.list_con:not(:last-child)::after {
+  position: absolute;
+  z-index: 1;
+  left: 40rpx;
+  right: 40rpx;
+  bottom: -1rpx;
+  display: block;
+  height: 0;
+  content: " ";
+  border-bottom: 1px #ebebeb solid;
+}
+.list_con .icon-car {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+.list_con .icon-car image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 70%;
+  height: 70%;
+}
+.list_con .name-car {
+  vertical-align: middle;
+  font-size: 28rpx;
+  color: #2c2c2c;
+}
+/*字母选择 右边*/
+.scroll_list {
+  position: fixed;
+  z-index: 2;
+  top: 180rpx;
+  right: 0rpx;
+  width: 80rpx;
+  min-height: 100rpx;
+  background: rgba(0, 0, 0, 0);
+}
+.scroll_list_chi {
+    text-align: center;
+    font-size: 22rpx;
+    color: #999999;
+}
+/*显示框*/
+
+.showwords {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;  
+  margin: auto;
+  width: 160rpx;
+  height: 160rpx;
+  line-height: 160rpx;
+  text-align: center;
+  background: rgba(0,0,0,.3);
+  border-radius:50%;
+  color: #ffa800;
+  font-size: 60rpx;  
+}
