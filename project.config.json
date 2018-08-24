@@ -58,6 +58,11 @@
 					"name": "名片照片",
 					"pathName": "pages/cart/cardpic/cardpic",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "推车猫首页",
+					"pathName": "pages/cart/index/index"
 				}
 			]
 		}

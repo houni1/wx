@@ -1,2 +1,117 @@
-<!--pages/cart/index/index.wxml-->
-<text>pages/cart/index/index.wxml</text>
+<view class='home'>
+  <view class='home-card'>
+    <image class='home-card-bg' src='./images/header_bj.png'></image>
+    <view class='card-box'>
+      <image class='edit-icon' src='./images/edit-icon.png'></image>
+      <view class='user-info'>
+        <image class='user-pic' src='./images/user-pic.jpg'></image>
+        <text class='user-name'>侯璐瑶</text>
+        <text class='user-position'>销售-北京</text>
+      </view>
+      <view class='user-list'>
+        <view class='user-hot user-li'>
+          <text class='li-icon'>🎈</text><text class='li-text'>销售人气 20</text>
+        </view>
+        <!-- <view class='user-phone user-li'>
+          <text class='li-icon'>🎈</text><text class='li-text'>15110078983</text>
+        </view> -->
+        <view class='user-phone-input user-li'>
+          <text class='li-icon'>🎈</text><input class='li-text-input' value='暂无手机号'></input>
+        </view>
+        <view class='user-email user-li'>
+          <text class='li-icon'>🎈</text><text class='li-text'>850380515@qq.com</text>
+        </view>
+      </view>
+      <view class='user-company'>北京网田科技发展有限公司</view>
+      <view class='user-allow'><image class='allow-icon' src='./images/allow-icon.png'></image><text>一猫授权店</text></view>
+    </view>
+  </view>
+  <view class='card-list'>
+    <view class='card-li'>
+      <image src='./images/cardli_1.png'></image>
+      <text>发名片</text>
+    </view>
+    <view class='card-li'>
+      <image src='./images/cardli_2.png'></image>
+      <text>我的名片</text>
+    </view>
+    <view class='card-li'>
+      <image src='./images/cardli_3.png'></image>
+      <text>名片照片</text>
+    </view>
+    <view class='card-li'>
+      <image src='./images/cardli_4.png'></image>
+      <text>专属码</text>
+    </view>
+  </view>
+  <view class='home-catlist'>
+    <view class='catlist-title'>猫哥卫星</view>
+    <view class='catli'>
+      <view class='catli-pic'>
+        <image src='./images/user-pic.jpg'></image>
+      </view>
+      <view class='catli-info'>
+        <view class='catli-info-top'>
+          <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='./images/emao-logo.png'></image>
+          <text class='catli-info-time'>2018/01/14 12:08:45</text>
+        </view>
+        <!-- <view class='catli-info-bottom'>
+          <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+        </view> -->
+        <view class='catli-info-bottom'>
+          <view class='catli-info-text'>拨打了您的电话</view>
+          <view class='catli-info-phone'>
+            <image class='phone-icon' src='./images/phone-icon.png'></image>
+            15110078983
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='catli'>
+      <view class='catli-pic'>
+        <image src='./images/user-pic.jpg'></image>
+      </view>
+      <view class='catli-info'>
+        <view class='catli-info-top'>
+          <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='./images/emao-logo.png'></image>
+          <text class='catli-info-time'>2018/01/14 12:08:45</text>
+        </view>
+        <!-- <view class='catli-info-bottom'>
+          <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+        </view> -->
+        <view class='catli-info-bottom'>
+          <view class='catli-info-text'>拨打了您的电话</view>
+          <view class='catli-info-phone'>
+            <image class='phone-icon' src='./images/phone-icon.png'></image>
+            15110078983
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='catli'>
+      <view class='catli-pic'>
+        <image src='./images/user-pic.jpg'></image>
+      </view>
+      <view class='catli-info'>
+        <view class='catli-info-top'>
+          <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='./images/emao-logo.png'></image>
+          <text class='catli-info-time'>2018/01/14 12:08:45</text>
+        </view>
+        <!-- <view class='catli-info-bottom'>
+          <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+        </view> -->
+        <view class='catli-info-bottom'>
+          <view class='catli-info-text'>拨打了您的电话</view>
+          <view class='catli-info-phone'>
+            <image class='phone-icon' src='./images/phone-icon.png'></image>
+            15110078983
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='msg-box'>
+    <text class='number'>2</text>
+    <text>个交换名片申请</text>
+  </view>
+</view>

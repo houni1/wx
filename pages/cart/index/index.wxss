@@ -1,1 +1,270 @@
 /* pages/cart/index/index.wxss */
+/* 名片部分 */
+.home-card {
+  position: relative;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+.msg-box {
+  position: absolute;
+  bottom: 40rpx;
+  right: 20rpx;
+  height: 78rpx;
+  background: #ffcf10;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  line-height: 78rpx;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+}
+.msg-box text{
+  float: left;
+}
+.msg-box .number {
+  font-size: 40rpx;
+}
+/* 名片背景 */
+.home-card .home-card-bg{
+  width: 100%;
+  height: 322rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/* 名片盒子 */
+.card-box {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 15rpx;
+  border: 1px solid #ccc;
+  padding: 40rpx 50rpx 40rpx 50rpx;
+  box-sizing: border-box;
+  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #C2BEC0; */
+}
+
+.edit-icon {
+  position: absolute;
+  right: 0;
+  top: 40rpx;
+  display: block;
+  height: 67rpx;
+  width: 128rpx;
+}
+/* 头像名称职位 */
+.user-info {
+  width: 100%;
+  line-height: 98rpx;
+  height: 98rpx;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+}
+.user-pic{
+  display: inline-block;
+  float: left;
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 100%;
+  background: pink;
+}
+.user-name, .user-position {
+  float: left;
+  display: inline-block;
+  line-height: 98rpx;
+  padding-left: 21rpx;
+}
+.user-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #282c39;
+}
+.user-position {
+  font-size: 32rpx;
+}
+
+.user-list {
+  width: 100%;
+  padding-left: 124rpx;
+  box-sizing: border-box;
+}
+.user-li .li-icon {
+  font-size: 23rpx;
+}
+.user-li .li-text{
+  font-size: 26rpx;
+  color: #808080;
+  padding-left: 24rpx;
+}
+
+
+
+.user-phone-input {
+  display: flex;
+}
+.user-phone-input .li-icon {
+  padding-top: 12rpx;
+}
+
+.user-li .li-text-input {
+  font-size: 26rpx;
+  color: #808080;
+  padding-left: 24rpx;
+  flex: 1;
+}
+
+
+
+.user-company {
+  font-size: 32rpx;
+  padding-top: 27rpx;
+  font-weight: 600;
+  color: #282c39;
+}
+.user-allow {
+  width: 100%;
+  line-height: 32rpx;
+  height: 32rpx;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+.user-allow .allow-icon {
+  float: left;
+  display: inline-block;
+  width: 27rpx;
+  height: 32rpx;
+}
+.user-allow text {
+  display: inline-block;
+  padding-left: 22rpx;
+  float: left;
+  font-size: 26rpx;
+  color: #808080;
+}
+
+
+.card-list {
+  margin-bottom: 14rpx;
+  width: 100%;
+  display: flex;
+  padding-top: 34rpx;
+  padding-bottom: 30rpx;
+}
+.card-li {
+  flex: 1;
+  text-align: center;
+}
+.card-li .card-li-pic {
+  text-align: center;
+}
+.card-li image {
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 auto;
+}
+.card-li text {
+  font-size: 26rpx;
+  color: #4d4d4d;
+}
+
+
+
+/* 猫哥卫星 */
+.home-catlist {
+  color: pink;
+}
+.catlist-title {
+  font-size: 40rpx;
+  color: #282c39;
+  font-weight: 600;
+  width: 100%;
+  padding: 50rpx 40rpx 35rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.catli {
+  width: 100%;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+.catli .catli-pic {
+  display: block;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 100%;
+  margin-right: 40rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+}
+
+.catli .catli-pic image {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.catli-info {
+  flex: 1;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 24rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+}
+.catli-info-top {
+  padding-top: 4rpx;
+  display: flex;
+}
+.catli-info-bottom {
+  padding-top: 14rpx;
+  display: flex;
+}
+.catli-info-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #282c39;
+  padding-right: 15rpx;
+}
+.emao-logo {
+  display: block;
+  width: 88rpx;
+  height: 30rpx;
+  margin-top: 6rpx;
+}
+.catli-info-time {
+  flex: 1;
+  text-align: right;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+}
+.catli-info-text, .catli-info-time {
+  font-size: 24rpx;
+  color: #a6a6a6;
+}
+.catli-info-text {
+  display: inline;
+}
+.catli-info-phone {
+  display: inline;
+  text-align: right;
+  flex: 1;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #282c39;
+}
+.catli-info-phone .phone-icon {
+  display: inline-block;
+  width: 27rpx;
+  height: 28rpx;
+  margin: -4rpx;
+  margin-right: 15rpx;
+}
+.catli-info-text .num {
+  color: #fcc91a;
+  font-size: 26rpx;
+}
