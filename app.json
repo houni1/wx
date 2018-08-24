@@ -8,7 +8,8 @@
       "pages/cart/business/business",
       "pages/cart/sendinfo/sendinfo",
       "pages/cart/share/share",
-      "pages/cart/cardpic/cardpic"
+      "pages/cart/cardpic/cardpic",
+      "pages/cart/setup/setup"
    ],
    "window": {
       "backgroundTextStyle": "light",
