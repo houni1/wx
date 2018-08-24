@@ -36,9 +36,16 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "推车猫首页",
-					"pathName": "pages/cart/index/index"
+					"pathName": "pages/cart/index/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "推车猫设置",
+					"pathName": "pages/cart/setup/setup",
+					"query": ""
 				}
 			]
 		}

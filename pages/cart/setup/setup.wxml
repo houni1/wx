@@ -1,0 +1,67 @@
+<view class='setup-box'>
+  <view class='set-pic'>
+    <view class='item-title'>头像</view>
+    <view class='item-content'>
+      <image src='../index/images/user-pic.jpg'></image>
+    </view>
+  </view>
+  <view class='set-box'>
+    <view class='set-item'>
+      <view class='item-title'>姓名</view>
+      <view class='item-content'>
+        <input value='侯璐瑶'></input>
+      </view>
+    </view>
+    <view class='set-item'>
+      <view class='item-title'>职位</view>
+      <view class='item-content'>
+        <input value='总经理'></input>
+      </view>
+    </view>
+    <view class='set-item'>
+      <view class='item-title'>所在城市</view>
+      <view class='item-content item-city'>北京</view>
+    </view>
+    <view class='set-item'>
+      <view class='item-title'>手机号</view>
+      <view class='item-content'>
+        <input value='15110078983'></input>
+      </view>
+      <view class='get-phone'>
+        <text>获取手机号</text>
+      </view>
+    </view>
+    <view class='set-item'>
+      <view class='item-title'>微信号</view>
+      <view class='item-content'>
+        <input value='15110078983'></input>
+      </view>
+    </view>
+    <view class='set-item'>
+      <view class='item-title'>邮箱号</view>
+      <view class='item-content'>
+        <input placeholder='没有填写'></input>
+      </view>
+    </view>
+    <view class='set-person'>
+      <view class='item-title'>个人介绍</view>
+      <view class='item-content'>
+        <textarea value='处理静态文件是一个繁琐的事情，因为静态文件都是来自于服务器上，肯定不能。'></textarea>
+      </view>
+    </view>
+    <view class='set-picture'>
+      <view class='item-title'>图片展示</view>
+      <view class='item-content'>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='btn-box'>
+    <view class='btn'>保存</view>
+  </view>
+</view>

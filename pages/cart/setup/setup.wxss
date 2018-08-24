@@ -1,0 +1,161 @@
+/* pages/cart/setup/setup.wxss */
+.setup-box {
+  width: 100%;
+}
+/* 头像 */
+.set-pic {
+  /* display: flex; */
+  width: 100%;
+  height: 160rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  margin-bottom: 15rpx;
+  background: #fff;
+}
+
+.set-pic .item-title {
+  line-height: 160rpx;
+  font-size: 26rpx;
+  color: #a6a6a6;
+  width: 155rpx;
+  float: left;
+}
+
+.set-pic .item-content {
+  float: right;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.set-pic .item-content image {
+  display: block;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 100%;
+}
+
+/* 个人介绍 */
+.set-person {
+  height: 148rpx;
+  padding-top: 40rpx;
+  padding-bottom: 26rpx;
+  box-sizing: border-box;
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+}
+.set-person .item-title {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  width: 155rpx;
+}
+.set-person .item-content{
+  font-size: 26rpx;
+  color: #4d4d4d;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+}
+.set-person .item-content textarea {
+  flex: 1;
+  line-height: 40rpx;
+}
+
+/* 图片展示 */
+.set-picture {
+  padding-top: 40rpx;
+  display: flex;
+}
+
+.set-picture .item-title {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  width: 140rpx;
+  float: left;
+}
+.set-picture .item-content {
+  flex: 1;
+  font-size: 26rpx;
+  color: #4d4d4d;
+}
+
+.set-picture .item-content .add-pic {
+  display: inline-block;
+  width: 158rpx;
+  height: 158rpx;
+  margin-top: 4rpx;
+  margin-left: 15rpx;
+}
+
+/* 常规 */
+.set-box {
+  width: 100%;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.set-box .set-item {
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+}
+
+.set-box .set-item:last-child {
+  border-bottom: none;
+}
+
+.set-item .item-title {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  width: 155rpx;
+  line-height: 108rpx;
+}
+
+.set-item .item-content{
+  font-size: 26rpx;
+  color: #4d4d4d;
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-city {
+  line-height: 108rpx;
+}
+
+/* 获取手机号 */
+.get-phone {
+  padding-top: 27rpx;
+  padding-bottom: 27rpx;
+  box-sizing: border-box;
+}
+
+.get-phone text {
+  display: inline-block;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  width: 155rpx;
+  border-radius: 32rpx;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  color: #fcc91a;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+
+.item-content input {
+  flex: 1;
+}
+
+
+/* 保存按钮 */
+.btn-box {
+  padding: 60rpx 30rpx 40rpx 30rpx;
+}
