@@ -1,0 +1,187 @@
+page {
+  background: #f9f9fa;
+}
+.topPic image{
+  width: 100%;
+  display: block;
+}
+/* 标题 */
+.mainInfo {
+  padding: 40rpx;
+  background: #fff;
+}
+.mainInfo .title {
+  line-height: 54rpx;
+}
+.mainInfo .title view {
+  display: inline;
+}
+.mainInfo image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+.mainInfo .mainTitle {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.mainInfo .subTitle {
+  font-size: 28rpx;
+  margin-right: 10rpx;
+  color: #28293c;
+}
+.carStatus {
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  background: #e5f9f6;
+  border-radius: 40rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #01c4a2;
+  margin-right: 30rpx;
+}
+/* 价格 */
+.price view {
+  display: inline;
+}
+.price {
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.price .priceNum {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: #fa2117;
+  margin-right: 6rpx;
+}
+.price .priceUnit {
+  font-size: 26rpx;
+  color: #fa2117;
+  margin-right: 16rpx;
+}
+.price .guidePrice {
+  font-size: 26rpx;
+  color: #a6a6a6;
+}
+/* 级别，变速箱 */
+.levelInfo {
+  background: #fff;
+  margin-top: 16rpx;
+  padding: 40rpx 0;
+  text-align: center;
+}
+.levelInfo .kind {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  margin-bottom: 40rpx;
+}
+.levelInfo .val {
+  font-size: 28rpx;
+  color: #282c39;
+  font-weight: bold;
+}
+/* 车辆简介 */
+.introduction {
+  padding: 40rpx;
+  margin-top: 16rpx;
+  background: #fff;
+}
+.introduction .title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #282c39;
+  margin-bottom: 32rpx;
+}
+.introduction .content {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  line-height: 40rpx;
+}
+/* 参数配置 */
+.parameter {
+  margin-top: 16px;
+  background: #fff;
+}
+.parameter .title {
+  height: 140rpx;
+  padding: 0 40rpx;
+  align-items: center;
+}
+.parameter .parameterTitle {
+  font-size: 40rpx;
+  color: #282c39;
+  font-weight: bold;
+}
+.parameter .title .open,
+.parameter .title .close {
+  font-size: 26rpx;
+  color: #a6a6a6;
+  align-items: center;
+  height: 50rpx;
+}
+.parameter .title image {
+  width: 20rpx;
+  margin-left: 10rpx;
+}
+/* 基本信息 */
+.baseInfo {
+  min-height: 84rpx;
+  align-items: center;
+  padding: 0 40rpx;
+  font-size: 26rpx;
+  color: #282c39;
+}
+.baseInfo .title {
+  font-weight: bold;
+}
+.baseInfo .space {
+  display: inline-block;
+  margin-left: 20rpx;
+  font-size: 10rpx;
+}
+.infoList {
+  background: #fff;
+  padding: 20rpx 40px;
+}
+.infoList .infoItem {
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+}
+.infoList .infoItem view:first-child {
+  font-size: 26rpx;
+  color: #a6a6a6;
+}
+.infoList .infoItem view:last-child {
+  font-size: 26rpx;
+  color: #282c39;
+}
+/* 实拍图 */
+.realPicture {
+  margin-top: 16px;
+  background: #fff;
+  padding: 0 40rpx;
+}
+.realPicture .title {
+  height: 130rpx;
+  line-height: 120rpx;
+}
+.realPicture image {
+  width: 100%;
+  box-shadow: 0px 0px 10px 6px rgba(228,228,228,0.8);
+  margin-bottom: 20rpx;
+}
+/* 分享 */
+.share {
+  padding: 30rpx;
+}
+.shareBtn {
+  height: 100rpx;
+  background: #ffcf10;
+  border-radius: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,50 @@
+<view class='wrap'>
+  <view class='filterTab flex-wrapper'>
+    <view class='{{tabIndex == 0 ? "filterActive tabItem" : "tabItem"}}' bindtap="filterTabChange" data-index='0'>已售出(5)</view>
+    <view class='{{tabIndex == 1 ? "filterActive tabItem" : "tabItem"}}' bindtap="filterTabChange" data-index='1'>已下架(1)</view>
+    <view class='tabItem' bindtap="filterTabChange" data-index='2'>全部商品
+      <image src='images/arrow_b.png' mode='widthFix'></image>
+    </view>
+    <view class='allGoods' wx:if="{{showSelect}}">
+      <view bindtap='goodsSelect' data-kind="all">全部商品</view>
+      <view bindtap='goodsSelect' data-kind="self">自营商品</view>
+      <view bindtap='goodsSelect' data-kind="emao">一猫商品</view>
+    </view>
+  </view>
+  <view class='carsList'>
+    <view class='item'>
+      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+      <view class='imgWrap'>
+        <image src='images/njdc.png' mode='aspectFit'></image>
+      </view>
+      <view class='carInfo'>
+        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
+        <view class='subTitle'>豪华型互联版</view>
+        <view class='price'><view class='priceNum'>13.90</view>万元</view>
+        <view class='guidePrice'>指导价42.76万</view>
+        <view class='status'>
+          <view class='carStatus'>现车</view>
+          <view class='stock'>库存3台</view>
+        </view>
+      </view>
+      <view class='shareBtn'><image src='images/fa.png' mode='widthFix'></image></view>
+    </view>
+    <view class='item'>
+      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+      <view class='imgWrap'>
+        <image src='images/njdc.png' mode='aspectFit'></image>
+      </view>
+      <view class='carInfo'>
+        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
+        <view class='subTitle'>豪华型互联版</view>
+        <view class='price'><view class='priceNum'>13.90</view>万元</view>
+        <view class='guidePrice'>指导价42.76万</view>
+        <view class='status'>
+          <view class='carStatus'>现车</view>
+          <view class='stock'>库存3台</view>
+        </view>
+        <view class='shareBtn'><image src='images/fa.png' mode='widthFix'></image></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,132 @@
+.share .title{
+  padding: 0 10rpx;
+}
+.wraper{
+ height: 60rpx;
+}
+
+.wraper .type{
+  display: inline-block;
+  margin-right: 20rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 26rpx;
+  color: #a6a6a6;
+  
+}
+.wraper .hot{
+  color: #282c39;
+}
+.wraper .active::after{
+  content: "";
+  color: #282c39;
+  display: block;
+  width: 60rpx;
+  border-bottom: #ffcf10 solid 5rpx;
+  margin: 0 auto;
+  padding-top:10rpx;
+}
+.banner{
+width:100%;
+height: 350rpx;
+padding-top: 10rpx
+}
+.banner .ban-img{
+ width: 100%;
+ height: 100%;
+}
+.name{
+font-family: "PingFangSC-Semibold";
+font-size: 32rpx;
+color: #282c39;
+margin-bottom: 15rpx
+}
+.date{
+font-size:22rpx;
+font-family: "PingFangSC-Regular";
+color: #a6a6a6;
+
+}
+.text{
+  font-family: "PingFangSC-Regular";
+  font-size:26rpx;
+  color: #282c39;
+  margin: 25rpx auto
+}
+.picture{
+
+}
+.content{
+  padding: 35rpx 40rpx 0;
+  line-height: 34rpx;
+}
+.con-img{
+ width: 441rpx;
+ height: 441rpx;
+ border-radius: 5px;
+}
+.card{
+height: 150rpx;
+overflow: hidden;
+}
+.card .my-card{
+width: 140rpx;
+height: 140rpx;
+float: right;
+border-radius: 50%;
+}
+.footer{
+  font-family: "PingFangSC-Regular";
+  color: #a6a6a6;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.shareout{
+  font-size:22rpx;
+  display: flex;
+  align-content: center;
+}
+.out{
+width: 36rpx;
+height: 36rpx;
+margin-right: 10rpx;
+}
+.myown{
+  font-size:24rpx;
+  padding-right: 10rpx;
+}
+.button{
+position: relative;
+height: 150rpx;
+}
+.weixin-wrap{
+position: absolute;
+top: 0;
+left: 140rpx;
+}
+.down-wrap{
+position: absolute;
+top: 0;
+right: 140rpx;
+}
+.winxin{
+width: 88rpx;
+height: 88rpx;
+}
+.download{
+  width: 88rpx;
+  height: 88rpx;
+}
+.butn-text{
+  font-family: "PingFangSC-Regular";
+  color: #a6a6a6;
+  font-size: 24rpx;
+  text-align: center
+}
+.cancel{
+  font-family: "PingFangSC-Regular";
+  color: #282c39;
+  font-size: 24rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+}

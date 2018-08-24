@@ -1,0 +1,49 @@
+<view class='share'>
+  <view class='title'>
+    <scroll-view class='wraper' scroll-x="true" style="white-space: nowrap;">
+      <view class='type hot active'>热门推荐</view>
+      <view class='type'>类型1</view>
+      <view class='type'>类型2</view>
+      <view class='type'>类型3</view>
+      <view class='type'>类型4</view>
+      <view class='type'>类型5</view>
+      <view class='type'>类型6</view>
+      <view class='type'>类型7</view>
+      <view class='type'>类型8</view>
+      <view class='type'>类型9</view>
+    </scroll-view>
+  </view>
+  <view class='banner'>
+    <image src='../business/images/banner.png' class='ban-img'></image>
+  </view>
+  <view class='content'>
+    <view class='name'>小李</view>
+    <view class='date'>星期三 2018/8/09 12:09:43</view>
+    <view class='text'>今天来了一批好车，快来看看吧！走一走看一看啊 这里有车卖了</view>
+    <view class='picture'>
+      <image src='../business/images/car1.jpg' class='con-img'></image>
+    </view>
+    <view class='card'>
+      <image class='my-card' src='../business/images/car2.jpg'></image>
+    </view>
+    <footer class="footer">
+      <view class='shareout'>
+        <image class='out' src="../business/images/share.png"></image>
+        <text>分享来自推车猫小程序</text>
+      </view>
+      <view class='myown'>我的专属码</view>
+    </footer>
+  </view>
+  <view class='button'>
+    <view class='weixin-wrap'>
+      <image class='winxin' src='../business/images/weixin.png'></image>
+      <view class="butn-text">微信好友</view>
+    </view>
+    <view class='down-wrap'>
+      <image class='download' src='../business/images/download.png'></image>
+      <view class="butn-text">下载</view>
+    </view>
+  </view>
+  <view class="cancel">取消</view>
+  
+</view>

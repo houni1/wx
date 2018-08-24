@@ -1,0 +1,37 @@
+<view class='cardpic'>
+   <view class="content">
+      <view class='title'>
+         <image class='title-img' src="../business/images/banner.png"></image>
+        
+      </view>
+      <view class='infor'>
+        <view class='my-card'>
+        <image class='head' src='../business/images/car1.jpg'></image>
+        </view>
+
+         <view class='name'>
+         小明
+         </view>
+         <view class='text'>
+            <view class='job'>
+            <image class='job-img' src="../business/images/job.png"></image>
+            <text class='job-text'>总经理</text>
+            </view>
+            <view class='phone'>
+               <image class='phone-img' src="../business/images/tel.png"></image>
+               <text class='phone-text'>12345678900</text>
+            </view>
+         </view>
+         <view class='company'>大宝汽车贸易有限公司</view>
+         <view class='own'>
+            <view class='own-title'>您的专属推车猫名片</view>
+            <view class='own-text'>猫卫星监控访客互动，积累线索转行商机，车商圈帮你轻松拓展人脉</view>
+         </view>
+         
+      </view>
+    
+   </view>
+     <view class='btn-box'>
+            <view class="button">保存照片</view>
+         </view>
+</view>

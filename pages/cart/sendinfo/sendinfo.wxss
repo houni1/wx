@@ -1,0 +1,60 @@
+.seninfo{
+
+}
+.seninfo .content{
+  width: 90%;
+  margin: 0 auto;
+}
+.picture{
+ overflow: hidden;
+}
+.seninfo .text{
+margin-top: 50rpx auto;
+}
+.picture .add{
+display: table-cell;   
+text-align: center;
+vertical-align: middle;
+position: relative;
+}
+.symbol{
+  position: absolute;
+  top:50%;
+  margin-top: -40rpx;
+  font-size: 50rpx;
+  font-weight: 800
+}
+.seninfo .car{
+  width: 210rpx;
+  height: 210rpx;
+  margin-right: 14rpx;
+  box-shadow:5px 5px 3px rgb(235, 229, 235);
+  border-radius: 5px;
+  border: #f5ecec solid .5rpx;
+  display: block;
+  float: left;
+}
+.text .area{
+  width: 95%;
+  margin: 50rpx 0 0;
+  font-size:30rpx;
+  font-family: "PingFangSC-Regular";
+  color: #4d4d4d;
+  line-height: 34rpx;
+}
+.btn-box{
+  margin: 60rpx auto 60rpx;
+  }
+  .btn-box .button{
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 50rpx;
+  height: 95rpx;
+  background: #ffcf10;
+  color: black;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  }
