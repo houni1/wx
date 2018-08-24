@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/cart/carDetail/carDetail",
+    "pages/cart/onSale/onSale",
     "pages/index/index",
     "pages/logs/logs",
     "pages/cart/index/index"

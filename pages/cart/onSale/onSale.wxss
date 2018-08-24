@@ -1,0 +1,123 @@
+.wrap {
+  background:#fbfbfb; 
+  overflow: hidden;
+}
+.filterTab {
+  align-items: center;
+  font-size: 26rpx;
+  color: #28293c;
+  height: 84rpx;
+  font-family: 'PingFangSC-Regular';
+  background: #fff;
+  margin-bottom: 10rpx;
+}
+.filterTab .tabItem {
+  flex: 1;
+  text-align: center;
+}
+.filterTab .filterActive {
+  color: #f72626;
+}
+.filterTab image {
+  width: 14rpx;
+  vertical-align: middle;
+}
+.allGoods {
+  position: absolute;
+  right: 4rpx;
+  top: 80rpx;
+  width: 240rpx;
+  line-height: 60rpx;
+  padding: 20rpx 0;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #ccc;
+  z-index: 100;
+}
+/* 列表 */
+.carsList {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: wrap;
+  flex: 1;
+  height: 300rpx;
+  overflow: hidden;
+  padding: 28rpx 0;
+  margin-bottom: 10rpx;
+  background: #fff;
+}
+.hotTag {
+  position: absolute;
+  left: 40rpx;
+  top: 0;
+}
+.hotTag image {
+  width: 86rpx;
+}
+.imgWrap {
+  width: 330rpx;
+  text-align: center;
+}
+.item .imgWrap image {
+  width: 230rpx; 
+  height: 100%;
+  vertical-align: middle;
+}
+.carInfo {
+  flex: 1;
+}
+.carInfo .title {
+  font-size: 28rpx;
+  line-break: 42rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+.carInfo .subTitle {
+  font-size: 28rpx;
+}
+.price {
+  font-size: 26rpx;
+  color: #f72626;
+  margin-top: 36rpx;
+}
+.priceNum {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: inline;
+}
+.guidePrice {
+  font-size: 24rpx;
+  color: #a6a6a6;
+  margin-top: 20rpx;
+}
+.status {
+  margin-top: 20rpx;
+}
+.carStatus, .stock {
+  display: inline-block;
+}
+.carStatus {
+  padding: 8rpx 20rpx;
+  background: #e5f9f6;
+  border-radius: 40rpx;
+  font-size: 22rpx;
+  font-weight: bold;
+  color: #01c4a2;
+  margin-right: 30rpx;
+}
+.stock {
+  font-size: 24rpx;
+  color: #a6a6a6;
+}
+.shareBtn {
+  position: absolute;
+  right: 30rpx;
+  bottom: 26rpx;
+}
+.shareBtn image {
+  width: 40rpx;
+}
