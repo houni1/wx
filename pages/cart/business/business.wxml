@@ -1,0 +1,87 @@
+<view class='business'>
+<view class='remind'>推车猫为您加载10条最新数据</view>
+  <view class='containt'>
+
+    <view class='information'>
+      <view class='picture'>
+      <image src='./images/tim.jpg' class='img'></image>
+      </view>
+      <view class='text'>
+         <view class='title'>
+          <view class='name'>小明</view>
+          <view class='hot'>
+            <image class='hot-img' src='./images/hot.png'></image>
+         销售人气20
+         </view>
+         </view>
+        <view class="content">
+          <text class="content-title">今天又来了几款新车搜开发大脑数据看到了快乐空间就进来看见看见了看见进来看见看见了看见了看见了交流交流空间了交流</text>
+          <view class='img-group'>
+          <image src='./images/car1.jpg' class='car'></image>
+          <image src='./images/car2.jpg' class='car'></image>
+          <image src='./images/car3.jpg' class='car'></image>
+          <image src='./images/car1.jpg' class='car'></image>
+          <image src='./images/car2.jpg' class='car'></image>
+          <image src='./images/car3.jpg' class='car'></image>
+          <image src='./images/car1.jpg' class='car'></image>
+          <image src='./images/car2.jpg' class='car'></image>
+          <image src='./images/car3.jpg' class='car'></image>
+          </view>
+        </view>
+        <view class='time'>2018/01/03 12:31:51</view>
+        <view class='foot'>
+        <view class='check left' bindtap='checkcard'>
+        <image class='foot-icon' src='./images/card.png'></image>
+        <text>查看名片</text>
+        </view>
+        <view class='quick left'>
+        <image class='foot-icon' src='./images/call.png'></image>
+        <text>快速联系</text></view>
+        <view class='share left' bindtap='share'>
+        <image class='foot-icon' src='./images/share.png'></image>
+        <text>分享</text></view>
+        </view>
+      </view>
+    </view>
+
+     <view class='information'>
+      <view class='picture'>
+      <image src='./images/tim.jpg' class='img'></image>
+      </view>
+      <view class='text'>
+         <view class='title'>
+          <view class='name'>小明</view>
+          <view class='hot'>
+            <image class='hot-img' src='./images/hot.png'></image>
+         销售人气20
+         </view>
+         </view>
+        <view class="content">
+          <text class="content-title">今天又来了几款新车</text>
+          <view class='img-group'>
+          <image src='./images/car1.jpg' class='bigcar'></image>
+          </view>
+        </view>
+        <view class='time'>2018/01/03 12:31:51</view>
+        <view class='foot'>
+        <view class='check left'>
+        <image class='foot-icon' src='./images/card.png'></image>
+        <text>查看名片</text>
+        </view>
+        <view class='quick left'>
+        <image class='foot-icon' src='./images/call.png'></image>
+        <text>快速联系</text></view>
+        <view class='share left'>
+        <image class='foot-icon' src='./images/share.png'></image>
+        <text>分享</text></view>
+        </view>
+      </view>
+    </view>
+      <view class='btn-box'>
+       <view class='button' bindtap='send'>
+       发布信息
+       </view>
+      </view>
+    </view>
+
+</view>

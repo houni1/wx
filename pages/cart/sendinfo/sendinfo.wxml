@@ -1,0 +1,20 @@
+<view class='seninfo'>
+   <view class='content'>
+      <view class='text'>
+         <textarea placeholder='输入要发表的文字' maxlength="150" value="{{text}}" class="area" >
+         </textarea>
+      </view>
+      <view class='picture'>
+        <view class="add car"><text class="symbol">+</text></view>
+        
+         <image src='../business/images/car1.jpg' class='car'></image>
+         <image src='../business/images/car1.jpg' class='car'></image>
+         <image src='../business/images/car1.jpg' class='car'></image>
+      </view>
+      <view class='btn-box'>
+       <view class='button' bindtap='send'>
+       发布信息
+       </view>
+      </view>
+   </view>
+</view>
