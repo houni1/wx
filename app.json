@@ -1,13 +1,17 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/cart/index/index"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+   "pages": [
+      "pages/index/index",
+      "pages/logs/logs",
+      "pages/cart/index/index",
+      "pages/cart/business/business",
+      "pages/cart/sendinfo/sendinfo",
+      "pages/cart/share/share",
+      "pages/cart/cardpic/cardpic"
+   ],
+   "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle": "black"
+   }
 }

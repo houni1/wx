@@ -1,0 +1,113 @@
+.cardpic{
+
+}
+.content{
+width: 690rpx;
+margin: 40rpx auto 60rpx;
+box-shadow:5rpx 5rpx 5rpx #e9e3e3;
+border-radius: 20rpx; 
+}
+.title{
+width: 100%;
+height: 255rpx;
+}
+.title-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.infor{
+  margin-top: 150rpx;
+  position: relative;
+}
+.my-card{
+position: absolute;
+top: -261rpx;
+left: 50%;
+margin-left: -111rpx;
+
+}
+.head{
+  width: 222rpx;
+  height: 222rpx;
+  border-radius:50%; 
+}
+.name{
+text-align: center;
+font-family: "PingFangSC-Semibold";
+font-size: 44rpx;
+color: #282c39;
+}
+.text{
+display: flex;
+justify-content: space-between;
+font-family: "PingFangSC-Regular";
+font-size: 30rpx;
+color: #808080;
+}
+.job{
+ margin-left: 120rpx
+}
+.job-img{
+ width: 30rpx;
+ height: 30rpx;
+ margin-right: 30rpx;
+}
+.phone{
+margin-right: 30rpx;
+}
+.phone-img{
+width: 24rpx;
+height: 35rpx;
+margin-right: 30rpx;
+}
+.company{
+font-family: "PingFangSC-Semibold";
+font-size: 32rpx;
+color: #282c39;
+margin: 50rpx auto 65rpx;
+text-align: center;
+font-weight: 800;
+
+
+}
+.company::after{
+  content: "";
+  width: 100%;
+  border-bottom: #ece9e9 dashed 1rpx;
+  display: block;
+  margin-top:60rpx;
+
+}
+.own-title{
+  font-family: "PingFangSC-Regular";
+font-size: 28rpx;
+color: #282c39;
+text-align: center;
+margin-bottom: 40rpx;
+
+}
+.own-text{
+  font-family: "PingFangSC-Regular";
+  font-size: 26rpx;
+  color: #a6a6a6;
+  padding: 0 20rpx 100rpx;
+
+}
+.btn-box{
+  margin: 40rpx auto 60rpx;
+  }
+  .btn-box .button{
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 50rpx;
+  height: 100rpx;
+  background: #ffcf10;
+  color: black;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  }

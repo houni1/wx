@@ -1,0 +1,7 @@
+{
+   "navigationBarBackgroundColor": "#fff",
+   "navigationBarTitleText": "分享海报",
+   "navigationBarTextStyle": "black",
+   "enablePullDownRefresh": false,
+   "usingComponents": {}
+   }
