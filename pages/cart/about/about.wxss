@@ -1,0 +1,15 @@
+/* pages/cart/about/about.wxss */
+.about-wrap{padding:60rpx 79rpx 0 79rpx;}
+.tuichemao-intro-wrap{text-align:center;}
+.tuichemao-logo{display:block;width:157rpx;height:157rpx;margin:0 auto;}
+.tuichemao-name{margin-top:30rpx;margin-bottom:25rpx;font-size:38rpx;color:#282c39;}
+.tuichemao-intro{font-size:24rpx;color:#a6a6a6;}
+.tuichemao-intro-wrap text{display:block;}
+.tuichemao-info{margin-bottom:60rpx;}
+.tuichemao-title{margin-bottom:30rpx;}
+.yellow-icon{display:block;float:left;width:10rpx;height:10rpx;margin-top:3rpx;margin-right:20rpx;background-color:#ffcf10;}
+.title-info{display:block;float:left;margin-top:-12rpx;font-size:26rpx;color:#282c39;}
+.tuichemao-info-wrap{margin-top:95rpx;}
+.info-con{line-height:40rpx;font-size:26rpx;color:#a6a6a6;}
+.tuichemao-versoin-wrap{position:fixed;left: 50%;bottom:40rpx;transform: translate(-50%, -50%);font-size:20rpx;color:#a6a6a6;}
+.tuichemao-version{position:relative;text-align:center;}

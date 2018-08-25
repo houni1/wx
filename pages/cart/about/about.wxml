@@ -1,0 +1,63 @@
+<!--pages/cart/about/about.wxml-->
+<view class="about-wrap">
+    <view class="tuichemao-intro-wrap">
+        <image class="tuichemao-logo" src="./images/tuichemao-logo.png"></image>
+        <text class="tuichemao-name">推车猫</text>
+        <text class="tuichemao-intro">轻松拓展人脉资源</text>
+    </view>
+    <!-- <view class="tuichemao-card">
+        <view class="card-title">
+            <image></image>
+            <text>专属个人名片</text>
+        </view>
+        <view class="info">名片、产品代言和个人动态，承载丰富信息</view>
+    </view>
+     <view class="tuichemao-satellite">
+         <view class="satellite-title">
+            <image></image>
+            <text>推车猫卫星实时掌控来访客户</text>
+        </view>
+        <view>自动采集访客互动，全面展现互动数据，智能分析用户行为、用户关注和兴趣点</view>
+    </view>
+    <view class="tuichemao-centre">
+         <view class="center-title">
+            <image></image>
+            <text>以用户交互为中心，与客户持续连接</text>
+        </view>
+        <view>通过社区运营和互动跟进，让员工、企业与客户持续互动，实现与客户得持续连接</view>
+    </view> -->
+
+
+    <view class="tuichemao-info-wrap">
+        <view class="tuichemao-info">
+            <view class="tuichemao-title clear-fix">
+                <text class="yellow-icon"></text>
+                <text class="title-info">专属个人名片</text>
+            </view>
+            <view class="info-con">名片、产品代言和个人动态，承载丰富信息</view>
+        </view>
+        <view class="tuichemao-info">
+            <view class="tuichemao-title clear-fix">
+                <text class="yellow-icon"></text>
+                <text class="title-info">推车猫卫星实时掌控来访客户</text>
+            </view>
+            <view class="info-con">自动采集访客互动，全面展现互动数据，智能分析用户行为、用户关注和兴趣点</view>
+        </view>
+
+
+        <view class="tuichemao-info">
+            <view class="tuichemao-title clear-fix">
+                <text class="yellow-icon"></text>
+                <text class="title-info">以用户交互为中心，与客户持续连接</text>
+            </view>
+            <view class="info-con">通过社区运营和互动跟进，让员工、企业与客户持续互动，实现与客户得持续连接</view>
+        </view>
+
+    </view>
+
+    <view class="tuichemao-versoin-wrap">
+        <view class="tuichemao-version">版本号：V.0</view>
+    </view>
+    
+
+</view>

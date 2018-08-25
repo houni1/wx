@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "名片夹",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "disableScroll": true
+}
