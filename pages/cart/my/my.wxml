@@ -1,0 +1,39 @@
+<!--pages/cart/my/my.wxml-->
+<view>
+
+    <view class="my-wrap">
+
+        <view class="my-in">
+            <view class="personal-info-wrap clear-fix">
+                <image class="head-portrait left" src="./images/head-portrait.jpg"></image>
+                <view class="personal-info left">
+                    <text class="name">大禹治水</text>
+                    <text class="post">总经理 - 大宝汽车有限公司</text>
+                </view>
+                <image class="arrow-right right" src="./images/arrow-right.png"></image>
+            </view>
+
+            <view class="cardcase-wrap clear-fix">
+                <image class="cardcase-logo left" src="./images/cardcase-logo.png"></image>
+                <view class="cardcase-title left">名片夹</view>
+                <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
+            </view>
+
+            <view class="about-wrap clear-fix">
+                <image class="about-alogo left" src="./images/about-logo.png"></image>
+                <view class="about-tuichemao left">关于推车猫</view>
+                <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
+            </view>
+        </view>
+
+
+        <view class="change-phone">
+            更换绑定手机
+        </view>
+    </view>
+
+
+
+
+
+</view>
