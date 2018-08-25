@@ -1,0 +1,150 @@
+/* pages/cart/mycode/mycode.wxss */
+
+.mycode-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.my-code {
+  width: 100%;
+  padding-top: 78rpx;
+  text-align: center;
+}
+
+.my-code-pic {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto;
+}
+
+.my-code-pic image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.my-code-name {
+  font-size: 40rpx;
+  color: #282c39;
+  font-weight: 600;
+  padding-top: 50rpx;
+}
+
+.my-code-company {
+  font-size: 32rpx;
+  color: #282c39;
+  padding-top: 38rpx;
+}
+
+.my-code-btn {
+  width: 100%;
+  padding: 60rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  background: #ffcf10;
+  color: #282c39;
+  border-radius: 50rpx;
+}
+
+
+
+.mail-code {
+  width: 100%;
+  padding-top: 50rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  border: 1px solid;
+}
+
+.mail-code-top, .mail-code-bottom {
+  width: 100%;
+}
+
+.mail-code-bottom {
+  box-sizing: border-box;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-right: 10rpx;
+  border-bottom: 1rpx dashed #eee;
+  display: flex;
+}
+
+.mail-code-cont {
+  flex: 1;
+}
+
+.cont-item {
+  line-height: 50rpx;
+}
+
+.item-text {
+  font-size: 26rpx;
+  color: #808080;
+  padding-left: 25rpx;
+}
+
+.mail-code-name {
+  font-size: 40rpx;
+  color: #282c39;
+  font-weight: 600;
+}
+
+.mail-code-position {
+  font-size: 32rpx;
+  color: #282c39;
+  padding-left: 20rpx;
+}
+
+.mail-code-pic {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.mail-code-pic image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.to-mail {
+  text-align: center;
+  height: 98rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  line-height: 48rpx;
+  box-sizing: border-box;
+}
+
+.to-mail-box {
+  width: 205rpx;
+  margin: 0 auto;
+}
+
+.to-mail-icon {
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  float: left;
+}
+
+.to-mail-text {
+  padding-left: 14rpx;
+  float: left;
+  font-size: 28rpx;
+  color: #282c39;
+}

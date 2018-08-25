@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -69,6 +69,18 @@
 					"id": 1,
 					"name": "推车猫设置",
 					"pathName": "pages/cart/setup/setup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的专属码",
+					"pathName": "pages/cart/mycode/mycode",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "名片",
+					"pathName": "pages/cart/card/card",
 					"query": ""
 				}
 			]

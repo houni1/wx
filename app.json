@@ -1,20 +1,22 @@
 {
-   "pages": [
-      "pages/cart/carDetail/carDetail",
-      "pages/cart/onSale/onSale",
-      "pages/index/index",
-      "pages/logs/logs",
-      "pages/cart/index/index",
-      "pages/cart/business/business",
-      "pages/cart/sendinfo/sendinfo",
-      "pages/cart/share/share",
-      "pages/cart/cardpic/cardpic",
-      "pages/cart/setup/setup"
-   ],
-   "window": {
-      "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#fff",
-      "navigationBarTitleText": "WeChat",
-      "navigationBarTextStyle": "black"
-   }
+  "pages": [
+    "pages/cart/carDetail/carDetail",
+    "pages/cart/onSale/onSale",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/cart/index/index",
+    "pages/cart/business/business",
+    "pages/cart/sendinfo/sendinfo",
+    "pages/cart/share/share",
+    "pages/cart/cardpic/cardpic",
+    "pages/cart/setup/setup",
+    "pages/cart/mycode/mycode",
+    "pages/cart/card/card"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
 }

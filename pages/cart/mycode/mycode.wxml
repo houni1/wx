@@ -1,0 +1,43 @@
+<view class='mycode-box'>
+  <view class='my-code'>
+    <view class='my-code-pic'>
+      <image src="./images/my-code-pic.png"></image>
+    </view>
+    <view class='my-code-name'>侯璐瑶</view>
+    <view class='my-code-company'>北京网田科技发展有限公司</view>
+    <view class='my-code-btn'>
+      <view class='btn'>保存专属码图片</view>
+    </view>
+  </view>
+  <view class='mail-code'>
+    <view class='mail-code-top'>
+      <text class='mail-code-name'>侯璐瑶</text>
+      <text class='mail-code-position'>web前端开发</text>
+    </view>
+    <view class='mail-code-bottom'>
+      <view class='mail-code-cont'>
+        <view class='cont-item'>
+          <text class='item-icon'>❤</text>
+          <text class='item-text'>北京网田科技发展有限公司</text>
+        </view>
+        <view class='cont-item'>
+          <text class='item-icon'>❤</text>
+          <text class='item-text'>15110078983</text>
+        </view>
+        <view class='cont-item'>
+          <text class='item-icon'>❤</text>
+          <text class='item-text'>15110078983@163.com</text>
+        </view>
+      </view>
+      <view class='mail-code-pic'>
+        <image src='./images/my-code-pic.png'></image>
+      </view>
+    </view>
+    <view class='to-mail'>
+      <view class='to-mail-box'>
+        <image class='to-mail-icon' src='./images/to-mail.png'></image>
+        <text class='to-mail-text'>发送至邮箱</text>
+      </view>
+    </view>
+  </view>
+</view>
