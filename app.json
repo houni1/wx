@@ -11,7 +11,11 @@
     "pages/cart/cardpic/cardpic",
     "pages/cart/setup/setup",
     "pages/cart/mycode/mycode",
-    "pages/cart/card/card"
+    "pages/cart/card/card",
+    "pages/cart/my/my",
+    "pages/cart/about/about",
+    "pages/cart/cardcase/cardcase",
+    "pages/cart/changePhone/changePhone"
   ],
   "window": {
     "backgroundTextStyle": "light",

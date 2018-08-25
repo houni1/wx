@@ -82,6 +82,29 @@
 					"name": "名片",
 					"pathName": "pages/cart/card/card",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/cart/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "关于推车猫",
+					"pathName": "pages/cart/about/about",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "名片夹",
+					"pathName": "pages/cart/cardcase/cardcase",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "换绑手机号",
+					"pathName": "pages/cart/changePhone/changePhone"
 				}
 			]
 		}
