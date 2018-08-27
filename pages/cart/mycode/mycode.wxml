@@ -10,6 +10,7 @@
     </view>
   </view>
   <view class='mail-code'>
+    <image class='right-top-icon' src='./images/right-top-icon.png'></image>
     <view class='mail-code-top'>
       <text class='mail-code-name'>侯璐瑶</text>
       <text class='mail-code-position'>web前端开发</text>
@@ -17,15 +18,21 @@
     <view class='mail-code-bottom'>
       <view class='mail-code-cont'>
         <view class='cont-item'>
-          <image class='item-icon company-icon' src='./images/company-icon1.png'></image>
+          <view class='item-icon'>
+            <image class='company-icon' src='./images/company-icon1.png'></image>
+          </view>
           <text class='item-text'>北京网田科技发展有限公司</text>
         </view>
         <view class='cont-item'>
-          <text class='item-icon'>❤</text>
+          <view class='item-icon'>
+            <image class='tel-icon' src='../index/images/tel-icon.png'></image>
+          </view>
           <text class='item-text'>15110078983</text>
         </view>
         <view class='cont-item'>
-          <text class='item-icon'>❤</text>
+          <view class='mail-icon-box'>
+            <image class='mail-icon' src='../index/images/mail-icon.png'></image>
+          </view>
           <text class='item-text'>15110078983@163.com</text>
         </view>
       </view>

@@ -70,6 +70,16 @@
   box-sizing: border-box;
   border-radius: 16rpx;
   border: 1px solid;
+  position: relative;
+}
+
+.right-top-icon {
+  display: block;
+  width: 166rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -2rpx;
+  right: -2rpx;
 }
 
 .mail-code-top, .mail-code-bottom {
@@ -91,18 +101,38 @@
 
 .cont-item {
   line-height: 50rpx;
+  /* width: 100%;
+  float: left; */
 }
 .item-icon {
   display: inline-block;
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+  /* float: left; */
+}
+
+.mail-icon-box {
+  display: inline-block;
+  float: left;
 }
 .company-icon {
   width: 24rpx;
   height: 26rpx;
 }
+.mail-icon {
+  width: 24rpx;
+  height: 19rpx;
+}
+.tel-icon {
+  width: 20rpx;
+  height: 29rpx;
+}
 .item-text {
   font-size: 26rpx;
   color: #808080;
   padding-left: 25rpx;
+  /* float: left; */
 }
 
 .mail-code-name {
