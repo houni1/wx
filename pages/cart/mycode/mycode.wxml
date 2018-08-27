@@ -17,7 +17,7 @@
     <view class='mail-code-bottom'>
       <view class='mail-code-cont'>
         <view class='cont-item'>
-          <text class='item-icon'>❤</text>
+          <image class='item-icon company-icon' src='./images/company-icon1.png'></image>
           <text class='item-text'>北京网田科技发展有限公司</text>
         </view>
         <view class='cont-item'>
@@ -41,3 +41,15 @@
     </view>
   </view>
 </view>
+<!-- <view class='mail-mark'>
+  <view class='mail-box'>
+    <view class='mail-box-title'>请输入您的邮箱</view>
+    <view class='mail-box-input'>
+      <input placeholder='请输入邮箱地址' value=''></input>
+    </view>
+    <view class='mail-box-btns'>
+      <text class='cancel-btn'>取消</text>
+      <text class='sure-btn'>确定</text>
+    </view>
+  </view>
+</view> -->

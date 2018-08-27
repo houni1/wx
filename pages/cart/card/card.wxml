@@ -6,48 +6,86 @@
       <view class='card-name'>侯璐瑶</view>
       <view class='info-list'>
         <view class='card-info-item'>
-          <text class='item-icon'></text>
+          <image class='item-icon position-icon' src='./images/position-icon.png'></image>
           <text class='item-text'>总经理</text>
         </view>
         <view class='card-info-item'>
-          <text class='item-icon'></text>
-          <text class='item-text'>总经理</text>
+          <image class='item-icon address-icon' src='./images/address-icon.png'></image>
+          <text class='item-text'>北京</text>
         </view>
         <view class='card-info-item'>
-          <text class='item-icon'></text>
-          <text class='item-text'>总经理</text>
+          <image class='item-icon hot-icon' src='./images/hot-icon1.png'></image>
+          <text class='item-text'>销售人气<text class='hot-num'>20</text></text>
         </view>
       </view>
       <view class='info-company'>
         <text class='company-text'>北京网天科技发展有限公司</text>
         <text class='company-icon'></text>
       </view>
-      <view class='send-card-box'>
+      <!-- <view class='send-card-box'>
         <view class='send-card'>
           <image class='send-icon' src='../mycode/images/to-mail.png'></image>
           <text class='send-text'>发名片</text>
         </view>
-      </view>
+      </view> -->
+    </view>
+  </view>
+  <view class='other-box'>
+    <view class='other-item'>
+      <image src='../index/images/cardli_1.png'></image>
+      <text>转发名片</text>
+    </view>
+    <view class='other-item'>
+      <image src='../index/images/cardli_1.png'></image>
+      <text>交换名片</text>
+    </view>
+    <view class='other-item'>
+      <image src='../index/images/cardli_1.png'></image>
+      <text>添加通讯录</text>
     </view>
   </view>
   <view class='person-info'>
     <view class='info-title'>个人信息</view>
     <view class='person-info-box'>
       <view class='person-info-item'>
-        <text class='info-item-text'>手机号</text>
+        <view class='info-item-text'>手机号</view>
         <view class='info-item-input'><input value='15110078983'></input></view>
         <view class='info-item-btn'><text>复制</text></view>
       </view>
       <view class='person-info-item'>
-        <text class='info-item-text'>手机号</text>
+        <view class='info-item-text'>微信</view>
         <view class='info-item-input'><input value='15110078983'></input></view>
         <view class='info-item-btn'><text>复制</text></view>
       </view>
       <view class='person-info-item'>
-        <text class='info-item-text'>手机号</text>
-        <view class='info-item-input'><input value='15110078983'></input></view>
+        <view class='info-item-text'>邮箱</view>
+        <view class='info-item-input'><input value='15110078983@163.com'></input></view>
         <view class='info-item-btn'><text>复制</text></view>
       </view>
+      <view class='set-person'>
+        <view class='set-person-text'>个人介绍</view>
+        <view class='info-item-input'><textarea value='处理静态文件是一个繁琐的事情，因为静态文件都是来自于服务器上，肯定不能。'></textarea></view>
+      </view>
+    </view>
+  </view>
+  <view class='person-info'>
+    <view class='info-title'>公司信息</view>
+    <view class='person-info-box'>
+      <view class='person-info-item'>
+        <view class='info-item-text'>公司名称</view>
+        <view class='info-item-input'><input value='北京网田科技发展有限公司'></input></view>
+        <view class='info-item-btn'><text>复制</text></view>
+      </view>
+      <view class='set-person'>
+        <view class='set-person-text'>公司地址</view>
+        <view class='info-item-input'><textarea value='北京市海淀区软件园南站东北旺西路8号华夏科技大厦'></textarea></view>
+      </view>
+    </view>
+  </view>
+  <view class='pic-info'>
+    <view class='info-title'>图片展示</view>
+    <view class='pic-item'>
+      <image></image>
     </view>
   </view>
 </view>
