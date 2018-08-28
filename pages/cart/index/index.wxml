@@ -1,3 +1,4 @@
+<authorization bindauthResult="authResult"></authorization>
 <view class='home'>
   <view class='home-card'>
     <image class='home-card-bg' src='./images/header_bj.png'></image>
