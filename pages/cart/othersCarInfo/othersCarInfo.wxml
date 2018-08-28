@@ -1,0 +1,70 @@
+<view class='wrap flex-wrapper'>
+  <view class='kinds flex-wrapper'>
+    <text data-index="0" bindtap='chooseBrand' class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
+    <text data-index="1" bindtap='chooseBrand' class='{{chooseBrandIndex == 1 ? "active" : ""}}'>奔驰</text>
+    <text data-index="2" bindtap='chooseBrand' class='{{chooseBrandIndex == 2 ? "active" : ""}}'>宝马</text>
+    <text data-index="3" bindtap='chooseBrand' class='{{chooseBrandIndex == 3 ? "active" : ""}}'>法拉利</text>
+    <text data-index="4" bindtap='chooseBrand' class='{{chooseBrandIndex == 4 ? "active" : ""}}'>奥迪</text>
+    <view class='moreIcon' catchtap='show_move'><image src='images/arrow-b.png' mode='widthFix'></image></view>
+  </view>
+  <view class="carsList">
+    <!-- <view> -->
+      <view class='item' wx:for="{{5}}">
+        <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='imgWrap'>
+          <image src='images/njdc.png' mode='aspectFit'></image>
+        </view>
+        <view class='carInfo'>
+          <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
+          <view class='subTitle'>豪华型互联版</view>
+          <view class='price'><view class='priceNum'>13.90</view>万元</view>
+          <view class='guidePrice'>指导价42.76万</view>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='imgWrap'>
+          <image src='images/njdc.png' mode='aspectFit'></image>
+        </view>
+        <view class='carInfo'>
+          <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
+          <view class='subTitle'>豪华型互联版</view>
+          <view class='price'><view class='priceNum'>13.90</view>万元</view>
+          <view class='guidePrice'>指导价42.76万</view>
+        </view>
+      <!-- </view> -->
+    </view>
+    
+  </view>
+  <!-- 车型列表弹窗 -->
+  <view class="carNameList {{s_move && s_move == true ? 'move_t' : ''}}">
+    <view class='thiv'>
+      <view class='flex-wrapper chooseBrand'>
+        <view class='flex-item toChoose'>请选择</view>
+        <view class='moreIcon' catchtap='show_move'><image src='images/arrow-t.png' mode='widthFix'></image></view>
+      </view>
+      <view class='brandList'>
+        <view class='flex-wrapper brand {{chooseBrandIndex_list == 0 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="0">
+          <image src='images/bmw.png' mode='widthFix'></image>
+          <text>宝马</text>
+        </view>
+        
+        <view class='flex-wrapper brand {{chooseBrandIndex_list == 1 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="1">
+          <image src='images/bmw.png' mode='widthFix'></image>
+          <text>宝马</text>
+        </view>
+        
+        <view class='flex-wrapper brand {{chooseBrandIndex_list == 2 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="2">
+          <image src='images/bmw.png' mode='widthFix'></image>
+          <text>宝马</text>
+        </view>
+        
+        <view class='flex-wrapper brand {{chooseBrandIndex_list == 3 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="3">
+          <image src='images/bmw.png' mode='widthFix'></image>
+          <text>宝马</text>
+        </view>
+      </view>
+      <view class='showAll'>已展示全部</view>
+    </view>
+  </view>
+</view>

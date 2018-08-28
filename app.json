@@ -1,5 +1,6 @@
 {
    "pages": [
+     "pages/cart/othersCarInfo/othersCarInfo",
       "pages/cart/carDetail/carDetail",
       "pages/cart/onSale/onSale",
       "pages/index/index",
@@ -25,3 +26,6 @@
       "navigationBarTextStyle": "black"
    }
 }
+
+  
+

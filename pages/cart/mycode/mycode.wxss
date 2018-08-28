@@ -70,6 +70,16 @@
   box-sizing: border-box;
   border-radius: 16rpx;
   border: 1px solid;
+  position: relative;
+}
+
+.right-top-icon {
+  display: block;
+  width: 166rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -2rpx;
+  right: -2rpx;
 }
 
 .mail-code-top, .mail-code-bottom {
@@ -91,12 +101,38 @@
 
 .cont-item {
   line-height: 50rpx;
+  /* width: 100%;
+  float: left; */
+}
+.item-icon {
+  display: inline-block;
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+  /* float: left; */
 }
 
+.mail-icon-box {
+  display: inline-block;
+  float: left;
+}
+.company-icon {
+  width: 24rpx;
+  height: 26rpx;
+}
+.mail-icon {
+  width: 24rpx;
+  height: 19rpx;
+}
+.tel-icon {
+  width: 20rpx;
+  height: 29rpx;
+}
 .item-text {
   font-size: 26rpx;
   color: #808080;
   padding-left: 25rpx;
+  /* float: left; */
 }
 
 .mail-code-name {
@@ -147,4 +183,75 @@
   float: left;
   font-size: 28rpx;
   color: #282c39;
+}
+
+.mail-mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mail-box {
+  width: 532rpx;
+  height: 372rpx;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -266rpx;
+  margin-top: -186rpx;
+  border-radius: 15rpx;
+}
+
+.mail-box-title {
+  font-size: 32rpx;
+  color: #282c39;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 35rpx;
+}
+
+.mail-box-input {
+  width: 410rpx;
+  height: 72rpx;
+  background: #eee;
+  margin: 60rpx auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.mail-box-input input {
+  flex: 1;
+  font-size: 26rpx;
+  color: #a6a6a6;
+}
+
+.mail-box-btns {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  border-top: 1rpx solid #eee;
+  display: flex;
+  line-height: 90rpx;
+}
+
+.mail-box-btns text {
+  display: inline-block;
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.cancel-btn {
+  color: #282c39;
+}
+.sure-btn {
+  color: #ffcf10;
+  border-left: 1rpx solid #eee;
 }

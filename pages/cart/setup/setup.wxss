@@ -61,6 +61,8 @@
   box-sizing: border-box;
 }
 .set-person .item-content textarea {
+  display: inline-block;
+  width: 100%;
   flex: 1;
   line-height: 40rpx;
 }

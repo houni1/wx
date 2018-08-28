@@ -92,16 +92,58 @@
   padding-left: 124rpx;
   box-sizing: border-box;
 }
-.user-li .li-icon {
-  font-size: 23rpx;
+.li-icon-box {
+  display: inline-block;
+  height: 54rpx;
+  line-height: 54rpx;
+  vertical-align: middle;
 }
+.user-li .li-icon{
+  display: inline-block;
+}
+
+.user-li .hot-icon {
+  width: 22rpx;
+  height: 23rpx;
+  margin-top: 1rpx;
+}
+
+.user-li .mail-icon {
+  width: 24rpx;
+  height: 19rpx;
+}
+
+.user-li .tel-icon {
+  width: 20rpx;
+  height: 29rpx;
+  /* margin-top: 0rpx; */
+}
+
 .user-li .li-text{
   font-size: 26rpx;
   color: #808080;
   padding-left: 24rpx;
+  line-height: 54rpx;
 }
 
+.hot-num {
+  color: #f25827;
+  font-size: 30rpx;
+  font-weight: 600;
+}
 
+.get-phone {
+  margin-left: 125rpx;
+  display: inline-block;
+  width: 155rpx;
+  height: 54rpx;
+  border: 1px solid #e6e6e6;
+  font-size: 24rpx;
+  color: rgb(252, 201, 26);
+  text-align: center;
+  line-height: 54rpx;
+  border-radius: 27rpx;
+}
 
 .user-phone-input {
   display: flex;

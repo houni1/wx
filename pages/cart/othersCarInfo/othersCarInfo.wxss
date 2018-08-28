@@ -1,0 +1,167 @@
+/* pages/cart/othersCarInfo/othersCarInfo.wxss */
+page {
+  height: 100%;
+}
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.kinds {
+  height: 90rpx;
+  padding: 20rpx 0 20rpx 20rpx;
+  align-items:  center;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.kinds text {
+  flex: 1;
+  font-size: 26rpx;
+  color: #a6a6a6;
+  text-align: center;
+}
+.kinds text.active {
+  color: #282c39;
+}
+.moreIcon {
+  width: 90rpx;
+  text-align: center;
+  border-left: 1px solid #a6a6a6;
+}
+.moreIcon image{
+  width: 20rpx;
+  vertical-align: middle;
+}
+
+/* 列表 */
+.carsList {
+  flex: 1;
+  margin-top: 10rpx;
+  overflow-x: auto;
+}
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: wrap;
+  flex: 1;
+  overflow: hidden;
+  padding: 28rpx 0;
+  margin-bottom: 10rpx;
+  background: #fff;
+}
+.hotTag {
+  position: absolute;
+  left: 40rpx;
+  top: 0;
+}
+.hotTag image {
+  width: 86rpx;
+}
+.imgWrap {
+  width: 330rpx;
+  text-align: center;
+}
+.item .imgWrap image {
+  width: 230rpx; 
+  height: 100%;
+  vertical-align: middle;
+}
+.carInfo {
+  flex: 1;
+}
+.carInfo .title {
+  font-size: 28rpx;
+  line-break: 42rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+.carInfo .subTitle {
+  font-size: 28rpx;
+}
+.price {
+  font-size: 26rpx;
+  color: #f72626;
+  margin-top: 36rpx;
+}
+.priceNum {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: inline;
+}
+.guidePrice {
+  font-size: 24rpx;
+  color: #a6a6a6;
+  margin-top: 20rpx;
+}
+/* 车型列表 */
+.carNameList {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  top: 100%;
+  -webkit-transition: all .5s ease-in;
+  -moz-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+.thiv {
+  position: relative;
+  height: 80%;
+  background: #fff;
+}
+.chooseBrand {
+  padding: 20rpx 0;
+  height: 90rpx;
+  box-sizing: border-box;
+  box-shadow:2px 2px 5px #eee;
+}
+.toChoose {
+  font-size: 26rpx;
+  color: #282c39;
+  padding-left: 40rpx;
+}
+.brandList {
+  margin-top: 10rpx;
+  background: #fff;
+}
+.brandList image {
+  width: 44rpx;
+  margin-right: 40rpx;
+}
+.brandList .brand {
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 40rpx;
+}
+.choosed {
+  color: #fcc91a;
+}
+.showAll {
+  position: absolute;
+  bottom: 24rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #a6a6a6;
+}
+.move_t{
+  z-index: 22;
+  animation: mymove 0.75s 1;
+  animation-fill-mode:forwards;
+}
+
+@keyframes mymove{
+  from {top:100%;}
+  to {top:0%;}
+}
+@keyframes mymove2{
+  from {top:0%;}
+  to {top:100%;}
+}
