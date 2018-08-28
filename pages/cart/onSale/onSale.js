@@ -5,14 +5,23 @@ Page({
    */
   data: {
     tabIndex: 0,        // 顶部tab切换索引
-    showSelect: false   // 全部商品筛选
+    showSelect: false,   // 全部商品筛选
+    height: 0,
+    goodsSelectName: '全部商品'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          height: res.windowHeight - res.windowWidth / 750 * 134
+        })
+      }
+    })
   },
 
   /**
@@ -34,7 +43,6 @@ Page({
   filterTabChange: function (event) {
     var index = event.currentTarget.dataset.index;
     if (index == 2 && !this.data.showSelect) {
-      console.log(123)
       this.setData({
         showSelect: true
       });
@@ -51,9 +59,9 @@ Page({
    * 全部商品下拉框显示隐藏
    */
   goodsSelect: function (event){
-    console.log(event.currentTarget.dataset.kind);
     this.setData({
-      showSelect: false
+      showSelect: false,
+      goodsSelectName: event.currentTarget.dataset.name
     });
   },
   onHide: function () {

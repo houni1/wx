@@ -16,7 +16,7 @@
   text-align: center;
 }
 .filterTab .filterActive {
-  color: #f72626;
+  color: #fcc91a;
 }
 .filterTab image {
   width: 14rpx;
@@ -24,15 +24,32 @@
 }
 .allGoods {
   position: absolute;
-  right: 4rpx;
-  top: 80rpx;
-  width: 240rpx;
+  left: 0;
+  top: 95rpx;
+  width: 100%;
+  height: 100%;
   line-height: 60rpx;
   padding: 20rpx 0;
-  background: #fff;
-  text-align: center;
-  border: 1px solid #ccc;
   z-index: 100;
+}
+.thiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.allGoods text {
+  display: block;
+  background: #fff;
+  line-height: 90rpx;
+  color: #28293c;
+  font-size: 28rpx;
+  padding-left: 40rpx;
+}
+.allGoods .active {
+  color: #fcc91a;
 }
 /* 列表 */
 .carsList {

@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/cart/othersCarInfo/othersCarInfo",
-    "pages/cart/carDetail/carDetail",
+    "pages/cart/address/address",
     "pages/cart/onSale/onSale",
+    "pages/cart/carDetail/carDetail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/cart/index/index",
