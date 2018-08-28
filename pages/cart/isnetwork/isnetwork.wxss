@@ -1,0 +1,41 @@
+/* pages/cart/isnetwork/isnetwork.wxss */
+.isnetwork-box {
+  text-align: center;
+}
+
+.isnetwork-pic {
+  width: 223rpx;
+  height: 159rpx;
+  border-radius: 100%;
+  margin: 140rpx auto 40rpx auto;
+}
+
+.isnetwork-pic image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.isnetwork-text {
+  font-size: 26rpx;
+  color: #a6a6a6;
+}
+
+.isnetwork-btns {
+  width: 100%;
+  padding: 200rpx 50rpx 0 50rpx;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  background: #ffcf10;
+  color: #282c39;
+  border-radius: 50rpx;
+}

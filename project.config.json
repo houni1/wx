@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -104,7 +104,26 @@
 				{
 					"id": -1,
 					"name": "换绑手机号",
-					"pathName": "pages/cart/changePhone/changePhone"
+					"pathName": "pages/cart/changePhone/changePhone",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "未授权页面",
+					"pathName": "pages/cart/isallow/isallow",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "猫哥卫星列表",
+					"pathName": "pages/cart/catlist/catlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "无网络链接",
+					"pathName": "pages/cart/isnetwork/isnetwork",
+					"query": ""
 				}
 			]
 		}

@@ -16,7 +16,10 @@
     "pages/cart/my/my",
     "pages/cart/about/about",
     "pages/cart/cardcase/cardcase",
-    "pages/cart/changePhone/changePhone"
+    "pages/cart/changePhone/changePhone",
+    "pages/cart/isallow/isallow",
+    "pages/cart/catlist/catlist",
+    "pages/cart/isnetwork/isnetwork"
   ],
   "window": {
     "backgroundTextStyle": "light",

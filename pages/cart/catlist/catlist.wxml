@@ -1,0 +1,66 @@
+<view class='home-catlist'>
+  <view class='catlist-title'>猫哥卫星</view>
+  <view class='catli'>
+    <view class='catli-pic'>
+      <image src='../index/images/user-pic.jpg'></image>
+    </view>
+    <view class='catli-info'>
+      <view class='catli-info-top'>
+        <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='../index/images/emao-logo.png'></image>
+        <text class='catli-info-time'>2018/01/14 12:08:45</text>
+      </view>
+      <!-- <view class='catli-info-bottom'>
+        <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+      </view> -->
+      <view class='catli-info-bottom'>
+        <view class='catli-info-text'>拨打了您的电话</view>
+        <view class='catli-info-phone'>
+          <image class='phone-icon' src='../index/images/phone-icon.png'></image>
+          15110078983
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='catli'>
+    <view class='catli-pic'>
+      <image src='../index/images/user-pic.jpg'></image>
+    </view>
+    <view class='catli-info'>
+      <view class='catli-info-top'>
+        <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='../index/images/emao-logo.png'></image>
+        <text class='catli-info-time'>2018/01/14 12:08:45</text>
+      </view>
+      <!-- <view class='catli-info-bottom'>
+        <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+      </view> -->
+      <view class='catli-info-bottom'>
+        <view class='catli-info-text'>拨打了您的电话</view>
+        <view class='catli-info-phone'>
+          <image class='phone-icon' src='../index/images/phone-icon.png'></image>
+          15110078983
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='catli'>
+    <view class='catli-pic'>
+      <image src='../index/images/user-pic.jpg'></image>
+    </view>
+    <view class='catli-info'>
+      <view class='catli-info-top'>
+        <text class='catli-info-name'>侯妮</text><image class='emao-logo' src='../index/images/emao-logo.png'></image>
+        <text class='catli-info-time'>2018/01/14 12:08:45</text>
+      </view>
+      <!-- <view class='catli-info-bottom'>
+        <view class='catli-info-text'>查看了你的车型列表<text class='num'>3次</text></view>
+      </view> -->
+      <view class='catli-info-bottom'>
+        <view class='catli-info-text'>拨打了您的电话</view>
+        <view class='catli-info-phone'>
+          <image class='phone-icon' src='../index/images/phone-icon.png'></image>
+          15110078983
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
