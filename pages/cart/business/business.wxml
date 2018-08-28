@@ -1,10 +1,12 @@
-<view class='business'>
-<view class='remind'>推车猫为您加载10条最新数据</view>
+<view class='business' bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+
+<refresh class='refresh'id="refreshView" style="width:100%;"></refresh>
+<view class='remind' wx:if="{{alarm}}">推车猫为您加载10条最新数据</view>
   <view class='containt'>
 
     <view class='information'>
       <view class='picture'>
-      <image src='./images/tim.jpg' class='img'></image>
+      <image src='./images/tim.jpg' class='img' bindtap='preview_head'></image>
       </view>
       <view class='text'>
          <view class='title'>
@@ -17,12 +19,12 @@
         <view class="content">
           <text class="content-title">今天又来了几款新车搜开发大脑数据看到了快乐空间就进来看见看见了看见进来看见看见了看见了看见了交流交流空间了交流</text>
           <view class='img-group'>
-          <image src='./images/car1.jpg' class='car'></image>
-          <image src='./images/car2.jpg' class='car'></image>
-          <image src='./images/car3.jpg' class='car'></image>
-          <image src='./images/car1.jpg' class='car'></image>
-          <image src='./images/car2.jpg' class='car'></image>
-          <image src='./images/car3.jpg' class='car'></image>
+          <image src='./images/car1.jpg' class='car' bindtap='preview_friend'></image>
+          <image src='./images/car2.jpg' class='car' bindtap='preview_friend'></image>
+          <image src='./images/car3.jpg' class='car' bindtap='preview_friend'></image>
+          <image src='./images/car1.jpg' class='car' bindtap='preview_friend'></image>
+          <image src='./images/car2.jpg' class='car' bindtap='preview_friend'></image>
+          <image src='./images/car3.jpg' class='car' bindtap='preview_friend'></image>
           <image src='./images/car1.jpg' class='car'></image>
           <image src='./images/car2.jpg' class='car'></image>
           <image src='./images/car3.jpg' class='car'></image>
@@ -34,7 +36,7 @@
         <image class='foot-icon' src='./images/card.png'></image>
         <text>查看名片</text>
         </view>
-        <view class='quick left'>
+        <view class='quick left' bindtap='quickcall'>
         <image class='foot-icon' src='./images/call.png'></image>
         <text>快速联系</text></view>
         <view class='share left' bindtap='share'>

@@ -1,11 +1,13 @@
 // pages/cart/card/card.js
+import { setClipboard } from '../../../utils/util.js';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    phone: '17611261650'
   },
 
   /**
@@ -62,5 +64,21 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  // 复制手机号
+  setPhoneToClipboard () {
+    setClipboard(this.data.phone)
+  },
+  // 复制微信号
+  setWeChatToClipboard() {
+    setClipboard(this.data.phone)
+  },
+  // 复制邮箱号
+  setEMallToClipboard() {
+    setClipboard(this.data.phone)
+  },
+  // 复制公司名字
+  setNameToClipboard() {
+    setClipboard(this.data.phone)
   }
 })

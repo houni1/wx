@@ -1,0 +1,5 @@
+
+<view class='pulldowm'  wx:if="{{pullState}}">
+<image class='loading' src='/pages/cart/business/images/loading.gif'></image>
+</view>
+

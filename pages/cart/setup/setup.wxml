@@ -52,7 +52,7 @@
     <view class='set-picture'>
       <view class='item-title'>图片展示</view>
       <view class='item-content'>
-        <image class='add-pic' src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' bindtap="addImage" src='./images/add-pic-btn.png'></image>
         <image class='add-pic' src='./images/add-pic-btn.png'></image>
         <image class='add-pic' src='./images/add-pic-btn.png'></image>
         <image class='add-pic' src='./images/add-pic-btn.png'></image>

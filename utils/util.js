@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+const setClipboard = (data) => {
+  wx.setClipboardData({
+    data: data,
+    success: function (res) {
+      wx.showToast({
+        title: '复制成功',
+        duration: 2000
+      })
+    }
+  })
 }
+
+export {formatTime, setClipboard};
