@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -124,6 +124,11 @@
 					"name": "无网络链接",
 					"pathName": "pages/cart/isnetwork/isnetwork",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传图片canvas方法测试页面",
+					"pathName": "pages/cart/canvas/canvas"
 				}
 			]
 		}
