@@ -1,31 +1,33 @@
 {
-   "pages": [
-     "pages/cart/othersCarInfo/othersCarInfo",
-      "pages/cart/carDetail/carDetail",
-      "pages/cart/onSale/onSale",
-      "pages/index/index",
-      "pages/logs/logs",
-      "pages/cart/index/index",
-      "pages/cart/business/business",
-      "pages/cart/sendinfo/sendinfo",
-      "pages/cart/share/share",
-      "pages/cart/cardpic/cardpic",
-      "pages/cart/setup/setup",
-      "pages/cart/mycode/mycode",
-      "pages/cart/card/card",
-      "pages/cart/my/my",
-      "pages/cart/about/about",
-      "pages/cart/cardcase/cardcase",
-      "pages/cart/changePhone/changePhone",
-      "components/refresh/refresh"
-   ],
-   "window": {
-      "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#fff",
-      "navigationBarTitleText": "WeChat",
-      "navigationBarTextStyle": "black"
-   }
+  "pages": [
+    "pages/cart/othersCarInfo/othersCarInfo",
+    "pages/cart/carDetail/carDetail",
+    "pages/cart/onSale/onSale",
+    "pages/cart/address/address",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/cart/index/index",
+    "pages/cart/business/business",
+    "pages/cart/sendinfo/sendinfo",
+    "pages/cart/share/share",
+    "pages/cart/cardpic/cardpic",
+    "pages/cart/setup/setup",
+    "pages/cart/mycode/mycode",
+    "pages/cart/card/card",
+    "pages/cart/my/my",
+    "pages/cart/about/about",
+    "pages/cart/cardcase/cardcase",
+    "pages/cart/changePhone/changePhone",
+    "components/refresh/refresh",
+    "pages/cart/isallow/isallow",
+    "pages/cart/catlist/catlist",
+    "pages/cart/isnetwork/isnetwork",
+    "pages/cart/canvas/canvas"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
 }
-
-  
-

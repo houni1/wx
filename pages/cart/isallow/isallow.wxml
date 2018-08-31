@@ -1,0 +1,10 @@
+<view class='isallow-box'>
+  <view class='isallow-pic'>
+    <image src='./images/isallow-pic.png'></image>
+  </view>
+  <view class='isallow-title'>您还没有微信授权</view>
+  <view class='isallow-text'>请点击微信授权使用推车猫</view>
+  <view class='isallow-btns'>
+    <view class='btn'>微信授权</view>
+  </view>
+</view>

@@ -5,11 +5,11 @@
          </textarea>
       </view>
       <view class='picture'>
-        <view class="add car"><text class="symbol">+</text></view>
+        <view class="add car"><view class="symbol">+</view></view>
         
          <image src='../business/images/car1.jpg' class='car'></image>
          <image src='../business/images/car1.jpg' class='car'></image>
-         <image src='../business/images/car1.jpg' class='car'></image>
+          <image src='../business/images/car1.jpg' class='car'></image>
       </view>
       <view class='btn-box'>
        <view class='button' bindtap='send'>

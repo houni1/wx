@@ -259,6 +259,9 @@
   padding-top: 35rpx;
   padding-bottom: 35rpx;
 }
+.catli:last-child .catli-info {
+  border-bottom: none;
+}
 .catli-info-top {
   padding-top: 4rpx;
   display: flex;

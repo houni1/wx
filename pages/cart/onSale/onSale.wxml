@@ -1,16 +1,19 @@
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class='{{tabIndex == 0 ? "filterActive tabItem" : "tabItem"}}' bindtap="filterTabChange" data-index='0'>已售出(5)</view>
-    <view class='{{tabIndex == 1 ? "filterActive tabItem" : "tabItem"}}' bindtap="filterTabChange" data-index='1'>已下架(1)</view>
-    <view class='tabItem' bindtap="filterTabChange" data-index='2'>全部商品
-      <image src='images/arrow_b.png' mode='widthFix'></image>
-    </view>
-    <view class='allGoods' wx:if="{{showSelect}}">
-      <view bindtap='goodsSelect' data-kind="all">全部商品</view>
-      <view bindtap='goodsSelect' data-kind="self">自营商品</view>
-      <view bindtap='goodsSelect' data-kind="emao">一猫商品</view>
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='0'>已售出(5)</view>
+    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='1'>已下架(1)</view>
+    <view class="tabItem {{tabIndex == 2 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='2'>{{goodsSelectName}}
+      <image src='images/arrow_b.png' mode='widthFix' wx:if="{{!showSelect}}"></image>
+      <image src='images/arrow_b1.png' mode='widthFix' wx:if="{{showSelect}}"></image>
     </view>
   </view>
+    <view class='allGoods' wx:if="{{showSelect}}" style="height:{{height}}px">
+      <view class='thiv'>
+        <text bindtap='goodsSelect' data-kind="all" data-name="全部商品">全部商品</text>
+        <text bindtap='goodsSelect' data-kind="self" data-name="自营商品">自营商品</text>
+        <text bindtap='goodsSelect' data-kind="emao" data-name="一猫商品">一猫商品</text>
+      </view>
+    </view>
   <view class='carsList'>
     <view class='item'>
       <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
