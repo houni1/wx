@@ -109,12 +109,6 @@
 				},
 				{
 					"id": -1,
-					"name": "",
-					"pathName": "pages/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "未授权页面",
 					"pathName": "pages/cart/isallow/isallow",
 					"query": ""
