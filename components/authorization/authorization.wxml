@@ -1,5 +1,5 @@
 <!--components/authorization/authorization.wxml-->
-<view class='authorization-shandow' hidden='{{!isShow}}'>
+<view class='authorization-shandow' hidden='{{isInitiativeOpen || !isShow}}'>
   <view class='authorization-wrapper'>
     <image class='icon-logo' src="./images/icon-logo.png"></image>
     <view class='welcome-text'>欢迎光临一猫汽车商城</view>

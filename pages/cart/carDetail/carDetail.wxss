@@ -43,7 +43,7 @@ page {
 }
 /* 价格 */
 .price view {
-  display: inline;
+  display: inline-block;
 }
 .price {
   margin-top: 20rpx;
@@ -63,6 +63,67 @@ page {
 .price .guidePrice {
   font-size: 26rpx;
   color: #a6a6a6;
+}
+.price .call {
+  width: 156rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #282c39;
+  background: #ffcf10;
+  border-radius: 62rpx;
+  box-shadow: 0 5rpx 20rpx #ffcf10;
+}
+/* 位置信息 */
+.addressWrap {
+  padding: 40rpx;
+  background: #fff;
+  margin-top: 10rpx;
+}
+.photo {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 40rpx;
+  overflow: hidden;
+  box-shadow: 0 0 5rpx 5rpx #dedede;
+}
+.photo image {
+  width: 100rpx;
+}
+.addressWrap .info .name {
+  font-size: 30rpx;
+  color: #282c39;
+  font-weight: bold;
+}
+.addressWrap .info view {
+  margin-top: 10rpx;
+}
+.iconAddress {
+  width: 38rpx;
+}
+.distance {
+  font-size: 30rpx;
+  color: #ffa800;
+  margin-right: 20rpx;
+}
+.addressName {
+  font-size: 24rpx;
+  color: #a6a6a6;
+}
+.toMap {
+  width: 120rpx;
+  text-align: center;
+  border-left: 1px solid #f2f2f2;
+}
+.toMap text {
+  display: block;
+  font-size: 24rpx;
+  color: #a6a6a6;
+}
+.toMap image {
+  width: 55rpx;
 }
 /* 级别，变速箱 */
 .levelInfo {
@@ -100,7 +161,7 @@ page {
 }
 /* 参数配置 */
 .parameter {
-  margin-top: 16px;
+  margin-top: 16rpx;
   background: #fff;
 }
 .parameter .title {
@@ -159,7 +220,7 @@ page {
 }
 /* 实拍图 */
 .realPicture {
-  margin-top: 16px;
+  margin-top: 16rpx;
   background: #fff;
   padding: 0 40rpx;
 }

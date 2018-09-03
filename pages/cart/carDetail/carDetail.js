@@ -29,6 +29,17 @@ Page({
       isOpen: !this.data.isOpen
     });
   },
+  call: function (event) {
+    var telphonenum = event.currentTarget.dataset.telphonenum
+    wx.makePhoneCall({
+      phoneNumber: telphonenum,
+    })
+  },
+  toMap: function (event) {
+    wx.navigateTo({
+      url: '../address/address',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
