@@ -1,5 +1,7 @@
 .share .title{
   padding: 0 10rpx;
+  background:#fff ;
+  border-top: 10rpx solid #f8f8f8
 }
 .wraper{
  height: 60rpx;
@@ -11,7 +13,8 @@
   font-family: 'PingFangSC-Regular';
   font-size: 26rpx;
   color: #a6a6a6;
-  
+  width:130rpx;
+   text-align:center; 
 }
 .wraper .hot{
   color: #282c39;

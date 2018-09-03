@@ -13,9 +13,16 @@
       <view class='type'>类型9</view>
     </scroll-view>
   </view>
-  <view class='banner'>
-    <image src='../business/images/banner.png' class='ban-img'></image>
-  </view>
+  <swiper class='banner' current="{{swiperCurrent}}"  bindchange="swiperChange">
+          <block wx:for="{{}}"  wx:for-index="index">
+              <swiper-item>
+                  <view class="">
+                    <image class='ban-img' data-posturl="{{}}" src="{{}}"  bindtap="previewImage"/>
+                </view>
+              </swiper-item>
+          </block>
+      </swiper>
+
   <view class='content'>
     <view class='name'>小李</view>
     <view class='date'>星期三 2018/8/09 12:09:43</view>
