@@ -13,6 +13,7 @@
       <view class='priceNum'>13.9</view>
       <view class='priceUnit'>万元</view>
       <view class='guidePrice'>指导价15.8万</view>
+      <view class='call right' bindtap='call' data-telphonenum='18810399999'>拨打电话</view>
     </view>
   </view>
   <!-- 级别，变速箱,排量 -->
@@ -28,6 +29,23 @@
     <view class='flex-item'>
       <view class='kind'>排量</view>
       <view class='val'>1.4L</view>
+    </view>
+  </view>
+  <!-- 店铺位置信息 -->
+  <view class='addressWrap flex-wrapper'>
+    <view class='photo' style='background-image:url(images/photo.jpg);background-size: cover;'>
+    </view>
+    <view class='info flex-item'>
+      <text class='name'>大禹治水</text>
+      <view class='flex-wrapper flex-column-center'>
+        <image class='iconAddress' src='images/address.png' mode='widthFix'></image>
+        <text class='distance'>7.8km</text>
+        <text class='addressName'>北京朝阳国创产业园</text>
+      </view>
+    </view>
+    <view class='toMap' bindtap='toMap' data-lon="" data-lat="">
+      <image src='images/iconToMap.png' mode='widthFix'></image>
+      <text>导航</text>
     </view>
   </view>
   <!-- 车辆简介 -->

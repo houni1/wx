@@ -1,4 +1,5 @@
 // pages/cart/canvas/canvas.js
+import { UPNG } from '../../../utils/UPNG.js'
 Page({
 
   /**
@@ -87,15 +88,15 @@ Page({
         canvas.draw(false, () => {
           // 2. 获取图像数据
           wx.canvasGetImageData({
-            canvasId: 'canvas',
+            canvasId: 'myCanvas',
             x: 0,
             y: 0,
             width: this.data.imgWidth,
             height: this.data.imgHeight,
             success(res) {
-              console.log('success', res)
+              console.log('success', res.data.buffer)
               // 3. png编码
-              let pngData = upng.encode([res.data.buffer], res.width, res.height)
+              let pngData = UPNG.encode([res.data.buffer], res.width, res.height)
               // 4. base64编码
               let base64 = wx.arrayBufferToBase64(pngData)
               console.log(base64)
