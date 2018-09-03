@@ -90,8 +90,42 @@
   display: inline-block;
   width: 158rpx;
   height: 158rpx;
+  border-radius: 5rpx;
   margin-top: 4rpx;
   margin-left: 15rpx;
+  position: relative;
+}
+
+.set-picture .item-content .add-pic .img {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  width: 156rpx;
+  height: 156rpx;
+  border-radius: 5rpx;
+}
+
+.img-close-box {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #afafb2;
+  z-index: 1;
+  padding-left: 11rpx;
+  padding-bottom: 11rpx;
+  padding-top: 5rpx;
+  box-sizing: border-box;
+  border-top-right-radius: 5rpx;
+  border-bottom-left-radius: 100%;
+}
+.img-close-icon {
+  display: block;
+  width: 18rpx;
+  height: 18rpx;
+  z-index: 1;
 }
 
 /* 常规 */

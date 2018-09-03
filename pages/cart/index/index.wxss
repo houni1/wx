@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 .msg-box {
-  position: absolute;
+  position: fixed;
   bottom: 40rpx;
   right: 20rpx;
   height: 78rpx;
@@ -45,7 +45,7 @@
   border: 1px solid #ccc;
   padding: 40rpx 50rpx 40rpx 50rpx;
   box-sizing: border-box;
-  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #C2BEC0; */
+  /* box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0; */
 }
 
 .edit-icon {
