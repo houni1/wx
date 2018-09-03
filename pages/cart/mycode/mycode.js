@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    toMailFlag: false,
+    focusflag: false
   },
 
   /**
@@ -62,5 +63,13 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  // 发送至邮箱
+  tomail: function () {
+    this.setData({
+      toMailFlag: true,
+      focusflag: true
+    })
   }
 })
