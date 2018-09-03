@@ -86,7 +86,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    setTimeout(() => {
+      console.log('加载更多');
+      this.setData({
+        isHideLoadMore: true
+      })
+    }, 1000)
   },
 
   /**

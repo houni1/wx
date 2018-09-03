@@ -132,9 +132,20 @@
 }
 .shareBtn {
   position: absolute;
-  right: 30rpx;
-  bottom: 26rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  width: 80rpx;
+  height: 100rpx;
 }
 .shareBtn image {
   width: 40rpx;
+}
+
+button {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }

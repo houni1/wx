@@ -1,8 +1,8 @@
 {
    "pages": [
-     "pages/cart/othersCarInfo/othersCarInfo",
-      "pages/cart/carDetail/carDetail",
-      "pages/cart/onSale/onSale",
+    "pages/cart/carDetail/carDetail",
+    "pages/cart/onSale/onSale",
+      "pages/cart/othersCarInfo/othersCarInfo",
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
@@ -30,6 +30,3 @@
       "navigationBarTextStyle": "black"
    }
 }
-
-  
-
