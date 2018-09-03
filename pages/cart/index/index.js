@@ -29,6 +29,16 @@ Page({
         time: "2018-08-27 12:00:00",    // 查看时间
         tel: "13697855689",             // 拨打的电话
         number: "2"                       // 同一小时同一用户的查看次数
+      }, 
+      {
+        checkId: "2",                       // 查看人id
+        checkName: "luyaoya",               // 查看人姓名
+        checkImg: "12332234.png",            // 查看人头像
+        checkType: "1",                      // 查看类型: 1.查看车型 2.查看名片 3.拨打电话 4.分享名片
+        sourceType: "2",                      // 1.一猫商城 2.非一猫商城
+        time: "2018-08-27 12:00:00",    // 查看时间
+        tel: "15110089876",             // 拨打的电话
+        number: "8"                       // 同一小时同一用户的查看次数
       }
     ],
     // 请求名片交换的个数
@@ -91,7 +101,14 @@ Page({
   
   },
   authResult (data) {
+    console.log('authResultauthResultauthResult', data)
     // 这里是授权处理完毕后触发的动作
     // data是授权成功后后台返回的 authorizeUserId
+  },
+  // 点击编辑跳转到推车猫设置页面
+  toSetUp: function () {
+    wx.navigateTo({
+      url: '../setup/setup'
+    })
   }
 })

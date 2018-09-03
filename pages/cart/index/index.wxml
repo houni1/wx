@@ -3,7 +3,7 @@
   <view class='home-card'>
     <image class='home-card-bg' src='/images/header_bj.png'></image>
     <view class='card-box'>
-      <image class='edit-icon' src='/images/edit-icon.png'></image>
+      <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
       <view class='user-info'>
         <image class='user-pic' src='/images/user-pic.jpg'></image>
         <text class='user-name'>{{userInfo.nickName}}</text>
