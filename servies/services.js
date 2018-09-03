@@ -10,7 +10,6 @@ let getIndexData = function () {
     //authorizeUserId: '1',
     longitude: globalData.currentLonLat.longitude,
     latitude: globalData.currentLonLat.latitude
-    
   })
 }
 

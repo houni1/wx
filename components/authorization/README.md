@@ -35,7 +35,7 @@ Page({
   firstAuth () {
     // 这里是第一次授权触发的动作
   },
-  authResult (data) {
+  authResult (authorizeUserId) {
     // 这里是授权处理完毕后触发的动作
     // data是授权成功后后台返回的 authorizeUserId
   }

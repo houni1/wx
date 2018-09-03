@@ -22,7 +22,8 @@
     "pages/cart/isallow/isallow",
     "pages/cart/catlist/catlist",
     "pages/cart/isnetwork/isnetwork",
-    "pages/cart/canvas/canvas"
+    "pages/cart/canvas/canvas",
+    "components/card/card"
   ],
   "window": {
     "backgroundTextStyle": "light",

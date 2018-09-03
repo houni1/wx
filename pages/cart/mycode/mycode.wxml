@@ -1,48 +1,48 @@
 <view class='mycode-box'>
   <view class='my-code'>
     <view class='my-code-pic'>
-      <image src="./images/my-code-pic.png"></image>
+      <image src="/images/my-code-pic.png"></image>
     </view>
-    <view class='my-code-name'>侯璐瑶</view>
-    <view class='my-code-company'>北京网田科技发展有限公司</view>
+    <view class='my-code-name'>{{userInfo.nickName}}</view>
+    <view class='my-code-company'>{{userInfo.company}}</view>
     <view class='my-code-btn'>
       <view class='btn'>保存专属码图片</view>
     </view>
   </view>
   <view class='mail-code'>
-    <image class='right-top-icon' src='./images/right-top-icon.png'></image>
+    <image class='right-top-icon' src='/images/right-top-icon.png'></image>
     <view class='mail-code-top'>
-      <text class='mail-code-name'>侯璐瑶</text>
-      <text class='mail-code-position'>web前端开发</text>
+      <text class='mail-code-name'>{{userInfo.cityName}}</text>
+      <text class='mail-code-position'>{{userInfo.position}}</text>
     </view>
     <view class='mail-code-bottom'>
       <view class='mail-code-cont'>
         <view class='cont-item'>
           <view class='item-icon'>
-            <image class='company-icon' src='./images/company-icon1.png'></image>
+            <image class='company-icon' src='/images/company-icon1.png'></image>
           </view>
-          <text class='item-text'>北京网田科技发展有限公司</text>
+          <text class='item-text'>{{userInfo.company}}</text>
         </view>
         <view class='cont-item'>
           <view class='item-icon'>
-            <image class='tel-icon' src='../index/images/tel-icon.png'></image>
+            <image class='tel-icon' src='/images/tel-icon.png'></image>
           </view>
-          <text class='item-text'>15110078983</text>
+          <text class='item-text'>{{userInfo.phone}}</text>
         </view>
         <view class='cont-item'>
           <view class='mail-icon-box'>
-            <image class='mail-icon' src='../index/images/mail-icon.png'></image>
+            <image class='mail-icon' src='/images/mail-icon.png'></image>
           </view>
-          <text class='item-text'>15110078983@163.com</text>
+          <text class='item-text'>{{userInfo.email}}</text>
         </view>
       </view>
       <view class='mail-code-pic'>
-        <image src='./images/my-code-pic.png'></image>
+        <image src='/images/my-code-pic.png'></image>
       </view>
     </view>
     <view class='to-mail' bindtap='tomail'>
       <view class='to-mail-box'>
-        <image class='to-mail-icon' src='./images/to-mail.png'></image>
+        <image class='to-mail-icon' src='/images/to-mail.png'></image>
         <text class='to-mail-text'>发送至邮箱</text>
       </view>
     </view>

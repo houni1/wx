@@ -1,6 +1,7 @@
 //app.js
 App({
   globalData: {
+    // 全局域名
     apiUrl: 'https://tcmapi.emao.com',
     // 授权信息
     userInfo: null,

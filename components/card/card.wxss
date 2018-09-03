@@ -97,7 +97,6 @@
   padding-top: 45rpx;
   padding-bottom: 50rpx;
   text-align: center;
-  border-bottom: 1rpx dashed #eee;
 }
 
 
