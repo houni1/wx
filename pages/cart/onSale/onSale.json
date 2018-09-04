@@ -3,5 +3,6 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "在售车型",
   "navigationBarTextStyle": "black",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

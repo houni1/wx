@@ -1,22 +1,32 @@
 Page({
   data: {
-    latitude: 40.02176,
-    longitude: 116.45328,
-    markers: [{
-      id: 1,
-      latitude: 40.02176,
-      longitude: 116.45328,
-      name: '一猫汽车'
-    }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: 'images/location.png'
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: 'images/location.png'
-    }]
+    latitude: '',
+    longitude: '',
+    markers: []
+    // covers: [{
+    //   latitude: 23.099994,
+    //   longitude: 113.344520,
+    //   iconPath: 'images/location.png'
+    // }, {
+    //   latitude: 23.099994,
+    //   longitude: 113.304520,
+    //   iconPath: 'images/location.png'
+    // }]
+  },
+  onLoad: function(options) {
+    console.log(options)
+    var lon = options.lon;
+    var lat = options.lat;
+    this.setData({
+      latitude: lat,
+      longitude: lon,
+      markers: [{
+        id: 1,
+        latitude: lat,
+        longitude: lon,
+        name: '一猫汽车'
+      }]
+    });
   },
   onReady: function (e) {
     this.mapCtx = wx.createMapContext('myMap')
