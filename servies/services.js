@@ -10,7 +10,6 @@ let getIndexData = function () {
     //authorizeUserId: '1',
     longitude: globalData.currentLonLat.longitude,
     latitude: globalData.currentLonLat.latitude
-    
   })
 }
 
@@ -30,7 +29,15 @@ let wxAuthorization = function (data) {
   return $get('/emall/wxAuthorization', params)
 }
 
+//获取我的信息接口
+let getUserInfo = function(){
+    return $get('cart/user/getUserInfo',{
+        userId: globalData.authorize_user_id
+    })
+}
+
 export {
   getIndexData, 
-  wxAuthorization
+  wxAuthorization,
+  getUserInfo
 };

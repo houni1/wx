@@ -2,20 +2,20 @@
   <view class='set-pic'>
     <view class='item-title'>头像</view>
     <view class='item-content' bindtap='onloadImage'>
-      <image src='../index/images/user-pic.jpg'></image>
+      <image src='/images/user-pic.jpg'></image>
     </view>
   </view>
   <view class='set-box'>
     <view class='set-item'>
       <view class='item-title'>姓名</view>
       <view class='item-content'>
-        <input maxlength='5' placeholder='请输入真实姓名' value=''></input>
+        <input maxlength='5' placeholder='请输入真实姓名' value='{{userInfo.nickName}}'></input>
       </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>职位</view>
       <view class='item-content'>
-        <input maxlength='5' placeholder='请输入您的职位' value='总经理'></input>
+        <input maxlength='5' placeholder='请输入您的职位' value='{{userInfo.position}}'></input>
       </view>
     </view>
     <view class='set-item'>
@@ -25,7 +25,7 @@
     <view class='set-item'>
       <view class='item-title'>手机号</view>
       <view class='item-content'>
-        <input type='number'  placeholder='请输入您的联系电话' maxlength='11' value='15110078983'></input>
+        <input type='number'  placeholder='请输入您的联系电话' maxlength='11' value='{{userInfo.phone}}'></input>
       </view>
       <view class='get-phone'>
         <text>获取手机号</text>
@@ -34,28 +34,28 @@
     <view class='set-item'>
       <view class='item-title'>微信号</view>
       <view class='item-content'>
-        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='15110078983'></input>
+        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}'></input>
       </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>邮箱号</view>
       <view class='item-content'>
-        <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写'></input>
+        <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写' value='{{userInfo.email}}'></input>
       </view>
     </view>
     <view class='set-person'>
       <view class='item-title'>个人介绍</view>
       <view class='item-content'>
-        <textarea placeholder='请输入个人介绍' maxlength='100' value='处理静态文件是一个繁琐的事情，因为静态文件都是来自于服务器上，肯定不能。'></textarea>
+        <textarea placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}'></textarea>
       </view>
     </view>
     <view class='set-picture'>
       <view class='item-title'>图片展示</view>
       <view class='item-content'>
-        <image class='add-pic' bindtap="uploadImage" src='./images/add-pic-btn.png'></image>
+        <image class='add-pic' bindtap="uploadImage" src='/images/add-pic-btn.png'></image>
         <view class='add-pic' wx:for="{{imageList}}" wx:key="{{index}}">
           <view class='img-close-box' data-ind="{{index}}" bindtap='closeimg'>
-            <image class='img-close-icon' src='./images/img-close.png'></image>
+            <image class='img-close-icon' src='/images/img-close.png'></image>
           </view>
           <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}' mode="aspectFitf"></image>
         </view>

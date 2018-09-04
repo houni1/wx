@@ -1,89 +1,38 @@
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='0'>已售出(5)</view>
-    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='1'>已下架(1)</view>
-    <view class="tabItem {{tabIndex == 2 ? 'filterActive' : ''}}" bindtap="filterTabChange" data-index='2'>{{goodsSelectName}}
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>已售出(5)</view>
+    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架(1)</view>
+    <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
       <image src='images/arrow_b.png' mode='widthFix' hidden="{{showSelect}}"></image>
       <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!showSelect}}"></image>
     </view>
   </view>
-    <view class='allGoods' hidden="{{!showSelect}}" style="height:{{height}}px">
-      <view class='thiv'>
-        <text bindtap='goodsSelect' data-kind="all" data-name="全部商品">全部商品</text>
-        <text bindtap='goodsSelect' data-kind="self" data-name="自营商品">自营商品</text>
-        <text bindtap='goodsSelect' data-kind="emao" data-name="一猫商品">一猫商品</text>
-      </view>
+  <view class='allGoods' hidden="{{!showSelect}}" style="height:{{ height }}px">
+    <view class='thiv'>
+      <text bindtap='goodsSelect' data-type="" data-name="全部商品">全部商品</text>
+      <text bindtap='goodsSelect' data-type="1" data-name="自营商品">自营商品</text>
+      <text bindtap='goodsSelect' data-type="2" data-name="一猫商品">一猫商品</text>
     </view>
+  </view>
   <view class='carsList'>
-    <view class='item'>
-      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+    <view class='item' wx:for="{{ list }}" wx:key="item">
+      <view class='hotTag' hidden='{{ item.isHot == 0 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
       <view class='imgWrap'>
-        <image src='images/njdc.png' mode='aspectFit'></image>
+        <image src='{{ item.autoThumb }}' mode='aspectFit'></image>
       </view>
       <view class='carInfo'>
-        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-        <view class='subTitle'>豪华型互联版</view>
-        <view class='price'><view class='priceNum'>13.90</view>万元</view>
-        <view class='guidePrice'>指导价42.76万</view>
+        <view class='title'>{{ item.autoName }}</view>
+        <!-- <view class='subTitle'>豪华型互联版</view> -->
+        <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
+        <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
         <view class='status'>
-          <view class='carStatus'>现车</view>
+          <view class='carStatus' hidden='{{ item.stockNum != 1 }}'>现车</view>
           <view class='stock'>库存3台</view>
         </view>
       </view>
       <view class='shareBtn'>
         <button open-type="share" title="1234"></button>
         <image src='images/fa.png' mode='widthFix'></image></view>
-    </view>
-    <view class='item'>
-      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
-      <view class='imgWrap'>
-        <image src='images/njdc.png' mode='aspectFit'></image>
-      </view>
-      <view class='carInfo'>
-        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-        <view class='subTitle'>豪华型互联版</view>
-        <view class='price'><view class='priceNum'>13.90</view>万元</view>
-        <view class='guidePrice'>指导价42.76万</view>
-        <view class='status'>
-          <view class='carStatus'>现车</view>
-          <view class='stock'>库存3台</view>
-        </view>
-        <view class='shareBtn'><image src='images/fa.png' mode='widthFix'></image></view>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
-      <view class='imgWrap'>
-        <image src='images/njdc.png' mode='aspectFit'></image>
-      </view>
-      <view class='carInfo'>
-        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-        <view class='subTitle'>豪华型互联版</view>
-        <view class='price'><view class='priceNum'>13.90</view>万元</view>
-        <view class='guidePrice'>指导价42.76万</view>
-        <view class='status'>
-          <view class='carStatus'>现车</view>
-          <view class='stock'>库存3台</view>
-        </view>
-        <view class='shareBtn'><image src='images/fa.png' mode='widthFix'></image></view>
-      </view>
-    </view>
-    <view class='item'>
-      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
-      <view class='imgWrap'>
-        <image src='images/njdc.png' mode='aspectFit'></image>
-      </view>
-      <view class='carInfo'>
-        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-        <view class='subTitle'>豪华型互联版</view>
-        <view class='price'><view class='priceNum'>13.90</view>万元</view>
-        <view class='guidePrice'>指导价42.76万</view>
-        <view class='status'>
-          <view class='carStatus'>现车</view>
-          <view class='stock'>库存3台</view>
-        </view>
-        <view class='shareBtn'><image src='images/fa.png' mode='widthFix'></image></view>
-      </view>
     </view>
   </view>
   <view class="weui-loadmore" hidden="{{isHideLoadMore}}">

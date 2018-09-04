@@ -1,6 +1,4 @@
-// pages/cart/card/card.js
-import { setClipboard } from '../../../utils/util.js';
-
+// components/card/card.js
 Page({
 
   /**
@@ -80,7 +78,7 @@ Page({
   
   },
   // 复制手机号
-  setPhoneToClipboard () {
+  setPhoneToClipboard() {
     setClipboard(this.data.phone)
   },
   // 复制微信号

@@ -22,7 +22,8 @@
     "pages/cart/onSale/onSale",
     "pages/cart/address/address",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "components/card/card"
   ],
   "window": {
     "backgroundTextStyle": "light",

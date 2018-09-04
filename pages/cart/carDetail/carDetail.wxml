@@ -1,49 +1,49 @@
 <view>
-  <view class='topPic'><image src='images/bigPic.jpg' mode='widthFix'></image></view>
+  <view class='topPic'><image src='{{ dataInfo.autoInfo.cover }}' mode='widthFix'></image></view>
   <view class='mainInfo'>
     <!-- 标题 -->
     <view class='title'>
-      <image src='images/carLogo.png' mode='widthFix'></image>
-      <view class='mainTitle'>江淮 瑞风S2 2017款 1.5L手动 </view>
-      <view class='subTitle'>豪华型互联版豪华型互联版华型</view>
-      <view class='carStatus'>现车</view>
+      <image src='{{ dataInfo.autoInfo.logo }}' mode='widthFix'></image>
+      <view class='mainTitle'>{{ dataInfo.autoInfo.autoName }}</view>
+      <!-- <view class='subTitle'>豪华型互联版豪华型互联版华型</view> -->
+      <view class='carStatus' wx:if="{{ dataInfo.autoInfo.sourceType != 1 }}">现车</view>
     </view>
     <!-- 价格 -->
     <view class='price'>
-      <view class='priceNum'>13.9</view>
+      <view class='priceNum'>{{ dataInfo.autoInfo.price }}</view>
       <view class='priceUnit'>万元</view>
-      <view class='guidePrice'>指导价15.8万</view>
-      <view class='call right' bindtap='call' data-telphonenum='18810399999'>拨打电话</view>
+      <view class='guidePrice'>指导价{{ dataInfo.autoInfo.guidePrice }}万</view>
+      <view class='call right' bindtap='call' data-telphonenum='{{ dataInfo.userInfo.phone }}'>拨打电话</view>
     </view>
   </view>
   <!-- 级别，变速箱,排量 -->
   <view class='levelInfo flex-wrapper'>
     <view class='flex-item'>
       <view class='kind'>级别</view>
-      <view class='val'>两厢</view>
+      <view class='val'>{{ dataInfo.autoInfo.carriage }}</view>
     </view>
     <view class='flex-item'>
       <view class='kind'>变速箱</view>
-      <view class='val'>手动挡</view>
+      <view class='val'>{{ dataInfo.autoInfo.gearboxType }}</view>
     </view>
     <view class='flex-item'>
       <view class='kind'>排量</view>
-      <view class='val'>1.4L</view>
+      <view class='val'>{{ dataInfo.autoInfo.displacement }}</view>
     </view>
   </view>
   <!-- 店铺位置信息 -->
   <view class='addressWrap flex-wrapper'>
-    <view class='photo' style='background-image:url(images/photo.jpg);background-size: cover;'>
+    <view class='photo' style='background-image:url({{ dataInfo.userInfo.headPortrait }});background-size: cover;'>
     </view>
     <view class='info flex-item'>
-      <text class='name'>大禹治水</text>
+      <text class='name'>{{ dataInfo.userInfo.nickname }}</text>
       <view class='flex-wrapper flex-column-center'>
         <image class='iconAddress' src='images/address.png' mode='widthFix'></image>
-        <text class='distance'>7.8km</text>
-        <text class='addressName'>北京朝阳国创产业园</text>
+        <text class='distance'>{{ dataInfo.userInfo.distance }}</text>
+        <text class='addressName'>{{ dataInfo.userInfo.address }}</text>
       </view>
     </view>
-    <view class='toMap' bindtap='toMap' data-lon="" data-lat="">
+    <view class='toMap' bindtap='toMap' data-lon="{{ dataInfo.userInfo.longitude }}" data-lat="{{ dataInfo.userInfo.latitude }}">
       <image src='images/iconToMap.png' mode='widthFix'></image>
       <text>导航</text>
     </view>
@@ -51,7 +51,7 @@
   <!-- 车辆简介 -->
   <view class='introduction'>
     <view class='title'>车辆简介</view>
-    <view class='content'>以下为车辆简介字段猫卫星监控访客互动，积累线索转行商机，车商圈帮你轻松拓展人脉，为车辆简介字段猫卫星监控访客互动，积累线索转行</view>
+    <view class='content'>{{ dataInfo.autoInfo.introduction }}</view>
   </view>
   <!-- 参数配置 -->
   <view class='parameter'>

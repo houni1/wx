@@ -1,6 +1,7 @@
 //app.js
 App({
   globalData: {
+    // 全局域名
     apiUrl: 'https://tcmapi.emao.com',
     // 授权信息
     userInfo: null,
@@ -9,6 +10,8 @@ App({
     // 是否是本人
     isMe: false,
     // 来源
-    isSourceApp: false
+    isSourceApp: false,
+    // 微信唯一标识
+    authorize_user_id: 17
   }
 })
