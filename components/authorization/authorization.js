@@ -36,7 +36,7 @@ Component({
     let _this = this;
     wx.getSetting({
       success(res) {
-        if (_this.data.isInitiativeOpen || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
+        if ((globalData.isSourceApp && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
           _this.triggerEvent('firstAuth');
           _this.setData({
             isShow: true

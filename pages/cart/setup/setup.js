@@ -6,6 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 默认展示用户信息
+    userInfo: {
+      position: '总经理',  // 职位
+      phone: '151xxxxxxxx',   // 手机号
+      wechatNumber: '15311111111',  // 微信号
+      email: '123@qq.com',    // 邮箱
+      introduction: '我叫XXX，来自XXX...',   // 个人介绍
+      headPortrait: '',    // 头像
+      nickName: '吉思洋', // 用户昵称
+    },
     imageList: [],
     imageArr: []
   },

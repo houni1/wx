@@ -4,13 +4,12 @@ import {$get, $post} from '../utils/request.js';
 
 // 获取首页的信息
 let getIndexData = function () {
-  return $get('emall/index', {
+  return $get('/emall/index', {
     cityId: globalData.currentCity.id,
     authorizeUserId: globalData.authorize_user_id,
     //authorizeUserId: '1',
     longitude: globalData.currentLonLat.longitude,
     latitude: globalData.currentLonLat.latitude
-    
   })
 }
 
@@ -27,10 +26,18 @@ let wxAuthorization = function (data) {
     code: data.code,
     wxType: data.wxType
   })
-  return $get('emall/wxAuthorization', params)
+  return $get('/emall/wxAuthorization', params)
+}
+
+//获取我的信息接口
+let getUserInfo = function(){
+    return $get('cart/user/getUserInfo',{
+        userId: globalData.authorize_user_id
+    })
 }
 
 export {
   getIndexData, 
-  wxAuthorization
+  wxAuthorization,
+  getUserInfo
 };

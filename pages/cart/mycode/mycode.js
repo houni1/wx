@@ -5,8 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    toMailFlag: false,
-    focusflag: false
+    toMailFlag: false, // 发送至邮箱弹框，默认不显示
+    focusflag: false, // 弹框弹起默认获取焦点
+    // 用户默认信息
+    userInfo: {
+      exclusiveCode: '', // 用户专属码
+      nickName: '吉思洋', // 用户昵称
+      company: '大宝汽车贸易有限公司', // 公司
+      position: '总经理', // 职位
+      phone: '15311111111', // 手机号
+      email: '123@qq.com', //邮箱
+    }
   },
 
   /**
