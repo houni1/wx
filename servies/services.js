@@ -60,10 +60,7 @@ export {
   getIndexData, 
   wxAuthorization,
   getUserInfo,
-<<<<<<< HEAD
-  getOnSaleData
-=======
+  getOnSaleData,
   getCardList,
   getTuichemaoInfo
->>>>>>> 392d40aeade18f74052f5f03443e1e3f807a257b
 };
