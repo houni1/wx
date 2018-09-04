@@ -1,11 +1,5 @@
 {
   "pages": [
-    "pages/cart/othersCarInfo/othersCarInfo",
-    "pages/cart/carDetail/carDetail",
-    "pages/cart/onSale/onSale",
-    "pages/cart/address/address",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/cart/index/index",
     "pages/cart/business/business",
     "pages/cart/sendinfo/sendinfo",
@@ -22,12 +16,51 @@
     "pages/cart/isallow/isallow",
     "pages/cart/catlist/catlist",
     "pages/cart/isnetwork/isnetwork",
-    "pages/cart/canvas/canvas"
+    "pages/cart/canvas/canvas",
+    "pages/cart/othersCarInfo/othersCarInfo",
+    "pages/cart/carDetail/carDetail",
+    "pages/cart/onSale/onSale",
+    "pages/cart/address/address",
+    "pages/index/index",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "color":"#a6a6a6",
+    "selectedColor":"#282c39",
+    "backgroundColor":"white",
+    "list":[
+      {
+        "pagePath":"pages/cart/index/index",
+        "text":"推车猫",
+        "iconPath":"images/home.png",
+        "selectedIconPath":"images/home1.png"
+      },
+      {
+        "pagePath":"pages/cart/onSale/onSale",
+        "text":"在售车型",
+        "iconPath":"images/carlist.png",
+        "selectedIconPath":"images/carlist1.png"
+      },
+      {
+        "pagePath":"pages/cart/business/business",
+        "text":"车商圈",
+        "iconPath":"images/business.png",
+        "selectedIconPath":"images/business1.png"
+      },
+      {
+        "pagePath":"pages/cart/my/my",
+        "text":"我的",
+        "iconPath":"images/my.png",
+        "selectedIconPath":"images/my1.png"
+      }
+     
+    ]
+
   }
 }
