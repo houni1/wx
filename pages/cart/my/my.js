@@ -1,25 +1,32 @@
 // pages/cart/my/my.js
+let globalData = getApp().globalData;
+import { getUserInfo } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      userInfo:{
+          "headPortrait":"http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+          "nickName":"大禹治水",
+          "position":"经理",
+          "company":"大宝汽车贸易有限公司"
+      }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+      this.userInfo();
   },
 
   /**
@@ -50,17 +57,13 @@ Page({
   
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  //获取用户信息
+  userInfo: function(){
+    //   getUserInfo(globalData.authorize_user_id).then(res => {
+    //       this.setData({
+    //           userInfo:res
+    //       })
+    //   });
   }
 })
