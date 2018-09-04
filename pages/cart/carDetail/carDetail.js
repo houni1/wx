@@ -1,14 +1,17 @@
+import { getCarDeatilData, pageStatistics, getCityInfoByLonlat } from '../../../servies/services.js';
+let WxParse = require('../../../utils/wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
   */
   data: {
+    wxParseData: '',
     dataInfo: {},
     isOpen: false,
-    userId: '',   // 当前用户Id [必传]
+    userId: '',     // 当前用户Id [必传]
     toUserId: '',   // 被查看用户Id [必传]
-    page: '',     //当前页 [必传]
+    page: '',       //当前页 [必传]
     brandId: '',    // 品牌id [非必传]
     status: '',     // 上下架状态 1上架 2下架 [非必传]
     type: ''        // 类型：1 自营 2 一猫[非必传]
@@ -21,6 +24,11 @@ Page({
     this.setData({
       dataInfo: dataObj
     });
+
+    // if (!res.param.list) {
+    //   var article = res.param;
+    //   WxParse.wxParse('article', 'html', article, this, 5);
+    // }
     // console.log(this.data.dataInfo)
   },
 

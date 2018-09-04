@@ -17,11 +17,11 @@ Component({
   },
 
   created: function () {
-    cosnole.log(123)
+    console.log(123)
     this.setData({
       list: this.dataList
     });
-    cosnole.log(this.data.list)
+    console.log(this.data.list)
   },
   /**
    * 组件的方法列表
@@ -51,31 +51,31 @@ var dataList = [
   {
     "brandId": "12",                                                                     //品牌id
     "brandName": "江淮 ",                                                                  //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                      //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                      //品牌logo图
   },
   {
     "brandId": "16",                                                                    //品牌id
     "brandName": "奥迪 ",                                                                 //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
   },
   {
     "brandId": "16",                                                                    //品牌id
     "brandName": "奥迪 ",                                                                 //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
   },
   {
     "brandId": "16",                                                                    //品牌id
     "brandName": "奥迪 ",                                                                 //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
   },
   {
     "brandId": "16",                                                                    //品牌id
     "brandName": "奥迪 ",                                                                 //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
   },
   {
     "brandId": "16",                                                                    //品牌id
     "brandName": "奥迪 ",                                                                 //品牌名称
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
+    "logoUrl": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"                     //品牌logo图
   }
 ]

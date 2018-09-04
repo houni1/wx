@@ -1,7 +1,7 @@
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>已售出(5)</view>
-    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架(1)</view>
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>已售出({{ onShelf }})</view>
+    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
     <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
       <image src='images/arrow_b.png' mode='widthFix' hidden="{{showSelect}}"></image>
       <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!showSelect}}"></image>

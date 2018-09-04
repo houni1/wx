@@ -1,3 +1,4 @@
+<import src="../../../utils/wxParse/wxParse.wxml"/>
 <view>
   <view class='topPic'><image src='{{ dataInfo.autoInfo.cover }}' mode='widthFix'></image></view>
   <view class='mainInfo'>

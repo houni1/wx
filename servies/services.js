@@ -13,6 +13,11 @@ let getIndexData = function () {
   })
 }
 
+// 获取在售车型列表
+let getOnSaleData = function (data) {
+  return $get('/cart/auto/autoList', data)
+}
+
 // 授权后触发的函数
 let wxAuthorization = function (data) {
   let params = {}
@@ -39,5 +44,6 @@ let getUserInfo = function(){
 export {
   getIndexData, 
   wxAuthorization,
-  getUserInfo
+  getUserInfo,
+  getOnSaleData
 };

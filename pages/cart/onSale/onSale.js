@@ -1,4 +1,5 @@
-// import { requestBody } from '../../../utils/request.js';
+// import { getOnSaleData } from '../../../utils/request.js';
+import { getOnSaleData } from '../../../servies/services.js';
 Page({
 
   /**
@@ -17,17 +18,22 @@ Page({
     brandId: '',            // 品牌id [非必传]
     status: '1',            // 1上架 2下架 [非必传]
     page: '1',              // 当前页 [必传]
-    type: ''                // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
+    type: '',                // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
+    onShelf: 0,             // 已售出
+    unOnShelf: 0            // 已下架
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(getOnSaleData)
+    var that = this;
     this.setData({
+      onShelf: dataList.amount.onShelf,
+      unOnShelf: dataList.amount.unOnShelf,
       list: dataList.list
     })
-    var that = this;
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -35,6 +41,8 @@ Page({
         })
       }
     })
+    
+
     // 请求列表数据
     var params = {
       userId: '',     // 当前用户Id [必传]
@@ -44,6 +52,10 @@ Page({
       status: '1',     // 上下架状态 1上架 2下架 [非必传]
       type: ''        // 1 自营 2 一猫 [非必传]
     }
+
+    getOnSaleData(params).then(function() {
+      console.log(123)
+    })
   },
   /**
    * 页面顶部tab切换
@@ -119,6 +131,10 @@ var dataList = {
     "currentPage": "1",
     "lastPage": "3",
     "count": "20"
+  },
+  amount: {
+    onShelf: 4,
+    unOnShelf: 2
   },
   list:[
     {
