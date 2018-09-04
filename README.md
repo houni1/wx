@@ -2,23 +2,50 @@
 推车猫小程序
 
 ## 目录介绍
-- components 公用组件
-- images 公用图片
-- pages 页面
-  - index 首页
-  - logs
-  - store 商城
-    - home 商城首页
-    - detail 车型详情
-- services 请求
-  - getData.js 封装好的get请求
-  - getFastData.js 获取快弹车数据
-  - services.js 通过request.js提供的$get和$post方法，将接口封装在此文件中，方便统一管理、随处调用
-- utils 方法
-  - countdown 倒计时
-  - wxParse 字符串文本解析成html文本
-  - util.js 公共方法
-  - request.js 请求方法
+├─components        公用组件
+│  ├─authorization  授权组件
+│  │  
+│  ├─business       别人车商圈组件
+│  ├─card           别人名片组件
+│  ├─othersCarInfo  查看别人车源详情组件
+│  │  
+│  └─refresh        下拉刷新(这次没用)
+├─images            公用图片
+├─pages             页面
+│  ├─cart           
+│  │  ├─about       关于推车猫
+│  │  │  
+│  │  ├─address     定位
+│  │  │  
+│  │  ├─business    车商圈
+│  │  │  
+│  │  ├─card        名片页
+│  │  ├─cardcase    名片夹
+│  │  │  
+│  │  ├─carDetail   车型详情
+│  │  │  
+│  │  ├─cardpic     名片照片页
+│  │  ├─catlist     猫哥卫星页
+│  │  ├─changePhone 换绑手机号
+│  │  │  
+│  │  ├─index       查看自己的首页
+│  │  ├─isallow     强制授权页
+│  │  │  
+│  │  ├─isnetwork   无网络链接页面
+│  │  │  
+│  │  ├─my          我的
+│  │  │  
+│  │  ├─mycode      我的专属码页
+│  │  ├─onSale      在售车型
+│  │  │  
+│  │  ├─otherpage   三个导航按钮页
+│  │  ├─sendinfo    发送信息页
+│  │  ├─setup       推车猫设置页
+│  │  └─share       分享海报页
+│  ├─index
+│  └─logs
+├─servies           请求数据文件
+└─utils             公共方法
 
 
 ## 注意

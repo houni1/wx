@@ -1,4 +1,0 @@
-<!-- <button bindtap='fetch'>上传</button>
-<canvas canvas-id='myCanvas' style="width: 400px; height: 500px;z-index: -1;"></canvas>
-<image src='{{b64}}'></image> -->
-<card></card>

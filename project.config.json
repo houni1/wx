@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -127,20 +127,14 @@
 				},
 				{
 					"id": -1,
-					"name": "上传图片canvas方法测试页面",
-					"pathName": "pages/cart/canvas/canvas",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "车型列表",
-					"pathName": "pages/cart/othersCarInfo/othersCarInfo",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "在售车型",
-					"pathName": "pages/cart/onSale/onSale"
+					"pathName": "pages/cart/onSale/onSale",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "别人查看",
+					"pathName": "pages/cart/otherpage/otherpage"
 				}
 			]
 		}

@@ -17,11 +17,11 @@ Component({
   },
 
   created: function () {
-    cosnole.log(123)
-    this.setData({
-      list: this.dataList
-    });
-    cosnole.log(this.data.list)
+    
+    // this.setData({
+    //   list: dataList
+    // });
+    
   },
   /**
    * 组件的方法列表

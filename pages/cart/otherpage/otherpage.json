@@ -1,0 +1,10 @@
+{"navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "名片",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#fff",
+  "usingComponents": {
+     "card": "/components/card/card",
+     "othersCarInfo":"/components/othersCarInfo/othersCarInfo",
+     "business":"/components/business/business"
+  }
+}

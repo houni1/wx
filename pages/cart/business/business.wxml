@@ -1,6 +1,4 @@
-<view class='business' bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
-
-<refresh class='refresh'id="refreshView" style="width:100%;"></refresh>
+<view class='business'>
 <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
   <view class='containt'>
 
