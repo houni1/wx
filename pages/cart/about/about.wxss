@@ -1,7 +1,7 @@
 /* pages/cart/about/about.wxss */
 .about-wrap{padding:60rpx 79rpx 0 79rpx;}
 .tuichemao-intro-wrap{text-align:center;}
-.tuichemao-logo{display:block;width:157rpx;height:157rpx;margin:0 auto;}
+.tuichemao-logo{display:block;width:157rpx;height:157rpx;margin:0 auto;border-radius:30rpx;}
 .tuichemao-name{margin-top:30rpx;margin-bottom:25rpx;font-size:38rpx;color:#282c39;}
 .tuichemao-intro{font-size:24rpx;color:#a6a6a6;}
 .tuichemao-intro-wrap text{display:block;}

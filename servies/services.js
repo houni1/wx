@@ -1,5 +1,4 @@
 let globalData = getApp().globalData;
-
 import {$get, $post} from '../utils/request.js';
 
 // 获取首页的信息
@@ -36,8 +35,26 @@ let getUserInfo = function(){
     })
 }
 
+//获取名片夹列表信息
+let getCardList = function(){
+    return $get("cart/card/cardList",{
+        userId: globalData.authorize_user_id
+    })
+}
+
+// let getCardList = function () {
+//     return $get("cart/card/cardList", params)
+// }
+
+//关于推车猫
+let getTuichemaoInfo = function(){
+    return $get("cart/about")
+}
+
 export {
   getIndexData, 
   wxAuthorization,
-  getUserInfo
+  getUserInfo,
+  getCardList,
+  getTuichemaoInfo
 };
