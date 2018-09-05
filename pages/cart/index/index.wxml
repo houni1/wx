@@ -1,4 +1,3 @@
-<authorization bindauthResult="authResult"></authorization>
 <view class='home'>
   <view class='home-card'>
     <image class='home-card-bg' src='/images/header_bj.png'></image>
@@ -47,7 +46,7 @@
       <text>专属码</text>
     </view>
   </view>
-  <view class='home-catlist'>
+  <view class='home-catlist' wx:if="{{carlist.length != '0'}}">
     <view class='catlist-title'>猫哥卫星</view>
     <view class='catli' wx:for="{{carlist}}" wx:key="{{index}}">
       <view class='catli-pic'>

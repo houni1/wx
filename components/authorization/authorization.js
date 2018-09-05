@@ -36,13 +36,12 @@ Component({
     let _this = this;
     wx.getSetting({
       success(res) {
-        if ((globalData.isSourceApp && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
+        if ((globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
           _this.triggerEvent('firstAuth');
           _this.setData({
             isShow: true
           })
           globalData.isAuthorizeWindowOpen = true
-          globalData.isAuthorize = true
         } else {
           _this.getAuthorizeUserId(null, 2);
         }
@@ -64,13 +63,11 @@ Component({
           location: '5'
         }
         this.getAuthorizeUserId(params, 1);
-        globalData.isAuthorize = true
         return;
       } else {
         this.goPage();
       }
       this.getAuthorizeUserId(params, 2);
-      
     },
     // 获取用户ID
     getAuthorizeUserId (data, wxType) {
@@ -115,11 +112,13 @@ Component({
       this.getAuthorizeUserId(null, 3)
       this.goPage();
     },
-    // 跳转至微信授权引导页面
+    // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
-      wx.redirectTo({
-        url: '/pages/cart/isallow/isallow'
-      })
+      if (globalData.source == '1') {
+        wx.redirectTo({
+          url: '/pages/cart/isallow/isallow'
+        })
+      }
     }
   }
 })

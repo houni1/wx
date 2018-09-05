@@ -1,5 +1,7 @@
 // pages/cart/setup/setup.js
-// import { uploadImage } from '../../../utils/upload.js';
+
+import { getCityInfo } from '../../../servies/services.js';
+
 Page({
 
   /**
@@ -24,7 +26,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCityInfo()
+  },
+
+  getCityInfo: function () {
+    getCityInfo().then(res => {
+      console.log(res)
+    })
   },
 
   /**
@@ -159,7 +167,8 @@ Page({
         'Accept': 'application/json; version=3.8.0'
       },
       formData: {
-        userid: '1'
+        userid: '1',
+        naem: 'jisiyang'
       },
       success: function (res) {
         var data = res.data

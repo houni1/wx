@@ -1,18 +1,22 @@
 <view class='seninfo'>
    <view class='content'>
       <view class='text'>
-         <textarea placeholder='输入要发表的文字' maxlength="150" value="{{text}}" class="area" >
+         <textarea placeholder='输入要发表的文字' maxlength="100" value="{{}}" class="area" auto-focus rows="5" >
          </textarea>
       </view>
       <view class='picture'>
-        <view class="add car"><view class="symbol">+</view></view>
-        
-         <image src='../business/images/car1.jpg' class='car'></image>
-         <image src='../business/images/car1.jpg' class='car'></image>
-          <image src='../business/images/car1.jpg' class='car'></image>
+        <view class='item-content'>
+        <image class='add-icon' bindtap="uploadImage" src='/images/add-pic-btn.png' wx:if="{{imageList.length!==9}}"></image>
+        <view class='add-pic' wx:for="{{imageList}}" wx:key="{{index}}">
+          <view class='img-close-box' data-ind="{{index}}" bindtap='closeimg'>
+            <image class='img-close-icon' src='/images/img-close.png'></image>
+          </view>
+          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}' mode="aspectFitf"></image>
+        </view>
+      </view>
       </view>
       <view class='btn-box'>
-       <view class='button' bindtap='send'>
+       <view class='button' bindtap='uploadfile'>
        发布信息
        </view>
       </view>

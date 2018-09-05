@@ -7,6 +7,11 @@
      "othersCarInfo":"/components/othersCarInfo/othersCarInfo",
      "business":"/components/business/business"
   },
+<<<<<<< HEAD
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"
+=======
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark"
+>>>>>>> 1cd9ae0220878f80809a4f6789d6c1a3d6ebe6b3
 }

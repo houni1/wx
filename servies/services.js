@@ -40,9 +40,18 @@ let wxAuthorization = function (data) {
   }
   params = Object.assign(params, {
     code: data.code,
-    wxType: data.wxType
+    wxType: data.wxType,
+    saleId: globalData.saleId,
+    source: globalData.source
   })
   return $get('/emall/wxAuthorization', params)
+
+  // return $get('/cart/login/wxAuthorization', params)
+}
+
+// 获取城市信息接口
+let getCityInfo = function () {
+  return $get('/cart/area/city')
 }
 
 //获取我的信息接口
@@ -76,5 +85,6 @@ export {
   getCardList,
   getTuichemaoInfo,
   getBrandList,
-  autoDetails
+  autoDetails,
+  getCityInfo
 };

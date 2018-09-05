@@ -15,19 +15,21 @@
       "pages/cart/about/about",
       "pages/cart/cardcase/cardcase",
       "pages/cart/changePhone/changePhone",
-      "components/refresh/refresh",
       "pages/cart/isallow/isallow",
       "pages/cart/catlist/catlist",
       "pages/cart/isnetwork/isnetwork",
       "pages/cart/address/address",
       "pages/index/index",
-      "pages/logs/logs"
+      "pages/logs/logs",
+      "pages/cart/otherpage/otherpage",
+      "pages/cart/mark/mark"
    ],
    "window": {
       "backgroundTextStyle": "light",
       "navigationBarBackgroundColor": "#fff",
       "navigationBarTitleText": "WeChat",
       "navigationBarTextStyle": "black"
+     
    },
    "tabBar": {
       "color": "#a6a6a6",
