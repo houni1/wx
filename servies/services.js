@@ -24,7 +24,9 @@ let wxAuthorization = function (data) {
   }
   params = Object.assign(params, {
     code: data.code,
-    wxType: data.wxType
+    wxType: data.wxType,
+    saleId: globalData.saleId,
+    source: globalData.source
   })
   return $get('/emall/wxAuthorization', params)
 }

@@ -100,11 +100,6 @@ Page({
   onShareAppMessage: function () {
   
   },
-  authResult (data) {
-    console.log('authResultauthResultauthResult', data)
-    // 这里是授权处理完毕后触发的动作
-    // data是授权成功后后台返回的 authorizeUserId
-  },
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
     wx.navigateTo({

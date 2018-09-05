@@ -23,7 +23,8 @@
     "pages/cart/catlist/catlist",
     "pages/cart/isnetwork/isnetwork",
     "pages/cart/canvas/canvas",
-    "components/card/card"
+    "components/card/card",
+    "pages/cart/mark/mark"
   ],
   "window": {
     "backgroundTextStyle": "light",

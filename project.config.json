@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 17,
 			"list": [
 				{
 					"id": -1,
@@ -134,9 +134,15 @@
 				{
 					"id": -1,
 					"name": "车型列表",
-					"pathName": "pages/cart/othersCarInfo/othersCarInfo"
+					"pathName": "pages/cart/othersCarInfo/othersCarInfo",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "推车猫中间页",
+					"pathName": "pages/cart/mark/mark",
+					"query": "saleId=1&type=2&page=1"
 				}
-			
 			]
 		}
 	}

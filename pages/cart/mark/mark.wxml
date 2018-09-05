@@ -1,0 +1,8 @@
+<authorization bindauthResult="authResult"></authorization>
+<view class='mark-box'>
+  <view class='mark-pic'>
+    <image src='/images/mark-pic.gif'></image>
+  </view>
+  <view class='mark-title'>欢迎进入推车猫</view>
+  <view class='mark-text'>精彩即将呈现</view>
+</view>
