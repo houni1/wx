@@ -1,6 +1,6 @@
 const app = getApp();
 const requestHeader = {
-	"Accept": "application/json; version=3.7.0",
+	"Accept": "application/json; version=1.0.0",
 	"X-Emao-TCM-WeChat": "1"
 };
 

@@ -81,6 +81,17 @@ Page({
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
+      if (globalData.saleId != globalData.authorize_user_id) {
+        // 跳转至别人的页面
+        wx.redirectTo({
+          url: '/pages/cart/otherpage/otherpage?page=' + 3
+        })
+      } else {
+        console.log('查看自己的页面')
+        wx.redirectTo({
+          url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+        })
+      }
     }
   },
 })

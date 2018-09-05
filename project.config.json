@@ -138,16 +138,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 17,
 					"name": "推车猫中间页",
 					"pathName": "pages/cart/mark/mark",
-					"query": ""
+					"query": "saleId=1&type=1&page=1"
 				},
 				{
 					"id": 17,
-					"query": "saleId=1&type=2&page=1",
 					"name": "别人查看",
-					"pathName": "pages/cart/otherpage/otherpage"
+					"pathName": "pages/cart/otherpage/otherpage",
+					"query": "saleId=1&type=2&page=1"
 				}
 			]
 		}
