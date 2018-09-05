@@ -15,6 +15,7 @@ page {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding-bottom: 100rpx;
 }
 .kinds {
   height: 90rpx;
@@ -40,6 +41,7 @@ page {
   font-size: 26rpx;
   color: #a6a6a6;
   text-align: center;
+  font-family: 'PingFangSC-Semibold';
 }
 .kinds text.active {
   color: #282c39;
@@ -67,6 +69,7 @@ page {
   flex: 1;
   overflow: hidden;
   padding: 28rpx 0;
+  height: 200rpx;
   margin-bottom: 10rpx;
   background: #fff;
 }
@@ -83,7 +86,7 @@ page {
   text-align: center;
 }
 .item .imgWrap image {
-  width: 230rpx; 
+  width: 260rpx; 
   height: 100%;
   vertical-align: middle;
 }
@@ -95,6 +98,8 @@ page {
   line-break: 42rpx;
   font-weight: bold;
   margin-bottom: 16rpx;
+  color: #282c39;
+  font-family: 'PingFangSC-Semibold';
 }
 .carInfo .subTitle {
   font-size: 28rpx;

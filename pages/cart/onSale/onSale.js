@@ -1,4 +1,3 @@
-// import { getOnSaleData } from '../../../utils/request.js';
 import { getOnSaleData } from '../../../servies/services.js';
 Page({
 
@@ -144,7 +143,7 @@ var dataList = {
       "guidePrice": "42.30",                              //指导价
       "type": "1",                                 //类型: 1 自营 2 一猫
       "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "autoThumb": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
+      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
       "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
       "stockNum": "1", //库存数
       "isHot": "1", //是否热门车型：1-是，0-否
@@ -156,7 +155,7 @@ var dataList = {
       "guidePrice": "42.30",                              //指导价
       "type": "1",                                 //类型: 1 自营 2 一猫
       "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "autoThumb": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
+      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
       "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
       "stockNum": "1", //库存数
       "isHot": "0", //是否热门车型：1-是，0-否
@@ -168,7 +167,7 @@ var dataList = {
       "guidePrice": "42.30",                              //指导价
       "type": "1",                                 //类型: 1 自营 2 一猫
       "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "autoThumb": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
+      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
       "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
       "stockNum": "1", //库存数
       "isHot": "0", //是否热门车型：1-是，0-否
@@ -180,7 +179,7 @@ var dataList = {
       "guidePrice": "42.30",                              //指导价
       "type": "1",                                 //类型: 1 自营 2 一猫
       "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "autoThumb": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
+      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
       "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
       "stockNum": "1", //库存数
       "isHot": "0", //是否热门车型：1-是，0-否

@@ -6,5 +6,7 @@
      "card": "/components/card/card",
      "othersCarInfo":"/components/othersCarInfo/othersCarInfo",
      "business":"/components/business/business"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
