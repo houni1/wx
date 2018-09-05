@@ -12,7 +12,6 @@
       "pages/cart/about/about",
       "pages/cart/cardcase/cardcase",
       "pages/cart/changePhone/changePhone",
-      "components/refresh/refresh",
       "pages/cart/isallow/isallow",
       "pages/cart/catlist/catlist",
       "pages/cart/isnetwork/isnetwork",

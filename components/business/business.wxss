@@ -26,11 +26,13 @@ margin-bottom: 15rpx;
 .information .picture{
 flex: 0 0 108rpx;
 padding-top: 30rpx;
+margin-right:16rpx;
 }
 .information .picture .img{
 width: 108rpx;
 height: 108rpx;
 border-radius: 50%;
+box-shadow: 0 0 40rpx 10rpx #e5e5e5;
 }
 .information .text{
 flex: 1;
@@ -51,6 +53,7 @@ float: right;
 font-size:22rpx;
 font-family: "PingFangSC-Regular";
 color: #a6a6a6;
+margin-right:10rpx;
 
 }
 .hot .hot-img{
@@ -78,7 +81,7 @@ color: #282c39;
   margin-right: 15rpx;
   box-shadow:5px 0 3px rgb(235, 229, 235);
   border-radius: 10rpx;
-  margin-bottom: 10rpx
+  margin-bottom: 15rpx
 }
 .img-group .bigcar{
   width: 350rpx;

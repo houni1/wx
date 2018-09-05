@@ -1,6 +1,6 @@
-<card wx:if="{{homeshow}}"></card>
+<card wx:if="{{homeshow}}" id="card"></card>
 <othersCarInfo wx:if="{{carshow}}"></othersCarInfo>
-<business wx:if="{{bushow}}"></business>
+<business wx:if="{{bushow}}" id="business"></business>
 
 <view class='tabBar'>
   <view class='home ' style="color:{{homeshow?'#282c39':'#a6a6a6'}}" bindtap="tohome">
