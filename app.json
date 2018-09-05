@@ -21,7 +21,6 @@
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
-      "pages/cart/otherpage/otherpage",
       "pages/cart/mark/mark"
    ],
    "window": {
