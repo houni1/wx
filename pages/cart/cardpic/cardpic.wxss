@@ -40,13 +40,12 @@ font-size: 44rpx;
 color: #282c39;
 }
 .text{
-display: flex;
-justify-content: space-between;
 font-family: "PingFangSC-Regular";
 font-size: 30rpx;
 color: #808080;
 }
 .job{
+  display: inline-block;
  margin-left: 120rpx
 }
 .job-img{
@@ -55,7 +54,8 @@ color: #808080;
  margin-right: 30rpx;
 }
 .phone{
-margin-right: 30rpx;
+margin-left:140rpx;
+display: inline-block;
 }
 .phone-img{
 width: 24rpx;

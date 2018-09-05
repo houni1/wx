@@ -1,25 +1,25 @@
 <view class='cardpic'>
    <view class="content">
       <view class='title'>
-         <image class='title-img' src="../business/images/banner.png"></image>
+         <image class='title-img' src="{{background}}"></image>
         
       </view>
       <view class='infor'>
         <view class='my-card'>
-        <image class='head' src='../business/images/car1.jpg'></image>
+        <image class='head' src='{{exclusiveCode}}'></image>
         </view>
 
          <view class='name'>
-         小明
+         {{nickName}}
          </view>
          <view class='text'>
             <view class='job'>
             <image class='job-img' src="../business/images/job.png"></image>
-            <text class='job-text'>总经理</text>
+            <text class='job-text'>{{position}}</text>
             </view>
             <view class='phone'>
                <image class='phone-img' src="../business/images/tel.png"></image>
-               <text class='phone-text'>12345678900</text>
+               <text class='phone-text'>{{phone}}</text>
             </view>
          </view>
          <view class='company'>大宝汽车贸易有限公司</view>

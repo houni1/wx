@@ -1,4 +1,10 @@
 /* pages/cart/othersCarInfo/othersCarInfo.wxss */
+.flex-wrapper{
+  display: flex;
+}
+.flex-item{
+  flex: 1;
+}
 page {
   height: 100%;
 }

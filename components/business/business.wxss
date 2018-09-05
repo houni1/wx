@@ -1,0 +1,110 @@
+.business{
+  
+}
+.business .containt{
+background: #ebeef5;
+font-size: 0;
+padding-bottom: 85rpx;
+}
+.business .remind{
+font-family: 'pingFangSC-Regular';
+font-size: 24rpx;
+background: #ffcf10;
+height: 60rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.containt .information{
+  padding: 0 40rpx;
+  background: #fff;
+}
+.information{
+display: flex;
+margin-bottom: 15rpx;
+}
+.information .picture{
+flex: 0 0 108rpx;
+padding-top: 30rpx;
+}
+.information .picture .img{
+width: 108rpx;
+height: 108rpx;
+border-radius: 50%;
+}
+.information .text{
+flex: 1;
+padding-top: 30rpx;
+}
+.text .title{
+overflow: hidden;
+padding-top: 15rpx;
+}
+.title .name{
+float: left;
+font-family: "PingFangSC-Semibold";
+font-size: 32rpx;
+color: #282c39;
+}
+.title .hot{
+float: right;
+font-size:22rpx;
+font-family: "PingFangSC-Regular";
+color: #a6a6a6;
+
+}
+.hot .hot-img{
+ width: 21rpx;
+ height: 25rpx;
+}
+.text .content{
+
+}
+.content .content-title{
+display: block;
+margin-top:25rpx;
+margin-bottom: 30rpx;
+font-family: "PingFangSC-Regular";
+line-height: 34rpx;
+font-size: 26rpx;
+color: #282c39;
+}
+.content .img-group{
+ 
+}
+.img-group .car{
+  width: 168rpx;
+  height: 168rpx;
+  margin-right: 15rpx;
+  box-shadow:5px 0 3px rgb(235, 229, 235);
+  border-radius: 10rpx;
+  margin-bottom: 10rpx
+}
+.img-group .bigcar{
+  width: 350rpx;
+  height: 350rpx;
+}
+.text .time{
+padding: 20rpx 0 30rpx 0;  
+font-size:24rpx;
+font-family: "PingFangSC-Regular";
+color: #a6a6a6;
+}
+.foot{
+  font-size:22rpx;
+  font-family: "PingFangSC-Regular";
+  color: #a6a6a6;
+  display: flex;
+  padding-bottom: 20rpx;
+}
+.foot .check,.foot .quick,.foot .share{
+flex: 1;
+align-items: center;
+display: flex
+}
+
+.foot .foot-icon{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}

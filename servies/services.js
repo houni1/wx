@@ -1,5 +1,4 @@
 let globalData = getApp().globalData;
-
 import {$get, $post} from '../utils/request.js';
 
 // 获取首页的信息
@@ -11,6 +10,11 @@ let getIndexData = function () {
     longitude: globalData.currentLonLat.longitude,
     latitude: globalData.currentLonLat.latitude
   })
+}
+
+// 获取在售车型列表
+let getOnSaleData = function (data) {
+  return $get('/cart/auto/autoList', data)
 }
 
 // 授权后触发的函数
@@ -31,7 +35,34 @@ let wxAuthorization = function (data) {
   return $get('/emall/wxAuthorization', params)
 }
 
+//获取我的信息接口
+let getUserInfo = function(){
+    return $get('cart/user/getUserInfo',{
+        userId: globalData.authorize_user_id
+    })
+}
+
+//获取名片夹列表信息
+let getCardList = function(){
+    return $get("cart/card/cardList",{
+        userId: globalData.authorize_user_id
+    })
+}
+
+// let getCardList = function () {
+//     return $get("cart/card/cardList", params)
+// }
+
+//关于推车猫
+let getTuichemaoInfo = function(){
+    return $get("cart/about")
+}
+
 export {
   getIndexData, 
-  wxAuthorization
+  wxAuthorization,
+  getUserInfo,
+  getOnSaleData,
+  getCardList,
+  getTuichemaoInfo
 };

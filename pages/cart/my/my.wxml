@@ -5,10 +5,10 @@
 
         <view class="my-in">
             <view class="personal-info-wrap clear-fix">
-                <image class="head-portrait left" src="./images/head-portrait.jpg"></image>
+                <image class="head-portrait left" src="{{userInfo.headPortrait}}"></image>
                 <view class="personal-info left">
-                    <text class="name">大禹治水</text>
-                    <text class="post">总经理 - 大宝汽车有限公司</text>
+                    <text class="name">{{userInfo.nickName}}</text>
+                    <text class="post">{{userInfo.position}} - {{userInfo.company}}</text>
                 </view>
                 <image class="arrow-right right" src="./images/arrow-right.png"></image>
             </view>

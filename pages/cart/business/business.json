@@ -3,7 +3,5 @@
   "navigationBarTitleText": "车商圈",
   "navigationBarTextStyle": "black",
   "backgroundColor":"#fff",
-  "usingComponents": {
-     "refresh": "/components/refresh/refresh"
-  }
+  "usingComponents": {}
 }

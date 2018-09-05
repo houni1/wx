@@ -96,7 +96,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 10,
 					"name": "名片夹",
 					"pathName": "pages/cart/cardcase/cardcase",
 					"query": ""
@@ -127,8 +127,8 @@
 				},
 				{
 					"id": -1,
-					"name": "上传图片canvas方法测试页面",
-					"pathName": "pages/cart/canvas/canvas",
+					"name": "在售车型",
+					"pathName": "pages/cart/onSale/onSale",
 					"query": ""
 				},
 				{
@@ -138,10 +138,16 @@
 					"query": ""
 				},
 				{
-					"id": 17,
+					"id": -1,
 					"name": "推车猫中间页",
 					"pathName": "pages/cart/mark/mark",
-					"query": "saleId=1&type=2&page=1"
+					"query": ""
+				},
+				{
+					"id": 17,
+					"query": "saleId=1&type=2&page=1",
+					"name": "别人查看",
+					"pathName": "pages/cart/otherpage/otherpage"
 				}
 			]
 		}
