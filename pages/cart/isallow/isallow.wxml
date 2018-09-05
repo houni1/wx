@@ -5,6 +5,6 @@
   <view class='isallow-title'>您还没有微信授权</view>
   <view class='isallow-text'>请点击微信授权使用推车猫</view>
   <view class='isallow-btns'>
-    <view class='btn'>微信授权</view>
+    <button class='btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权</button>
   </view>
 </view>

@@ -33,6 +33,13 @@ let wxAuthorization = function (data) {
     source: globalData.source
   })
   return $get('/emall/wxAuthorization', params)
+
+  // return $get('/cart/login/wxAuthorization', params)
+}
+
+// 获取城市信息接口
+let getCityInfo = function () {
+  return $get('/cart/area/city')
 }
 
 //获取我的信息接口
@@ -64,5 +71,6 @@ export {
   getUserInfo,
   getOnSaleData,
   getCardList,
-  getTuichemaoInfo
+  getTuichemaoInfo,
+  getCityInfo
 };

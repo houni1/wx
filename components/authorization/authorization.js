@@ -36,14 +36,12 @@ Component({
     let _this = this;
     wx.getSetting({
       success(res) {
-        console.log((globalData.source == '1' && !res.authSetting['scope.userInfo']))
         if ((globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
           _this.triggerEvent('firstAuth');
           _this.setData({
             isShow: true
           })
           globalData.isAuthorizeWindowOpen = true
-          globalData.isAuthorize = true
         } else {
           _this.getAuthorizeUserId(null, 2);
         }
@@ -65,13 +63,11 @@ Component({
           location: '5'
         }
         this.getAuthorizeUserId(params, 1);
-        globalData.isAuthorize = true
         return;
       } else {
         this.goPage();
       }
       this.getAuthorizeUserId(params, 2);
-      
     },
     // 获取用户ID
     getAuthorizeUserId (data, wxType) {
