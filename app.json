@@ -21,7 +21,9 @@
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
-      "pages/cart/mark/mark"
+      "pages/cart/mark/mark",
+      "components/city/city",
+      "pages/cart/city/city"
    ],
    "window": {
       "backgroundTextStyle": "light",

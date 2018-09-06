@@ -44,9 +44,9 @@ let wxAuthorization = function (data) {
     saleId: globalData.saleId,
     source: globalData.source
   })
-  return $get('/emall/wxAuthorization', params)
+  // return $get('/emall/wxAuthorization', params)
 
-  // return $get('/cart/login/wxAuthorization', params)
+  return $get('/cart/login/wxAuthorization', params)
 }
 
 // 获取城市信息接口
@@ -54,18 +54,17 @@ let getCityInfo = function () {
   return $get('/cart/area/city')
 }
 
-//获取我的信息接口
-let getUserInfo = function(){
-    return $get('cart/user/getUserInfo',{
-        userId: globalData.authorize_user_id
-    })
+
+//获取个人信息接口
+let getUserInfo = function (data) {
+  return $get('/cart/user/getUserInfo', data)
 }
 
 //获取名片夹列表信息
 let getCardList = function(){
-    return $get("cart/card/cardList",{
-        userId: globalData.authorize_user_id
-    })
+  return $get("cart/card/cardList",{
+    userId: globalData.authorize_user_id
+  })
 }
 
 // let getCardList = function () {
@@ -74,7 +73,7 @@ let getCardList = function(){
 
 //关于推车猫
 let getTuichemaoInfo = function(){
-    return $get("cart/about")
+  return $get("cart/about")
 }
 
 export {

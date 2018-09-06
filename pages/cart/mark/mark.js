@@ -75,9 +75,8 @@ Page({
     console.log(globalData.authorize_user_id)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
-      console.log(globalData.authorize_user_id)
-      wx.redirectTo({
-        url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+      wx.reLaunch({
+        url: '/pages/cart/index/index?'
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
@@ -88,8 +87,8 @@ Page({
         })
       } else {
         console.log('查看自己的页面')
-        wx.redirectTo({
-          url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+        wx.reLaunch({
+          url: '/pages/cart/index/index'
         })
       }
     }

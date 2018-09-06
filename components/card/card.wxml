@@ -1,8 +1,8 @@
-<view class="card-box">
+<view class="card-box" wx:if="{{flag}}">
   <image class='card-box-bg' src='/images/header_bj.png'></image>
   <view class='card'>
     <view class='info-box'>
-      <image class='user-pic' src='/images/user-pic.jpg'></image>
+      <image class='user-pic' src='{{userInfo.headPortrait}}'></image>
       <view class='card-name'>{{userInfo.nickName}}</view>
       <view class='info-list'>
         <view class='card-info-item'>
@@ -58,7 +58,7 @@
       </view>
       <view class='set-person'>
         <view class='set-person-text'>个人介绍</view>
-        <view class='info-item-input'><textarea value='{{userInfo.introduction}}'></textarea></view>
+        <view class='info-item-input'><view>{{userInfo.introduction}}</view></view>
       </view>
     </view>
   </view>
@@ -72,14 +72,14 @@
       </view>
       <view class='set-person'>
         <view class='set-person-text'>公司地址</view>
-        <view class='info-item-input'><textarea value='{{userInfo.companyAddress}}'></textarea></view>
+        <view class='info-item-input'><view>{{userInfo.companyAddress}}</view></view>
       </view>
     </view>
   </view>
   <view class='pic-info'>
     <view class='info-title'>图片展示</view>
-    <view class='pic-item'>
-      <image></image>
+    <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
+      <image src='{{item}}'></image>
     </view>
   </view>
 </view>

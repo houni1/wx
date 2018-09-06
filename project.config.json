@@ -135,13 +135,19 @@
 					"id": 17,
 					"name": "推车猫中间页",
 					"pathName": "pages/cart/mark/mark",
-					"query": "saleId=1&type=1&page=1"
+					"query": "saleId=11&type=2&page=1"
 				},
 				{
 					"id": 17,
 					"name": "别人查看",
 					"pathName": "pages/cart/otherpage/otherpage",
 					"query": "saleId=1&type=2&page=1"
+				},
+				{
+					"id": -1,
+					"name": "推车猫城市组件测试页面",
+					"pathName": "pages/cart/city/city",
+					"query": "saleId=1&type=1&page=1"
 				}
 			]
 		}

@@ -1,0 +1,65 @@
+/* components/city/city.wxss */
+.dialog-back{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    z-index:100;
+    background:rgba(0,0,0,0.75);
+}
+
+.city-wrap{
+    position:fixed;
+    width:100%;
+    bottom:0;
+}
+
+.city-btn{
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 34rpx;
+    color:#d6ab55;
+    padding: 0 34rpx;
+    background:#fff;
+}
+
+.city-btn text:nth-of-type(1){
+    float:left;
+}
+
+.city-btn text:nth-of-type(2){
+    float:right;
+}
+
+.city-con{
+    background:#ededed;
+}
+
+.city-con::after{
+    clear:both;
+    content:"";
+    display:block;
+}
+
+.city-list{
+    width:50%;
+    float:left;
+    height:450rpx;
+    overflow:hidden;
+}
+
+.city-list .li{
+    line-height: 75rpx;
+    height: 75rpx;
+    text-align:center;
+    font-size:26rpx;
+    color:#b3b4b6;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.city-list .li.active{
+    color:#333;
+}
