@@ -1,8 +1,8 @@
-<view class='setup-box'>
+<view class='setup-box' wx:if="{{flag}}">
   <view class='set-pic'>
     <view class='item-title'>头像</view>
     <view class='item-content' bindtap='onloadImage'>
-      <image src='/images/user-pic.jpg'></image>
+      <image src='{{userInfo.headPortrait}}'></image>
     </view>
   </view>
   <view class='set-box'>
@@ -20,7 +20,7 @@
     </view>
     <view class='set-item'>
       <view class='item-title'>所在城市</view>
-      <view class='item-content item-city'>北京</view>
+      <view class='item-content item-city' bindtap='getCityInfo'>北京</view>
     </view>
     <view class='set-item'>
       <view class='item-title'>手机号</view>

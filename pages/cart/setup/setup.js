@@ -1,6 +1,6 @@
 // pages/cart/setup/setup.js
-
-import { getCityInfo } from '../../../servies/services.js';
+let globalData = getApp().globalData;
+import { getUserInfo } from '../../../servies/services.js';
 
 Page({
 
@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 请求数据成功后展示页面
+    flag: false,
     // 默认展示用户信息
     userInfo: {
       position: '总经理',  // 职位
@@ -26,13 +28,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCityInfo()
+    this.getUserInfo()
   },
 
-  getCityInfo: function () {
-    getCityInfo().then(res => {
-      console.log(res)
+  // 获取个人信息，默认展示数据
+  getUserInfo: function () {
+    let data = {
+      userId: globalData.authorize_user_id
+    }
+    getUserInfo(data).then(res => {
+      if (res) {
+        this.setData({
+          flag: true,
+          userInfo: res,
+          imageList: res.userAlbum
+        })
+        console.log(this.data.imageList)
+      }
     })
+  },
+
+  // 点击城市弹起城市组件
+  getCityInfo: function () {
+    console.log('弹起城市选择组件')
   },
 
   /**
@@ -136,7 +154,7 @@ Page({
     this.setData({
       imageList: this.data.imageList
     })
-    // console.log(this.data.imageList)
+    console.log(this.data.imageList)
   },
 
   // 点击预览图片
@@ -153,28 +171,28 @@ Page({
 
   // 提交表单提交页面
   uploadfile: function () {
-    console.log(this.data.imageList)
+    console.log(this.data.imageList.length)
     this.setData({
       imageArr: this.data.imageList.join(',')
     })
     console.log(this.data.imageArr)
-    wx.uploadFile({
-      url: 'https://tcmapi.emao.com/lottery/imgUpload', //仅为示例，非真实的接口地址  
-      filePath: this.data.imageArr,
-      name: 'file',
-      header: {
-        "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
-        'Accept': 'application/json; version=3.8.0'
-      },
-      formData: {
-        userid: '1',
-        naem: 'jisiyang'
-      },
-      success: function (res) {
-        var data = res.data
-        console.log(data)
-      }
-    })
+    // wx.uploadFile({
+    //   url: 'https://tcmapi.emao.com/lottery/imgUpload', //仅为示例，非真实的接口地址  
+    //   filePath: this.data.imageArr,
+    //   name: 'file',
+    //   header: {
+    //     "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
+    //     'Accept': 'application/json; version=3.8.0'
+    //   },
+    //   formData: {
+    //     userid: '1',
+    //     naem: 'jisiyang'
+    //   },
+    //   success: function (res) {
+    //     var data = res.data
+    //     console.log(data)
+    //   }
+    // })
   }
 
 })

@@ -100,12 +100,12 @@ Page({
             wxType: wxType
           });
           wxAuthorization(params).then(subRes => {
-            globalData.authorize_user_id = subRes.authorizeUserId;
+            globalData.authorize_user_id = subRes.userId;
             console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
-            if (globalData.authorize_user_id != '11') {
+            if (globalData.authorize_user_id != '0') {
               console.log('跳转页面')
-              wx.redirectTo({
+              wx.reLaunch({
                 url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
               })
             }
