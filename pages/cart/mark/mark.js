@@ -80,6 +80,7 @@ Page({
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
+      console.log(globalData.saleId)
       if (globalData.saleId != globalData.authorize_user_id) {
         // 跳转至别人的页面
         wx.redirectTo({

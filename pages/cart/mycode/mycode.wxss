@@ -34,12 +34,12 @@
   color: #282c39;
   font-weight: 600;
   padding-top: 50rpx;
+  padding-bottom: 38rpx;
 }
 
 .my-code-company {
   font-size: 32rpx;
   color: #282c39;
-  padding-top: 38rpx;
 }
 
 .my-code-btn {

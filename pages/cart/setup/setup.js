@@ -103,17 +103,19 @@ Page({
   },
 
   // 点击添加按钮弹起选择类型框
-  uploadImage: function () {
+  uploadImage: function (e) {
     let _this = this
+    var pos = e.currentTarget.dataset.pos
+    console.log(pos)
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
       itemColor: "#f7982a",
       success: function (res) {
         if (!res.cancel) {
           if (res.tapIndex == 0) {
-            _this.addImage('album')
+            _this.addImage('album', pos)
           } else if (res.tapIndex == 1) {
-            _this.addImage('camera')
+            _this.addImage('camera', pos)
           }
         }
       }
@@ -121,27 +123,42 @@ Page({
   },
 
   // 选择图片，获取图片信息
-  addImage: function (types) {
+  addImage: function (types, pos) {
     var _this = this;
-    wx.chooseImage({
-      count: 6, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        _this.setData({
-          imageList: _this.data.imageList.concat(res.tempFilePaths)
-        })
-        if (_this.data.imageList.length > 6) {
-          wx.showToast({
-            icon: 'none',
-            title: '您只能添加6张图'
-          })
+    if (pos == 'header') {
+      wx.chooseImage({
+        count: 6, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+          var headPortrait = 'userInfo.headPortrait'
           _this.setData({
-            imageList: _this.data.imageList.slice(0, 6)
+            [headPortrait]: res.tempFilePaths
           })
         }
-      }
-    })
+      })
+    } else if (pos == 'list') {
+      wx.chooseImage({
+        count: 6, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+          _this.setData({
+            imageList: _this.data.imageList.concat(res.tempFilePaths)
+          })
+          if (_this.data.imageList.length > 6) {
+            wx.showToast({
+              icon: 'none',
+              title: '您只能添加6张图'
+            })
+            _this.setData({
+              imageList: _this.data.imageList.slice(0, 6)
+            })
+          }
+        }
+      })
+    }
+    
   },
 
   // 删除图片
@@ -171,28 +188,37 @@ Page({
 
   // 提交表单提交页面
   uploadfile: function () {
-    console.log(this.data.imageList.length)
-    this.setData({
-      imageArr: this.data.imageList.join(',')
+    var imgparams = {
+      headPortrait: this.data.userInfo.headPortrait,
+      userAlbum: this.data.imageList
+    }
+    console.log(imgparams)
+    var imgParams = JSON.stringify(imgparams)
+    console.log(imgParams)
+    wx.uploadFile({
+      url: 'https://tcmapi.emao.com/cart/user/getUserInfo', //仅为示例，非真实的接口地址  
+      filePath: imgParams,
+      name: 'file',
+      header: {
+        "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
+        'Accept': 'application/json; version=3.8.0'
+      },
+      formData: {
+        userId: this.data.userInfo.id,
+        userName: this.data.userInfo.nickName,
+        position: this.data.userInfo.position,
+        provinceId: this.data.userInfo.provinceId,
+        cityId: this.data.userInfo.cityId,
+        phone: this.data.userInfo.phone,
+        wechatNumber: this.data.userInfo.wechatNumber,
+        email: this.data.userInfo.email,
+        introduction: this.data.userInfo.introduction
+      },
+      success: function (res) {
+        var data = res.data
+        console.log(data)
+      }
     })
-    console.log(this.data.imageArr)
-    // wx.uploadFile({
-    //   url: 'https://tcmapi.emao.com/lottery/imgUpload', //仅为示例，非真实的接口地址  
-    //   filePath: this.data.imageArr,
-    //   name: 'file',
-    //   header: {
-    //     "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
-    //     'Accept': 'application/json; version=3.8.0'
-    //   },
-    //   formData: {
-    //     userid: '1',
-    //     naem: 'jisiyang'
-    //   },
-    //   success: function (res) {
-    //     var data = res.data
-    //     console.log(data)
-    //   }
-    // })
   }
 
 })

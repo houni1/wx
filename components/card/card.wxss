@@ -1,6 +1,7 @@
 /* pages/cart/card/card.wxss */
 .card-box {
   position: relative;
+  padding-bottom: 100rpx;
 }
 .card-box .card-box-bg {
   position: absolute;
@@ -34,6 +35,7 @@
 }
 
 .user-pic {
+  background: #eee;
   display: block;
   width: 150rpx;
   height: 150rpx;
@@ -161,7 +163,8 @@
 }
 
 .person-info, .pic-info {
-  margin-top: 15rpx;
+  /* margin-top: 15rpx; */
+  margin-bottom: 15rpx;
   width: 100%;
   background: #fff;
   padding-left: 40rpx;
@@ -266,4 +269,20 @@
   width: 100%;
   flex: 1;
   line-height: 40rpx;
+}
+
+.msg-box {
+  position: fixed;
+  bottom: 140rpx;
+  right: 20rpx;
+  height: 78rpx;
+  background: #ffcf10;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  line-height: 78rpx;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
 }
