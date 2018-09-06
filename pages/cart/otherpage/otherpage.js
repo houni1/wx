@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  homeshow:true,
-  carshow:false,
-  bushow:false
+    homeshow:true,
+    carshow:false,
+    bushow:false
   },
 
   /**
@@ -18,11 +18,11 @@ Page({
   },
   tohome(){
     if(this.homeshow)return;
-   this.setData({
-    homeshow:true,
-    carshow:false,
-    bushow:false
-   })
+    this.setData({
+      homeshow:true,
+      carshow:false,
+      bushow:false
+    })
   },
   tosource(){
     if(this.carshow)return;
@@ -73,9 +73,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-     if (this.data.bushow) {
-        this.business = this.selectComponent("#business");   
-     }
+    if (this.data.bushow) {
+      this.business = this.selectComponent("#business");   
+    }
+    // if (this.data.bushow) {
+    //   this.business = this.selectComponent("#othersCarInfo");
+    // }
   },
 
   /**

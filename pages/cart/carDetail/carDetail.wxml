@@ -4,9 +4,8 @@
   <view class='mainInfo'>
     <!-- 标题 -->
     <view class='title'>
-      <image src='{{ dataInfo.autoInfo.logo }}' mode='widthFix'></image>
+      <image src='{{ dataInfo.autoInfo.logoUrl }}' mode='widthFix'></image>
       <view class='mainTitle'>{{ dataInfo.autoInfo.autoName }}</view>
-      <!-- <view class='subTitle'>豪华型互联版豪华型互联版华型</view> -->
       <view class='carStatus' wx:if="{{ dataInfo.autoInfo.sourceType != 1 }}">现车</view>
     </view>
     <!-- 价格 -->
@@ -34,7 +33,7 @@
   </view>
   <!-- 店铺位置信息 -->
   <view class='addressWrap flex-wrapper'>
-    <view class='photo' style='background-image:url({{ dataInfo.userInfo.headPortrait }});background-size: cover;'>
+    <view class='photo' style='background-image:url({{ dataInfo.userInfo.shopPicture }});background-size: cover;'>
     </view>
     <view class='info flex-item'>
       <text class='name'>{{ dataInfo.userInfo.nickname }}</text>

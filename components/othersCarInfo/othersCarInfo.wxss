@@ -23,7 +23,6 @@ page {
   align-items:  center;
   background: #fff;
   box-sizing: border-box;
-  overflow: auto;
 }
 .kinds .kind {
   flex: 1;
@@ -92,6 +91,7 @@ page {
 }
 .carInfo {
   flex: 1;
+  padding-left: 20rpx;
 }
 .carInfo .title {
   font-size: 28rpx;

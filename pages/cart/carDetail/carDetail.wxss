@@ -26,13 +26,7 @@ page {
   font-weight: bold;
   font-size: 32rpx;
 }
-.mainInfo .subTitle {
-  font-size: 28rpx;
-  margin-right: 10rpx;
-  color: #28293c;
-}
-.carStatus {
-  display: inline-block;
+.mainInfo .title .carStatus {
   padding: 8rpx 20rpx;
   background: #e5f9f6;
   border-radius: 40rpx;
