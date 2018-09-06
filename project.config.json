@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -129,12 +129,6 @@
 					"id": -1,
 					"name": "在售车型",
 					"pathName": "pages/cart/onSale/onSale",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "车型列表",
-					"pathName": "pages/cart/othersCarInfo/othersCarInfo",
 					"query": ""
 				},
 				{

@@ -131,8 +131,8 @@
 }
 .shareBtn {
   position: absolute;
-  right: 0rpx;
-  bottom: 0rpx;
+  right: 28rpx;
+  bottom: 28rpx;
   width: 80rpx;
   height: 80rpx;
 }
@@ -143,8 +143,9 @@
 button {
   width: 80rpx;
   height: 80rpx;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+  padding: 0;
+  background: #fff;
 }
+button::after {
+  border: 0;
+} 

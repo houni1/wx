@@ -11,31 +11,50 @@
 .seninfo .text{
 margin-top: 50rpx auto;
 }
-.picture .add{  
-position: relative;
-}
-.symbol{
-  position: absolute;
-  width: 40rpx;
-  height:40rpx;
-  top:50%;
-  left: 50%;
-  margin-top: -45rpx;
-  margin-left: -20rpx;
-  font-size: 70rpx;
-  font-weight: 800;
-  color: #bdb9b9
-}
-.seninfo .car{
+
+.item-content .add-pic,.add-icon {
+  display: inline-block;
   width: 205rpx;
-  height: 210rpx;
-  margin-right: 14rpx;
-  box-shadow:5px 5px 3px rgb(235, 229, 235);
-  border-radius: 5px;
-  border: #f5ecec solid .5rpx;
-  display: block;
-  float: left;
+  height: 205rpx;
+  border-radius: 5rpx;
+  margin-top: 4rpx;
+  margin-left: 15rpx;
+  position: relative;
 }
+.add-icon{
+  border: 1px solid #ecebeb;
+}
+.item-content .add-pic .img {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  width: 205rpx;
+  height: 205rpx;
+  border-radius: 5rpx;
+}
+.img-close-box {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #afafb2;
+  z-index: 1;
+  padding-left: 11rpx;
+  padding-bottom: 11rpx;
+  padding-top: 5rpx;
+  box-sizing: border-box;
+  border-top-right-radius: 5rpx;
+  border-bottom-left-radius: 100%;
+}
+.img-close-icon {
+  display: block;
+  width: 18rpx;
+  height: 18rpx;
+  z-index: 1;
+}
+
 .text .area{
   width: 95%;
   margin: 50rpx 0 0;

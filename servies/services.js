@@ -17,6 +17,18 @@ let getOnSaleData = function (data) {
   return $get('/cart/auto/autoList', data)
 }
 
+// 获取品牌列表
+let getBrandList = function (data) {
+  return $get('/cart/auto/brandList', data)
+}
+
+// 获取车辆详情
+let autoDetails = function (data) {
+  return $get('/cart/auto/autoDetails', data)
+}
+
+
+
 // 授权后触发的函数
 let wxAuthorization = function (data) {
   let params = {}
@@ -71,5 +83,7 @@ export {
   getOnSaleData,
   getCardList,
   getTuichemaoInfo,
+  getBrandList,
+  autoDetails,
   getCityInfo
 };
