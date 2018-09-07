@@ -1,5 +1,5 @@
 <!--pages/cart/my/my.wxml-->
-<view>
+<view wx:if="{{flag}}">
 
     <view class="my-wrap">
 
@@ -27,7 +27,7 @@
         </view>
 
 
-        <view class="change-phone">
+        <view class="change-phone" bindtap="changePhone">
             更换绑定手机
         </view>
     </view>
