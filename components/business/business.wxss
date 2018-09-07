@@ -75,6 +75,9 @@ color: #282c39;
 .content .img-group{
  
 }
+.content .four{
+  width: 400rpx;
+}
 .img-group .car{
   width: 168rpx;
   height: 168rpx;

@@ -16,27 +16,36 @@
   </view>
   <view class='carsList'>
     <view class='item' wx:for="{{ list }}" wx:key="item">
-      <view class='hotTag' hidden='{{ item.isHot == 0 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
-      <view class='imgWrap'>
-        <image src='{{ item.cover }}' mode='aspectFit'></image>
-      </view>
-      <view class='carInfo'>
-        <view class='title'>{{ item.autoName }}</view>
-        <!-- <view class='subTitle'>豪华型互联版</view> -->
-        <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
-        <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
-        <view class='status'>
-          <view class='carStatus' hidden='{{ item.stockNum != 1 }}'>现车</view>
-          <view class='stock'>库存3台</view>
+      <navigator url="/pages/cart/carDetail/carDetail?userId=5&toUserId=5&id={{item.id}}&longitude=116.318768&latitude=39.943956">
+        <view class='hotTag' hidden='{{ item.isHot == 0 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='imgWrap'>
+          <image src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
-      </view>
+        <view class='carInfo'>
+          <view class='title'>{{ item.autoName }}</view>
+          <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
+          <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
+          <view class='status'>
+            <view class='carStatus' hidden='{{ item.stockNum != 1 }}'>现车</view>
+            <view class='stock'>库存3台</view>
+          </view>
+        </view>
+      </navigator>
       <view class='shareBtn'>
-        <button open-type="share" title="1234"><image src='images/fa.png' mode='widthFix'></image></button>
-      </view>
+          <button open-type="share"
+            data-title="{{ item.autoName }}"
+            data-userId='3'
+            data-toUserId='0'
+            data-autoId='{{item.autoId}}'
+            data-cover='{{item.cover}}'
+            data-longitude=''
+            data-latitude=''>
+            <image src='images/fa.png' mode='widthFix'></image>
+          </button>
+        </view>
     </view>
   </view>
-  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
-    <view class="weui-loading"></view>
-    <view class="weui-loadmore__tips">正在加载</view>
+  <view class='noData' wx:if='{{ noData }}'>
+    <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>

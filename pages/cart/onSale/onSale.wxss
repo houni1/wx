@@ -58,13 +58,12 @@
 }
 .item {
   position: relative;
-  display: flex;
-  flex-direction: wrap;
-  flex: 1;
-  /* height: 300rpx; */
   overflow: hidden;
-  padding: 28rpx 0;
   margin-bottom: 10rpx;
+}
+navigator {
+  display: flex;
+  padding: 28rpx 0;
   background: #fff;
 }
 .hotTag {
@@ -86,6 +85,7 @@
 }
 .carInfo {
   flex: 1;
+  padding-right: 20rpx;
 }
 .carInfo .title {
   font-size: 28rpx;
@@ -148,4 +148,14 @@ button {
 }
 button::after {
   border: 0;
-} 
+}
+.noData {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.noData image{
+  width: 100%;
+}

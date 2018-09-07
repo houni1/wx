@@ -1,6 +1,6 @@
 <view class='wrap flex-wrapper'>
   <view class='kinds flex-wrapper'>
-    <view class='kind' bindtap='chooseBrand' data-index="0">
+    <view class='kind' bindtap='chooseBrand' data-index="0" data-brand-id="">
       <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
       <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>
     </view>
@@ -9,8 +9,7 @@
       wx:key="item"
       bindtap='chooseBrand'
       data-index="{{ index + 1 }}"
-      data-brand-id="{{ item.brandId }}"
-    >
+      data-brand-id="{{ item.brandId }}">
       <text class='{{(chooseBrandIndex == index+1) ? "active" : ""}}'>{{ item.brandName }}</text>
       <image src='images/line.png'
         mode='widthFix' 
@@ -22,7 +21,10 @@
     </view>
   </view>
   <view class="carsList">
-    <navigator url="/pages/cart/carDetail/carDetail" wx:for="{{ list }}" wx:key="item">
+    <navigator
+      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId=3&id={{item.id}}&longitude=116.318768&latitude=39.943956" 
+      wx:for="{{ list }}"
+      wx:key="item">
       <view class='item'>
         <view class='hotTag' hidden="{{ item.isHot == 0 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
@@ -30,7 +32,6 @@
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
-          <!-- <view class='subTitle'>豪华型互联版</view> -->
           <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
           <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
         </view>
@@ -38,7 +39,7 @@
     </navigator>
   </view>
   <!-- 车型列表弹窗 -->
-  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" wx:if="{{s_move && s_move == true}}">
+  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" wx:if="{{s_move && s_move == true}}" catchtouchmove='true'>
     <view class="thiv {{s_move && s_move == true ? 'move_t' : ''}}">
       <view class='flex-wrapper chooseBrand'>
         <view class='flex-item toChoose'>请选择</view>
@@ -55,9 +56,11 @@
           <image src='{{ item.logoUrl }}' mode='widthFix'></image>
           <text>{{ item.brandName }}</text>
         </view>
-
       </view>
       <view class='showAll'>已展示全部</view>
     </view>
+  </view>
+  <view class='noData' wx:if='{{ noData }}'>
+    <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>

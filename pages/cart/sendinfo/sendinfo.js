@@ -1,4 +1,5 @@
 // pages/cart/sendinfo/sendinfo.js
+import {postMessage} from "../../../servies/services.js" ;
 Page({
 
   /**
@@ -87,13 +88,17 @@ Page({
 
   // 提交表单提交页面
   uploadfile: function () {
+    postMessage({userId:11,information:"123"}).then((res)=>{
+      console.log(res)
+    })
+    if(this.data.imageList==[]){return};
     console.log(this.data.imageList)
     this.setData({
       imageArr: this.data.imageList.join(',')
     })
     console.log(this.data.imageArr)
     wx.uploadFile({
-      url: 'https://tcmapi.emao.com/lottery/imgUpload', //仅为示例，非真实的接口地址  
+      url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
       filePath: this.data.imageArr,
       name: 'file',
       header: {

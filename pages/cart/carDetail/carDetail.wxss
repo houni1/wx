@@ -1,3 +1,4 @@
+@import '../../../utils/wxParse/wxParse.wxss';
 page {
   background: #f9f9fa;
 }
@@ -26,13 +27,7 @@ page {
   font-weight: bold;
   font-size: 32rpx;
 }
-.mainInfo .subTitle {
-  font-size: 28rpx;
-  margin-right: 10rpx;
-  color: #28293c;
-}
-.carStatus {
-  display: inline-block;
+.mainInfo .title .carStatus {
   padding: 8rpx 20rpx;
   background: #e5f9f6;
   border-radius: 40rpx;
@@ -40,6 +35,8 @@ page {
   font-weight: bold;
   color: #01c4a2;
   margin-right: 30rpx;
+  margin-left: 20rpx;
+  white-space:nowrap;
 }
 /* 价格 */
 .price view {
@@ -232,6 +229,14 @@ page {
   width: 100%;
   box-shadow: 0px 0px 10px 6px rgba(228,228,228,0.8);
   margin-bottom: 20rpx;
+}
+.create {
+  position: fixed;
+  right: 20rpx;
+  bottom: 100rpx;
+}
+.create image{
+  width: 232rpx;
 }
 /* 分享 */
 .share {
