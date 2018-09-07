@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    page: ''
   },
 
   /**
@@ -20,6 +20,9 @@ Page({
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
+    this.setData({
+      page: options.page
+    })
   },
 
   /**
@@ -72,19 +75,19 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    console.log(globalData.authorize_user_id)
+    console.log('授权后的id', globalData.authorize_user_id)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
       wx.reLaunch({
-        url: '/pages/cart/index/index?'
+        url: '/pages/cart/index/index'
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
-      console.log(globalData.saleId)
+      console.log('别人的id', globalData.saleId)
       if (globalData.saleId != globalData.authorize_user_id) {
         // 跳转至别人的页面
         wx.redirectTo({
-          url: '/pages/cart/otherpage/otherpage?page=' + 3
+          url: '/pages/cart/otherpage/otherpage?page=' + this.data.page
         })
       } else {
         console.log('查看自己的页面')

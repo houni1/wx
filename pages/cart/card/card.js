@@ -13,16 +13,16 @@ Page({
     // 用户默认信息
     userInfo: {
       headPortrait: '',    // 头像
-      nickName: '吉思洋', // 用户昵称
-      position: '总经理', // 职位
-      popularity: "30",  // 销售人气
-      provinceName: '山西', // 省名
-      company: '大宝汽车贸易有限公司', // 公司
-      companyAddress: '北京市密云区经济开发区西通路八号西田各庄政府办公大楼1301', // 公司地址
-      phone: '15311111111', // 手机号
-      email: '123@qq.com', //邮箱
-      wechatNumber: '15311111111',  // 微信号
-      introduction: '我叫XXX，来自XXX...',   // 个人介绍
+      nickName: '', // 用户昵称
+      position: '', // 职位
+      popularity: "",  // 销售人气
+      provinceName: '', // 省名
+      company: '', // 公司
+      companyAddress: '', // 公司地址
+      phone: '', // 手机号
+      email: '', //邮箱
+      wechatNumber: '',  // 微信号
+      introduction: '',   // 个人介绍
       userAlbum: [] // 图片展示
     }
   },
@@ -46,6 +46,26 @@ Page({
           userInfo: res
         })
       }
+    })
+  },
+
+  // 点击预览头像
+  lookHeaderpic: function (e) {
+    var imgurl = []
+    imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
+    console.log(typeof imgurl)
+    wx.previewImage({
+      current: imgurl[0], // 当前显示图片的http链接
+      urls: imgurl  // 需要预览的图片链接列表
+    })
+  },
+
+  // 点击预览图片
+  lookpic: function (e) {
+    var imgurl = e.currentTarget.dataset.imgurl
+    wx.previewImage({
+      current: imgurl, // 当前显示图片的http链接
+      urls: this.data.userInfo.userAlbum // 需要预览的图片http链接列表
     })
   },
 

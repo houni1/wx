@@ -1,6 +1,6 @@
 // pages/cart/setup/setup.js
 let globalData = getApp().globalData;
-import { getUserInfo } from '../../../servies/services.js';
+import { getUserInfo, editUserInfo } from '../../../servies/services.js';
 
 Page({
 
@@ -20,8 +20,7 @@ Page({
       headPortrait: '',    // 头像
       nickName: '吉思洋', // 用户昵称
     },
-    imageList: [],
-    imageArr: []
+    imageList: []
   },
 
   /**
@@ -41,6 +40,7 @@ Page({
         this.setData({
           flag: true,
           userInfo: res,
+          headPortrait: res.headPortrait,
           imageList: res.userAlbum
         })
         console.log(this.data.imageList)
@@ -125,39 +125,26 @@ Page({
   // 选择图片，获取图片信息
   addImage: function (types, pos) {
     var _this = this;
+    var cont = 1
     if (pos == 'header') {
-      wx.chooseImage({
-        count: 6, // 默认9
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-        sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
-        success: function (res) {
-          var headPortrait = 'userInfo.headPortrait'
-          _this.setData({
-            [headPortrait]: res.tempFilePaths
-          })
-        }
-      })
+      cont = 1
     } else if (pos == 'list') {
-      wx.chooseImage({
-        count: 6, // 默认9
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-        sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
-        success: function (res) {
-          _this.setData({
-            imageList: _this.data.imageList.concat(res.tempFilePaths)
-          })
-          if (_this.data.imageList.length > 6) {
-            wx.showToast({
-              icon: 'none',
-              title: '您只能添加6张图'
-            })
-            _this.setData({
-              imageList: _this.data.imageList.slice(0, 6)
-            })
-          }
-        }
-      })
+      cont = 6
     }
+
+    wx.chooseImage({
+      count: cont, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        var successUp = 0; //成功个数
+        var failUp = 0; //失败个数
+        var length = res.tempFilePaths.length; //总共个数
+        var i = 0; //第几个
+        console.log(res.tempFilePaths)
+        _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length, pos);
+      }
+    })
     
   },
 
@@ -186,38 +173,88 @@ Page({
   },
 
 
-  // 提交表单提交页面
-  uploadfile: function () {
-    var imgparams = {
-      headPortrait: this.data.userInfo.headPortrait,
-      userAlbum: this.data.imageList
-    }
-    console.log(imgparams)
-    var imgParams = JSON.stringify(imgparams)
-    console.log(imgParams)
+  // 图片上传请求接口
+  uploadDIY: function (filePaths, successUp, failUp, i, length, pos) {
+    console.log(length)
+    console.log(filePaths[i])
+    var _this = this
     wx.uploadFile({
-      url: 'https://tcmapi.emao.com/cart/user/getUserInfo', //仅为示例，非真实的接口地址  
-      filePath: imgParams,
+      url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
+      filePath: filePaths[i],
       name: 'file',
       header: {
-        "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
-        'Accept': 'application/json; version=3.8.0'
-      },
-      formData: {
-        userId: this.data.userInfo.id,
-        userName: this.data.userInfo.nickName,
-        position: this.data.userInfo.position,
-        provinceId: this.data.userInfo.provinceId,
-        cityId: this.data.userInfo.cityId,
-        phone: this.data.userInfo.phone,
-        wechatNumber: this.data.userInfo.wechatNumber,
-        email: this.data.userInfo.email,
-        introduction: this.data.userInfo.introduction
+        "Accept": "application/json; version=3.13.0",
+        "X-Emao-TCM-WeChat": "1"
       },
       success: function (res) {
-        var data = res.data
-        console.log(data)
+        
+        if (pos == 'list') {
+          var data = JSON.parse(res.data).data
+          console.log(data)
+          _this.setData({
+            imageList: _this.data.imageList.concat(data)
+          })
+          if (_this.data.imageList.length > 6) {
+            wx.showToast({
+              icon: 'none',
+              title: '您只能添加6张图'
+            })
+            _this.setData({
+              imageList: _this.data.imageList.slice(0, 6)
+            })
+          }
+          console.log(_this.data.imageList)
+        }
+        if (pos == 'header') {
+          var data = JSON.parse(res.data).data
+          console.log(data)
+          _this.setData({
+            headPortrait: data
+          })
+          console.log(this.data.headPortrait)
+        }
+        successUp++;
+      },
+      fail: function (res) {
+        failUp++;
+      },
+      complete: () => {
+        i++;
+        console.log(i)
+        if (i == length) {
+          console.log(successUp)
+          console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+        }
+        else {  //递归调用uploadDIY函数
+          _this.uploadDIY(filePaths, successUp, failUp, i, length, pos);
+        }
       }
+    })
+  },
+
+
+  // 编辑个人信息接口
+  editUserInfo: function () {
+    console.log('点击保存按钮')
+    console.log(this.data.imageList)
+    console.log(this.data.headPortrait)
+    let params = {
+      userId: this.data.userInfo.id,
+      userName: this.data.userInfo.nickName,
+      headPortrait: this.data.headPortrait,
+      userAlbum: this.data.imageList,
+      position: this.data.userInfo.position,
+      provinceId: this.data.userInfo.provinceId,
+      cityId: this.data.userInfo.cityId,
+      provinceName: this.data.userInfo.provinceName,
+      cityName: this.data.userInfo.cityName,
+      phone: this.data.userInfo.phone,
+      wechatNumber: this.data.userInfo.wechatNumber,
+      email: this.data.userInfo.email,
+      introduction: this.data.userInfo.introduction
+    }
+    editUserInfo(params).then(res => {
+      console.log(res)
     })
   }
 

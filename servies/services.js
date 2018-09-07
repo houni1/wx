@@ -67,11 +67,22 @@ let getUserInfo = function (data) {
   return $get('/cart/user/getUserInfo', data)
 }
 
+//获取猫哥卫星列表接口
+let getCatList = function (data) {
+  return $get('/cart/catMoon', data)
+}
+
 //获取名片夹列表信息
 let getCardList = function(){
   return $get("cart/card/cardList",{
     userId: globalData.authorize_user_id
   })
+}
+
+
+//编辑个人信息接口
+let editUserInfo = function (data) {
+  return $post('/cart/user/editUserInfo', data)
 }
 
 // let getCardList = function () {
@@ -93,5 +104,7 @@ export {
   getBrandList,
   autoDetails,
   getCityInfo,
-  getIndexUserInfo
+  getIndexUserInfo,
+  editUserInfo,
+  getCatList
 };
