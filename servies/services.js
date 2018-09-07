@@ -54,6 +54,13 @@ let getCityInfo = function () {
   return $get('/cart/area/city')
 }
 
+//获取推车猫首页个人信息接口
+let getIndexUserInfo = function () {
+  return $get('/cart/index', {
+    userId: globalData.authorize_user_id
+  })
+}
+
 
 //获取个人信息接口
 let getUserInfo = function (data) {
@@ -85,5 +92,6 @@ export {
   getTuichemaoInfo,
   getBrandList,
   autoDetails,
-  getCityInfo
+  getCityInfo,
+  getIndexUserInfo
 };

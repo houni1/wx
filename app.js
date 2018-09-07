@@ -12,8 +12,8 @@ App({
     // 来源
     source: '2',
     // 链接上的id
-    saleId: 0,
+    saleId: 12,
     // 微信唯一标识
-    authorize_user_id: 13
+    authorize_user_id: 12
   }
 })

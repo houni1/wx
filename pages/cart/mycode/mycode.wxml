@@ -1,7 +1,7 @@
-<view class='mycode-box'>
+<view class='mycode-box' wx:if="{{flag}}">
   <view class='my-code'>
     <view class='my-code-pic'>
-      <image src="/images/my-code-pic.png"></image>
+      <image src="{{userInfo.exclusiveCode}}"></image>
     </view>
     <view class='my-code-name'>{{userInfo.nickName}}</view>
     <view class='my-code-company'>{{userInfo.company}}</view>
@@ -17,19 +17,19 @@
     </view>
     <view class='mail-code-bottom'>
       <view class='mail-code-cont'>
-        <view class='cont-item'>
+        <view class='cont-item' wx:if="{{userInfo.company}}">
           <view class='item-icon'>
             <image class='company-icon' src='/images/company-icon1.png'></image>
           </view>
           <text class='item-text'>{{userInfo.company}}</text>
         </view>
-        <view class='cont-item'>
+        <view class='cont-item' wx:if="{{userInfo.phone}}">
           <view class='item-icon'>
             <image class='tel-icon' src='/images/tel-icon.png'></image>
           </view>
           <text class='item-text'>{{userInfo.phone}}</text>
         </view>
-        <view class='cont-item'>
+        <view class='cont-item' wx:if="{{userInfo.email}}">
           <view class='mail-icon-box'>
             <image class='mail-icon' src='/images/mail-icon.png'></image>
           </view>
@@ -37,7 +37,7 @@
         </view>
       </view>
       <view class='mail-code-pic'>
-        <image src='/images/my-code-pic.png'></image>
+        <image src='{{userInfo.exclusiveCode}}'></image>
       </view>
     </view>
     <view class='to-mail' bindtap='tomail'>
