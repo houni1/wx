@@ -33,7 +33,7 @@
       <image src='/images/cardli_1.png'></image>
       <text>交换名片</text>
     </view>
-    <view class='other-item'>
+    <view class='other-item' bindtap='addToAddressBook'>
       <image src='/images/cardli_1.png'></image>
       <text>添加通讯录</text>
     </view>

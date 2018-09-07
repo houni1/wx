@@ -13,18 +13,18 @@ Component({
     flag: false,
     // 用户默认信息
     userInfo: {
-      headPortrait: '',    // 头像
-      nickName: '', // 用户昵称
-      position: '', // 职位
-      popularity: "",  // 销售人气
-      provinceName: '', // 省名
-      company: '', // 公司
-      companyAddress: '', // 公司地址
-      phone: '', // 手机号
-      email: '', //邮箱
-      wechatNumber: '',  // 微信号
-      introduction: '',   // 个人介绍
-      userAlbum: [] // 图片展示
+      headPortrait: '',         // 头像
+      nickName: '',             // 用户昵称
+      position: '',             // 职位
+      popularity: "",           // 销售人气
+      provinceName: '',         // 省名
+      company: '',              // 公司
+      companyAddress: '',       // 公司地址
+      phone: '',                // 手机号
+      email: '',                //邮箱
+      wechatNumber: '',         // 微信号
+      introduction: '',         // 个人介绍
+      userAlbum: []             // 图片展示
     }
   },
 
@@ -66,6 +66,17 @@ Component({
   // 复制公司名字
   setNameToClipboard() {
     setClipboard(this.data.userInfo.company)
+  },
+  // 添加通讯录
+  addToAddressBook() {
+    // 添加到手机通讯录
+    wx.addPhoneContact({
+      firstName: this.data.userInfo.nickName,//联系人姓名
+      mobilePhoneNumber: this.data.userInfo.phone,//联系人手机号
+      organization: this.data.userInfo.company,  // 公司地址
+      email: this.data.userInfo.email           // 邮箱
+    })
+
   }
 }
 })

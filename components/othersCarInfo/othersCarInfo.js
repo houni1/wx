@@ -18,7 +18,11 @@ Component({
     chooseBrandIndex: 0,
     chooseBrandIndex_list: -1,
     s_move: false,
-    userId: app.globalData.authorize_user_id
+    brandId: '',    // 车型id
+    userId: app.globalData.authorize_user_id,  // 用户id
+    page: 1,        // 当前页
+    lastPage: 1,       // 总页数
+    noData: false             // 缺省页面
   },
 
   ready: function () {
@@ -44,33 +48,61 @@ Component({
           defaultList: res.slice(0, 4)
         });
         console.log(res)
+        wx.stopPullDownRefresh();
       })      
     },
     // 获取车型列表
-    getCarListData: function () {
+    getCarListData: function (loadKind) {
+      // loadKind 存在并为9时代表上拉加载更多
       var _this = this;
       // 请求列表数据
       var params = {
-        userId: _this.data.userId,     // 当前用户Id [必传]
-        toUserId: '5',   // 被查看用户Id [必传]
-        page: 1,        // 当前页 [必传]
-        brandId: '',    // 品牌id [非必传]
-        status: '1',     // 上下架状态 1上架 2下架 [非必传]
-        type: ''        // 1 自营 2 一猫 [非必传]
+        userId: _this.data.userId,      // 当前用户Id [必传]
+        toUserId: '5',                  // 被查看用户Id [必传]
+        page: _this.data.page,           // 当前页 [必传]
+        brandId: _this.data.brandId,    // 品牌id [非必传]
+        status: '',                     // 上下架状态 1上架 2下架 [非必传]
+        type: ''                        // 1 自营 2 一猫 [非必传]
       }
+      console.log(params)
       getOnSaleData(params).then(function (res) {
-        console.log(res)
-        _this.setData({
-          list: res.list
-        });
+        if (res.list.length != 0) {
+          if (loadKind == 9) {
+            console.log(_this.data.list.concat(res.list))
+            _this.setData({
+              list: _this.data.list.concat(res.list),
+              lastPage: res.page.lastPage,
+              page: _this.data.page + 1,
+              noData: false
+            });
+            console.log(_this.data.page)
+          } else {
+            _this.setData({
+              list: res.list,
+              lastPage: res.page.lastPage,
+              noData: false
+            })
+          }
+        } else {
+          _this.setData({
+            noData: true,
+            list: res.list,
+            lastPage: 1
+          });
+        }
       })
     },
     // 选择品牌
     chooseBrand: function (event) {
+      console.log(event)
+      var brandId = event.currentTarget.dataset.brandId;
       var index = event.currentTarget.dataset.index;
       this.setData({
-        chooseBrandIndex: index
+        chooseBrandIndex: index,
+        brandId: brandId,
+        page: 1
       })
+      this.getCarListData();
     },
     show_move: function () {
       this.setData({
@@ -80,14 +112,20 @@ Component({
     // 品牌列表里选择
     chooseBrand_list: function (event) {
       console.log(event)
+      var brandId = event.currentTarget.dataset.brandId;
       var index = event.currentTarget.dataset.index;
       this.setData({
-        chooseBrandIndex_list: index
+        chooseBrandIndex_list: index,
+        chooseBrandIndex: Number(index) + 1,
+        brandId: brandId,
+        s_move: false
       })
+      this.getCarListData();
     },
+    // 触底操作
     onReachBottom: function () {
       if (this.data.page < this.data.lastPage) {
-        this.getDataList(9);
+        this.getCarListData(9);
       } else {
         wx.showToast({
           title: '没有更多数据了！',

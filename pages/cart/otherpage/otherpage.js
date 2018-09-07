@@ -14,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      
   },
   tohome(){
     if(this.homeshow)return;
@@ -76,16 +75,20 @@ Page({
     if (this.data.bushow) {
       this.business = this.selectComponent("#business");   
     }
-    // if (this.data.bushow) {
-    //   this.business = this.selectComponent("#othersCarInfo");
-    // }
+    if (this.data.carshow) {
+      this.getData = this.selectComponent("#othersCarInfo");
+      this.getData.getBrandListData()
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log(123)
+    if (this.data.carshow) {
+      this.getData = this.selectComponent("#othersCarInfo");
+      this.getData.onReachBottom()
+    }
   },
 
   /**

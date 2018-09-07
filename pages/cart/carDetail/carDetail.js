@@ -30,7 +30,6 @@ Page({
       userId: options.userId,
       toUserId: options.toUserId,
       id: options.id,
-      // type: options.type,
       longitude: options.longitude,
       latitude: options.latitude,
       dataInfo: options
@@ -40,7 +39,6 @@ Page({
       userId: this.data.userId,	        // 当前用户Id [必传]
       toUserId: this.data.toUserId,	    // 被查看用户Id [必传]
       id: this.data.id,	                // 车型Id [必传]
-      // type: this.data.type,	        // 车型来源： 1：自营 2: 一猫车型 [必传]
       longitude: this.data.longitude,   // 当前用户经度 [必传]
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };

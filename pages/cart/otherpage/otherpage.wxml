@@ -1,5 +1,5 @@
 <card wx:if="{{homeshow}}" id="card"></card>
-<othersCarInfo wx:if="{{carshow}}"></othersCarInfo>
+<othersCarInfo wx:if="{{carshow}}" id="othersCarInfo"></othersCarInfo>
 <business wx:if="{{bushow}}" id="business"></business>
 
 <view class='tabBar'>
