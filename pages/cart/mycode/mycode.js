@@ -1,10 +1,14 @@
 // pages/cart/mycode/mycode.js
+let globalData = getApp().globalData;
+import { getUserInfo } from '../../../servies/services.js';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    flag: false, // 请求数据成功后展示默认数据
     toMailFlag: false, // 发送至邮箱弹框，默认不显示
     focusflag: false, // 弹框弹起默认获取焦点
     // 用户默认信息
@@ -22,7 +26,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getUserInfo()
+  },
+
+  // 获取个人信息，默认展示数据
+  getUserInfo: function () {
+    let data = {
+      userId: globalData.authorize_user_id
+    }
+    getUserInfo(data).then(res => {
+      if (res) {
+        this.setData({
+          flag: true,
+          userInfo: res,
+          imageList: res.userAlbum
+        })
+        console.log(this.data.imageList)
+      }
+    })
   },
 
   /**

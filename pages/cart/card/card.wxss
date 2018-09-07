@@ -8,7 +8,6 @@
   left: 0;
   width: 100%;
   height: 322rpx;
-  z-index: -1;
 }
 
 .card {
@@ -34,6 +33,7 @@
 }
 
 .user-pic {
+  background: #eee;
   display: block;
   width: 150rpx;
   height: 150rpx;
@@ -54,6 +54,7 @@
 .info-list {
   width: 100%;
   display: flex;
+  padding-bottom: 45rpx;
 }
 
 .card-info-item {
@@ -94,7 +95,6 @@
 }
 
 .info-company {
-  padding-top: 45rpx;
   padding-bottom: 50rpx;
   text-align: center;
   border-bottom: 1rpx dashed #eee;
@@ -162,7 +162,7 @@
 }
 
 .person-info, .pic-info {
-  margin-top: 15rpx;
+  margin-bottom: 15rpx;
   width: 100%;
   background: #fff;
   padding-left: 40rpx;
@@ -189,7 +189,6 @@
 .pic-info .pic-item {
   width: 100%;
   height: 448rpx;
-  background: pink;
   margin-bottom: 20rpx;
 }
 
@@ -242,7 +241,6 @@
 
 
 .set-person {
-  height: 148rpx;
   padding-top: 40rpx;
   padding-bottom: 26rpx;
   box-sizing: border-box;

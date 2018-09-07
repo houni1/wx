@@ -140,6 +140,6 @@
   </view>
   <!-- 分享 -->
   <view class='share'>
-    <view class='shareBtn'>分享</view>
+    <button open-type='share'><view class='shareBtn'>分享</view></button>
   </view>
 </view>

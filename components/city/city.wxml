@@ -1,0 +1,16 @@
+<view class="dialog-back">
+  <view class="city-wrap">
+    <view class="city-btn">
+      <text>取消</text>
+      <text>完成</text>
+    </view>
+    <picker-view class="city-con">
+      <picker-view-column class="city-list" id="provinceWrap">
+        <view wx:for="{{cityData}}" wx:key="{{index}}">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column class="city-list" id="cityWrap">
+        <view wx:for="{{item.city.district}}" wx:key="{{ind}}">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

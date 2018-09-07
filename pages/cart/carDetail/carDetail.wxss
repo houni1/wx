@@ -237,6 +237,12 @@ page {
 .share {
   padding: 30rpx;
 }
+button {
+  padding: 0;
+}
+button::after {
+  border: 0;
+} 
 .shareBtn {
   height: 100rpx;
   background: #ffcf10;

@@ -1,12 +1,15 @@
 // pages/cart/card/card.js
+let globalData = getApp().globalData;
 import { setClipboard } from '../../../utils/util.js';
-
+import { getUserInfo } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 请求数据成功后展示页面
+    flag: false,
     // 用户默认信息
     userInfo: {
       headPortrait: '',    // 头像
@@ -28,7 +31,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getUserInfo()
+  },
+
+  // 获取个人信息，默认展示数据
+  getUserInfo: function () {
+    let data = {
+      userId: globalData.authorize_user_id
+    }
+    getUserInfo(data).then(res => {
+      if (res) {
+        this.setData({
+          flag: true,
+          userInfo: res
+        })
+      }
+    })
   },
 
   /**
@@ -80,19 +98,19 @@ Page({
   
   },
   // 复制手机号
-  setPhoneToClipboard () {
-    setClipboard(this.data.phone)
+  setPhoneToClipboard() {
+    setClipboard(this.data.userInfo.phone)
   },
   // 复制微信号
   setWeChatToClipboard() {
-    setClipboard(this.data.phone)
+    setClipboard(this.data.userInfo.wechatNumber)
   },
   // 复制邮箱号
   setEMallToClipboard() {
-    setClipboard(this.data.phone)
+    setClipboard(this.data.userInfo.email)
   },
   // 复制公司名字
   setNameToClipboard() {
-    setClipboard(this.data.phone)
+    setClipboard(this.data.userInfo.company)
   }
 })
