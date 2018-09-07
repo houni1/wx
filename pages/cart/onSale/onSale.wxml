@@ -18,7 +18,7 @@
     <view class='item' wx:for="{{ list }}" wx:key="item">
       <view class='hotTag' hidden='{{ item.isHot == 0 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
       <view class='imgWrap'>
-        <image src='{{ item.autoThumb }}' mode='aspectFit'></image>
+        <image src='{{ item.cover }}' mode='aspectFit'></image>
       </view>
       <view class='carInfo'>
         <view class='title'>{{ item.autoName }}</view>
@@ -31,8 +31,8 @@
         </view>
       </view>
       <view class='shareBtn'>
-        <button open-type="share" title="1234"></button>
-        <image src='images/fa.png' mode='widthFix'></image></view>
+        <button open-type="share" title="1234"><image src='images/fa.png' mode='widthFix'></image></button>
+      </view>
     </view>
   </view>
   <view class="weui-loadmore" hidden="{{isHideLoadMore}}">

@@ -88,8 +88,8 @@ Component({
               wxType: wxType
             });
             wxAuthorization(params).then(subRes => {
-              globalData.authorize_user_id = subRes.authorizeUserId;
-              _this.triggerEvent('authResult', subRes.authorizeUserId);
+              globalData.authorize_user_id = subRes.userId;
+              _this.triggerEvent('authResult', subRes.userId);
             })
           }
           else {

@@ -4,51 +4,38 @@
       <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
       <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>
     </view>
-    <view class='kind' bindtap='chooseBrand' data-index="1">
-      <text class='{{chooseBrandIndex == 1 ? "active" : ""}}'>奔驰</text>
-      <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 1}}"></image>
+    <view class='kind'
+      wx:for="{{ defaultList }}"
+      wx:key="item"
+      bindtap='chooseBrand'
+      data-index="{{ index + 1 }}"
+      data-brand-id="{{ item.brandId }}"
+    >
+      <text class='{{(chooseBrandIndex == index+1) ? "active" : ""}}'>{{ item.brandName }}</text>
+      <image src='images/line.png'
+        mode='widthFix' 
+        wx:if="{{chooseBrandIndex == index + 1}}">
+      </image>
     </view>
-    <view class='kind' bindtap='chooseBrand' data-index="2">
-      <text class='{{chooseBrandIndex == 2 ? "active" : ""}}'>宝马</text>
-      <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 2}}"></image>
+    <view class='moreIcon'catchtap='show_move'>
+      <image src='images/arrow-b.png' mode='widthFix'></image>
     </view>
-    <view class='kind' bindtap='chooseBrand' data-index="3">
-      <text class='{{chooseBrandIndex == 3 ? "active" : ""}}'>法拉利</text>
-      <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 3}}"></image>
-    </view>
-    <view class='kind' bindtap='chooseBrand' data-index="4">
-      <text class='{{chooseBrandIndex == 4 ? "active" : ""}}'>奥迪</text>
-      <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 4}}"></image>
-    </view>
-    <view class='moreIcon' catchtap='show_move'><image src='images/arrow-b.png' mode='widthFix'></image></view>
   </view>
   <view class="carsList">
-    <navigator url="/pages/cart/carDetail/carDetail">
-      <view class='item' wx:for="{{5}}" wx:key="*this">
-        <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
+    <navigator url="/pages/cart/carDetail/carDetail" wx:for="{{ list }}" wx:key="item">
+      <view class='item'>
+        <view class='hotTag' hidden="{{ item.isHot == 0 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
-          <image src='images/njdc.png' mode='aspectFit'></image>
+          <image src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
-          <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-          <view class='subTitle'>豪华型互联版</view>
-          <view class='price'><view class='priceNum'>13.90</view>万元</view>
-          <view class='guidePrice'>指导价42.76万</view>
+          <view class='title'>{{ item.autoName }}</view>
+          <!-- <view class='subTitle'>豪华型互联版</view> -->
+          <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
+          <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
         </view>
       </view>
     </navigator>
-    <view class='item'>
-      <view class='hotTag'><image src='images/hotTag.png' mode='widthFix'></image></view>
-      <view class='imgWrap'>
-        <image src='images/njdc.png' mode='aspectFit'></image>
-      </view>
-      <view class='carInfo'>
-        <view class='title'>江淮 瑞风S2 2017款 1.5L手动</view>
-        <view class='subTitle'>豪华型互联版</view>
-        <view class='price'><view class='priceNum'>13.90</view>万元</view>
-        <view class='guidePrice'>指导价42.76万</view>
-      </view>
-    </view>
   </view>
   <!-- 车型列表弹窗 -->
   <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" wx:if="{{s_move && s_move == true}}">
@@ -58,25 +45,17 @@
         <view class='moreIcon' catchtap='show_move'><image src='images/arrow-t.png' mode='widthFix'></image></view>
       </view>
       <view class='brandList'>
-        <view class='flex-wrapper brand {{chooseBrandIndex_list == 0 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="0">
-          <image src='images/bmw.png' mode='widthFix'></image>
-          <text>宝马</text>
+        <view
+          wx:for="{{ brandList }}"
+          wx:key="item"
+          class='flex-wrapper brand {{chooseBrandIndex_list == index ? "choosed" : ""}}'
+          data-brand-id="{{ item.brandId }}"
+          bindtap='chooseBrand_list' 
+          data-index="{{ index }}">
+          <image src='{{ item.logoUrl }}' mode='widthFix'></image>
+          <text>{{ item.brandName }}</text>
         </view>
-        
-        <view class='flex-wrapper brand {{chooseBrandIndex_list == 1 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="1">
-          <image src='images/bmw.png' mode='widthFix'></image>
-          <text>宝马</text>
-        </view>
-        
-        <view class='flex-wrapper brand {{chooseBrandIndex_list == 2 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="2">
-          <image src='images/bmw.png' mode='widthFix'></image>
-          <text>宝马</text>
-        </view>
-        
-        <view class='flex-wrapper brand {{chooseBrandIndex_list == 3 ? "choosed" : ""}}' bindtap='chooseBrand_list' data-index="3">
-          <image src='images/bmw.png' mode='widthFix'></image>
-          <text>宝马</text>
-        </view>
+
       </view>
       <view class='showAll'>已展示全部</view>
     </view>

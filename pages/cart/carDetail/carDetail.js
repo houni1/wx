@@ -1,4 +1,4 @@
-import { getCarDeatilData, pageStatistics, getCityInfoByLonlat } from '../../../servies/services.js';
+import { getCarDeatilData, autoDetails } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
 Page({
 
@@ -24,12 +24,23 @@ Page({
     this.setData({
       dataInfo: dataObj
     });
-
-    // if (!res.param.list) {
-    //   var article = res.param;
-    //   WxParse.wxParse('article', 'html', article, this, 5);
-    // }
-    // console.log(this.data.dataInfo)
+    // 获取车型详情信息
+    var params = {
+      userId: '',	  // 当前用户Id [必传]
+      toUserId: '',	  // 被查看用户Id [必传]
+      autoId: '',	  // 车型Id [必传]
+      type: '',	  // 车型来源： 1：自营 2: 一猫车型 [必传]
+      longitude: '', // 当前用户经度 [必传]
+      latitude: ''  // 当前用户纬度 [必传]
+    };
+    autoDetails(params).then(function () {
+      console.log(123)
+      // if (!res.param.list) {
+      //   var article = res.param;
+      //   WxParse.wxParse('article', 'html', article, this, 5);
+      // }
+      // console.log(this.data.dataInfo)
+    })
   },
 
   /**
@@ -98,8 +109,10 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if(res.form == 'button'){
+      
+    }
   }
 })
 

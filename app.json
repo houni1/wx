@@ -1,5 +1,8 @@
 {
    "pages": [
+      "pages/cart/otherpage/otherpage",
+      "pages/cart/onSale/onSale",
+      "pages/cart/carDetail/carDetail",
       "pages/cart/index/index",
       "pages/cart/business/business",
       "pages/cart/sendinfo/sendinfo",
@@ -15,13 +18,11 @@
       "pages/cart/isallow/isallow",
       "pages/cart/catlist/catlist",
       "pages/cart/isnetwork/isnetwork",
-      "pages/cart/carDetail/carDetail",
-      "pages/cart/onSale/onSale",
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
-      "pages/cart/otherpage/otherpage",
-      "pages/cart/mark/mark"
+      "pages/cart/mark/mark",
+      "pages/cart/city/city"
    ],
    "window": {
       "backgroundTextStyle": "light",
