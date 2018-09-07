@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      
+    wx.hideShareMenu()//隐藏右上角分享按钮
   },
   tohome(){
     if(this.homeshow)return;
@@ -22,6 +22,12 @@ Page({
     homeshow:true,
     carshow:false,
     bushow:false
+   })
+   wx.setNavigationBarTitle({
+     title:"名片",
+     success(){
+      console.log("当前页面是首页")
+     }
    })
   },
   tosource(){
@@ -31,6 +37,12 @@ Page({
       carshow:true,
       bushow:false
      })
+     wx.setNavigationBarTitle({
+      title:"车源",
+      success(){
+        console.log("当前页面车源")
+      }
+    })
   },
   tocircle(){
     if(this.bushow)return;
@@ -38,7 +50,13 @@ Page({
       homeshow:false,
       carshow:false,
       bushow:true
-     })    
+     }) 
+     wx.setNavigationBarTitle({
+      title:"车商圈",
+      success(){
+        console.log("当前页面是车商圈")
+      }
+    })   
   },
 
   /**
@@ -73,7 +91,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-     if (this.data.bushow) {
+    console.log(1)
+     if(this.data.homeshow){
+       
+       wx.stopPullDownRefresh()
+     
+      return;
+     }
+    if (this.data.bushow) {
         this.business = this.selectComponent("#business");   
      }
   },

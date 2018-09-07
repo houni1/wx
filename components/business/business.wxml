@@ -15,7 +15,7 @@
         </view>
         <view class="content">
           <text class="content-title">{{item.information}}</text>
-          <view class='img-group' wx:if="{{item.prices!==[]}}">
+          <view class='img-group {{item.prices.length==4?"four":""}}' wx:if="{{item.prices!==[]}}" >
             <block wx:for="{{item.prices}}" wx:key="{{index_pic}}" wx:for-item="item_pic" wx:for-index="index_pic" bindtap="preview_friend">
               <image src='{{item_pic}}' class="{{item.prices.length > 1 ? 'car':'bigcar'}}" bindtap='preview_friend' data-img="{{item_pic}}" data-list="{{item.prices}}" data-index="{{index_pic}}"></image>
             </block>

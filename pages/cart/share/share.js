@@ -1,4 +1,6 @@
 // pages/cart/share/share.js
+import {creatPoster,sharePoster} from "../../../servies/services.js" ;
+
 Page({
 
   /**
@@ -30,23 +32,46 @@ Page({
 
   ],
     userQrCode:"../business/images/car2.jpg",//二维码图片
-    bannerHeight:"350rpx",
-    swiperCurrent:0,
-    list:[]
+    bannerHeight:"350rpx",//轮播图高度
+    swiperCurrent:0,//当前轮播图索引
+    list:[],//海报图片容器
+   
+    choseimg:""//分享出去时的海报照片
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.pushimg()
+
+      this.pushimg();
+      creatPoster({userId:11,circleId:1,themeId:1}).then(res=>{
+        console.log(res)
+      })
+      // sharePoster({userId:11,circleId:1}).then((res)=>{
+      //   console.log(res)
+      // })
+     this.isShare()
+    
+
   },
+  //判断是否是通过分享进入的页面
+  // isShare(){
+  //   var pages = getCurrentPages() //获取加载的页面
+  //   var currentPage = pages[pages.length-1] //获取当前页面的对象
+  //   var url = currentPage.route //当前页面url
+  //   var options = currentPage.options //如果要获取url中所带的参数可以查看options
+  //   if(options.share==1){
+  //     this.setData({
+  //       bannershow:false
+  //     })
+  //   }
+  // },
   // 动态确定轮播图宽高
   imageLoad: function (e) {
 
     var res = wx.getSystemInfoSync();
-    // console.log(res)
-    // console.log(e)
+    
     var imgwidth = e.detail.width,
       imgheight = e.detail.height,    
       ratio = imgwidth / imgheight;
@@ -55,17 +80,21 @@ Page({
           bannerHeight: res.windowWidth / ratio
         })
       },
+      //海报图片切换时触发
       swiperChange(e){
         // console.log(e.detail.current)
         this.setData({
-          swiperCurrent: e.detail.current   //获取当前轮播图片的下标
+          swiperCurrent: e.detail.current ,  //获取当前轮播图片的下标
+          choseimg:this.data.them[ e.detail.current].url
         })
       } ,
+      //点击类型切换时触发
       clickEvent(e){
         this.setData({
           swiperCurrent: e.currentTarget.id
         })
       },
+      //预览照片
       previewImage(e){
         let img=e.currentTarget.dataset.url;
           wx.previewImage({
@@ -73,16 +102,28 @@ Page({
              urls: this.data.list
           }) 
        },
+       //提取出海报路径列表
        pushimg(){
          this.data.them.forEach(item=>{
             this.data.list.push(item.url)
          })
         //  console.log(this.data.list)
          this.setData({
-           list:this.data.list
+           list:this.data.list,
+           choseimg:this.data.them[0].url
          })
-       },
 
+       },
+       //下载海报
+       downPoster(){
+
+       },
+       //取消
+       cancel(){
+        wx.navigateBack({
+          delta: 1
+        });
+       },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -122,7 +163,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**
