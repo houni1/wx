@@ -14,7 +14,9 @@ Page({
     id: '',         // 车型id
     page: '',       //当前页 [必传]
     brandId: '',    // 品牌id [非必传]
-    status: ''      // 上下架状态 1上架 2下架 [非必传]
+    status: '',      // 上下架状态 1上架 2下架 [非必传]
+    autoParam: [],
+    wxParseData: ''
     // type: ''        // 类型：1 自营 2 一猫[非必传]
   },
 
@@ -45,21 +47,14 @@ Page({
     autoDetails(params).then(function (res) {
       console.log(res)
       _this.setData({
-        dataInfo: res
+        dataInfo: res,
+        autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
       });
-      // if (!res.param.list) {
-      //   var article = res.param;
-      //   WxParse.wxParse('article', 'html', article, this, 5);
-      // }
-      // console.log(this.data.dataInfo)
+      if (!res.autoParam.list) {
+        var article = res.autoParam;
+        WxParse.wxParse('article', 'html', article, _this, 5);
+      }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-  */
-  onReady: function () {
-
   },
   /**
    * 控制参数配置的显示隐藏
@@ -78,46 +73,19 @@ Page({
   },
   // 跳转到地图页面
   toMap: function (event) {
-    console.log(event);
     var lon = event.currentTarget.dataset.lon;
     var lat = event.currentTarget.dataset.lat;
     wx.navigateTo({
       url: '../address/address?lon=' + lon + '&lat=' + lat,
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-  */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-  */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  previewImage: function (event) {
+    console.log(event)
+    var current = event.currentTarget.dataset.imgUrl;
+    wx.previewImage({
+      current: current,  // 当前显示图片的http链接
+      urls: this.data.dataInfo.autoInfo.picture             // 需要预览的图片http链接列表
+    })
   },
 
   /**

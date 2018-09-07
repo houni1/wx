@@ -1,4 +1,5 @@
 import { getBrandList, getOnSaleData } from '../../servies/services.js';
+var app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -16,7 +17,8 @@ Component({
     brandList: [],    // 品牌列表
     chooseBrandIndex: 0,
     chooseBrandIndex_list: -1,
-    s_move: false
+    s_move: false,
+    userId: app.globalData.authorize_user_id
   },
 
   ready: function () {
@@ -49,7 +51,7 @@ Component({
       var _this = this;
       // 请求列表数据
       var params = {
-        userId: '3',     // 当前用户Id [必传]
+        userId: _this.data.userId,     // 当前用户Id [必传]
         toUserId: '5',   // 被查看用户Id [必传]
         page: 1,        // 当前页 [必传]
         brandId: '',    // 品牌id [非必传]
@@ -63,6 +65,7 @@ Component({
         });
       })
     },
+    // 选择品牌
     chooseBrand: function (event) {
       var index = event.currentTarget.dataset.index;
       this.setData({
@@ -74,12 +77,22 @@ Component({
         s_move: !this.data.s_move
       })
     },
+    // 品牌列表里选择
     chooseBrand_list: function (event) {
       console.log(event)
       var index = event.currentTarget.dataset.index;
       this.setData({
         chooseBrandIndex_list: index
       })
+    },
+    onReachBottom: function () {
+      if (this.data.page < this.data.lastPage) {
+        this.getDataList(9);
+      } else {
+        wx.showToast({
+          title: '没有更多数据了！',
+        })
+      }
     }
   }
 })

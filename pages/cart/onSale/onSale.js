@@ -1,11 +1,13 @@
 import { getOnSaleData } from '../../../servies/services.js';
+
+var app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    userId: '5',            // 当前用户Id [必传]
-    toUserId: '5',          // 被查看用户Id [必传]
+    userId: app.globalData.authorize_user_id,            // 当前用户Id [必传]
+    toUserId: app.globalData.authorize_user_id,          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
     showSelect: false,      // 全部商品筛选
     goodsSelectIndex: false,
@@ -26,8 +28,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(getOnSaleData)
     var _this = this;
+    wx.getLocation({
+      success: function (res) {
+        console.log(res)
+        _this.setData({
+          hasLocation: true,
+          location: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          }
+        })
+      }
+    })
     _this.getDataList();
     
     wx.getSystemInfo({

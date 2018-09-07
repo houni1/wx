@@ -13,7 +13,11 @@
       <view class='priceNum'>{{ dataInfo.autoInfo.price }}</view>
       <view class='priceUnit'>万元</view>
       <view class='guidePrice'>指导价{{ dataInfo.autoInfo.guidePrice }}万</view>
-      <view class='call right' bindtap='call' data-telphonenum='{{ dataInfo.userInfo.phone }}'>拨打电话</view>
+      <view class='call right'
+        wx:if="{{ userId != toUserId }}"
+        bindtap='call'
+        data-telphonenum='{{ dataInfo.userInfo.phone }}'>拨打电话
+      </view>
     </view>
   </view>
   <!-- 级别，变速箱,排量 -->
@@ -32,7 +36,7 @@
     </view>
   </view>
   <!-- 店铺位置信息 -->
-  <view class='addressWrap flex-wrapper'>
+  <view class='addressWrap flex-wrapper' wx:if="{{ userId != toUserId }}">
     <view class='photo' style='background-image:url({{ dataInfo.userInfo.shopPicture }});background-size: cover;'>
     </view>
     <view class='info flex-item'>
@@ -71,61 +75,27 @@
   </view>
   <!-- 基本信息 -->
   <view hidden='{{!isOpen}}'>
-    <view class='baseInfoWrap'>
-      <view class='baseInfo flex-wrapper'>
-        <view class='title flex-item'>基本信息</view>
-        <view><view class='space'>●</view> 标配<view class='space'>○</view> 标配<view class='space'>—</view> 无</view>
+    <view class="configuration" wx:if="{{autoParam}}">
+      <view class="configurationWrap" wx:if="{{dataInfo.autoInfo.paramType == 1}}">
+        <block wx:for='{{autoParam}}' wx:key="{{index}}" wx:item="*this">
+          <view class="configurationHead">
+            <text class="black028">{{item.name}}</text>
+            <view class="black024">
+              <text>● 标配</text>  
+              <text>○ 选配</text>
+              <text>- 无</text> 
+            </view>
+          </view>
+          <view class="configurationBody" wx:for="{{item.list}}" wx:key="{{index}}" wx:item="*this">
+            <view class="configurationItem">
+              <view class="grey922">{{item.name}}</view>
+              <view class="black022">{{item.value}}</view>
+            </view>
+          </view>
+        </block>
       </view>
-      <view class='infoList'>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>厂商指导价</view>
-          <view class='flex-item'>10.99万</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>参考价</view>
-          <view class='flex-item'>8.49万</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>保修政策</view>
-          <view class='flex-item'>3年或十万公里</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>排量（升）</view>
-          <view class='flex-item'>1.5</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>变速箱类型</view>
-          <view class='flex-item'>手动</view>
-        </view>
-      </view>
-    </view>
-    <!-- 车体信息 -->
-    <view class='baseInfoWrap'>
-      <view class='baseInfo flex-wrapper'>
-        <view class='title flex-item'>车体</view>
-        <view><view class='space'>●</view> 标配<view class='space'>○</view> 标配<view class='space'>—</view> 无</view>
-      </view>
-      <view class='infoList'>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>颜色</view>
-          <view class='flex-item'>珍珠白、流光银、晶石黑、 奥丁灰、冰海蓝、卡其金、 魔力红、爵士黑</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>参考价</view>
-          <view class='flex-item'>8.49万</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>保修政策</view>
-          <view class='flex-item'>3年或十万公里</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>排量（升）</view>
-          <view class='flex-item'>1.5</view>
-        </view>
-        <view class='infoItem flex-wrapper'>
-          <view class='flex-item'>变速箱类型</view>
-          <view class='flex-item'>手动</view>
-        </view>
+      <view wx:if="{{dataInfo.paramType == 0}}">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       </view>
     </view>
   </view>
@@ -133,12 +103,20 @@
   <view class='realPicture'>
     <view class='title'>实拍图</view>
     <view>
-      <image src='images/pic1.jpg'></image>
-      <image src='images/pic2.jpg'></image>
+      <image src='{{dataInfo.autoInfo.picture[index]}}'
+        wx:for="{{ dataInfo.autoInfo.picture }}"
+        wx:key="{{index}}"
+        data-img-url="{{dataInfo.autoInfo.picture[index]}}"
+        bindtap='previewImage'>
+      </image>
     </view>
   </view>
+  <!-- 创建名片 -->
+  <view class='create'>
+    <image src='images/create.png' mode='widthFix'></image>
+  </view>
   <!-- 分享 -->
-  <view class='share'>
+  <view class='share' wx:if="{{ userId == toUserId }}">
     <button open-type='share'><view class='shareBtn'>分享</view></button>
   </view>
 </view>

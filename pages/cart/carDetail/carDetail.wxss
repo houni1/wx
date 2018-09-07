@@ -1,3 +1,4 @@
+@import '../../../utils/wxParse/wxParse.wxss';
 page {
   background: #f9f9fa;
 }
@@ -34,6 +35,8 @@ page {
   font-weight: bold;
   color: #01c4a2;
   margin-right: 30rpx;
+  margin-left: 20rpx;
+  white-space:nowrap;
 }
 /* 价格 */
 .price view {
@@ -226,6 +229,14 @@ page {
   width: 100%;
   box-shadow: 0px 0px 10px 6px rgba(228,228,228,0.8);
   margin-bottom: 20rpx;
+}
+.create {
+  position: fixed;
+  right: 20rpx;
+  bottom: 100rpx;
+}
+.create image{
+  width: 232rpx;
 }
 /* 分享 */
 .share {
