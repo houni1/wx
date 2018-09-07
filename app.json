@@ -22,6 +22,7 @@
       "pages/index/index",
       "pages/logs/logs",
       "pages/cart/mark/mark",
+      "components/city/city",
       "pages/cart/city/city"
    ],
    "window": {
