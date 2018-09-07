@@ -1,47 +1,55 @@
-<view class='business'>
-<view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
-  <view class='containt'>
+<view class='business' wx:if="{{datashow}}">
+   <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
+   <view class='containt'>
 
-    <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
-      <view class='picture'>
-      <image src='{{item.headPortrait}}' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head'></image>
-      </view>
-      <view class='text'>
-         <view class='title'>
-          <view class='name'>{{item.nickname}}</view>
-          <view class='hot'>
-            <image class='hot-img' src='./images/hot.png'></image>
-         销售人气{{item.popularity}}
+      <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
+         <view class='picture'>
+            <image src='{{item.headPortrait}}' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head'></image>
          </view>
+         <view class='text'>
+            <view class='title'>
+               <view class='name'>{{item.nickname}}</view>
+               <view class='hot'>
+                  <image class='hot-img' src='./images/hot.png'></image>
+                  销售人气{{item.popularity}}
+               </view>
+            </view>
+            <view class="content">
+               <text class="content-title">{{item.information}}</text>
+               <view class='img-group {{item.prices.length==4?"four":""}}' wx:if="{{item.prices!==[]}}">
+                  <block wx:for="{{item.prices}}" wx:key="{{index_pic}}" wx:for-item="item_pic" wx:for-index="index_pic" bindtap="preview_friend">
+                     <image src='{{item_pic}}' class="{{item.prices.length > 1 ? 'car':'bigcar'}}" bindtap='preview_friend' data-img="{{item_pic}}" data-list="{{item.prices}}" data-index="{{index_pic}}"></image>
+                  </block>
+               </view>
+            </view>
+            <view class='time'>{{item.createdAt}}</view>
+            <view class='foot'>
+               <view class='check left' bindtap='checkcard' data-userId="{{item.userId}}">
+                  <image class='foot-icon' src='./images/card.png'></image>
+                  <text>查看名片</text>
+               </view>
+               <view class='quick left' bindtap='quickcall' data-phone="{{item.phone}}">
+                  <image class='foot-icon' src='./images/call.png'></image>
+                  <text>快速联系</text>
+               </view>
+               <view class='share left' bindtap='share' data-userId="{{item.userId}}">
+                  <image class='foot-icon' src='./images/share.png'></image>
+                  <text>分享</text>
+               </view>
+            </view>
          </view>
-        <view class="content">
-          <text class="content-title">{{item.information}}</text>
-          <view class='img-group' wx:if="{{item.prices!==[]}}">
-          <block wx:for="{{item.prices}}" wx:key="{{index_pic}}" wx:for-item="item_pic" wx:for-index="index_pic" bindtap="preview_friend">
-          <image src='{{item_pic}}' class="{{item.prices.length > 1 ? 'car':'bigcar'}}" bindtap='preview_friend' data-img="{{item_pic}}" data-list="{{item.prices}}" data-index="{{index_pic}}"></image>
-          </block>
-          </view>
-        </view>
-        <view class='time'>{{item.createdAt}}</view>
-        <view class='foot'>
-        <view class='check left' bindtap='checkcard' data-userId="{{item.userId}}">
-        <image class='foot-icon' src='./images/card.png'></image>
-        <text>查看名片</text>
-        </view>
-        <view class='quick left' bindtap='quickcall' data-phone="{{item.phone}}">
-        <image class='foot-icon' src='./images/call.png'></image>
-        <text>快速联系</text></view>
-        <view class='share left' bindtap='share' data-userId="{{item.userId}}">
-        <image class='foot-icon' src='./images/share.png'></image>
-        <text>分享</text></view>
-        </view>
       </view>
-    </view>
       <view class='btn-box'>
-       <view class='button' bindtap='send'>
-       发布信息
-       </view>
+         <view class='button' bindtap='send'>
+            发布信息
+         </view>
       </view>
-    </view>
+   </view>
+</view>
+<view wx:if="{{!datashow}}" class="nodata">
+   <view class="no-wraper">
+      <image class="no-img" src='/images/nobusinessdata.png' mode="aspectFit"></image>
+      <view class="no-text">暂无车商圈</view>
+   </view>
 
 </view>

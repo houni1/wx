@@ -14,14 +14,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()//隐藏右上角分享按钮
   },
   tohome(){
     if(this.homeshow)return;
-    this.setData({
-      homeshow:true,
-      carshow:false,
-      bushow:false
-    })
+   this.setData({
+    homeshow:true,
+    carshow:false,
+    bushow:false
+   })
+   wx.setNavigationBarTitle({
+     title:"名片",
+     success(){
+      console.log("当前页面是首页")
+     }
+   })
   },
   tosource(){
     if(this.carshow)return;
@@ -30,6 +37,12 @@ Page({
       carshow:true,
       bushow:false
      })
+     wx.setNavigationBarTitle({
+      title:"车源",
+      success(){
+        console.log("当前页面车源")
+      }
+    })
   },
   tocircle(){
     if(this.bushow)return;
@@ -37,7 +50,13 @@ Page({
       homeshow:false,
       carshow:false,
       bushow:true
-     })    
+     }) 
+     wx.setNavigationBarTitle({
+      title:"车商圈",
+      success(){
+        console.log("当前页面是车商圈")
+      }
+    })   
   },
 
   /**
@@ -79,6 +98,16 @@ Page({
       this.getData = this.selectComponent("#othersCarInfo");
       this.getData.getBrandListData()
     }
+    console.log(1)
+     if(this.data.homeshow){
+       
+       wx.stopPullDownRefresh()
+     
+      return;
+     }
+    if (this.data.bushow) {
+        this.business = this.selectComponent("#business");   
+     }
   },
 
   /**

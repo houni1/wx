@@ -61,7 +61,7 @@ color: #a6a6a6;
   margin: 25rpx auto
 }
 .picture{
-
+width:600rpx
 }
 .content{
   padding: 35rpx 40rpx 0;
@@ -73,12 +73,12 @@ color: #a6a6a6;
  border-radius: 5px;
 }
 .moreimg{
-  width:168rpx;
-  height:168rpx;
+  width:205rpx;
+  height:205rpx;
   margin-right:15rpx;
-  /* box-shadow:5px 0 3px rgb(235, 229, 235); */
-  border-radius:10rpx;
-  margin-bottom:10rpx;
+  box-shadow:0 0 5rpx 5rpx rgb(235, 229, 235);
+  border-radius:5rpx;
+  margin-bottom:15rpx;
   display: inline-block;
 }
 .card{
@@ -116,20 +116,18 @@ margin-right: 10rpx;
 position: relative;
 height: 150rpx;
 }
-.weixin-wrap{
+/* .weixin-wrap{
 position: absolute;
 top: 0;
 left: 140rpx;
-}
+} */
 .down-wrap{
-position: absolute;
-top: 0;
-right: 140rpx;
+text-align: center;
 }
-.winxin{
+/* .winxin{
 width: 88rpx;
 height: 88rpx;
-}
+} */
 .download{
   width: 88rpx;
   height: 88rpx;
