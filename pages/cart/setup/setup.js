@@ -1,6 +1,6 @@
 // pages/cart/setup/setup.js
 let globalData = getApp().globalData;
-import { getUserInfo, editUserInfo } from '../../../servies/services.js';
+import { getUserInfo, editUserInfo, getUserWxPhone } from '../../../servies/services.js';
 
 Page({
 
@@ -12,15 +12,16 @@ Page({
     flag: false,
     // 默认展示用户信息
     userInfo: {
-      position: '总经理',  // 职位
-      phone: '151xxxxxxxx',   // 手机号
-      wechatNumber: '15311111111',  // 微信号
-      email: '123@qq.com',    // 邮箱
-      introduction: '我叫XXX，来自XXX...',   // 个人介绍
+      position: '',  // 职位
+      phone: '',   // 手机号
+      wechatNumber: '',  // 微信号
+      email: '',    // 邮箱
+      introduction: '',   // 个人介绍
       headPortrait: '',    // 头像
-      nickName: '吉思洋', // 用户昵称
+      nickName: '', // 用户昵称
     },
-    imageList: []
+    imageList: [],
+    code: '', // 手机号获取用code传参
   },
 
   /**
@@ -43,6 +44,11 @@ Page({
           headPortrait: res.headPortrait,
           imageList: res.userAlbum
         })
+        if (this.data.imageList == null) {
+          this.setData({
+            imageList: []
+          })
+        }
         console.log(this.data.imageList)
       }
     })
@@ -232,12 +238,93 @@ Page({
     })
   },
 
+  // 获取用户姓名
+  nickName: function (e) {
+    var nickName = 'userInfo.nickName'
+    this.setData({
+      [nickName]: e.detail.value
+    })
+  },
+
+  // 获取用户职位
+  position: function (e) {
+    var position = 'userInfo.position'
+    this.setData({
+      [position]: e.detail.value
+    })
+  },
+
+  getPhoneNumber: function (e) {
+    let _this = this
+    wx.login({
+      success: function(res) {
+        if (res.code) {
+          _this.setData({
+            code: res.code
+          })
+        }
+        if (e.detail.errMsg == 'getPhoneNumber:ok') {
+          let params = {
+            encryptedData: encodeURIComponent(e.detail.encryptedData),
+            iv: encodeURIComponent(e.detail.iv),
+            code: _this.data.code
+          }
+
+          console.log(params)
+
+          getUserWxPhone(params).then(res => {
+            console.log(res)
+            if (res.phoneNumber) {
+              var phone = 'userInfo.phone'
+              _this.setData({
+                [phone]: res.phoneNumber
+              })
+            }
+          })
+          
+        }
+      }
+    })
+  },
+
+  // 获取用户手机号
+  phone: function (e) {
+    var phone = 'userInfo.phone'
+    this.setData({
+      [phone]: e.detail.value
+    })
+  },
+
+  // 获取用户微信号
+  wechatNumber: function (e) {
+    var wechatNumber = 'userInfo.wechatNumber'
+    this.setData({
+      [wechatNumber]: e.detail.value
+    })
+  },
+
+  // 获取用户邮箱
+  email: function (e) {
+    var email = 'userInfo.email'
+    this.setData({
+      [email]: e.detail.value
+    })
+  },
+
+  // 获取用户个人介绍
+  introduction: function (e) {
+    var introduction = 'userInfo.introduction'
+    this.setData({
+      [introduction]: e.detail.value
+    })
+  },
 
   // 编辑个人信息接口
-  editUserInfo: function () {
+  editUserInfo: function (e) {
     console.log('点击保存按钮')
     console.log(this.data.imageList)
     console.log(this.data.headPortrait)
+    console.log(this.data.userInfo.phone)
     let params = {
       userId: this.data.userInfo.id,
       userName: this.data.userInfo.nickName,
@@ -255,6 +342,9 @@ Page({
     }
     editUserInfo(params).then(res => {
       console.log(res)
+      wx.switchTab({
+        url: '/pages/cart/index/index'
+      })
     })
   }
 

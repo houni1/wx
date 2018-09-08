@@ -14,6 +14,6 @@ App({
     // 链接上的id
     saleId: 0,
     // 微信唯一标识
-    authorize_user_id: 13
+    authorize_user_id: 99
   }
 })

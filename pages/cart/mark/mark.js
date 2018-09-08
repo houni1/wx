@@ -23,6 +23,7 @@ Page({
     this.setData({
       page: options.page
     })
+    // console.log(globalData.saleId)
   },
 
   /**
@@ -90,6 +91,14 @@ Page({
           url: '/pages/cart/otherpage/otherpage?page=' + this.data.page
         })
       } else {
+        console.log('查看自己的页面')
+        wx.reLaunch({
+          url: '/pages/cart/index/index'
+        })
+      }
+    } else if (globalData.source == '2' && globalData.saleId == '0') {
+      console.log('微信扫码进入小程序')
+      if (globalData.authorize_user_id != '0') {
         console.log('查看自己的页面')
         wx.reLaunch({
           url: '/pages/cart/index/index'

@@ -1,4 +1,4 @@
-<view class='setup-box' wx:if="{{flag}}">
+<form bindsubmit="editUserInfo" class='setup-box' wx:if="{{flag}}">
   <view class='set-pic'>
     <view class='item-title'>头像</view>
     <view class='item-content' data-pos='header' bindtap='uploadImage'>
@@ -9,13 +9,13 @@
     <view class='set-item'>
       <view class='item-title'>姓名</view>
       <view class='item-content'>
-        <input maxlength='5' placeholder='请输入真实姓名' value='{{userInfo.nickName}}'></input>
+        <input maxlength='5' placeholder='请输入真实姓名' value='{{userInfo.nickName}}' bindinput='nickName'></input>
       </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>职位</view>
       <view class='item-content'>
-        <input maxlength='5' placeholder='请输入您的职位' value='{{userInfo.position}}'></input>
+        <input maxlength='5' placeholder='请输入您的职位' value='{{userInfo.position}}' bindinput='position'></input>
       </view>
     </view>
     <view class='set-item'>
@@ -25,28 +25,29 @@
     <view class='set-item'>
       <view class='item-title'>手机号</view>
       <view class='item-content'>
-        <input type='number'  placeholder='请输入您的联系电话' maxlength='11' value='{{userInfo.phone}}'></input>
+        <input type='number' wx:if="{{userInfo.phone != ''}}" placeholder='请输入您的联系电话' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input>
+        <input type='number' wx:if="{{userInfo.phone == ''}}" placeholder='暂无手机号' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input>
       </view>
-      <view class='get-phone'>
-        <text>获取手机号</text>
+      <view class='get-phone' wx:if="{{userInfo.phone == ''}}">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
       </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>微信号</view>
       <view class='item-content'>
-        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}'></input>
+        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}' bindinput='wechatNumber'></input>
       </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>邮箱号</view>
       <view class='item-content'>
-        <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写' value='{{userInfo.email}}'></input>
+        <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写' value='{{userInfo.email}}' bindinput='email'></input>
       </view>
     </view>
     <view class='set-person'>
       <view class='item-title'>个人介绍</view>
       <view class='item-content'>
-        <textarea placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}'></textarea>
+        <textarea placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></textarea>
       </view>
     </view>
     <view class='set-picture'>
@@ -62,7 +63,7 @@
       </view>
     </view>
   </view>
-  <view bindtap='editUserInfo' class='btn-box'>
-    <view class='btn'>保存</view>
+  <view class='btn-box'>
+    <button formType="submit" class='btn'>保存</button>
   </view>
-</view>
+</form>

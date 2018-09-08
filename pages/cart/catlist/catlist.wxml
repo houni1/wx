@@ -1,6 +1,5 @@
 <scroll-view scroll-y="true" class='scroll-wapper-bottom' bindscrolltolower="scrollBottom" wx:if="{{flag}}">
-<view class='home-catlist' wx:if="{{catlist}}"> 
-  <view class='catlist-title'>猫哥卫星</view>
+<view class='home-catlist' wx:if="{{catlist}}">
   <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
     <view class='catli-pic'>
       <image src='{{item.checkImg}}'></image>

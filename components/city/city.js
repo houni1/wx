@@ -1,6 +1,6 @@
 // components/city2/city2.js
 
-import { getCityInfo } from '../../servies/services.js';
+import { getprovinceInfo } from '../../servies/services.js';
 
 Component({
   /**
@@ -12,28 +12,42 @@ Component({
 
   created () {
     console.log('城市组件')
-    this.getCityInfo()
+    this.getprovinceInfo()
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    cityData: []
+    provinceData: [], // 获取省数据
+    cityData: []  // 获取市数据
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+
+    // 获取省数据
+    getprovinceInfo: function () {
+      console.log('城市组件获取省数据')
+      getprovinceInfo().then(res => {
+        console.log(res)
+        this.setData({
+          provinceData: res
+        })
+      })
+    },
+
+    // 获取市数据
     getCityInfo: function () {
-      console.log('城市组件获取城市数据')
+      console.log('城市组件获取省数据')
       getCityInfo().then(res => {
         console.log(res)
         this.setData({
           cityData: res
         })
       })
-    }
+    },
   }
 })
