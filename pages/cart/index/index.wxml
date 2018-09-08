@@ -29,10 +29,10 @@
     </view>
   </view>
   <view class='card-list'>
-    <view class='card-li'>
+    <button class='card-li' open-type="share">
       <image src='/images/cardli_1.png'></image>
       <text>发名片</text>
-    </view>
+    </button>
     <view class='card-li' bindtap='toMyCard'>
       <image src='/images/cardli_2.png'></image>
       <text>我的名片</text>

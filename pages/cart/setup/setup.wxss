@@ -172,19 +172,20 @@
   padding-top: 27rpx;
   padding-bottom: 27rpx;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
-.get-phone text {
+.get-phone button {
+  flex: 1;
   display: inline-block;
-  padding-top: 15rpx;
-  padding-bottom: 15rpx;
-  width: 155rpx;
   border-radius: 32rpx;
   border: 1px solid #e6e6e6;
   text-align: center;
   color: #fcc91a;
   font-size: 24rpx;
   margin-left: 30rpx;
+  background: #fff;
 }
 
 .item-content input {

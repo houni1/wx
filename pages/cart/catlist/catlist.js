@@ -12,6 +12,7 @@ Page({
     catlist: [], // 猫哥卫星列表数据
     page: 1,  // 当前默认第几页
     currentPage: 1,  // 当前默认每页几条
+    lastPage: 0, // 总页数
     params: {} // 请求猫哥卫星列表数据的参数    
   },
 
@@ -23,7 +24,7 @@ Page({
       params: {
         userId: globalData.authorize_user_id,
         page: this.data.page,
-        perPage: 20
+        pageNumber: 10
       }
     })
     this.getCatList(this.data.params)
@@ -36,10 +37,11 @@ Page({
         catlist: []
       })
     }
+
     getCatList(params).then(res => {
       if (res) {
         this.setData({
-          flag: true,
+          flag: true
         })
       }
       let catlist = params.page == 1 ? [] : this.data.catlist;
@@ -54,7 +56,7 @@ Page({
   // 上拉加载
   scrollBottom: function () {
     console.log('上拉加载数据')
-    if (this.data.params.page == this.data.totalPage) {
+    if (this.data.params.page == this.data.lastPage) {
       return
     }
 
@@ -62,6 +64,8 @@ Page({
     this.setData({
       [paramsPage]: this.data.params.page + 1
     })
+
+    this.getCatList(this.data.params)
 
   },
 

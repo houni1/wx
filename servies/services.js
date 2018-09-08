@@ -37,8 +37,8 @@ let wxAuthorization = function (data) {
   return $get('/cart/login/wxAuthorization', params)
 }
 
-// 获取城市信息接口
-let getCityInfo = function () {
+// 获取省信息接口
+let getprovinceInfo = function () {
   return $get('/cart/area/city')
 }
 
@@ -140,27 +140,32 @@ let starStat=function(data){
   return $post("/cart/statistics/moonStat",data)
 }
 
-export {
-     wxAuthorization,
-     getUserInfo,
-     getOnSaleData,
-     getCardList,
-     getTuichemaoInfo,
-     getCityInfo,
-     getBusinessList,
-     creatPoster,
-     postMessage,
-     sharePoster,
-     cardMake,
-     buttonStat,
-     popStat,
-     starStat,
-     getBrandList,
-     autoDetails,
-     getIndexUserInfo,
-     editUserInfo,
-     getCatList,
-     handleCardcase,
-     getCode,
-     bindPhone
+//获取手机号授权接口
+let getUserWxPhone = function (data) {
+  return $get("/cart/login/getUserWxPhone", data)
 }
+export {
+  wxAuthorization,
+  getUserInfo,
+  getOnSaleData,
+  getCardList,
+  getTuichemaoInfo,
+  getprovinceInfo,
+  getBusinessList,
+  creatPoster,
+  postMessage,
+  sharePoster,
+  cardMake,
+  buttonStat,
+  popStat,
+  starStat,
+  getBrandList,
+  autoDetails,
+  getIndexUserInfo,
+  editUserInfo,
+  getCatList,
+  getUserWxPhone,
+  handleCardcase,
+  getCode,
+  bindPhone
+};

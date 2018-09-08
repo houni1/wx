@@ -1,4 +1,5 @@
 // pages/cart/index/index.js
+let globalData = getApp().globalData;
 import { getIndexUserInfo } from '../../../servies/services.js';
 Page({
 
@@ -41,7 +42,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getIndexUserInfo()
+    // this.getIndexUserInfo()
   },
 
 
@@ -65,6 +66,11 @@ Page({
         }
       }
     })
+  },
+
+  // 点击发名片按钮分享名片给好友
+  sendMyCard: function () {
+    console.log('分享给好友xxx')
   },
 
   // 点击我的名片按钮进入名片页面
@@ -110,7 +116,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getIndexUserInfo()
   },
 
   /**
@@ -144,8 +150,22 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (ops) {
+    console.log('转发好友')
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '推车猫小程序',
+      path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
+      success(inres) {
+        console.log("转发成功", inres);
+      },
+      fail(inerr) {
+        console.log("转发失败", inerr);
+      }
+    }
   },
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
