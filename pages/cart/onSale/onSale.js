@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId: 5,            // 当前用户Id [必传]
-    toUserId: 5,          // 被查看用户Id [必传]
+    userId: app.globalData.authorize_user_id,            // 当前用户Id [必传]
+    toUserId: app.globalData.authorize_user_id,          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
     showSelect: false,      // 全部商品筛选
     goodsSelectIndex: false,
@@ -88,11 +88,10 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      page: 1,
-      lastPage: 1
+      page: 1
     });
     this.getDataList();
-    wx.stopPullDownRefresh()
+    
   },
 
   /**
@@ -112,28 +111,25 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res,e) {
-    console.log(res)
-    console.log(res.dataset)
     if (res.from === 'button') {
-      console.log("来自页面内转发按钮");
-      console.log(res.target);
+      return {
+        title: res.target.dataset.title,
+        path: '/pages/cart/carDetail/carDetail?saleId=' + this.data.userId + '&pages=5',
+        imageUrl: res.target.dataset.cover,
+        success: (res) => {
+          console.log("转发成功", res);
+        },
+        fail: (res) => {
+          console.log("转发失败", res);
+        }
+      }
+      var event = e || event;
+      event.stopPropagation();
     }
     else {
       console.log("来自右上角转发菜单");
     }
-    return {
-      title: res.target.dataset.title,
-      path: '/pages/cart/carDetail/carDetail?id=123',
-      imageUrl: res.target.dataset.cover,
-      success: (res) => {
-        console.log("转发成功", res);
-      },
-      fail: (res) => {
-        console.log("转发失败", res);
-      }
-    }
-    var event = e || event;
-    event.stopPropagation();
+    
     // 按钮统计
     var tjParam = {
       buttonType: 23,
@@ -158,7 +154,7 @@ Page({
     var params = {
       userId: this.data.userId,       // 当前用户Id [必传]
       toUserId: this.data.toUserId,   // 被查看用户Id [必传]
-      page: pageNum,           // 当前页 [必传]
+      page: pageNum,                  // 当前页 [必传]
       brandId: '',                    // 品牌id [非必传]
       status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
       type: this.data.type            // 1 自营 2 一猫 [非必传]
@@ -196,6 +192,7 @@ Page({
           })
         }
       }
+      wx.stopPullDownRefresh();
     })
   }
 })

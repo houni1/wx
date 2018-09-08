@@ -7,13 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-      userInfo:{
-        //   "headPortrait":"http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-        //   "nickName":"大禹治水",
-        //   "position":"经理",
-        //   "company":"大宝汽车贸易有限公司"
-      },
-      flag:false
+    userInfo:{
+      //   "headPortrait":"http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+      //   "nickName":"大禹治水",
+      //   "position":"经理",
+      //   "company":"大宝汽车贸易有限公司"
+    },
+    flag:false
   },
 
   /**
@@ -61,18 +61,22 @@ Page({
 
   //获取用户信息
   userInfo: function(){
-      getUserInfo().then(res => {
-          this.setData({
-              userInfo:res,
-              flag:true
-          })
-      });
+    console.log(globalData.authorize_user_id)
+    var params = {
+      userId: Number(globalData.authorize_user_id)
+    }
+    getUserInfo(params).then(res => {
+      this.setData({
+          userInfo: res,
+          flag:true
+      })
+    });
   },
 
   //跳转到更换绑定手机页面
   changePhone:function(){
-      wx.navigateTo({
-          url:'../changePhone/changePhone'
-      })
+    wx.navigateTo({
+        url:'../changePhone/changePhone'
+    })
   }
 })

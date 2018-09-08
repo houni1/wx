@@ -1,6 +1,6 @@
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>已售出({{ onShelf }})</view>
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
     <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
     <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
       <image src='images/arrow_b.png' mode='widthFix' hidden="{{showSelect}}"></image>
@@ -34,8 +34,8 @@
       <view class='shareBtn'>
           <button open-type="share"
             data-title="{{ item.autoName }}"
-            data-userId='3'
-            data-toUserId='0'
+            data-userId="{{userId}}"
+            data-toUserId='{{toUserId}}'
             data-autoId='{{item.autoId}}'
             data-cover='{{item.cover}}'
             data-longitude=''
