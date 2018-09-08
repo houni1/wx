@@ -1,5 +1,5 @@
 // pages/cart/cardpic/cardpic.js
-import {cardMake,getUserInfo} from "../../../servies/services.js" ;
+import {cardMake,getUserInfo,buttonStat} from "../../../servies/services.js" ;
 Page({
 
   /**
@@ -12,13 +12,15 @@ Page({
    position:"总经理",
    phone:"12356123323",
    company:"大宝汽车贸易有限公司",
-   img:""
+   img:"",
+   isShowShadow:false//是否显示弹窗
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()//隐藏右上角分享按钮
     cardMake({userId:11}).then((res)=>{
       console.log(1,res.img);
       this.setData({
@@ -32,6 +34,9 @@ Page({
   },
     // 保存图片
   saveImg() {
+    buttonStat({appType:1,pageType:4,buttonType:12}).then((res)=>{
+      console.log(res)
+    })
       let _this = this;
       // 获取图片路径并保存
       function getImgInfoToSave (src) {
@@ -49,6 +54,7 @@ Page({
           },
           fail(){
             // console.log("失败",src)
+            
           }
         })
       } 
@@ -63,6 +69,12 @@ Page({
                 success() {
                   console.log("相册授权成功")
                   getImgInfoToSave(imgUrl)
+                },
+                fail(){
+                  console.log("需要再次授权")
+                  _this.setData({
+                    isShowShadow:true
+                  })
                 }
               })
             } else {
@@ -71,7 +83,6 @@ Page({
           }
       })
     },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -119,5 +130,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  // 关闭弹窗
+  toggleShadow (e) {
+    this.setData({
+      isShowShadow: false
+    })
   }
 })

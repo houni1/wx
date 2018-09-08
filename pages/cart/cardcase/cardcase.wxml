@@ -1,5 +1,5 @@
 <!--pages/cart/cardcase/cardcase.wxml-->
-<view class="cardcase-wrap">
+<view class="cardcase-wrap" wx:if="{{flag}}">
     <view wx-if="{{apply.length > 0}}">
         <view class="caedcase-list" 
             wx:for="{{apply}}"
@@ -25,8 +25,8 @@
                 <text class="email-val">{{item.email}}</text>
             </view>
             <view class="cardcase-state clear-fix">
-                <view class="cardcase-refuse">拒绝</view>
-                <view class="cardcase-permit">同意</view>
+                <view class="cardcase-refuse" bindtap="refuseCardcase" data-id="{{item.id}}">拒绝</view>
+                <view class="cardcase-permit" bindtap="consentCardcase" data-id="{{item.id}}">同意</view>
             </view>
         </view>
     </view>

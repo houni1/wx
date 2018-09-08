@@ -1,5 +1,5 @@
 // pages/cart/share/share.js
-import {creatPoster,sharePoster} from "../../../servies/services.js" ;
+import {creatPoster,sharePoster,buttonStat} from "../../../servies/services.js" ;
 
 Page({
 
@@ -35,61 +35,54 @@ Page({
     bannerHeight:"350rpx",//轮播图高度
     swiperCurrent:0,//当前轮播图索引
     list:[],//海报图片容器
+    img:""
    
-    choseimg:""//分享出去时的海报照片
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-      this.pushimg();
-      creatPoster({userId:11,circleId:1,themeId:1}).then(res=>{
+    wx.hideShareMenu()//隐藏右上角分享按钮
+      sharePoster({userId:11,circleId:1}).then((res)=>{
         console.log(res)
+        this.setData({
+          nickname:res.nickname,
+          createdAt:res.createdAt,
+          information:res.information,
+          prices:res.prices,
+          them:res.theme,
+          userQrCode:res.userQrCode,
+        })
       })
-      // sharePoster({userId:11,circleId:1}).then((res)=>{
-      //   console.log(res)
-      // })
-     this.isShare()
+      this.pushimg();
+      creatPoster({userId:1,circleId:1,themeId:1}).then(res=>{
+        console.log(res)
+        this.setData({
+          img:res
+        })
+      })
     
 
   },
-  //判断是否是通过分享进入的页面
-  // isShare(){
-  //   var pages = getCurrentPages() //获取加载的页面
-  //   var currentPage = pages[pages.length-1] //获取当前页面的对象
-  //   var url = currentPage.route //当前页面url
-  //   var options = currentPage.options //如果要获取url中所带的参数可以查看options
-  //   if(options.share==1){
-  //     this.setData({
-  //       bannershow:false
-  //     })
-  //   }
-  // },
-  // 动态确定轮播图宽高
-  imageLoad: function (e) {
-
-    var res = wx.getSystemInfoSync();
-    
-    var imgwidth = e.detail.width,
-      imgheight = e.detail.height,    
-      ratio = imgwidth / imgheight;
-      // console.log(res.windowWidth / ratio)
-        this.setData({
-          bannerHeight: res.windowWidth / ratio
-        })
-      },
+   //按钮统计
+   btnStat(type){
+    console.log(type)
+    buttonStat({appType:1,pageType:6,buttonType:type}).then((res)=>{
+  console.log(res)
+})
+ },
       //海报图片切换时触发
       swiperChange(e){
+        this.btnStat(25)
         // console.log(e.detail.current)
         this.setData({
           swiperCurrent: e.detail.current ,  //获取当前轮播图片的下标
-          choseimg:this.data.them[ e.detail.current].url
         })
       } ,
       //点击类型切换时触发
       clickEvent(e){
+        this.btnStat(25)
         this.setData({
           swiperCurrent: e.currentTarget.id
         })
@@ -110,16 +103,55 @@ Page({
         //  console.log(this.data.list)
          this.setData({
            list:this.data.list,
-           choseimg:this.data.them[0].url
+           
          })
 
        },
        //下载海报
        downPoster(){
-
+    let _this = this;
+    // 获取图片路径并保存
+    function getImgInfoToSave (src) {
+      console.log(src)
+      wx.getImageInfo({
+        src: src,
+        success: function (sres) {
+          console.log('获取图片信息')
+          wx.saveImageToPhotosAlbum({
+            filePath: sres.path,
+            success: function (fres) {
+              console.log('图片保存成功')
+            }
+          })
+        },
+        fail(){
+          // console.log("失败",src)
+        }
+      })
+    } 
+    // 判断是否已经授权writePhotosAlbum（保存图片）
+      let imgUrl = this.data.img;
+      wx.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.writePhotosAlbum']) {
+            console.log('授权失败')
+            wx.authorize({
+              scope: 'scope.writePhotosAlbum',
+              success() {
+                console.log("相册授权成功")
+                getImgInfoToSave(imgUrl)
+              }
+            })
+          } else {
+            getImgInfoToSave(imgUrl)
+          }
+        }
+    })
+  
        },
        //取消
        cancel(){
+        this.btnStat(14)
         wx.navigateBack({
           delta: 1
         });

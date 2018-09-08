@@ -1,8 +1,11 @@
 /* pages/cart/changePhone/changePhone.wxss */
 .change-phone-wrap{padding:130rpx 80rpx 0 80rpx;}
 .phone-wrap{height:80rpx;border-bottom:1px solid #eee;}
-.phone-write{display:block;float:left;width:400rpx;font-size:26rpx;color:#a6a6a6;}
-.phone-wrap image{display:block;float:right;width:28rpx;height:28rpx;margin-top:6rpx;margin-right:28rpx;}
-.get-code{float:right;font-size:26rpx;color:#a6a6a6;}
+.phone-write{display:block;float:left;width:300rpx;font-size:26rpx;color:#a6a6a6;}
+.phone-wrap image{display:block;float:right;width:28rpx;height:28rpx;margin-top:6rpx;margin-right:200rpx;}
+.code-in{float:right;position:relative;width:180rpx;margin-top:8rpx;}
+.get-code{position:absolute;font-size:26rpx;color:#ffcf10;}
+.code-tit{position:absolute;font-size:26rpx;color:#a6a6a6;}
+.code-tit-margin{margin-left:15rpx;}
 .code-wrap{height:80rpx;margin-top:30rpx;line-height:80rpx;font-size:26rpx;color:#a6a6a6;border-bottom:1px solid #eee;}
 .verify{width:590rpx;height:98rpx;margin-top:140rpx;line-height:98rpx;text-align:center;font-size:34rpx;color:#282c39;font-weight:bold;border-radius:48rpx;background-color:#ffcf10;border:1px solid #ffcf10;}

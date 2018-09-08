@@ -1,4 +1,4 @@
-import { getCarDeatilData, autoDetails } from '../../../servies/services.js';
+import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
 Page({
 
@@ -65,9 +65,21 @@ Page({
   // 打电话
   call: function (event) {
     var telphonenum = event.currentTarget.dataset.telphonenum
-    wx.makePhoneCall({
-      phoneNumber: telphonenum,
-    })
+    if (telphonenum) {
+      wx.makePhoneCall({
+        phoneNumber: telphonenum
+      })
+    } else {
+      wx.showToast({
+        title: '没有找到电话'
+      })
+    }
+    var tjParam = {
+      buttonType: 11,
+      pageType: 11,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   },
   // 跳转到地图页面
   toMap: function (event) {
@@ -84,6 +96,20 @@ Page({
       current: current,  // 当前显示图片的http链接
       urls: this.data.dataInfo.autoInfo.picture             // 需要预览的图片http链接列表
     })
+
+    // 按钮统计
+    var pageType;
+    if (this.data.userId == this.data.toUserId) {
+      pageType = 8
+    } else {
+      pageType = 11
+    }
+    var tjParam = {
+      buttonType: 23,
+      pageType: pageType,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   },
 
   /**
@@ -93,5 +119,12 @@ Page({
     if(res.form == 'button'){
       
     }
+    // 按钮统计
+    var tjParam = {
+      buttonType: 23,
+      pageType: 11,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   }
 })

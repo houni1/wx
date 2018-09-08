@@ -52,6 +52,7 @@ Page({
   },
   //头像预览
    preview_head(e){
+    this.btnStat(21)
     let head=e.currentTarget.dataset.head;
     console.log([head])
       wx.previewImage({
@@ -71,6 +72,7 @@ Page({
    },
    //快速联系
    quickcall(e){
+    this.btnStat(11)
      let phone=e.currentTarget.dataset.phone;
       wx.showModal({
          title: '拨打电话',
@@ -89,19 +91,22 @@ Page({
    },
    //查看名片照片
    checkcard(e){
+    this.btnStat(22)
     let userId=e.currentTarget.dataset.userId;
      wx.navigateTo({
-        url: '../cardpic/cardpic',
+        url: '../otherpage/otherpage',
      })
   },
   //发布信息
   send() {
+    this.btnStat(24)
      wx.navigateTo({
         url: '../sendinfo/sendinfo',
      })
   },
   //分享
   share(e){
+    this.btnStat(23)
     let userId=e.currentTarget.dataset.userid
     console.log(e.currentTarget.dataset.userid)
      wx.navigateTo({
@@ -112,7 +117,7 @@ Page({
   getData(data){
     getBusinessList(data).then((res)=>{
       console.log(res)
-      // console.log(res.data.page)
+      // console.log(res.page)
       // this.setData({
       //   page:res.page,
       //   list:res.list
@@ -135,16 +140,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()//隐藏右上角分享按钮
     let data={
       currentPage:1,
       shareId:11,
       userId:11
     }
     this.getData(data)
-    //按钮统计
-    // buttonStat({appType:1,pageType:1,buttonType:1}).then((res)=>{
-    //   console.log(res)
-    // })
+ 
     //人气统计
     popStat({
       userId:11,
@@ -155,14 +158,20 @@ Page({
     //猫哥卫星统计
     // starStat({
     //   userId:12,
-    //   checkId:12,
-    //   checkType:1,
+    //   checkId:13,
+    //   checkType:2,
     //   sourceType:1
     // }).then((res)=>{
     //   console.log(res)
     // })
   },
-  
+     //按钮统计
+     btnStat(type){
+        console.log(type)
+        buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
+      console.log(res)
+    })
+     },
    
   /**
    * 生命周期函数--监听页面初次渲染完成

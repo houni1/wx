@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.hideShareMenu()//隐藏右上角分享按钮
   },
 
 
@@ -90,32 +90,35 @@ Page({
   uploadfile: function () {
     postMessage({userId:11,information:"123"}).then((res)=>{
       console.log(res)
+      wx.switchTab({
+        url: "../business/business"
+      });
     })
-    if(this.data.imageList==[]){return};
-    console.log(this.data.imageList)
-    this.setData({
-      imageArr: this.data.imageList.join(',')
-    })
-    console.log(this.data.imageArr)
-    wx.uploadFile({
-      url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
-      filePath: this.data.imageArr,
-      name: 'file',
-      header: {
-        "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
-        'Accept': 'application/json; version=3.8.0'
-      },
-      formData: {
-        userid: '1'
-      },
-      success: function (res) {
-        var data = res.data
-        console.log(data)
-        wx.navigateBack({
-          delta: 1
-        });
-      }
-    })
+    // if(this.data.imageList==[]){return};
+    // console.log(this.data.imageList)
+    // this.setData({
+    //   imageArr: this.data.imageList.join(',')
+    // })
+    // console.log(this.data.imageArr)
+    // wx.uploadFile({
+    //   url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
+    //   filePath: this.data.imageArr,
+    //   name: 'file',
+    //   header: {
+    //     "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
+    //     'Accept': 'application/json; version=3.8.0'
+    //   },
+    //   formData: {
+    //     userid: '1'
+    //   },
+    //   success: function (res) {
+    //     var data = res.data
+    //     console.log(data)
+    //     wx.navigateBack({
+    //       delta: 1
+    //     });
+    //   }
+    // })
   },
 
   /**
@@ -143,7 +146,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    
   },
 
   /**

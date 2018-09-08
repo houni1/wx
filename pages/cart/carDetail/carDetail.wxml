@@ -112,8 +112,9 @@
     </view>
   </view>
   <!-- 创建名片 -->
-  <view class='create'>
-    <image src='images/create.png' mode='widthFix'></image>
+  <view class='msg-box'>
+    <text wx:if="{{userId == toUserId}}">进入我的名片</text>
+    <text wx:else>创建我的名片</text>
   </view>
   <!-- 分享 -->
   <view class='share' wx:if="{{ userId == toUserId }}">
