@@ -61,7 +61,10 @@ Page({
 
   //获取用户信息
   userInfo: function(){
-      getUserInfo().then(res => {
+      let params = {
+          userId: globalData.authorize_user_id
+      }
+      getUserInfo(params).then(res => {
           this.setData({
               userInfo:res,
               flag:true
@@ -74,5 +77,37 @@ Page({
       wx.navigateTo({
           url:'../changePhone/changePhone'
       })
-  }
+  },
+ 
+   //跳转到关于名片夹页面
+    goToAbout: function () {
+        wx.navigateTo({
+            url: '../about/about'
+        })
+    },
+     //跳转到名片夹
+    goToCardcase: function() {
+        wx.navigateTo({
+            url: '../cardcase/cardcase'
+        })
+    },
+
+    //头像放大
+    showPic:function(e){
+        var picSrc = this.data.userInfo.headPortrait;
+        console.log(picSrc);
+
+        wx.previewImage({
+            current: picSrc, // 当前显示图片的http链接
+            urls: [picSrc] // 需要预览的图片http链接列表
+        })
+
+    },
+
+    //去往设置页面
+    goToSetup:function(){
+        wx.navigateTo({
+            url: '../setup/setup'
+        })
+    }
 })

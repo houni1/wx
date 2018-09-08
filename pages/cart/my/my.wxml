@@ -5,21 +5,21 @@
 
         <view class="my-in">
             <view class="personal-info-wrap clear-fix">
-                <image class="head-portrait left" src="{{userInfo.headPortrait}}"></image>
-                <view class="personal-info left">
+                <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}"></image>
+                <view class="personal-info left" bindtap="goToSetup">
                     <text class="name">{{userInfo.nickName}}</text>
                     <text class="post">{{userInfo.position}} - {{userInfo.company}}</text>
                 </view>
                 <image class="arrow-right right" src="./images/arrow-right.png"></image>
             </view>
 
-            <view class="cardcase-wrap clear-fix">
+            <view class="cardcase-wrap clear-fix" bindtap="goToCardcase">
                 <image class="cardcase-logo left" src="./images/cardcase-logo.png"></image>
                 <view class="cardcase-title left">名片夹</view>
                 <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
             </view>
 
-            <view class="about-wrap clear-fix">
+            <view class="about-wrap clear-fix" bindtap="goToAbout">
                 <image class="about-alogo left" src="./images/about-logo.png"></image>
                 <view class="about-tuichemao left">关于推车猫</view>
                 <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
