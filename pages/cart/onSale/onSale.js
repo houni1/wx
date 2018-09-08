@@ -1,4 +1,4 @@
-import { getOnSaleData } from '../../../servies/services.js';
+import { getOnSaleData, buttonStat } from '../../../servies/services.js';
 
 var app = getApp();
 Page({
@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId: app.globalData.authorize_user_id,            // 当前用户Id [必传]
-    toUserId: app.globalData.authorize_user_id,          // 被查看用户Id [必传]
+    userId: 5,            // 当前用户Id [必传]
+    toUserId: 5,          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
     showSelect: false,      // 全部商品筛选
     goodsSelectIndex: false,
@@ -16,7 +16,7 @@ Page({
     list: [],               // 列表数据,
     brandId: '',            // 品牌id [非必传]
     status: '1',            // 1上架 2下架 [非必传]
-    page: '1',              // 当前页 [必传]
+    page: 1,              // 当前页 [必传]
     type: '',               // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
     onShelf: 0,             // 已售出
     unOnShelf: 0,            // 已下架
@@ -134,15 +134,31 @@ Page({
     }
     var event = e || event;
     event.stopPropagation();
+    // 按钮统计
+    var tjParam = {
+      buttonType: 23,
+      pageType: 7,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   },
   getDataList: function (loadKind) {
     // loadKind 存在并为9时代表上拉加载更多
     var _this = this;
+    // pageNum要请求的页数
+    var pageNum;
+    if (loadKind == 9) {
+      // 上拉加载时
+      pageNum = Number(_this.data.page) + 1
+    } else {
+      // 初始化和下拉刷新
+      pageNum = 1
+    }
     // 请求列表数据
     var params = {
       userId: this.data.userId,       // 当前用户Id [必传]
       toUserId: this.data.toUserId,   // 被查看用户Id [必传]
-      page: this.data.page,           // 当前页 [必传]
+      page: pageNum,           // 当前页 [必传]
       brandId: '',                    // 品牌id [非必传]
       status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
       type: this.data.type            // 1 自营 2 一猫 [非必传]
@@ -150,14 +166,23 @@ Page({
 
     getOnSaleData(params).then(function (res) {
       console.log(res)
-      if (res.list.length != 0) {
-        if (loadKind == 9) {
+      if (loadKind == 9) {
+        _this.setData({
+          onShelf: res.amount.onShelf,
+          unOnShelf: res.amount.unOnShelf,
+          list: _this.data.list.concat(res.list),
+          lastPage: res.page.lastPage,
+          page: res.page.currentPage,
+          noData: false
+        })
+      } else {
+        if (res.list.length > 0) {
           _this.setData({
             onShelf: res.amount.onShelf,
             unOnShelf: res.amount.unOnShelf,
-            list: _this.data.list.concat(res.list),
+            list: res.list,
             lastPage: res.page.lastPage,
-            page: _this.data.page + 1,
+            page: res.page.currentPage,
             noData: false
           })
         } else {
@@ -166,17 +191,10 @@ Page({
             unOnShelf: res.amount.unOnShelf,
             list: res.list,
             lastPage: res.page.lastPage,
-            noData: false
+            page: res.page.currentPage,
+            noData: true
           })
         }
-      } else {
-        _this.setData({
-          noData: true,
-          onShelf: res.amount.onShelf,
-          unOnShelf: res.amount.unOnShelf,
-          list: res.list,
-          lastPage: 1
-        });
       }
     })
   }

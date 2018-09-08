@@ -26,13 +26,13 @@
       wx:for="{{ list }}"
       wx:key="item">
       <view class='item'>
-        <view class='hotTag' hidden="{{ item.isHot == 0 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='hotTag' wx:if="{{ item.state == 1 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
           <image src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
-          <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
+          <view class='price'><view class='priceNum'>{{ item.price }}</view> 万元</view>
           <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
         </view>
       </view>

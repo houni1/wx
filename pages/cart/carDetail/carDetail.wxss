@@ -225,19 +225,7 @@ page {
   height: 130rpx;
   line-height: 120rpx;
 }
-.realPicture image {
-  width: 100%;
-  box-shadow: 0px 0px 10px 6px rgba(228,228,228,0.8);
-  margin-bottom: 20rpx;
-}
-.create {
-  position: fixed;
-  right: 20rpx;
-  bottom: 100rpx;
-}
-.create image{
-  width: 232rpx;
-}
+
 /* 分享 */
 .share {
   padding: 30rpx;
@@ -256,4 +244,20 @@ button::after {
   text-align: center;
   font-size: 36rpx;
   font-weight: bold;
+}
+
+.msg-box {
+  position: fixed;
+  bottom: 140rpx;
+  right: 20rpx;
+  height: 78rpx;
+  background: #ffcf10;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  line-height: 78rpx;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
 }

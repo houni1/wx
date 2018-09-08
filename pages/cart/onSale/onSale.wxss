@@ -98,7 +98,7 @@ navigator {
 .price {
   font-size: 26rpx;
   color: #f72626;
-  margin-top: 26rpx;
+  margin-top: 20rpx;
 }
 .priceNum {
   font-size: 28rpx;
@@ -108,10 +108,10 @@ navigator {
 .guidePrice {
   font-size: 24rpx;
   color: #a6a6a6;
-  margin-top: 20rpx;
+  margin-top: 14rpx;
 }
 .status {
-  margin-top: 20rpx;
+  margin-top: 14rpx;
 }
 .carStatus, .stock {
   display: inline-block;
@@ -131,8 +131,8 @@ navigator {
 }
 .shareBtn {
   position: absolute;
-  right: 28rpx;
-  bottom: 28rpx;
+  right: 20rpx;
+  bottom: 20rpx;
   width: 80rpx;
   height: 80rpx;
 }
