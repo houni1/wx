@@ -1,18 +1,68 @@
 // pages/cart/catlist/catlist.js
+
+let globalData = getApp().globalData;
+import { getCatList } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    flag: false, // 请求数据成功后展示
+    catlist: [], // 猫哥卫星列表数据
+    page: 1,  // 当前默认第几页
+    currentPage: 1,  // 当前默认每页几条
+    params: {} // 请求猫哥卫星列表数据的参数    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      params: {
+        userId: globalData.authorize_user_id,
+        page: this.data.page,
+        perPage: 20
+      }
+    })
+    this.getCatList(this.data.params)
+  },
+
+  // 获取猫哥卫星列表数据，默认展示数据
+  getCatList: function (params) {
+    if (params.page == '1') {
+      this.setData({
+        catlist: []
+      })
+    }
+    getCatList(params).then(res => {
+      if (res) {
+        this.setData({
+          flag: true,
+        })
+      }
+      let catlist = params.page == 1 ? [] : this.data.catlist;
+      this.setData({
+        catlist: catlist.concat(res.list),
+        lastPage: res.page.lastPage,
+        currentPage: res.page.currentPage
+      })
+    })
+  },
+
+  // 上拉加载
+  scrollBottom: function () {
+    console.log('上拉加载数据')
+    if (this.data.params.page == this.data.totalPage) {
+      return
+    }
+
+    var paramsPage = 'params.page'
+    this.setData({
+      [paramsPage]: this.data.params.page + 1
+    })
+
   },
 
   /**

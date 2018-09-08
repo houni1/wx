@@ -170,3 +170,65 @@ page {
   display: inline-block;
   vertical-align: middle;
 }
+
+.configurationHead {
+    height: 107rpx;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    padding: 0 30rpx;
+    justify-content: space-between;
+}
+
+.configurationHead view text {
+    margin-left: 25rpx;
+}
+
+.configurationItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.configurationItem view {
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.configurationItem view:nth-of-type(1) {
+    width: 160rpx;
+    text-align: center;
+    border-right: 1rpx solid #ddd;
+}
+
+.configurationItem view:nth-of-type(2) {
+    flex: 1;
+}
+.configurationBody {
+  background: #fff;
+}
+.configurationBody .configurationItem:last-of-type view {
+    border-bottom: none;
+}
+
+.black028 {
+  font-size:28rpx;
+  color:#000;
+
+}
+.black024 {
+  font-size:24rpx;
+  color:#000;
+}
+.grey922 {
+    font-size: 22rpx;
+    color: #999;
+}
+.black022 {
+    font-size: 22rpx;
+    color: #000;
+}

@@ -1,8 +1,7 @@
 {
-  "backgroundTextStyle": "light",
+  "backgroundTextStyle": "dark",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "在售车型",
   "navigationBarTextStyle": "black",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "enablePullDownRefresh": true
 }

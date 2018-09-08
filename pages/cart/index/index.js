@@ -21,7 +21,7 @@ Page({
       authorization: "",           //  1.一猫授权公司 2.非一猫授权公司
     },
     // 猫哥卫星列表
-    carlist: [
+    catlist: [
       {
         checkId: "",                       // 查看人id
         checkName: "",               // 查看人姓名
@@ -53,9 +53,16 @@ Page({
         this.setData({
           flag: true,
           card: res.card,
-          carlist: res.list,
+          catlist: res.list,
           userInfo: res.userInfo
         })
+        // 处理红点是否显示
+        if (res.card > 0) {
+          wx.setTabBarBadge({
+            index: 3,
+            text: res.card
+          })
+        }
       }
     })
   },
@@ -78,6 +85,17 @@ Page({
   toMyCode: function () {
     wx.navigateTo({
       url: '../mycode/mycode'
+    })
+  },
+
+  // 点击预览图片
+  lookpic: function (e) {
+    var imgurl = []
+    imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
+    console.log(typeof imgurl)
+    wx.previewImage({
+      current: imgurl[0], // 当前显示图片的http链接
+      urls: imgurl  // 需要预览的图片链接列表
     })
   },
 

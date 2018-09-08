@@ -1,4 +1,4 @@
-import { getCarDeatilData, autoDetails } from '../../../servies/services.js';
+import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
 Page({
 
@@ -11,43 +11,48 @@ Page({
     isOpen: false,
     userId: '',     // 当前用户Id [必传]
     toUserId: '',   // 被查看用户Id [必传]
+    id: '',         // 车型id
     page: '',       //当前页 [必传]
     brandId: '',    // 品牌id [非必传]
-    status: '',     // 上下架状态 1上架 2下架 [非必传]
-    type: ''        // 类型：1 自营 2 一猫[非必传]
+    status: '',      // 上下架状态 1上架 2下架 [非必传]
+    autoParam: [],
+    wxParseData: ''
+    // type: ''        // 类型：1 自营 2 一猫[非必传]
   },
 
   /**
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
+    var _this = this;
+    console.log(options)
     this.setData({
-      dataInfo: dataObj
+      userId: options.userId,
+      toUserId: options.toUserId,
+      id: options.id,
+      longitude: options.longitude,
+      latitude: options.latitude,
+      dataInfo: options
     });
     // 获取车型详情信息
     var params = {
-      userId: '',	  // 当前用户Id [必传]
-      toUserId: '',	  // 被查看用户Id [必传]
-      autoId: '',	  // 车型Id [必传]
-      type: '',	  // 车型来源： 1：自营 2: 一猫车型 [必传]
-      longitude: '', // 当前用户经度 [必传]
-      latitude: ''  // 当前用户纬度 [必传]
+      userId: this.data.userId,	        // 当前用户Id [必传]
+      toUserId: this.data.toUserId,	    // 被查看用户Id [必传]
+      id: this.data.id,	                // 车型Id [必传]
+      longitude: this.data.longitude,   // 当前用户经度 [必传]
+      latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
-    autoDetails(params).then(function () {
-      console.log(123)
-      // if (!res.param.list) {
-      //   var article = res.param;
-      //   WxParse.wxParse('article', 'html', article, this, 5);
-      // }
-      // console.log(this.data.dataInfo)
+    autoDetails(params).then(function (res) {
+      console.log(res)
+      _this.setData({
+        dataInfo: res,
+        autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
+      });
+      if (!res.autoParam.list) {
+        var article = res.autoParam;
+        WxParse.wxParse('article', 'html', article, _this, 5);
+      }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-  */
-  onReady: function () {
-
   },
   /**
    * 控制参数配置的显示隐藏
@@ -57,53 +62,54 @@ Page({
       isOpen: !this.data.isOpen
     });
   },
+  // 打电话
   call: function (event) {
     var telphonenum = event.currentTarget.dataset.telphonenum
-    wx.makePhoneCall({
-      phoneNumber: telphonenum,
-    })
+    if (telphonenum) {
+      wx.makePhoneCall({
+        phoneNumber: telphonenum
+      })
+    } else {
+      wx.showToast({
+        title: '没有找到电话'
+      })
+    }
+    var tjParam = {
+      buttonType: 11,
+      pageType: 11,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   },
+  // 跳转到地图页面
   toMap: function (event) {
-    console.log(event);
     var lon = event.currentTarget.dataset.lon;
     var lat = event.currentTarget.dataset.lat;
     wx.navigateTo({
       url: '../address/address?lon=' + lon + '&lat=' + lat,
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-  */
-  onShow: function () {
+  previewImage: function (event) {
+    console.log(event)
+    var current = event.currentTarget.dataset.imgUrl;
+    wx.previewImage({
+      current: current,  // 当前显示图片的http链接
+      urls: this.data.dataInfo.autoInfo.picture             // 需要预览的图片http链接列表
+    })
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-  */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+    // 按钮统计
+    var pageType;
+    if (this.data.userId == this.data.toUserId) {
+      pageType = 8
+    } else {
+      pageType = 11
+    }
+    var tjParam = {
+      buttonType: 23,
+      pageType: pageType,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   },
 
   /**
@@ -113,101 +119,12 @@ Page({
     if(res.form == 'button'){
       
     }
+    // 按钮统计
+    var tjParam = {
+      buttonType: 23,
+      pageType: 11,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
   }
 })
-
-var dataObj = {
-  "autoInfo": {
-    "autoId": "12",                                                  // 车型id
-    "cover": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg", //封面图
-    "logo": "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg",  //品牌logo
-    "autoName": "江淮 瑞风S2 2017款 1.5L 手动舒适型",                   // 车型名称
-    "sourceType": "1",                                                  // 是否是现车 [1 现车|2 期车]
-    "carriage": "三厢车",                                              // 级别
-    "gearboxType": "手动",                                                // 变速箱
-    "displacement": "1.5L",                                                // 排量
-    "price": "13.90",                                               // 现价
-    "guidePrice": "42.20",                                             // 指导价
-    "introduction": "车况优秀",                                            // 车辆简介
-    "picture":                                                         // 车辆照片
-      [
-        "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg",
-        "http://img.emao.net/dealer/nd/bdb/gkno-990x660.jpg"
-      ],
-    "paramType": "1",                                                //参数类型(1-正常格式,0-富文本格式)
-    "isHave": "1",                  //是否有车图  0：没有  1：车型有图  2：该车型无图但车系有图
-  },
-  "userInfo": {
-    "headPortrait": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3058710977,3970620184&fm=27&gp=0.jpg",                                    // 用户头像
-    "nickname": "疯狂",                                                 // 用户昵称
-    "phone": "18888888888",                                             // 手机号
-    "address": "国创园",                                               // 公司地址
-    "distance": "7.5km",                                                // 导航距离
-    "shopPicture": "https://img.emao.net/dealer/nd/bdc/jnlx-750x484.jpg",   // 店铺主图
-    "longitude": "116.407526",                                            // 店铺经度
-    "latitude": "39.904030",                                           // 店铺纬度
-  },
-  "autoParam":    {
-    "name": "基本参数", // - 代表无，● 代表标配，○ 代表选配
-    "param": [
-      {
-        "name": "基本参数",
-        "list":
-          [
-            {
-              "name": "一猫价",
-              "value": "9.99"
-            },
-            {
-              "name": "变速箱",
-              "value": "6AT"
-            }
-          ]
-      },
-      {
-        "name": "车身",
-        "list":
-          [
-            {
-              "name": "长度(mm)",
-              "value": "4220"
-            },
-            {
-              "name": "宽度(mm)",
-              "value": "1740"
-            },
-            {
-              "name": "高度(mm)",
-              "value": "1615"
-            },
-            {
-              "name": "轴距(mm)",
-              "value": "2550"
-            }
-          ]
-      },
-      {
-        "name": "主被动安全",
-        "list":
-          [
-            {
-              "name": "并线辅助",
-              "value": "●"
-            },
-            {
-              "name": "车道偏离系统",
-              "value": "●"
-            },
-            {
-              "name": "后排气帘",
-              "value": "○"
-            },
-            {
-              "name": "后排侧气囊",
-              "value": "-"
-            }
-          ]
-      }
-    ]
-  }
-}

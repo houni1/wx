@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  homeshow:true,
-  carshow:false,
-  bushow:false
+    homeshow:true,
+    carshow:false,
+    bushow:false
   },
 
   /**
@@ -91,6 +91,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    if (this.data.bushow) {
+      this.business = this.selectComponent("#business");   
+    }
+    if (this.data.carshow) {
+      this.getData = this.selectComponent("#othersCarInfo");
+      this.getData.getBrandListData()
+    }
     console.log(1)
      if(this.data.homeshow){
        
@@ -107,7 +114,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.carshow) {
+      this.getData = this.selectComponent("#othersCarInfo");
+      this.getData.onReachBottom()
+    }
   },
 
   /**

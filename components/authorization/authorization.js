@@ -87,6 +87,7 @@ Component({
               code: res.code,
               wxType: wxType
             });
+            // console.log(params)
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
               _this.triggerEvent('authResult', subRes.userId);
@@ -115,6 +116,10 @@ Component({
     // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
       if (globalData.source == '1') {
+        wx.redirectTo({
+          url: '/pages/cart/isallow/isallow'
+        })
+      } else if (globalData.source == '2' && globalData.saleId == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })

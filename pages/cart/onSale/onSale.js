@@ -1,59 +1,54 @@
-import { getOnSaleData } from '../../../servies/services.js';
-Page({
+import { getOnSaleData, buttonStat } from '../../../servies/services.js';
 
+var app = getApp();
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    userId: '',             // 当前用户Id [必传]
-    toUserId: '',           // 被查看用户Id [必传]
+    userId: app.globalData.authorize_user_id,            // 当前用户Id [必传]
+    toUserId: app.globalData.authorize_user_id,          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
     showSelect: false,      // 全部商品筛选
     goodsSelectIndex: false,
     height: 0,
-    isHideLoadMore: true,
     goodsSelectName: '全部商品',
     list: [],               // 列表数据,
     brandId: '',            // 品牌id [非必传]
     status: '1',            // 1上架 2下架 [非必传]
-    page: '1',              // 当前页 [必传]
-    type: '',                // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
+    page: 1,              // 当前页 [必传]
+    type: '',               // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
     onShelf: 0,             // 已售出
-    unOnShelf: 0            // 已下架
+    unOnShelf: 0,            // 已下架
+    lastPage: 1,              // 最后页数
+    noData: false             // 缺省页面
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(getOnSaleData)
-    var that = this;
-    this.setData({
-      onShelf: dataList.amount.onShelf,
-      unOnShelf: dataList.amount.unOnShelf,
-      list: dataList.list
-    })
-    wx.getSystemInfo({
+    var _this = this;
+    wx.getLocation({
       success: function (res) {
-        that.setData({
-          height: res.windowHeight - res.windowWidth / 750 * 134
+        console.log(res)
+        _this.setData({
+          hasLocation: true,
+          location: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          }
         })
       }
     })
+    _this.getDataList();
     
-
-    // 请求列表数据
-    var params = {
-      userId: '',     // 当前用户Id [必传]
-      toUserId: '',   // 被查看用户Id [必传]
-      page: 1,        // 当前页 [必传]
-      brandId: '',    // 品牌id [非必传]
-      status: '1',     // 上下架状态 1上架 2下架 [非必传]
-      type: ''        // 1 自营 2 一猫 [非必传]
-    }
-
-    getOnSaleData(params).then(function() {
-      console.log(123)
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          height: res.windowHeight - res.windowWidth / 750 * 134
+        })
+      }
     })
   },
   /**
@@ -63,17 +58,10 @@ Page({
     var index = event.currentTarget.dataset.index;
     this.setData({
       tabIndex: index,
-      status: index
+      status: parseInt(index) + 1,
+      showSelect: false
     });
-    var params = {
-      userId: '',     // 当前用户Id [必传]
-      toUserId: '',   // 被查看用户Id [必传]
-      page: 1,        // 当前页 [必传]
-      brandId: '',    // 品牌id [非必传]
-      status: this.data.status,     // 上下架状态 1上架 2下架 [非必传]
-      type: this.data.type        // 1 自营 2 一猫 [非必传]
-    }
-    console.log(params);
+    this.getDataList();
   },
   /*
   * 显示隐藏下拉菜单
@@ -93,96 +81,118 @@ Page({
       type: event.currentTarget.dataset.type,
       goodsSelectIndex: true
     });
+    this.getDataList();
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page: 1
+    });
+    this.getDataList();
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({
-      isHideLoadMore: false
-    })
-    setTimeout(() => {
-      console.log('加载更多');
-      this.setData({
-        isHideLoadMore: true
+    if (this.data.page < this.data.lastPage) {
+      this.getDataList(9);
+    } else {
+      wx.showToast({
+        title: '没有更多数据了！',
       })
-    }, 1000)
+    }
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
-    console.log(res.from)
+  onShareAppMessage: function (res,e) {
+    if (res.from === 'button') {
+      return {
+        title: res.target.dataset.title,
+        path: '/pages/cart/carDetail/carDetail?saleId=' + this.data.userId + '&pages=5',
+        imageUrl: res.target.dataset.cover,
+        success: (res) => {
+          console.log("转发成功", res);
+        },
+        fail: (res) => {
+          console.log("转发失败", res);
+        }
+      }
+      var event = e || event;
+      event.stopPropagation();
+    }
+    else {
+      console.log("来自右上角转发菜单");
+    }
+    
+    // 按钮统计
+    var tjParam = {
+      buttonType: 23,
+      pageType: 7,
+      appType: 1
+    }
+    buttonStat(tjParam).then(function (res) { }) 
+  },
+  getDataList: function (loadKind) {
+    // loadKind 存在并为9时代表上拉加载更多
+    var _this = this;
+    // pageNum要请求的页数
+    var pageNum;
+    if (loadKind == 9) {
+      // 上拉加载时
+      pageNum = Number(_this.data.page) + 1
+    } else {
+      // 初始化和下拉刷新
+      pageNum = 1
+    }
+    // 请求列表数据
+    var params = {
+      userId: this.data.userId,       // 当前用户Id [必传]
+      toUserId: this.data.toUserId,   // 被查看用户Id [必传]
+      page: pageNum,                  // 当前页 [必传]
+      brandId: '',                    // 品牌id [非必传]
+      status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
+      type: this.data.type            // 1 自营 2 一猫 [非必传]
+    }
+
+    getOnSaleData(params).then(function (res) {
+      console.log(res)
+      if (loadKind == 9) {
+        _this.setData({
+          onShelf: res.amount.onShelf,
+          unOnShelf: res.amount.unOnShelf,
+          list: _this.data.list.concat(res.list),
+          lastPage: res.page.lastPage,
+          page: res.page.currentPage,
+          noData: false
+        })
+      } else {
+        if (res.list.length > 0) {
+          _this.setData({
+            onShelf: res.amount.onShelf,
+            unOnShelf: res.amount.unOnShelf,
+            list: res.list,
+            lastPage: res.page.lastPage,
+            page: res.page.currentPage,
+            noData: false
+          })
+        } else {
+          _this.setData({
+            onShelf: res.amount.onShelf,
+            unOnShelf: res.amount.unOnShelf,
+            list: res.list,
+            lastPage: res.page.lastPage,
+            page: res.page.currentPage,
+            noData: true
+          })
+        }
+      }
+      wx.stopPullDownRefresh();
+    })
   }
 })
-
-var dataList = {
-  page:{
-    "perPage": "10",
-    "currentPage": "1",
-    "lastPage": "3",
-    "count": "20"
-  },
-  amount: {
-    onShelf: 4,
-    unOnShelf: 2
-  },
-  list:[
-    {
-      "autoId": "12",                                 //车型id
-      "autoName": "江淮 瑞风s2 2017款 1.5L手动豪华型",  //车型名称
-      "price": "13.90",                              //现价
-      "guidePrice": "42.30",                              //指导价
-      "type": "1",                                 //类型: 1 自营 2 一猫
-      "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
-      "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
-      "stockNum": "1", //库存数
-      "isHot": "1", //是否热门车型：1-是，0-否
-    },
-    {
-      "autoId": "12",                                 //车型id
-      "autoName": "江淮 瑞风s2 2017款 1.5L手动豪华型",  //车型名称
-      "price": "13.90",                              //现价
-      "guidePrice": "42.30",                              //指导价
-      "type": "1",                                 //类型: 1 自营 2 一猫
-      "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
-      "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
-      "stockNum": "1", //库存数
-      "isHot": "0", //是否热门车型：1-是，0-否
-    },
-    {
-      "autoId": "12",                                 //车型id
-      "autoName": "江淮 瑞风s2 2017款 1.5L手动豪华型",  //车型名称
-      "price": "13.90",                              //现价
-      "guidePrice": "42.30",                              //指导价
-      "type": "1",                                 //类型: 1 自营 2 一猫
-      "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
-      "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
-      "stockNum": "1", //库存数
-      "isHot": "0", //是否热门车型：1-是，0-否
-    },
-    {
-      "autoId": "12",                                 //车型id
-      "autoName": "江淮 瑞风s2 2017款 1.5L手动豪华型",  //车型名称
-      "price": "13.90",                              //现价
-      "guidePrice": "42.30",                              //指导价
-      "type": "1",                                 //类型: 1 自营 2 一猫
-      "logoUrl": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //logo地址
-      "cover": "http://img.emao.net/car/logo/nd/nd/dkni-100x100.png/177", //车型封面
-      "state": "1", //1：现车 2：3天后到店 3：7天后到店 4：需预订
-      "stockNum": "1", //库存数
-      "isHot": "0", //是否热门车型：1-是，0-否
-    },
-  ]
-}

@@ -58,13 +58,12 @@
 }
 .item {
   position: relative;
-  display: flex;
-  flex-direction: wrap;
-  flex: 1;
-  /* height: 300rpx; */
   overflow: hidden;
-  padding: 28rpx 0;
   margin-bottom: 10rpx;
+}
+navigator {
+  display: flex;
+  padding: 28rpx 0;
   background: #fff;
 }
 .hotTag {
@@ -86,6 +85,7 @@
 }
 .carInfo {
   flex: 1;
+  padding-right: 20rpx;
 }
 .carInfo .title {
   font-size: 28rpx;
@@ -98,7 +98,7 @@
 .price {
   font-size: 26rpx;
   color: #f72626;
-  margin-top: 26rpx;
+  margin-top: 20rpx;
 }
 .priceNum {
   font-size: 28rpx;
@@ -108,10 +108,10 @@
 .guidePrice {
   font-size: 24rpx;
   color: #a6a6a6;
-  margin-top: 20rpx;
+  margin-top: 14rpx;
 }
 .status {
-  margin-top: 20rpx;
+  margin-top: 14rpx;
 }
 .carStatus, .stock {
   display: inline-block;
@@ -131,8 +131,8 @@
 }
 .shareBtn {
   position: absolute;
-  right: 28rpx;
-  bottom: 28rpx;
+  right: 20rpx;
+  bottom: 20rpx;
   width: 80rpx;
   height: 80rpx;
 }
@@ -148,4 +148,14 @@ button {
 }
 button::after {
   border: 0;
-} 
+}
+.noData {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.noData image{
+  width: 100%;
+}
