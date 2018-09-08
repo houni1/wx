@@ -2,7 +2,7 @@
   <image class='card-box-bg' src='/images/header_bj.png'></image>
   <view class='card'>
     <view class='info-box'>
-      <image class='user-pic' src='{{userInfo.headPortrait}}'></image>
+      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}'></image>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
         <view class='card-info-item' wx:if="{{userInfo.position}}">
@@ -68,10 +68,10 @@
       </view>
     </view>
   </view>
-  <view class='pic-info' wx:if="{{userInfo.userAlbum}}">
+  <view class='pic-info' wx:if="{{userInfo.userAlbum.length != '0'}}">
     <view class='info-title'>图片展示</view>
     <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
-      <image src='{{item}}'></image>
+      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}'></image>
     </view>
   </view>
 </view>

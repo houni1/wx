@@ -2,7 +2,7 @@
   <view class='set-pic'>
     <view class='item-title'>头像</view>
     <view class='item-content' data-pos='header' bindtap='uploadImage'>
-      <image src='{{userInfo.headPortrait}}'></image>
+      <image src='{{headPortrait}}'></image>
     </view>
   </view>
   <view class='set-box'>
@@ -62,7 +62,7 @@
       </view>
     </view>
   </view>
-  <view bindtap='uploadfile' class='btn-box'>
+  <view bindtap='editUserInfo' class='btn-box'>
     <view class='btn'>保存</view>
   </view>
 </view>

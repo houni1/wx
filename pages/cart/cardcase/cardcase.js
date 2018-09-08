@@ -1,6 +1,6 @@
 // pages/cart/cardcase/cardcase.js
 let globalData = getApp().globalData;
-import { getCardList } from '../../../servies/services.js';
+import { getCardList, handleCardcase} from '../../../servies/services.js';
 Page({
 
   /**
@@ -8,84 +8,85 @@ Page({
    */
   data: {
       userInfo:[
-          {
-              "id":"4",
-              "headPortrait":"http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName":"巴拉巴拉",
-              "position": "经理",
-              "popularity":"23",
-              "provinceName":"北京",
-              "phone":"13656787654",
-              "email":"12306@emao.com",
-              "deamerName":"大宝汽车贸易有限公司",
-              "isAuthorization":"1"
-          },
-          {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "23",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com",
-              "deamerName": "大宝汽车贸易有限公司",
-              "isAuthorization": "2"
-          },
-          {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "23",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com",
-              "deamerName": "大宝汽车贸易有限公司",
-              "isAuthorization": "1"
-          }
+        //   {
+        //       "id":"4",
+        //       "headPortrait":"http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName":"巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity":"23",
+        //       "provinceName":"北京",
+        //       "phone":"13656787654",
+        //       "email":"12306@emao.com",
+        //       "deamerName":"大宝汽车贸易有限公司",
+        //       "isAuthorization":"1"
+        //   },
+        //   {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "23",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com",
+        //       "deamerName": "大宝汽车贸易有限公司",
+        //       "isAuthorization": "2"
+        //   },
+        //   {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "23",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com",
+        //       "deamerName": "大宝汽车贸易有限公司",
+        //       "isAuthorization": "1"
+        //   }
       ],
       apply:[
-          {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "25",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com"
-          },
-          {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "25",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com"
-          }, {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "25",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com"
-          },
-          {
-              "id": "4",
-              "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
-              "nickName": "巴拉巴拉",
-              "position": "经理",
-              "popularity": "25",
-              "provinceName": "北京",
-              "phone": "13656787654",
-              "email": "12306@emao.com"
-          }
-      ]
+        //   {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "25",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com"
+        //   },
+        //   {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "25",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com"
+        //   }, {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "25",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com"
+        //   },
+        //   {
+        //       "id": "4",
+        //       "headPortrait": "http://img.emao.net/user/avatar/nc/xz/cbyl-190x190.png/180",
+        //       "nickName": "巴拉巴拉",
+        //       "position": "经理",
+        //       "popularity": "25",
+        //       "provinceName": "北京",
+        //       "phone": "13656787654",
+        //       "email": "12306@emao.com"
+        //   }
+      ],
+      flag:false
   },
 
   /**
@@ -99,7 +100,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+      this.cardListInfo();
   },
 
   /**
@@ -145,8 +146,34 @@ Page({
       getCardList().then(res => {
           this.setData({
               userInfo: res.userInfo,
-              apply: res.apply
+              apply: res.apply,
+              flag:true
           })
       });
- }
+ },
+
+  //拒绝交换名片夹
+  refuseCardcase:function (event){
+      var proposerId = event.target.dataset.id;
+      let params = {
+          userIdBe: proposerId,
+          state:2
+      }
+      handleCardcase(params).then(res => {
+          this.cardListInfo();
+      })
+  },
+
+    //同意交换名片夹
+    consentCardcase: function (event) {
+        var proposerId = event.target.dataset.id;
+        let params = {
+            userIdBe: proposerId,
+            state: 1
+        }
+        handleCardcase(params).then(res => {
+            this.cardListInfo();
+        })
+    }
+
 })

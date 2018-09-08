@@ -55,6 +55,7 @@
 .info-list {
   width: 100%;
   display: flex;
+  padding-bottom: 45rpx;
 }
 
 .card-info-item {
@@ -95,7 +96,6 @@
 }
 
 .info-company {
-  padding-top: 45rpx;
   padding-bottom: 50rpx;
   text-align: center;
 }
