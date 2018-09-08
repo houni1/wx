@@ -45,21 +45,81 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        _this.setData({
-          imageList: _this.data.imageList.concat(res.tempFilePaths)
-        })
-        if (_this.data.imageList.length > 9) {
-          wx.showToast({
-            icon: 'none',
-            title: '您只能添加9张图'
-          })
-          _this.setData({
-            imageList: _this.data.imageList.slice(0, 9)
-          })
-        }
+
+        var successUp = 0; //成功个数
+        var failUp = 0; //失败个数
+        var length = res.tempFilePaths.length; //总共个数
+        var i = 0; //第几个
+        console.log(res.tempFilePaths)
+        _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length);
+
+
+        // _this.setData({
+        //   imageList: _this.data.imageList.concat(res.tempFilePaths)
+        // })
+        // if (_this.data.imageList.length > 9) {
+        //   wx.showToast({
+        //     icon: 'none',
+        //     title: '您只能添加9张图'
+        //   })
+        //   _this.setData({
+        //     imageList: _this.data.imageList.slice(0, 9)
+        //   })
+        // }
       }
     })
   },
+    // 图片上传请求接口
+    uploadDIY: function (filePaths, successUp, failUp, i, length) {
+      console.log(length)
+      console.log(filePaths[i])
+      var _this = this
+      wx.uploadFile({
+        url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
+        filePath: filePaths[i],
+        name: 'file',
+        header: {
+          "Accept": "application/json; version=3.13.0",
+          "X-Emao-TCM-WeChat": "1"
+        },
+        success: function (res) {
+          
+        
+            var data = JSON.parse(res.data).data
+            console.log(data)
+            _this.setData({
+              imageList: _this.data.imageList.concat(data)
+            })
+            if (_this.data.imageList.length > 9) {
+              wx.showToast({
+                icon: 'none',
+                title: '您只能添加9张图'
+              })
+              _this.setData({
+                imageList: _this.data.imageList.slice(0, 9)
+              })
+            }
+            console.log(_this.data.imageList)
+          
+      
+          successUp++;
+        },
+        fail: function (res) {
+          failUp++;
+        },
+        complete: () => {
+          i++;
+          console.log(i)
+          if (i == length) {
+            console.log(successUp)
+            console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+          }
+          else {  //递归调用uploadDIY函数
+            _this.uploadDIY(filePaths, successUp, failUp, i, length);
+          }
+        }
+      })
+    },
 
   // 删除图片
   closeimg: function (e) {
@@ -88,7 +148,7 @@ Page({
 
   // 提交表单提交页面
   uploadfile: function () {
-    postMessage({userId:11,information:"123"}).then((res)=>{
+    postMessage({userId:11,information:"123",file:JSON.stringify(this.data.imageList)}).then((res)=>{
       console.log(res)
       wx.switchTab({
         url: "../business/business"

@@ -40,7 +40,8 @@ Component({
   // 获取个人信息，默认展示数据
   getUserInfo: function () {
     let data = {
-      userId: globalData.saleId
+      // userId: globalData.saleId
+       userId:11
     }
     getUserInfo(data).then(res => {
       if (res) {
