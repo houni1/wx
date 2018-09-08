@@ -62,7 +62,7 @@ let getCatList = function (data) {
 
 //获取名片夹列表信息
 let getCardList = function(){
-  return $get("cart/card/cardList",{
+  return $get("/cart/card/cardList",{
     userId: globalData.authorize_user_id
   })
 }
@@ -97,7 +97,7 @@ let bindPhone = function(data){
 
 //关于推车猫
 let getTuichemaoInfo = function(){
-  return $get("cart/about")
+  return $get("/cart/about")
 }
 
 //车商圈列表
