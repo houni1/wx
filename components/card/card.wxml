@@ -25,11 +25,11 @@
     </view>
   </view>
   <view class='other-box'>
-    <view class='other-item'>
+    <button class='other-item' open-type="share">
       <image src='/images/cardli_1.png'></image>
       <text>转发名片</text>
-    </view>
-    <view class='other-item'>
+    </button>
+    <view class='other-item' bindtap='changeCard'>
       <image src='/images/cardli_1.png'></image>
       <text>交换名片</text>
     </view>
@@ -83,7 +83,7 @@
     </view>
   </view>
   <view class='msg-box'>
-    <text wx:if="{{cardText}}">进入我的名片</text>
-    <text wx:else>创建我的名片</text>
+    <text wx:if="{{cardText == '0'}}">创建我的名片</text>
+    <text wx:if="{{cardText != '0'}}" bindtap='inMyCard'>进入我的名片</text>
   </view>
 </view>

@@ -35,7 +35,7 @@
     <view class='set-item'>
       <view class='item-title'>微信号</view>
       <view class='item-content'>
-        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}' bindinput='wechatNumber'></input>
+        <input placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}' bindinput='wechatNumber'></input>
       </view>
     </view>
     <view class='set-item'>

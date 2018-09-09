@@ -36,6 +36,8 @@ Component({
     let _this = this;
     wx.getSetting({
       success(res) {
+        // console.log(res)
+        // console.log(res.authSetting['scope.userInfo'])
         if ((globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
           _this.triggerEvent('firstAuth');
           _this.setData({
@@ -90,6 +92,7 @@ Component({
             // console.log(params)
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
+              globalData.iscover = subRes.status;
               _this.triggerEvent('authResult', subRes.userId);
             })
           }
@@ -119,7 +122,7 @@ Component({
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
-      } else if (globalData.source == '2' && globalData.saleId == '0') {
+      } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })

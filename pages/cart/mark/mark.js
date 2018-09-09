@@ -7,13 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: ''
+    page: '',  // 调到推车猫的哪个页面
+    autoId: ''  // 车型id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type
     }
@@ -21,7 +23,8 @@ Page({
       globalData.saleId = options.saleId
     }
     this.setData({
-      page: options.page
+      page: options.page,
+      autoId: options.autoId
     })
     // console.log(globalData.saleId)
   },
@@ -77,33 +80,42 @@ Page({
   // 用户授权
   authResult(data) {
     console.log('授权后的id', globalData.authorize_user_id)
+    console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
       wx.reLaunch({
         url: '/pages/cart/index/index'
       })
+    } else if (this.data.page == '5') {
+      // 跳转至车型详情页面
+      console.log('跳转至车型详情页面')
+      wx.redirectTo({
+        url: '/pages/cart/carDetail/carDetail?autoId=' + this.data.autoId
+      })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
       console.log('别人的id', globalData.saleId)
       if (globalData.saleId != globalData.authorize_user_id) {
-        // 跳转至别人的页面
-        wx.redirectTo({
-          url: '/pages/cart/otherpage/otherpage?page=' + this.data.page
-        })
+        console.log('跳转至别人的页面', this.data.page)
+
+        if (this.data.page == '2') {
+          // 跳转至别人的页面
+          wx.redirectTo({
+            url: '/pages/cart/otherpage/otherpage?page=' + this.data.page
+          })
+        }
       } else {
         console.log('查看自己的页面')
         wx.reLaunch({
           url: '/pages/cart/index/index'
         })
       }
-    } else if (globalData.source == '2' && globalData.saleId == '0') {
-      console.log('微信扫码进入小程序')
-      if (globalData.authorize_user_id != '0') {
-        console.log('查看自己的页面')
-        wx.reLaunch({
-          url: '/pages/cart/index/index'
-        })
-      }
+    } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id != '0') {
+      console.log('微信扫描app的码进入小程序')
+      console.log('查看自己的页面')
+      wx.reLaunch({
+        url: '/pages/cart/index/index'
+      })
     }
   },
 })

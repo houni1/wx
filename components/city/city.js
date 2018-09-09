@@ -27,6 +27,11 @@ Component({
       })
     },
 
+    // 滚动省数据获取省id
+    bindChange: function (e) {
+      console.log(e.detail)
+    },
+
     // 获取市数据
     getCityInfo: function (id) {
       getCityInfo({ provinceId: id}).then(res => {

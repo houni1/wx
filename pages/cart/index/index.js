@@ -13,7 +13,7 @@ Page({
       userId : "",                   // 用户id
       userImg: "",        // 用户头像
       nickName: "",            // 姓名,
-      position: "",            // 职位,
+      position: "",            // 职位,  
       cityName: "",              // 城市，
       popularity: "",             // 销售人气
       phone: "",         // 手机号,
@@ -48,7 +48,7 @@ Page({
 
   // 获取首页个人信息，默认展示数据
   getIndexUserInfo: function () {
-    console.log('获取首页个人信息')
+    console.log('获取首页个人信息', globalData.authorize_user_id)
     getIndexUserInfo().then(res => {
       if (res) {
         this.setData({
@@ -66,11 +66,6 @@ Page({
         }
       }
     })
-  },
-
-  // 点击发名片按钮分享名片给好友
-  sendMyCard: function () {
-    console.log('分享给好友xxx')
   },
 
   // 点击我的名片按钮进入名片页面
@@ -116,6 +111,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // if (globalData.iscover == '1') {
+      
+    // }
     this.getIndexUserInfo()
   },
 
@@ -167,6 +165,7 @@ Page({
       }
     }
   },
+  
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
     wx.navigateTo({

@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo } from '../../servies/services.js';
+import { getUserInfo, changeCard } from '../../servies/services.js';
 Component({
 
   /**
@@ -34,15 +34,13 @@ Component({
       cardText: globalData.authorize_user_id
     })
     console.log(this.data.cardText)
-    globalData.saleId = 1
   },
 
   methods:{
   // 获取个人信息，默认展示数据
   getUserInfo: function () {
     let data = {
-      // userId: globalData.saleId
-       userId:11
+      userId: globalData.saleId
     }
 
     
@@ -100,7 +98,29 @@ Component({
       organization: this.data.userInfo.company,  // 公司地址
       email: this.data.userInfo.email           // 邮箱
     })
+  },
 
+  // 交换名片
+  changeCard: function () {
+    let params = {
+      requestId: globalData.authorize_user_id,
+      beRequestId: globalData.saleId
+    }
+    changeCard(params).then(res => {
+      console.log(res)
+      wx.showToast({
+        title: '已发送申请',
+        icon: 'none'
+      })
+    })
+  },
+
+
+  // 进入我的名片
+  inMyCard: function () {
+    wx.navigateTo({
+      url: '/pages/cart/card/card'
+    })
   }
 }
 })

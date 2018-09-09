@@ -52,11 +52,11 @@
   <view class='mail-box'>
     <view class='mail-box-title'>请输入您的邮箱</view>
     <view class='mail-box-input'>
-      <input placeholder='请输入邮箱地址' focus="focusflag" value=''></input>
+      <input placeholder='请输入邮箱地址' bindinput='email' focus="focusflag" value='{{email}}'></input>
     </view>
     <view class='mail-box-btns'>
-      <text class='cancel-btn'>取消</text>
-      <text class='sure-btn'>确定</text>
+      <text class='cancel-btn' bindtap='cancel'>取消</text>
+      <text class='sure-btn' bindtap='sure'>确定</text>
     </view>
   </view>
 </view>

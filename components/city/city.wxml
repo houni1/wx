@@ -4,7 +4,7 @@
       <text catchtap='cancel'>取消</text>
       <text catchtap='complete'>完成</text>
     </view>
-    <picker-view class="city-con" bindchange="bindChange">
+    <picker-view class="city-con" value="{{value}}" bindchange="bindChange">
       <picker-view-column class="city-list" id="provinceWrap">
         <view wx:for="{{provinceData}}" wx:key="{{index}}" data-id='{{item.id}}'>{{item.name}}</view>
       </picker-view-column>

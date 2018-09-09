@@ -25,8 +25,8 @@
   width: 100%;
   background: #fff;
   padding-top: 120rpx;
-  padding-left: 50rpx;
-  padding-right: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
   box-sizing: border-box;
   border-radius: 15rpx;
   text-align: center;

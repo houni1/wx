@@ -1,6 +1,6 @@
 // pages/cart/mycode/mycode.js
 let globalData = getApp().globalData;
-import { getUserInfo } from '../../../servies/services.js';
+import { getUserInfo, sendEmail } from '../../../servies/services.js';
 
 Page({
 
@@ -14,13 +14,13 @@ Page({
     // 用户默认信息
     userInfo: {
       exclusiveCode: '', // 用户专属码
-      nickName: '吉思洋', // 用户昵称
-      company: '大宝汽车贸易有限公司', // 公司
-      position: '总经理', // 职位
-      phone: '15311111111', // 手机号
-      email: '123@qq.com', //邮箱
+      nickName: '', // 用户昵称
+      company: '', // 公司
+      position: '', // 职位
+      phone: '', // 手机号
+      email: '', //邮箱
     },
-     isShowShadow: false//是否显示弹窗
+    email: '' // 弹框邮箱
   },
 
   /**
@@ -94,9 +94,9 @@ Page({
         this.setData({
           flag: true,
           userInfo: res,
-          imageList: res.userAlbum
+          imageList: res.userAlbum,
+          email: res.email
         })
-        console.log(this.data.imageList)
       }
     })
   },
@@ -157,8 +157,54 @@ Page({
       focusflag: true
     })
   },
-   // 关闭弹窗
-   toggleShadow(e) {
+
+  // 点击取消弹窗收起
+  cancel: function () {
+    this.setData({
+      toMailFlag: false,
+      focusflag: false
+    })
+    this.setData({
+      email: ''
+    })
+  },
+
+  // 改变邮箱地址发送
+  email: function (e) {
+    this.setData({
+      email: e.detail.value
+    })
+  },
+
+  // 点击弹框确定按钮发送至邮箱
+  sure: function () {
+    console.log(this.data.email)
+    var emailReg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
+    if (emailReg.test(this.data.email)) {
+      let params = {
+        email: this.data.email,
+        userId: globalData.authorize_user_id
+      }
+      sendEmail(params).then(res => {
+        console.log(res)
+        this.setData({
+          toMailFlag: false,
+          focusflag: false
+        })
+      })
+    } else {
+      wx.showToast({
+        title: '邮箱格式有误，请重新输入',
+        icon: 'none'
+      })
+      this.setData({
+        email: ''
+      })
+    }
+
+  },
+     // 关闭弹窗
+     toggleShadow(e) {
       this.setData({
          isShowShadow: false
       })

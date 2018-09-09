@@ -13,16 +13,16 @@
          {{nickName}}
          </view>
          <view class='text'>
-            <view class='job'>
+            <view class='job' hidden="{{!position}}">
             <image class='job-img' src="../business/images/job.png"></image>
             <text class='job-text'>{{position}}</text>
             </view>
-            <view class='phone'>
+            <view class='phone'  hidden="{{!phone}}">
                <image class='phone-img' src="../business/images/tel.png"></image>
                <text class='phone-text'>{{phone}}</text>
             </view>
          </view>
-         <view class='company'>大宝汽车贸易有限公司</view>
+         <view class='company'>{{company}}</view>
          <view class='own'>
             <view class='own-title'>您的专属推车猫名片</view>
             <view class='own-text'>猫卫星监控访客互动，积累线索转行商机，车商圈帮你轻松拓展人脉</view>

@@ -1,5 +1,5 @@
 <view class='business' wx:if="{{datashow}}">
-  <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
+  <view class='remind' wx:if="{{alarm}}">{{newNum}}</view>
   <view class='containt'>
     <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
       <view class='picture'>
@@ -31,7 +31,7 @@
             <image class='foot-icon' src='/images/call.png'></image>
             <text>快速联系</text>
           </view>
-          <view class='share left' bindtap='share' data-userId="{{item.userId}}">
+          <view class='share left' bindtap='share' data-userId="{{item.userId}}" data-circleid="{{item.circleId}}">
             <image class='foot-icon' src='/images/share.png'></image>
             <text>分享</text>
           </view>

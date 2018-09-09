@@ -47,6 +47,7 @@ let getCityInfo = function (data) {
   return $get('/cart/area/getCityByProvinceId', data)
 }
 
+
 // //获取推车猫首页个人信息接口
 let getIndexUserInfo = function () {
   return $get('/cart/index', {
@@ -148,6 +149,18 @@ let starStat=function(data){
 let getUserWxPhone = function (data) {
   return $get("/cart/login/getUserWxPhone", data)
 }
+
+//发送至邮箱接口
+let sendEmail = function (data) {
+  return $post("/cart/card/cardSendEmail", data)
+}
+
+
+// 交换名片接口
+let changeCard = function (data) {
+  return $post("/cart/card/cardSwap", data)
+}
+
 export {
   wxAuthorization,
   getUserInfo,
@@ -155,6 +168,7 @@ export {
   getCardList,
   getTuichemaoInfo,
   getprovinceInfo,
+  getCityInfo,
   getBusinessList,
   creatPoster,
   postMessage,
@@ -172,5 +186,6 @@ export {
   handleCardcase,
   getCode,
   bindPhone,
-  getCityInfo
+  sendEmail,
+  changeCard
 };

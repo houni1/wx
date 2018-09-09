@@ -23,10 +23,10 @@
         <text class='company-icon'></text>
       </view>
       <view class='send-card-box'>
-        <view class='send-card'>
+        <button class='send-card' open-type="share">
           <image class='send-icon' src='/images/to-mail.png'></image>
           <text class='send-text'>发名片</text>
-        </view>
+        </button>
       </view>
     </view>
   </view>

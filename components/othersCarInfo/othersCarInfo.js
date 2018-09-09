@@ -33,6 +33,7 @@ Component({
       saleId: app.globalData.saleId
     });
     // 获取品牌列表
+    console.log(77,app.globalData.saleId)
     this.getBrandListData();
     // 获取别人车源信息列表
     this.getCarListData();
