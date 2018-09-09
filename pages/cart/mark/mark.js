@@ -22,9 +22,13 @@ Page({
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
+    if (options.autoId) {
+      this.setData({
+        autoId: options.autoId
+      })
+    }
     this.setData({
       page: options.page,
-      autoId: options.autoId
     })
     // console.log(globalData.saleId)
   },
