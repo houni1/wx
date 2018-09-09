@@ -161,6 +161,11 @@ let changeCard = function (data) {
   return $post("/cart/card/cardSwap", data)
 }
 
+// 是否覆盖车商猫数据接口
+let coverOldData = function (data) {
+  return $post("/cart/login/coverOldData", data)
+}
+
 export {
   wxAuthorization,
   getUserInfo,
@@ -187,5 +192,6 @@ export {
   getCode,
   bindPhone,
   sendEmail,
-  changeCard
+  changeCard,
+  coverOldData
 };

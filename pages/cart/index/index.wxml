@@ -79,3 +79,10 @@
   </view>
   <view></view>
 </view>
+<view class='home-mark-box' wx:if="{{isCoverBox}}">
+  <view class='home-mark'>
+    <view>是否覆盖车商猫的数据?</view>
+    <view bindtap='cancel' class='cancel'>取消</view>
+    <view bindtap='sure' class='sure'>确定</view>
+  </view>
+</view>

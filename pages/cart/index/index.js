@@ -1,6 +1,6 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData } from '../../../servies/services.js';
 Page({
 
   /**
@@ -35,7 +35,9 @@ Page({
       }
     ],
     // 请求名片交换的个数
-    card: ''
+    card: '',
+    // 是否覆盖车商猫数据弹框
+    isCoverBox: false
   },
 
   /**
@@ -111,10 +113,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // if (globalData.iscover == '1') {
-      
-    // }
+    console.log('首页，信息是否覆盖', globalData.iscover)
+    if (globalData.iscover == '1') {
+      this.setData({
+        isCoverBox: true
+      })
+    }
     this.getIndexUserInfo()
+  },
+
+  // 拒绝覆盖
+  cancel: function () {
+    this.setData({
+      isCoverBox: false
+    })
+  },
+
+  // 允许覆盖
+  sure: function () {
+    var params = {
+      userId: globalData.authorize_user_id
+    }
+    coverOldData(params).then(res => {
+      console.log(res)
+      this.setData({
+        isCoverBox: false
+      })
+      this.getIndexUserInfo()
+    })
   },
 
   /**
