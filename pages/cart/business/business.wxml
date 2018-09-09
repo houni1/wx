@@ -43,14 +43,11 @@
    </view>
 </view>
 <view class='btn-box'>
-         <view class='button' bindtap='send'>
-            发布信息
-         </view>
-      </view>
+  <view class='button' bindtap='send'>发布信息</view>
+</view>
 <view wx:if="{{!datashow}}" class="nodata">
    <view class="no-wraper">
       <image class="no-img" src='/images/nobusinessdata.png' mode="aspectFit"></image>
       <view class="no-text">暂无车商圈</view>
-   </view>
-
+  </view>
 </view>
