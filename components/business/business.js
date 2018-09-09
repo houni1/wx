@@ -203,6 +203,7 @@ pulldownData(){
   //组件实例化但节点树还未导入，因此这时不能用setData
   created(){
    //  list=[] datashow: true,
+   console.log(99,globalData.saleId,globalData.authorize_user_id)
    let data={
     currentPage:this.data.currentPage,
     shareId:globalData.saleId,
