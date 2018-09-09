@@ -20,7 +20,7 @@
     </view>
     <view class='set-item'>
       <view class='item-title'>所在城市</view>
-      <view class='item-content item-city' bindtap='getCityInfo'>北京</view>
+      <view class='item-content item-city' bindtap='showCityInfo'>{{currentCity}}</view>
     </view>
     <view class='set-item'>
       <view class='item-title'>手机号</view>
@@ -35,7 +35,7 @@
     <view class='set-item'>
       <view class='item-title'>微信号</view>
       <view class='item-content'>
-        <input  placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}' bindinput='wechatNumber'></input>
+        <input placeholder='请输入您的微信号' type='text' maxlength='30' value='{{userInfo.wechatNumber}}' bindinput='wechatNumber'></input>
       </view>
     </view>
     <view class='set-item'>
@@ -66,4 +66,22 @@
   <view class='btn-box'>
     <button formType="submit" class='btn'>保存</button>
   </view>
+  
 </form>
+<!-- 城市选择插件 -->
+<view class="dialog-back" catchtouchmove='true' hidden='{{cityShow}}'>
+  <view class="city-wrap">
+    <view class="city-btn">
+      <text catchtap='cancel'>取消</text>
+      <text catchtap='complete'>完成</text>
+    </view>
+    <picker-view class="city-con" bindchange="bindChange">
+      <picker-view-column class="city-list" id="provinceWrap">
+        <view wx:for="{{provinceData}}" wx:key="{{index}}" data-id='{{item.id}}'>{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column class="city-list" id="cityWrap">
+        <view wx:for="{{cityData}}" wx:key="{{index}}">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

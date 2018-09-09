@@ -1,7 +1,6 @@
 // pages/cart/setup/setup.js
 let globalData = getApp().globalData;
-import { getUserInfo, editUserInfo, getUserWxPhone } from '../../../servies/services.js';
-
+import { getUserInfo, editUserInfo, getUserWxPhone, getprovinceInfo, getCityInfo } from '../../../servies/services.js';
 Page({
 
   /**
@@ -19,16 +18,29 @@ Page({
       introduction: '',   // 个人介绍
       headPortrait: '',    // 头像
       nickName: '', // 用户昵称
+      provinceId: '',
+      provinceName: '',
+      cityId: '',
+      cityName: ''
     },
     imageList: [],
     code: '', // 手机号获取用code传参
+    cityShow: true,
+    provinceData: [], // 获取省数据
+    cityData: [],  // 获取市数据
+    val: [0, 0],
+    currentCity: '北京'   // 所在城市
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfo()
+    this.getUserInfo();
+
+    this.getprovinceInfo();
+    this.getCityInfo(1);
+     
   },
 
   // 获取个人信息，默认展示数据
@@ -49,14 +61,15 @@ Page({
             imageList: []
           })
         }
-        console.log(this.data.imageList)
       }
     })
   },
 
   // 点击城市弹起城市组件
-  getCityInfo: function () {
-    console.log('弹起城市选择组件')
+  showCityInfo: function () {
+    this.setData({
+      cityShow: false
+    });
   },
 
   /**
@@ -66,53 +79,11 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
   // 点击添加按钮弹起选择类型框
   uploadImage: function (e) {
     let _this = this
     var pos = e.currentTarget.dataset.pos
-    console.log(pos)
+    // console.log(pos)
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
       itemColor: "#f7982a",
@@ -147,7 +118,7 @@ Page({
         var failUp = 0; //失败个数
         var length = res.tempFilePaths.length; //总共个数
         var i = 0; //第几个
-        console.log(res.tempFilePaths)
+        // console.log(res.tempFilePaths)
         _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length, pos);
       }
     })
@@ -157,14 +128,14 @@ Page({
   // 删除图片
   closeimg: function (e) {
     var ind = e.currentTarget.dataset.ind
-    console.log(ind)
+    // console.log(ind)
 
     this.data.imageList.splice(ind, 1)
 
     this.setData({
       imageList: this.data.imageList
     })
-    console.log(this.data.imageList)
+    // console.log(this.data.imageList)
   },
 
   // 点击预览图片
@@ -322,9 +293,9 @@ Page({
   // 编辑个人信息接口
   editUserInfo: function (e) {
     console.log('点击保存按钮')
-    console.log(this.data.imageList)
-    console.log(this.data.headPortrait)
-    console.log(this.data.userInfo.phone)
+    // console.log(this.data.imageList)
+    // console.log(this.data.headPortrait)
+    console.log(this.data.userInfo)
     let params = {
       userId: this.data.userInfo.id,
       userName: this.data.userInfo.nickName,
@@ -346,6 +317,66 @@ Page({
         url: '/pages/cart/index/index'
       })
     })
-  }
+  },
 
+  // 获取省数据
+  getprovinceInfo: function () {
+    getprovinceInfo().then(res => {
+      this.setData({
+        provinceData: res
+      })
+    })
+  },
+
+  // 获取市数据
+  getCityInfo: function (id) {
+    getCityInfo({ provinceId: id }).then(res => {
+      this.setData({
+        cityData: res
+      })
+    })
+  },
+  // 切换省份和城市
+  bindChange: function (e) {
+    const val = e.detail.value
+    this.setData({
+      val: val
+    })
+    // 触发此方法，如果data里的provinceId与当前动作获取的provinceId一致，则为切换城市，不触发请求城市列表接口，否则为切换省份
+    var provinceId = this.data.provinceData[val[0]].id
+    if (e.detail.value[0] == provinceId) {
+      return;
+    }
+    this.getCityInfo(provinceId)
+  },
+  // 点击完成获取到选择的省份和城市
+  complete: function () {
+    var val = this.data.val
+    // console.log(this.data.provinceData[val[0]].name, this.data.provinceData[val[0]].id + '-' + this.data.cityData[val[1]].name)
+    var provinceId = this.data.provinceData[val[0]].id
+    var provinceName = this.data.provinceData[val[0]].name
+    var cityId = this.data.cityData[val[1]].id
+    var cityName = this.data.cityData[val[1]].name
+    console.log(provinceId)
+    console.log(provinceName)
+    console.log(cityId)
+    console.log(cityName)
+    var provinceIdParams = 'userInfo.provinceId'
+    var provinceNameParams = 'userInfo.provinceName'
+    var cityIdParams = 'userInfo.cityId'
+    var cityNameParams = 'userInfo.cityName'
+    this.setData({
+      [provinceIdParams]: provinceId,
+      [provinceNameParams]: provinceName,
+      [cityIdParams]: cityId,
+      [cityNameParams]: cityName,
+      cityShow: true,
+      currentCity: this.data.provinceData[val[0]].name + ' ' + this.data.cityData[val[1]].name
+    })
+  },
+  cancel: function () {
+    this.setData({
+      cityShow: true
+    })
+  }
 })

@@ -39,7 +39,7 @@ let wxAuthorization = function (data) {
 
 // 获取省信息接口
 let getprovinceInfo = function () {
-  return $get('/cart/area/city')
+  return $get('/cart/area/getAllProvince')
 }
 
 // 获取市信息接口
