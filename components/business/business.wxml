@@ -1,4 +1,4 @@
-<view class='business'>
+<view class='business' wx:if="{{datashow}}">
   <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
   <view class='containt'>
     <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
@@ -39,4 +39,11 @@
       </view>
     </view>
   </view>
+</view>
+<view wx:if="{{!datashow}}" class="nodata">
+   <view class="no-wraper">
+      <image class="no-img" src='/images/nobusinessdata.png' mode="aspectFit"></image>
+      <view class="no-text">暂无车商圈</view>
+   </view>
+
 </view>

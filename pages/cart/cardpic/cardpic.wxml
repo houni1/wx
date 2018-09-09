@@ -33,7 +33,7 @@
    </view>
      <view class='btn-box' bindtap="saveImg">
             <view class="button">保存照片</view>
-            <!-- <button bindopensetting="opensetting" open-type="openSetting" class="button">保存照片</button> -->
+
          </view>
 
         <view class='shadow' wx:if='{{isShowShadow}}'>
