@@ -202,11 +202,5 @@ Page({
       })
     }
 
-  },
-   // 关闭弹窗
-   toggleShadow(e) {
-      this.setData({
-         isShowShadow: false
-      })
-   }
+  }
 })
