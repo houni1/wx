@@ -17,7 +17,6 @@ Page({
     status: '',      // 上下架状态 1上架 2下架 [非必传]
     autoParam: [],
     wxParseData: ''
-    // type: ''        // 类型：1 自营 2 一猫[非必传]
   },
 
   /**

@@ -69,7 +69,7 @@
   
 </form>
 <!-- 城市选择插件 -->
-<view class="dialog-back" catchtouchmove='true' hidden='{{cityShow}}'>
+<view class="dialog-back" catchtap='cancel' catchtouchmove='true' hidden='{{cityShow}}'>
   <view class="city-wrap">
     <view class="city-btn">
       <text catchtap='cancel'>取消</text>

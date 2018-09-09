@@ -20,7 +20,7 @@ page {
 .mainInfo image {
   display: inline-block;
   vertical-align: middle;
-  width: 40rpx;
+  width: 50rpx;
   margin-right: 10rpx;
 }
 .mainInfo .mainTitle {
