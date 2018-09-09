@@ -39,9 +39,13 @@ let wxAuthorization = function (data) {
 
 // 获取省信息接口
 let getprovinceInfo = function () {
-  return $get('/cart/area/city')
+  return $get('/cart/area/getAllProvince')
 }
 
+// 获取市信息接口
+let getCityInfo = function (data) {
+  return $get('/cart/area/getCityByProvinceId', data)
+}
 
 // //获取推车猫首页个人信息接口
 let getIndexUserInfo = function () {
@@ -167,5 +171,6 @@ export {
   getUserWxPhone,
   handleCardcase,
   getCode,
-  bindPhone
+  bindPhone,
+  getCityInfo
 };
