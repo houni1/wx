@@ -1,6 +1,7 @@
 /* pages/cart/my/my.wxss */
 .my-in{padding:85rpx 40rpx 0 40rpx;}
 .head-portrait{display:block;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;border:1px solid green;}
+.personal-info{width:70%;height:85rpx;}
 .personal-info text{display:block;}
 .personal-info .name{color:#282c39;font-size:32rpx;}
 .personal-info .post{color:#a6a6a6;font-size:28rpx;}
