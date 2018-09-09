@@ -1,5 +1,6 @@
 // pages/cart/sendinfo/sendinfo.js
 import {postMessage} from "../../../servies/services.js" ;
+let globalData = getApp().globalData;
 Page({
 
   /**
@@ -8,7 +9,8 @@ Page({
   data: {
      text:"我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员，我是一名信息工程大学印刷工程专业应届本科即将毕业的学生",
      imageList:[],
-     imageArr: []
+     imageArr: [],
+     textinput:""
   },
 
   /**
@@ -144,11 +146,15 @@ Page({
       urls: this.data.imageList // 需要预览的图片http链接列表
     })
   },
-
+  textinput(e){
+      this.setData({
+        textinput:e.detail.value
+      })
+  },
 
   // 提交表单提交页面
   uploadfile: function () {
-    postMessage({userId:11,information:"123",file:JSON.stringify(this.data.imageList)}).then((res)=>{
+    postMessage({userId:globalData.authorize_user_id,information:this.data.textinput,file:JSON.stringify(this.data.imageList)}).then((res)=>{
       console.log(res)
       wx.switchTab({
         url: "../business/business"
