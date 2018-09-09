@@ -19,13 +19,19 @@ Component({
     chooseBrandIndex_list: -1,
     s_move: false,
     brandId: '',    // 车型id
-    userId: app.globalData.authorize_user_id,  // 用户id
+    userId: '',  // 用户id
+    saleId: '',  // 被查看人id
     page: 1,        // 当前页
     lastPage: 1,       // 总页数
     noData: false             // 缺省页面
   },
 
   ready: function () {
+    console.log(app.globalData.authorize_user_id)
+    this.setData({
+      userId: app.globalData.authorize_user_id,
+      saleId: app.globalData.saleId
+    });
     // 获取品牌列表
     this.getBrandListData();
     // 获取别人车源信息列表
@@ -40,7 +46,7 @@ Component({
       var _this = this;
       // 请求品牌列表数据
       var params = {
-        userId: '5'     // 被查看用户Id [必传]
+        userId: _this.data.saleId     // 被查看用户Id [必传]
       }
       getBrandList(params).then(function (res) {
         _this.setData({
@@ -66,7 +72,7 @@ Component({
       // 请求列表数据
       var params = {
         userId: _this.data.userId,      // 当前用户Id [必传]
-        toUserId: '5',                  // 被查看用户Id [必传]
+        toUserId: _this.data.saleId,                  // 被查看用户Id [必传]
         page: pageNum,                  // 当前页 [必传]
         brandId: _this.data.brandId,    // 品牌id [非必传]
         status: '',                     // 上下架状态 1上架 2下架 [非必传]
@@ -93,8 +99,8 @@ Component({
             _this.setData({
               noData: true,
               list: res.list,
-              page: res.page.currentPage,
-              lastPage: res.page.lastPage
+              page: 1,
+              lastPage: 1
             });
           }
         }
@@ -130,7 +136,7 @@ Component({
         pageType: 10,
         appType: 1
       }
-      buttonStat(params).then(function (res) { }) 
+      buttonStat(tjParam).then(function (res) { }) 
     },
     // 品牌列表里选择
     chooseBrand_list: function (event) {

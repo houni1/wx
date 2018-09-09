@@ -34,6 +34,7 @@ Component({
       cardText: globalData.authorize_user_id
     })
     console.log(this.data.cardText)
+    globalData.saleId = 1
   },
 
   methods:{
@@ -43,6 +44,8 @@ Component({
       // userId: globalData.saleId
        userId:11
     }
+
+    
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
