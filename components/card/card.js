@@ -34,7 +34,7 @@ Component({
       cardText: globalData.authorize_user_id
     })
     console.log(this.data.cardText)
-    globalData.saleId = 1
+    
   },
 
   methods:{

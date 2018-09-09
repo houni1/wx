@@ -31,7 +31,7 @@
             <image class='foot-icon' src='/images/call.png'></image>
             <text>快速联系</text>
           </view>
-          <view class='share left' bindtap='share' data-userId="{{item.userId}}">
+          <view class='share left' bindtap='share' data-userId="{{item.userId}}" data-circleid="{{item.circleId}}">
             <image class='foot-icon' src='/images/share.png'></image>
             <text>分享</text>
           </view>

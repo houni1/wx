@@ -1,5 +1,6 @@
 // pages/cart/cardpic/cardpic.js
 import {cardMake,getUserInfo,buttonStat} from "../../../servies/services.js" ;
+let globalData = getApp().globalData;
 Page({
 
   /**
@@ -21,15 +22,22 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()//隐藏右上角分享按钮
-    cardMake({userId:11}).then((res)=>{
+    cardMake({userId:globalData.authorize_user_id}).then((res)=>{
       console.log(1,res.img);
       this.setData({
         img:res.img
       })
       // console.log(res.img)
     })
-    getUserInfo({userId:12}).then(res=>{
-      console.log(res)
+    getUserInfo({userId:globalData.authorize_user_id}).then(res=>{
+      console.log(55,res)
+      this.setData({
+        exclusiveCode:res.exclusiveCode,
+        nickName:res.nickName,
+        position:res.position,
+        phone:res.phone,
+        company:res.company
+      })
     })
   },
     // 保存图片
