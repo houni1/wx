@@ -39,13 +39,14 @@
             </view>
          </view>
       </view>
-      <view class='btn-box'>
+      
+   </view>
+</view>
+<view class='btn-box'>
          <view class='button' bindtap='send'>
             发布信息
          </view>
       </view>
-   </view>
-</view>
 <view wx:if="{{!datashow}}" class="nodata">
    <view class="no-wraper">
       <image class="no-img" src='/images/nobusinessdata.png' mode="aspectFit"></image>
