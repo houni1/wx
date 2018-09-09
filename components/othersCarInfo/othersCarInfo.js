@@ -19,14 +19,18 @@ Component({
     chooseBrandIndex_list: -1,
     s_move: false,
     brandId: '',    // 车型id
-    userId: app.globalData.authorize_user_id,  // 用户id
+    userId: "",  // 用户id
     page: 1,        // 当前页
     lastPage: 1,       // 总页数
     noData: false             // 缺省页面
   },
 
   ready: function () {
+    this.setData({
+      userId:app.globalData.saleId
+    })
     // 获取品牌列表
+    console.log(77,app.globalData.saleId)
     this.getBrandListData();
     // 获取别人车源信息列表
     this.getCarListData();
@@ -40,7 +44,7 @@ Component({
       var _this = this;
       // 请求品牌列表数据
       var params = {
-        userId: '5'     // 被查看用户Id [必传]
+        userId: this.data.userId     // 被查看用户Id [必传]
       }
       getBrandList(params).then(function (res) {
         _this.setData({

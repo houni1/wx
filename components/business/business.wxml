@@ -1,5 +1,5 @@
 <view class='business' wx:if="{{datashow}}">
-  <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
+  <view class='remind' wx:if="{{alarm}}">{{newNum}}</view>
   <view class='containt'>
     <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
       <view class='picture'>

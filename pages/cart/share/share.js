@@ -44,7 +44,13 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()//隐藏右上角分享按钮
-      sharePoster({userId:11,circleId:1}).then((res)=>{
+   
+   console.log(options)
+    let data={
+      userId:options.userId,
+      circleId:options.circleId
+    }
+      sharePoster(data).then((res)=>{
         console.log(res)
         this.setData({
           nickname:res.nickname,
