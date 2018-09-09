@@ -1,9 +1,9 @@
 {
    "pages": [
-    "pages/cart/onSale/onSale",
+      "pages/cart/index/index",
+      "pages/cart/onSale/onSale",
       "pages/cart/otherpage/otherpage",
       "pages/cart/carDetail/carDetail",
-      "pages/cart/index/index",
       "pages/cart/business/business",
       "pages/cart/sendinfo/sendinfo",
       "pages/cart/share/share",
