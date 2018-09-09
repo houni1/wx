@@ -11,6 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+     datashow: true,
     alarm:false,  //加载数据后提示弹框
     loadNum:10 ,//加载数据条数
     list:[
@@ -113,7 +114,7 @@ share(e){
   },
   //组件实例化但节点树还未导入，因此这时不能用setData
   created(){
-
+   //  list=[] datashow: true,
   },
   //节点树完成可以用setData渲染节点，但无法操作节点
    attached (){
