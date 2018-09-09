@@ -48,7 +48,7 @@ Page({
 
   // 获取首页个人信息，默认展示数据
   getIndexUserInfo: function () {
-    console.log('获取首页个人信息')
+    console.log('获取首页个人信息', globalData.authorize_user_id)
     getIndexUserInfo().then(res => {
       if (res) {
         this.setData({

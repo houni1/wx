@@ -12,9 +12,9 @@ App({
     // 来源
     source: '',
     // 链接上的id
-    saleId: 0,
+    saleId: 12,
     // 微信唯一标识
-    authorize_user_id: 0,
+    authorize_user_id: 12,
     // 是否覆盖信息
     iscover: 0
   }

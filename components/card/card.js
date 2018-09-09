@@ -34,7 +34,6 @@ Component({
       cardText: globalData.authorize_user_id
     })
     console.log(this.data.cardText)
-    globalData.saleId = 1
   },
 
   methods:{
@@ -113,6 +112,14 @@ Component({
         title: '已发送申请',
         icon: 'none'
       })
+    })
+  },
+
+
+  // 进入我的名片
+  inMyCard: function () {
+    wx.navigateTo({
+      url: '/pages/cart/card/card'
     })
   }
 }
