@@ -1,10 +1,11 @@
 .business{
-  
+
 }
 .business .containt{
 background: #ebeef5;
 font-size: 0;
-padding-bottom: 40rpx;
+padding-bottom: 160rpx;
+
 }
 .business .remind{
 font-family: 'pingFangSC-Regular';
@@ -116,11 +117,15 @@ display: flex
   margin-right: 20rpx;
 }
 .btn-box{
-margin: 60rpx auto 0;
+/* margin: 60rpx auto 0; */
+width: 100%;
+position: fixed;
+bottom: 0;
+background: #fff;
 }
 .btn-box .button{
 width: 90%;
-margin: 0 auto;
+margin: 40rpx auto 30rpx;
 border-radius: 50rpx;
 height: 100rpx;
 background: #ffcf10;
