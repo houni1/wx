@@ -117,8 +117,14 @@
 }
 
 .send-card-box {
-  width: 160rpx;
+  width: 210rpx;
   margin: 0 auto;
+}
+
+.send-card-box button {
+  border-width: 0;
+  background: #fff;
+  outline: none;
 }
 
 .send-icon {

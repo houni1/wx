@@ -10,10 +10,12 @@ App({
     // 是否是本人
     isMe: false,
     // 来源
-    source: '2',
+    source: '',
     // 链接上的id
     saleId: 0,
     // 微信唯一标识
-    authorize_user_id: 0
+    authorize_user_id: 0,
+    // 是否覆盖信息
+    iscover: 0
   }
 })

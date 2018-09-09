@@ -123,7 +123,21 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  }
+  onShareAppMessage: function (ops) {
+    console.log('转发好友')
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '推车猫小程序',
+      path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.saleId,
+      success(inres) {
+        console.log("转发成功", inres);
+      },
+      fail(inerr) {
+        console.log("转发失败", inerr);
+      }
+    }
+  },
 })

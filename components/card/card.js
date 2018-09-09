@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo } from '../../servies/services.js';
+import { getUserInfo, changeCard } from '../../servies/services.js';
 Component({
 
   /**
@@ -34,6 +34,7 @@ Component({
       cardText: globalData.authorize_user_id
     })
     console.log(this.data.cardText)
+    globalData.saleId = 1
   },
 
   methods:{
@@ -42,6 +43,8 @@ Component({
     let data = {
       userId: globalData.saleId
     }
+
+    
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
@@ -96,7 +99,21 @@ Component({
       organization: this.data.userInfo.company,  // 公司地址
       email: this.data.userInfo.email           // 邮箱
     })
+  },
 
+  // 交换名片
+  changeCard: function () {
+    let params = {
+      requestId: globalData.authorize_user_id,
+      beRequestId: globalData.saleId
+    }
+    changeCard(params).then(res => {
+      console.log(res)
+      wx.showToast({
+        title: '已发送申请',
+        icon: 'none'
+      })
+    })
   }
 }
 })

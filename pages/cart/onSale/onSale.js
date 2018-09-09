@@ -165,7 +165,7 @@ Page({
       type: this.data.type            // 1 自营 2 一猫 [非必传]
     }
     getOnSaleData(params).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (loadKind == 9) {
         _this.setData({
           onShelf: res.amount.onShelf,
@@ -187,11 +187,11 @@ Page({
           })
         } else {
           _this.setData({
-            onShelf: res.amount.onShelf,
-            unOnShelf: res.amount.unOnShelf,
+            onShelf: 0,
+            unOnShelf: 0,
             list: res.list,
-            lastPage: res.page.lastPage,
-            page: res.page.currentPage,
+            lastPage: 1,
+            page: 1,
             noData: true
           })
         }
