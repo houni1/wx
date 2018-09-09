@@ -101,7 +101,7 @@ Page({
         url: '../card/card',
      })
     }else{
-      globalData.shareId=shareId;
+      globalData.saleId=shareId;
       wx.navigateTo({
         url: '../otherpage/otherpage',
      })
