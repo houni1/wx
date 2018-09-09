@@ -8,11 +8,11 @@ Page({
    */
   data: {
    background:"../business/images/banner.png",//背景图片
-   exclusiveCode:"../business/images/car1.jpg" ,//专属码
-   nickName:"小明",//用户昵称
-   position:"总经理",
-   phone:"12356123323",
-   company:"大宝汽车贸易有限公司",
+   exclusiveCode:"" ,//专属码
+   nickName:"",//用户昵称
+   position:"",
+   phone:"",
+   company:"",
    img:"",
    isShowShadow:false//是否显示弹窗
   },

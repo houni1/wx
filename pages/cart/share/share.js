@@ -7,31 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nickname:"小明",
-    createdAt:"星期一 2018/01/01 12:00:00",
-    information:"今天来了一批好车，快来看看吧",
-    prices:["http://pic.58pic.com/58pic/14/13/42/61F58PICmRS_1024.jpg",
-       "http://img.zcool.cn/community/012f6f59cf44aea80121ae0cbb1ad3.jpg@3000w_1l_2o_100sh.jpg","http://img.zcool.cn/community/017c4955ee776932f875a1320b4f4d.jpg@1280w_1l_2o_100sh.jpg",
-  "http://img05.tooopen.com/images/20141020/sy_73154627197.jpg"
-  ],//动态图片
-  them:[{
-    "themeId" :"1",           //专题图片Id
-    "title" :"热门推荐",           //标题
-    "url" :"http://pic.58pic.com/58pic/14/13/42/61F58PICmRS_1024.jpg"              //专题图片路径
-},
-{
-  "themeId" :"2",           //专题图片Id
-  "title" :"类型1",           //标题
-  "url" :"http://img.zcool.cn/community/012f6f59cf44aea80121ae0cbb1ad3.jpg@3000w_1l_2o_100sh.jpg"              //
-},
-{
-  "themeId" :"3",           //专题图片Id
-  "title" :"类型2",           //标题
-  "url" :"http://img.zcool.cn/community/017c4955ee776932f875a1320b4f4d.jpg@1280w_1l_2o_100sh.jpg"              //
-}
-
-  ],
-    userQrCode:"../business/images/car2.jpg",//二维码图片
+    nickname:"",
+    createdAt:"",
+    information:"",
+    prices:[],//动态图片
+  them:[],
+    userQrCode:"",//二维码图片
     bannerHeight:"350rpx",//轮播图高度
     swiperCurrent:0,//当前轮播图索引
     list:[],//海报图片容器
