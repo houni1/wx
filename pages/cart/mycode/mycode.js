@@ -157,7 +157,6 @@ Page({
       focusflag: true
     })
   },
-<<<<<<< HEAD
 
   // 点击取消弹窗收起
   cancel: function () {
@@ -204,12 +203,4 @@ Page({
     }
 
   }
-=======
-   // 关闭弹窗
-   toggleShadow(e) {
-      this.setData({
-         isShowShadow: false
-      })
-   }
->>>>>>> 765911b4e362284afcfcd1be412434d0a9e3ce0a
 })
