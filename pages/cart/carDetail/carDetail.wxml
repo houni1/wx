@@ -113,7 +113,7 @@
   </view>
   <!-- 创建名片 -->
   <view class='msg-box'>
-    <navigator wx:if="{{userId & userId != 0}}" url="/pages/cart/card/card">
+    <navigator wx:if="{{userId != 0}}" url="/pages/cart/card/card">
       <text>进入我的名片</text>
     </navigator>
     <navigator wx:else url="/pages/cart/mark/mark?type=2&page=1">
