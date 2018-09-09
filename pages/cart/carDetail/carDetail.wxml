@@ -113,11 +113,12 @@
   </view>
   <!-- 创建名片 -->
   <view class='msg-box'>
-    <navigator wx:if="{{userId & userId != 0}}" url="/pages/cart/mark/mark?type=2&page=1">
+    <navigator wx:if="{{userId & userId != 0}}" url="/pages/cart/card/card">
       <text>进入我的名片</text>
     </navigator>
-    
-    <text wx:else>创建我的名片</text>
+    <navigator wx:else url="/pages/cart/mark/mark?type=2&page=1">
+      <text>创建我的名片</text>
+    </navigator>
   </view>
   <!-- 分享 -->
   <view class='share' wx:if="{{ userId == toUserId }}">
