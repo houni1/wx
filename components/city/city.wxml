@@ -4,7 +4,7 @@
       <text>取消</text>
       <text>完成</text>
     </view>
-    <picker-view class="city-con">
+    <picker-view class="city-con" value="{{value}}" bindchange="bindChange">
       <picker-view-column class="city-list" id="provinceWrap">
         <view wx:for="{{provinceData}}" wx:key="{{index}}">{{item.name}}</view>
       </picker-view-column>
