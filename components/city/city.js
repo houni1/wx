@@ -33,7 +33,7 @@ Component({
     getprovinceInfo: function () {
       console.log('城市组件获取省数据')
       getprovinceInfo().then(res => {
-        console.log(res)
+        // console.log(res)
         this.setData({
           provinceData: res
         })
@@ -58,5 +58,15 @@ Component({
         })
       })
     },
+    bindChange: function (e) {
+      console.log(e)
+      const val = e.detail.value
+      console.log(this.data.provinceData[val[0]].name,this.data.cityData[val[1]])
+      this.setData({
+        cityData: this.data.provinceData[val[0]].city
+      })
+    }
   }
 })
+
+

@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId: app.globalData.authorize_user_id,            // 当前用户Id [必传]
-    toUserId: app.globalData.authorize_user_id,          // 被查看用户Id [必传]
+    userId: '',            // 当前用户Id [必传]
+    toUserId: '',          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
     showSelect: false,      // 全部商品筛选
     goodsSelectIndex: false,
@@ -29,6 +29,11 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+    _this.setData({
+      userId: app.globalData.authorize_user_id,
+      toUserId: app.globalData.authorize_user_id
+    });
+    console.log(_this.data.userId)
     wx.getLocation({
       success: function (res) {
         console.log(res)
@@ -159,9 +164,8 @@ Page({
       status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
       type: this.data.type            // 1 自营 2 一猫 [非必传]
     }
-
     getOnSaleData(params).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (loadKind == 9) {
         _this.setData({
           onShelf: res.amount.onShelf,
@@ -183,11 +187,11 @@ Page({
           })
         } else {
           _this.setData({
-            onShelf: res.amount.onShelf,
-            unOnShelf: res.amount.unOnShelf,
+            onShelf: 0,
+            unOnShelf: 0,
             list: res.list,
-            lastPage: res.page.lastPage,
-            page: res.page.currentPage,
+            lastPage: 1,
+            page: 1,
             noData: true
           })
         }

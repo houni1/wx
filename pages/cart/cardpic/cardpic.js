@@ -49,6 +49,10 @@ Page({
               filePath: sres.path,
               success: function (fres) {
                 console.log('图片保存成功')
+                 wx.showToast({
+                    title:"图片保存成功",
+                    icon: "success",
+                 })
               }
             })
           },

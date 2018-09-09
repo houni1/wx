@@ -29,6 +29,60 @@ Page({
   onLoad: function (options) {
     this.getUserInfo()
   },
+   // 保存图片
+   saveImg() {
+     
+      let _this = this;
+      // 获取图片路径并保存
+      function getImgInfoToSave(src) {
+         console.log(src)
+         wx.getImageInfo({
+            src: src,
+            success: function (sres) {
+               console.log('获取图片信息')
+               wx.saveImageToPhotosAlbum({
+                  filePath: sres.path,
+                  success: function (fres) {
+                     console.log('图片保存成功')
+                     wx.showToast({
+                        title: "图片保存成功",
+                        icon: "success",
+                     })
+                  }
+               })
+            },
+            fail() {
+               // console.log("失败",src)
+
+            }
+         })
+      }
+      // 判断是否已经授权writePhotosAlbum（保存图片）
+      let imgUrl = this.data.userInfo.exclusiveCode;
+      wx.getSetting({
+         success(res) {
+            if (!res.authSetting['scope.writePhotosAlbum']) {
+               console.log('授权失败')
+               wx.authorize({
+                  scope: 'scope.writePhotosAlbum',
+                  success() {
+                     console.log("相册授权成功")
+                     getImgInfoToSave(imgUrl)
+                  },
+                  fail() {
+                     console.log("需要再次授权")
+                     
+                     _this.setData({
+                        isShowShadow: true
+                     })
+                  }
+               })
+            } else {
+               getImgInfoToSave(imgUrl)
+            }
+         }
+      })
+   },
 
   // 获取个人信息，默认展示数据
   getUserInfo: function () {
@@ -103,6 +157,7 @@ Page({
       focusflag: true
     })
   },
+<<<<<<< HEAD
 
   // 点击取消弹窗收起
   cancel: function () {
@@ -149,4 +204,12 @@ Page({
     }
 
   }
+=======
+   // 关闭弹窗
+   toggleShadow(e) {
+      this.setData({
+         isShowShadow: false
+      })
+   }
+>>>>>>> 765911b4e362284afcfcd1be412434d0a9e3ce0a
 })

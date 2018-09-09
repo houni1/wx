@@ -117,6 +117,7 @@ Page({
   getData(data){
     getBusinessList(data).then((res)=>{
       console.log(res)
+      //list==[]  datashow==false
       // console.log(res.page)
       // this.setData({
       //   page:res.page,

@@ -7,8 +7,9 @@
             <view class="personal-info-wrap clear-fix">
                 <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}"></image>
                 <view class="personal-info left" bindtap="goToSetup">
-                    <text class="name">{{userInfo.nickName}}</text>
-                    <text class="post">{{userInfo.position}} - {{userInfo.company}}</text>
+                    <text class="post" wx:if="{{userInfo.company}}">{{userInfo.position}}</text>
+                    <text class="post" wx:if="{{userInfo.company}}"> - </text>
+                    <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>
                 </view>
                 <image class="arrow-right right" src="./images/arrow-right.png"></image>
             </view>

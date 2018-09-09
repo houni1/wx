@@ -121,6 +121,10 @@ Page({
             filePath: sres.path,
             success: function (fres) {
               console.log('图片保存成功')
+               wx.showToast({
+                  title: "已保存至相册，快发给你的好友看看把",
+                  icon: "success",
+               })
             }
           })
         },
