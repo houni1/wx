@@ -1,4 +1,6 @@
 // components/business/business.js
+let globalData = getApp().globalData;
+import {getBusinessList,buttonStat,popStat,starStat} from "../../servies/services.js";
 Component({
   /**
    * 组件的属性列表
@@ -13,7 +15,7 @@ Component({
   data: {
      datashow: true,
     alarm:false,  //加载数据后提示弹框
-    loadNum:10 ,//加载数据条数
+    newNum:"10" ,//加载数据条数
     list:[
       {
         "circleId": "1",//信息ID( 车商圈动态Id )
@@ -49,13 +51,14 @@ Component({
     "createdAt" :  "2018/01/01 12:00:00"//发布时间
 }
     ],// 车商圈动态列表
-    
+      currentPage:1
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+
 //头像预览
 preview_head(e){
   let head=e.currentTarget.dataset.head;
@@ -95,17 +98,15 @@ preview_head(e){
        }
     })
  },
- checkcard(e){
-  let userId=e.currentTarget.dataset.userId;
-   wx.navigateTo({
-      url: '../cardpic/cardpic',
-   })
-},
-send() {
-   wx.navigateTo({
-      url: '../sendinfo/sendinfo',
-   })
-},
+      //查看名片
+      checkcard(e){
+          // this.btnStat(22)
+          let shareId=globalData.shareId;
+          let userId=globalData.authorize_user_id||0;
+          console.log(e.currentTarget)
+          //跳转到别人名片页
+          this.triggerEvent('myevent')
+      },
 share(e){
    wx.navigateTo({
       url: '../share/share',

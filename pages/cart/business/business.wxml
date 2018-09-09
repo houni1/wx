@@ -1,5 +1,5 @@
 <view class='business' wx:if="{{datashow}}">
-   <view class='remind' wx:if="{{alarm}}">推车猫为您加载{{loadNum}}条最新数据</view>
+   <view class='remind' wx:if="{{alarm}}">{{newNum}}</view>
    <view class='containt'>
 
       <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
@@ -15,7 +15,7 @@
                </view>
             </view>
             <view class="content">
-               <text class="content-title">{{item.information}}</text>
+               <view class="content-title">{{item.information}}</view>
                <view class='img-group {{item.prices.length==4?"four":""}}' wx:if="{{item.prices!==[]}}">
                   <block wx:for="{{item.prices}}" wx:key="{{index_pic}}" wx:for-item="item_pic" wx:for-index="index_pic" bindtap="preview_friend">
                      <image src='{{item_pic}}' class="{{item.prices.length > 1 ? 'car':'bigcar'}}" bindtap='preview_friend' data-img="{{item_pic}}" data-list="{{item.prices}}" data-index="{{index_pic}}"></image>
@@ -32,7 +32,7 @@
                   <image class='foot-icon' src='./images/call.png'></image>
                   <text>快速联系</text>
                </view>
-               <view class='share left' bindtap='share' data-userId="{{item.userId}}">
+               <view class='share left' bindtap='share' data-userId="{{item.userId}}" data-circleid="{{item.circleId}}">
                   <image class='foot-icon' src='./images/share.png'></image>
                   <text>分享</text>
                </view>
