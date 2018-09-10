@@ -114,7 +114,9 @@ Page({
    */
   onShow: function () {
     console.log('首页，信息是否覆盖', globalData.iscover)
-    if (globalData.iscover == '1') {
+    console.log('首页，来源', globalData.source)
+    console.log('首页，车商猫上面的id', globalData.saleId)
+    if (globalData.iscover == '1' && globalData.source == '1') {
       this.setData({
         isCoverBox: true
       })
@@ -132,7 +134,8 @@ Page({
   // 允许覆盖
   sure: function () {
     var params = {
-      userId: globalData.authorize_user_id
+      userId: globalData.authorize_user_id,
+      saleId: globalData.saleId
     }
     coverOldData(params).then(res => {
       console.log(res)
