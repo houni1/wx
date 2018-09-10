@@ -1,8 +1,9 @@
 /* pages/cart/my/my.wxss */
+.personal-info-wrap{display:flex;}
 .my-in{padding:85rpx 40rpx 0 40rpx;}
-.head-portrait{display:block;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;border:1px solid green;}
-.personal-info{width:70%;height:85rpx;}
-.personal-info text{display:block;}
+.head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;}
+.person-info-in{flex:1;float:left;}
+.personal-info{}
 .personal-info .name{color:#282c39;font-size:32rpx;}
 .personal-info .post{color:#a6a6a6;font-size:28rpx;}
 .arrow-right{display:block;width:18rpx;height:31rpx;margin-top:30rpx;}
