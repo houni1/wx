@@ -12,28 +12,28 @@
   <view class='mail-code'>
     <image class='right-top-icon' src='/images/right-top-icon.png'></image>
     <view class='mail-code-top'>
-      <text class='mail-code-name'>{{userInfo.cityName}}</text>
-      <text class='mail-code-position'>{{userInfo.position}}</text>
+      <text class='mail-code-name'>{{userInfo.nickName}}</text>
+      <text class='mail-code-position'>{{userInfo.position == '' ? '暂无职位' : userInfo.position}}</text>
     </view>
     <view class='mail-code-bottom'>
       <view class='mail-code-cont'>
-        <view class='cont-item' wx:if="{{userInfo.company}}">
+        <view class='cont-item'>
           <view class='item-icon'>
             <image class='company-icon' src='/images/company-icon1.png'></image>
           </view>
-          <text class='item-text'>{{userInfo.company}}</text>
+          <text class='item-text'>{{userInfo.company == '' ? '暂无公司' : userInfo.company}}</text>
         </view>
-        <view class='cont-item' wx:if="{{userInfo.phone}}">
+        <view class='cont-item'>
           <view class='item-icon'>
             <image class='tel-icon' src='/images/tel-icon.png'></image>
           </view>
-          <text class='item-text'>{{userInfo.phone}}</text>
+          <text class='item-text'>{{userInfo.phone == '' ? '暂无手机号' : userInfo.phone}}</text>
         </view>
-        <view class='cont-item' wx:if="{{userInfo.email}}">
+        <view class='cont-item'>
           <view class='mail-icon-box'>
             <image class='mail-icon' src='/images/mail-icon.png'></image>
           </view>
-          <text class='item-text'>{{userInfo.email}}</text>
+          <text class='item-text'>{{userInfo.email == '' ? '暂无邮箱' : userInfo.email}}</text>
         </view>
       </view>
       <view class='mail-code-pic'>

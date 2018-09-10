@@ -207,5 +207,6 @@ Page({
     wx.navigateTo({
       url: '../setup/setup'
     })
-  }
+  },
+  
 })
