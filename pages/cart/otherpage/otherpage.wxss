@@ -14,12 +14,12 @@ z-index: 9999;
 
 .tabBar .home,.tabBar .source,.tabBar .circle{
   display: flex;
-flex:1;
-flex-direction: column;
-justify-content: center;
-align-items: center
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
 }
 .tabBar image{
-  width:48rpx;
+  width: 48rpx;
   height: 48rpx;
 }

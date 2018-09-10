@@ -15,41 +15,7 @@ Page({
       currentPage:  "1",//当前页
       lastPage: "",//总页数
     },
-    list:[],
-  //   [
-  //     {
-  //       "circleId": "1",//信息ID( 车商圈动态Id )
-  //       "nickname": "小明",//名称
-  //       "userId"  :  "1" ,//销售人员Id
-  //       "phone"   :  "123445",//联系电话
-  //       "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-  //       "popularity" :  "20",//销售人气
-  //       "information":  "清仓大甩卖",//发布信息
-  //       "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/01c60259ac0f91a801211d25904e1f.jpg@1280w_1l_2o_100sh.jpg","http://www.qqma.com/imgpic2/cpimagenew/2018/4/5/6e1de60ce43d4bf4b9671d7661024e7a.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/01c60259ac0f91a801211d25904e1f.jpg@1280w_1l_2o_100sh.jpg","http://www.qqma.com/imgpic2/cpimagenew/2018/4/5/6e1de60ce43d4bf4b9671d7661024e7a.jpg"] ,//展示图片
-  //       "createdAt" :  "2018/01/01 12:00:00"//发布时间
-  //   },{
-  //     "circleId": "3",//信息ID( 车商圈动态Id )
-  //     "nickname": "小张",//名称
-  //     "userId"  :  "3" ,//销售人员Id
-  //     "phone"   :  "1235435",//联系电话
-  //     "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-  //     "popularity" :  "20",//销售人气
-  //     "information":  "今天又来了几款新车",//发布信息
-  //     "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"] ,//展示图片
-  //     "createdAt" :  "2018/01/01 12:00:00"//发布时间
-  // },
-  //   {
-  //     "circleId": "2",//信息ID( 车商圈动态Id )
-  //     "nickname": "小张",//名称
-  //     "userId"  :  "2" ,//销售人员Id
-  //     "phone"   :  "1235435",//联系电话
-  //     "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-  //     "popularity" :  "20",//销售人气
-  //     "information":  "今天又来了几款新车",//发布信息
-  //     "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"] ,//展示图片
-  //     "createdAt" :  "2018/01/01 12:00:00"//发布时间
-  // }
-  //   ],// 车商圈动态列表
+    list:[],//车商圈列表
     currentPage:1
   },
   //头像预览
@@ -106,9 +72,7 @@ Page({
       wx.navigateTo({
         url: '../otherpage/otherpage',
      })
-
-    }
-   
+    } 
   },
   //发布信息
   send() {
@@ -129,6 +93,7 @@ Page({
   },
   //加载车商圈列表数据
   getData(data){
+    console.log("下拉",data)
     getBusinessList(data).then((res)=>{
       console.log(res)
       // console.log(res.page)
@@ -166,15 +131,12 @@ Page({
     this.setData({
       currentPage:curpage
     })
-    console.log("curr",this.data.currentPage)
     let data={
       currentPage:this.data.currentPage,
-      shareId:globalData.saleId,
       userId:globalData.authorize_user_id
     }
     getBusinessList(data).then((res)=>{
       console.log(res)
-      // console.log(res.page)
       this.setData({
         page:res.page,
         list:this.data.list.concat(res.list),  
@@ -189,7 +151,6 @@ Page({
     })
     let data={
       currentPage:this.data.currentPage,
-      shareId:globalData.saleId,
       userId:globalData.authorize_user_id
     }
     this.getData(data)
@@ -214,8 +175,7 @@ Page({
     wx.hideShareMenu()//隐藏右上角分享按钮
     let data={
       currentPage:this.data.currentPage,
-      
-      userId:globalData.authorize_user_id
+      userId:globalData.authorize_user_id,
     }
     this.getData(data)
  

@@ -1,13 +1,13 @@
 <view class='share'>
   <view class='title'>
     <scroll-view class='wraper' scroll-x="true" style="white-space: nowrap;">
-      <view wx:for="{{them}}" class='type {{index==0?"hot":""}} {{swiperCurrent==index?"active":""}}' id="{{index}}" bindtap="clickEvent" data-themid="{{item.themeId}}" wx:key="item.themeId">
+      <view wx:for="{{theme}}" class='type {{index==0?"hot":""}} {{swiperCurrent==index?"active":""}}' id="{{index}}" bindtap="clickEvent" data-themid="{{item.themeId}}" wx:key="item.themeId">
         {{item.title}}
       </view>
     </scroll-view>
   </view>
   <swiper class='banner' current="{{swiperCurrent}}" bindchange="swiperChange" style="height:{{bannerHeight}}px">
-    <block wx:for="{{them}}" wx:for-index="index" wx:key="index">
+    <block wx:for="{{theme}}" wx:for-index="index" wx:key="index">
       <swiper-item>
         <view class="ban-wrap">
           <image mode="widthFix" class='ban-img' data-url="{{item.url}}" src="{{item.url}}" bindtap="previewImage"/>
@@ -43,4 +43,17 @@
     </view>
   </view>
   <view class="cancel" bindtap="cancel">取消</view>
+  <view class='shadow' wx:if='{{isShowShadow}}'>
+           <view class='contain border-box'>
+             <view class='ttl'>温馨提示</view>
+             <view class='desc'>推车猫小程序没有保存图片到您相册的权限，请点击确定打开权限设置</view>
+             <view class='btn-wrapper'>
+               <text class='cancle' bindtap='toggleShadow'>取消</text>
+               <view class='confirm' bindtap='toggleShadow'>
+                 <button open-type="openSetting">打开授权</button>
+                 确定
+               </view>
+             </view>
+           </view>
+         </view>
 </view>

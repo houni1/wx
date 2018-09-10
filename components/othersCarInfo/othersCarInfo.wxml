@@ -16,7 +16,7 @@
         wx:if="{{chooseBrandIndex == index + 1}}">
       </image>
     </view>
-    <view class='moreIcon'catchtap='show_move'>
+    <view class='moreIcon' catchtap='show_move'>
       <image src='images/arrow-b.png' mode='widthFix'></image>
     </view>
   </view>
@@ -26,7 +26,7 @@
       wx:for="{{ list }}"
       wx:key="item">
       <view class='item'>
-        <view class='hotTag' wx:if="{{ item.state == 1 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='hotTag' hidden="{{ item.state != 1 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
           <image src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
