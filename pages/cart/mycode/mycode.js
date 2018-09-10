@@ -89,6 +89,7 @@ Page({
     let data = {
       userId: globalData.authorize_user_id
     }
+    console.log('获取个人信息userid', data)
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
@@ -97,6 +98,12 @@ Page({
           imageList: res.userAlbum,
           email: res.email
         })
+        if (res.phone == '') {
+          var phone = 'userInfo.phone'
+          this.setData({
+            [phone]: '暂无'
+          })
+        }
       }
     })
   },
@@ -187,6 +194,10 @@ Page({
       }
       sendEmail(params).then(res => {
         console.log(res)
+        wx.showToast({
+          title: '已发送至邮箱',
+          icon: 'none'
+        })
         this.setData({
           toMailFlag: false,
           focusflag: false

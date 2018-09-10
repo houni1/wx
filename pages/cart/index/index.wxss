@@ -197,6 +197,19 @@
   padding-top: 34rpx;
   padding-bottom: 30rpx;
 }
+.card-list button {
+  border: none;
+  outline: none;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-list button::after {
+  border: 0; 
+}
 .card-li {
   flex: 1;
   text-align: center;
@@ -215,6 +228,11 @@
   color: #4d4d4d;
 }
 
+.lookMore {
+  text-align: center;
+  font-size: 26rpx;
+  color: #4d4d4d;
+}
 
 
 /* 猫哥卫星 */

@@ -7,6 +7,8 @@
         <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}'></image>
         <text class='user-name'>{{userInfo.nickName}}</text>
         <text class='user-position'>{{userInfo.position}}</text>
+        <text class='user-position'>-</text>
+        <text class='user-position'>{{userInfo.cityName}}</text>
       </view>
       <view class='user-list'>
         <view class='user-hot user-li' wx:if="{{userInfo.popularity != ''}}">
@@ -46,7 +48,7 @@
       <text>专属码</text>
     </view>
   </view>
-  <view class='home-catlist' wx:if="{{catlist.length != '0'}}">
+  <view class='home-catlist'>
     <view class='catlist-title'>猫哥卫星</view>
     <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
       <view class='catli-pic'>
@@ -71,7 +73,7 @@
         </view>
       </view>
     </view>
-    <view>查看更多</view>
+    <view class='lookMore' wx:if="{{moreflag}}">查看更多</view>
   </view>
   <view class='msg-box' wx:if="{{card > 0}}">
     <text class='number'>{{card}}</text>

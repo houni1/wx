@@ -23,25 +23,29 @@ Page({
       cityId: '',
       cityName: ''
     },
-    imageList: [],
+    imageList: [],  // 图片展示列表
     code: '', // 手机号获取用code传参
     cityShow: true,
     provinceData: [], // 获取省数据
     cityData: [],  // 获取市数据
     val: [0, 0],
-    currentCity: '北京'   // 所在城市
+    currentCity: '北京',   // 所在城市
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfo();
-
+    this.getUserInfo()
     this.getprovinceInfo();
     this.getCityInfo(1);
-     
   },
+
+  // onShow: function () {
+  //   this.getUserInfo()
+  //   this.getprovinceInfo();
+  //   this.getCityInfo(1);
+  // },
 
   // 获取个人信息，默认展示数据
   getUserInfo: function () {
@@ -61,6 +65,7 @@ Page({
             imageList: []
           })
         }
+        console.log(this.data.imageList)
       }
     })
   },
@@ -76,7 +81,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   // 点击添加按钮弹起选择类型框
@@ -118,7 +123,7 @@ Page({
         var failUp = 0; //失败个数
         var length = res.tempFilePaths.length; //总共个数
         var i = 0; //第几个
-        // console.log(res.tempFilePaths)
+        console.log('上传图片', res.tempFilePaths)
         _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length, pos);
       }
     })
@@ -135,7 +140,7 @@ Page({
     this.setData({
       imageList: this.data.imageList
     })
-    // console.log(this.data.imageList)
+    console.log(this.data.imageList)
   },
 
   // 点击预览图片
@@ -168,9 +173,11 @@ Page({
         if (pos == 'list') {
           var data = JSON.parse(res.data).data
           console.log(data)
+          console.log('拼接前的list', _this.data.imageList)
           _this.setData({
             imageList: _this.data.imageList.concat(data)
           })
+          console.log('拼接后的list', _this.data.imageList)
           if (_this.data.imageList.length > 6) {
             wx.showToast({
               icon: 'none',
@@ -293,7 +300,7 @@ Page({
   // 编辑个人信息接口
   editUserInfo: function (e) {
     console.log('点击保存按钮')
-    // console.log(this.data.imageList)
+    console.log(this.data.imageList)
     // console.log(this.data.headPortrait)
     console.log(this.data.userInfo)
     let params = {

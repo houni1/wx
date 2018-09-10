@@ -122,11 +122,14 @@
 }
 
 .send-card-box button {
+  width: 100%;
   border-width: 0;
   background: #fff;
   outline: none;
 }
-
+.send-card-box button::after {
+  border: 0;
+}
 .send-icon {
   display: inline-block;
   width: 48rpx;
