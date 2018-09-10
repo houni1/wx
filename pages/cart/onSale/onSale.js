@@ -108,6 +108,7 @@ Page({
     } else {
       wx.showToast({
         title: '没有更多数据了！',
+        icon: "none"
       })
     }
   },
@@ -119,7 +120,7 @@ Page({
     if (res.from === 'button') {
       return {
         title: res.target.dataset.title,
-        path: '/pages/cart/carDetail/carDetail?saleId=' + this.data.userId + '&pages=5',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2',
         imageUrl: res.target.dataset.cover,
         success: (res) => {
           console.log("转发成功", res);
@@ -157,6 +158,8 @@ Page({
     }
     // 请求列表数据
     var params = {
+      // userId: 5,       // 当前用户Id [必传]
+      // toUserId: 3,   // 被查看用户Id [必传]
       userId: this.data.userId,       // 当前用户Id [必传]
       toUserId: this.data.toUserId,   // 被查看用户Id [必传]
       page: pageNum,                  // 当前页 [必传]

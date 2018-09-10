@@ -228,7 +228,11 @@ page {
 
 /* 分享 */
 .share {
-  padding: 30rpx;
+  position: fixed;
+  right: 20rpx;
+  bottom: 240rpx;
+  width: 220rpx;
+  height: 78rpx;
 }
 button {
   padding: 0;
@@ -237,13 +241,13 @@ button::after {
   border: 0;
 } 
 .shareBtn {
-  height: 100rpx;
+  height: 78rpx;
   background: #ffcf10;
-  border-radius: 100rpx;
-  line-height: 100rpx;
+  border-radius: 78rpx;
+  line-height: 78rpx;
   text-align: center;
-  font-size: 36rpx;
-  font-weight: bold;
+  font-size: 26rpx;
+  color: #fff;
 }
 
 .msg-box {
@@ -251,6 +255,7 @@ button::after {
   bottom: 140rpx;
   right: 20rpx;
   height: 78rpx;
+  width: 220rpx;
   background: #ffcf10;
   border-radius: 36rpx;
   font-size: 26rpx;
@@ -258,6 +263,4 @@ button::after {
   text-align: center;
   color: #fff;
   vertical-align: middle;
-  padding-left: 26rpx;
-  padding-right: 26rpx;
 }

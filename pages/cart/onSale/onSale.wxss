@@ -79,7 +79,7 @@ navigator {
   text-align: center;
 }
 .item .imgWrap image {
-  width: 230rpx; 
+  width: 260rpx; 
   height: 100%;
   vertical-align: middle;
 }

@@ -1,5 +1,6 @@
 import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -23,8 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
+    console.log(getCurrentPages()[1])
+    return
     var _this = this;
-    console.log(options)
     this.setData({
       userId: options.userId,
       toUserId: options.toUserId,
@@ -41,6 +43,7 @@ Page({
       longitude: this.data.longitude,   // 当前用户经度 [必传]
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
+    console.log(params)
     autoDetails(params).then(function (res) {
       console.log(res)
       _this.setData({
@@ -116,7 +119,17 @@ Page({
    */
   onShareAppMessage: function (res) {
     if(res.form == 'button'){
-      
+      return {
+        title: '',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2',
+        imageUrl: this.data.dataInfo.autoInfo.logoUrl,
+        success: (res) => {
+          console.log("转发成功", res);
+        },
+        fail: (res) => {
+          console.log("转发失败", res);
+        }
+      }
     }
     // 按钮统计
     var tjParam = {
