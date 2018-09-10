@@ -17,27 +17,11 @@
             </view>
             <view class="info-con">{{item.content}}</view>
         </view>
-        <!-- <view class="tuichemao-info">
-            <view class="tuichemao-title clear-fix">
-                <text class="yellow-icon"></text>
-                <text class="title-info">推车猫卫星实时掌控来访客户</text>
-            </view>
-            <view class="info-con">自动采集访客互动，全面展现互动数据，智能分析用户行为、用户关注和兴趣点</view>
-        </view>
-
-
-        <view class="tuichemao-info">
-            <view class="tuichemao-title clear-fix">
-                <text class="yellow-icon"></text>
-                <text class="title-info">以用户交互为中心，与客户持续连接</text>
-            </view>
-            <view class="info-con">通过社区运营和互动跟进，让员工、企业与客户持续互动，实现与客户得持续连接</view>
-        </view> -->
 
     </view>
 
     <view class="tuichemao-versoin-wrap">
-        <view class="tuichemao-version">版本号：V.0</view>
+        <view class="tuichemao-version">版本号：V 1.0.0</view>
     </view>
     
 

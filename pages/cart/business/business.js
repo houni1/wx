@@ -136,6 +136,10 @@ Page({
         this.setData({
           datashow:false
         })
+      }else{
+        this.setData({
+          datashow:true
+        })
       }
       this.setData({
         page:res.page,

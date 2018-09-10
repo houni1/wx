@@ -6,13 +6,23 @@
         <view class="my-in">
             <view class="personal-info-wrap clear-fix">
                 <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}"></image>
-                <view class="personal-info left" bindtap="goToSetup">
-                     <text class="name">{{userInfo.nickName}}</text>
-                    <text class="post" wx:if="{{userInfo.position}}">{{userInfo.position}}</text>
-                    <text class="post" wx:if="{{userInfo.company}}"> - </text>
-                    <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>
+                <view class="person-info-in clear-fix" bindtap="goToSetup">
+                    <view class="personal-info left" >
+                    <view> <text class="name">{{userInfo.nickName}}</text></view>
+                    <view>
+                         <text class="post" wx:if="{{userInfo.position}}">{{userInfo.position}}</text>
+                        <text class="post" wx:if="{{userInfo.company}}"> - </text>
+                        <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>
+                    </view>
+                   
+                     <!-- <text class="post" >你开电脑</text>
+                    <text class="post" > - </text>
+                    <text class="post" >经典款减肥</text> -->
+
                 </view>
                 <image class="arrow-right right" src="./images/arrow-right.png"></image>
+                </view>
+             
             </view>
 
             <view class="cardcase-wrap clear-fix" bindtap="goToCardcase">
@@ -39,3 +49,5 @@
 
 
 </view>
+
+

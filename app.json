@@ -1,5 +1,6 @@
 {
    "pages": [
+      "pages/cart/mark/mark",
       "pages/cart/index/index",
       "pages/cart/onSale/onSale",
       "pages/cart/otherpage/otherpage",
@@ -21,7 +22,6 @@
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
-      "pages/cart/mark/mark",
       "components/city/city",
       "pages/cart/city/city"
    ],

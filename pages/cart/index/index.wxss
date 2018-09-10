@@ -315,3 +315,18 @@
   color: #fcc91a;
   font-size: 26rpx;
 }
+
+.home-mark-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #ccc;
+}
+
+.home-mark {
+  width: 690rpx;
+  height: 200rpx;
+  background: #fff;
+  margin: 130rpx auto 0 auto;
+}
