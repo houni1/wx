@@ -17,41 +17,6 @@ Component({
     alarm:false,  //加载数据后提示弹框
     newNum:"10" ,//加载数据条数
     list:[],
-//     [
-//       {
-//         "circleId": "1",//信息ID( 车商圈动态Id )
-//         "nickname": "小明",//名称
-//         "userId"  :  "1" ,//销售人员Id
-//         "phone"   :  "123445",//联系电话
-//         "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-//         "popularity" :  "20",//销售人气
-//         "information":  "清仓大甩卖",//发布信息
-//         "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/01c60259ac0f91a801211d25904e1f.jpg@1280w_1l_2o_100sh.jpg","http://www.qqma.com/imgpic2/cpimagenew/2018/4/5/6e1de60ce43d4bf4b9671d7661024e7a.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/01c60259ac0f91a801211d25904e1f.jpg@1280w_1l_2o_100sh.jpg","http://www.qqma.com/imgpic2/cpimagenew/2018/4/5/6e1de60ce43d4bf4b9671d7661024e7a.jpg"] ,//展示图片
-//         "createdAt" :  "2018/01/01 12:00:00"//发布时间
-//     },
-//     {
-//       "circleId": "2",//信息ID( 车商圈动态Id )
-//       "nickname": "小张",//名称
-//       "userId"  :  "2" ,//销售人员Id
-//       "phone"   :  "1235435",//联系电话
-//       "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-//       "popularity" :  "20",//销售人气
-//       "information":  "今天又来了几款新车",//发布信息
-//       "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"] ,//展示图片
-//       "createdAt" :  "2018/01/01 12:00:00"//发布时间
-//   },
-//   {
-//     "circleId": "2",//信息ID( 车商圈动态Id )
-//     "nickname": "小张",//名称
-//     "userId"  :  "2" ,//销售人员Id
-//     "phone"   :  "1235435",//联系电话
-//     "headPortrait" :  "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" ,//用户头像
-//     "popularity" :  "20",//销售人气
-//     "information":  "今天又来了几款新车",//发布信息
-//     "prices" :  ["http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg","http://img.zcool.cn/community/01c60259ac0f91a801211d25904e1f.jpg@1280w_1l_2o_100sh.jpg","http://www.qqma.com/imgpic2/cpimagenew/2018/4/5/6e1de60ce43d4bf4b9671d7661024e7a.jpg","http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg"] ,//展示图片
-//     "createdAt" :  "2018/01/01 12:00:00"//发布时间
-// }
-//     ],// 车商圈动态列表
     page:{
       perPage:  "10",//每页条数
       currentPage:  "1",//当前页
@@ -157,7 +122,7 @@ uploadData(){
   console.log("curr",this.data.currentPage)
   let data={
     currentPage:this.data.currentPage,
-    shareId:globalData.saleId,
+
     userId:globalData.authorize_user_id
   }
   getBusinessList(data).then((res)=>{
@@ -177,7 +142,7 @@ pulldownData(){
   })
   let data={
     currentPage:this.data.currentPage,
-    shareId:globalData.saleId,
+
     userId:globalData.authorize_user_id
   }
   this.getData(data)
@@ -195,10 +160,6 @@ pulldownData(){
   }
 
 },
-
-
-
-
   },
   //组件实例化但节点树还未导入，因此这时不能用setData
   created(){
