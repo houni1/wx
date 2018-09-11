@@ -74,4 +74,7 @@
       <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}'></image>
     </view>
   </view>
+  <view class='msg-box' bindtap='toHome'>
+    <text>进入首页</text>
+  </view>
 </view>

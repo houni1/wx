@@ -60,8 +60,8 @@ Component({
           params = null;
       if (detail.errMsg == "getUserInfo:ok") {
         params = {
-          encryptedData: encodeURIComponent(detail.encryptedData),
-          iv: encodeURIComponent(detail.iv),
+          encryptedData: detail.encryptedData,
+          iv: detail.iv,
           location: '5'
         }
         this.getAuthorizeUserId(params, 1);
@@ -69,10 +69,11 @@ Component({
       } else {
         this.goPage();
       }
-      this.getAuthorizeUserId(params, 2);
+      // this.getAuthorizeUserId(params, 2);
     },
     // 获取用户ID
     getAuthorizeUserId (data, wxType) {
+      console.log(data)
       let _this = this,
         params = {};
       if (data != null) {

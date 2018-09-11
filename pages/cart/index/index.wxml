@@ -19,7 +19,7 @@
         <view class='user-phone user-li' wx:if="{{userInfo.phone == ''}}">
           <view class='li-icon-box'><image class='li-icon tel-icon' src='/images/tel-icon.png'></image></view>
           <text class='li-text'>暂无手机号</text>
-          <text class='get-phone' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</text>
+          <button class='get-phone' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
         </view>
         <view class='user-email user-li'>
           <image class='li-icon mail-icon' src='/images/mail-icon.png'></image><text class='li-text'>{{userInfo.email == '' ? '暂无邮箱' : userInfo.email}}</text>

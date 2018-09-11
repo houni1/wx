@@ -166,6 +166,11 @@ let coverOldData = function (data) {
   return $post("/cart/login/coverOldData", data)
 }
 
+// 首页获取手机号接口
+let addPhone = function (data) {
+  return $post("/cart/user/addPhone", data)
+}
+
 export {
   wxAuthorization,
   getUserInfo,
@@ -193,5 +198,6 @@ export {
   bindPhone,
   sendEmail,
   changeCard,
-  coverOldData
+  coverOldData,
+  addPhone
 };

@@ -1,6 +1,6 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo, coverOldData } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone } from '../../../servies/services.js';
 Page({
 
   /**
@@ -208,6 +208,47 @@ Page({
   toSetUp: function () {
     wx.navigateTo({
       url: '../setup/setup'
+    })
+  },
+
+  // 获取用户手机号
+  getPhoneNumber: function (e) {
+    let _this = this
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          _this.setData({
+            code: res.code
+          })
+        }
+        if (e.detail.errMsg == 'getPhoneNumber:ok') {
+          let params = {
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
+            code: _this.data.code
+          }
+
+          console.log(params)
+
+          getUserWxPhone(params).then(res => {
+            console.log(res)
+            if (res.phoneNumber) {
+              var phone = 'userInfo.phone'
+              _this.setData({
+                [phone]: res.phoneNumber
+              })
+              let addParams = {
+                userId: globalData.authorize_user_id,
+                phone: res.phoneNumber
+              }
+              addPhone(addParams).then(res => {
+                console.log(res)
+              })
+            }
+          })
+
+        }
+      }
     })
   },
   
