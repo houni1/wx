@@ -120,7 +120,7 @@ Page({
     if (res.from === 'button') {
       return {
         title: res.target.dataset.title,
-        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2&id=1234',
         imageUrl: res.target.dataset.cover,
         success: (res) => {
           console.log("转发成功", res);

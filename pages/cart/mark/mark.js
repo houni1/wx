@@ -8,7 +8,7 @@ Page({
    */
   data: {
     page: '',  // 调到推车猫的哪个页面
-    autoId: ''  // 车型id
+    id: ''  // 车型id
   },
 
   /**
@@ -24,9 +24,9 @@ Page({
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
-    if (options.autoId) {
+    if (options.id) {
       this.setData({
-        autoId: options.autoId
+        id: options.id
       })
     }
     if (options.page) {
@@ -101,7 +101,7 @@ Page({
       // 跳转至车型详情页面
       console.log('跳转至车型详情页面')
       wx.redirectTo({
-        url: '/pages/cart/carDetail/carDetail?autoId=' + this.data.autoId
+        url: '/pages/cart/carDetail/carDetail?id=' + this.data.id
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')

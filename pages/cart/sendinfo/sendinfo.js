@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-     text:"我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员，我是一名信息工程大学印刷工程专业应届本科即将毕业的学生",
+     text:"",
      imageList:[],
      imageArr: [],
      textinput:""
@@ -54,20 +54,6 @@ Page({
         var i = 0; //第几个
         console.log(res.tempFilePaths)
         _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length);
-
-
-        // _this.setData({
-        //   imageList: _this.data.imageList.concat(res.tempFilePaths)
-        // })
-        // if (_this.data.imageList.length > 9) {
-        //   wx.showToast({
-        //     icon: 'none',
-        //     title: '您只能添加9张图'
-        //   })
-        //   _this.setData({
-        //     imageList: _this.data.imageList.slice(0, 9)
-        //   })
-        // }
       }
     })
   },
@@ -154,37 +140,30 @@ Page({
 
   // 提交表单提交页面
   uploadfile: function () {
+    if(this.data.textinput.trim()==""&&this.data.imageList.length==0){
+      wx.showToast({
+        title: "请输入内容",
+        icon: 'none',
+        duration: 1500,
+        mask: false,
+      });
+      return
+    }
+    console.log(0,JSON.stringify(this.data.imageList))
     postMessage({userId:globalData.authorize_user_id,information:this.data.textinput,file:JSON.stringify(this.data.imageList)}).then((res)=>{
       console.log(res)
+      let pages = getCurrentPages();
+    if (pages.length > 1) {
+      //上一个页面实例对象
+      let prePage = pages[pages.length - 2];
+      //关键在这里
+      prePage.onLoad()
+    }
       wx.switchTab({
         url: "../business/business"
       });
     })
-    // if(this.data.imageList==[]){return};
-    // console.log(this.data.imageList)
-    // this.setData({
-    //   imageArr: this.data.imageList.join(',')
-    // })
-    // console.log(this.data.imageArr)
-    // wx.uploadFile({
-    //   url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
-    //   filePath: this.data.imageArr,
-    //   name: 'file',
-    //   header: {
-    //     "X-Emao-TCM-App": "os=Android 7.1.1;model=Xiaomi MIX2;appVersion=2.1.0",
-    //     'Accept': 'application/json; version=3.8.0'
-    //   },
-    //   formData: {
-    //     userid: '1'
-    //   },
-    //   success: function (res) {
-    //     var data = res.data
-    //     console.log(data)
-    //     wx.navigateBack({
-    //       delta: 1
-    //     });
-    //   }
-    // })
+   
   },
 
   /**

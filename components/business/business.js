@@ -32,6 +32,7 @@ Component({
 
 //头像预览
 preview_head(e){
+  this.btnStat(21);
   let head=e.currentTarget.dataset.head;
   console.log([head])
     wx.previewImage({
@@ -50,6 +51,7 @@ preview_head(e){
     }) 
  },
  quickcall(e){
+  this.btnStat(11);
    let phone=e.currentTarget.dataset.phone;
     wx.showModal({
        title: '拨打电话',
@@ -68,7 +70,7 @@ preview_head(e){
  },
       //查看名片
       checkcard(e){
-          // this.btnStat(22)
+        this.btnStat(22);
           // let shareId=globalData.shareId;
           // let userId=globalData.authorize_user_id||0;
           console.log(e.currentTarget)
@@ -76,6 +78,7 @@ preview_head(e){
           this.triggerEvent('myevent')
       },
 share(e){
+  this.btnStat(23);
   let userId=e.currentTarget.dataset.userid;
     let circleId=e.currentTarget.dataset.circleid;
     console.log(e.currentTarget.dataset.userid)
@@ -91,6 +94,10 @@ getData(data){
     if(res.list.length==0){
       this.setData({
         datashow:false
+      })
+    }else{
+      this.setData({
+        datashow:true
       })
     }
     this.setData({
@@ -122,7 +129,7 @@ uploadData(){
   console.log("curr",this.data.currentPage)
   let data={
     currentPage:this.data.currentPage,
-
+    shareId:globalData.saleId,
     userId:globalData.authorize_user_id
   }
   getBusinessList(data).then((res)=>{
@@ -142,7 +149,7 @@ pulldownData(){
   })
   let data={
     currentPage:this.data.currentPage,
-
+    shareId:globalData.saleId,
     userId:globalData.authorize_user_id
   }
   this.getData(data)
@@ -172,6 +179,13 @@ pulldownData(){
   }
   this.getData(data)
   },
+  //按钮统计
+  btnStat(type){
+    console.log(type)
+    buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
+  console.log(res)
+})
+ },
   //节点树完成可以用setData渲染节点，但无法操作节点
    attached (){
 

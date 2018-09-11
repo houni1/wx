@@ -16,7 +16,7 @@
   </view>
   <view class='carsList'>
     <view class='item' wx:for="{{ list }}" wx:key="item">
-      <navigator url="/pages/cart/carDetail/carDetail?userId=5&toUserId=5&id={{item.id}}&longitude=116.318768&latitude=39.943956">
+      <navigator url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&longitude=116.318768&latitude=39.943956">
         <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
           <image src='{{ item.cover }}' mode='aspectFit'></image>
@@ -26,7 +26,7 @@
           <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
           <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
           <view class='status'>
-            <view class='carStatus' hidden='{{ item.stockNum != 1 }}'>现车</view>
+            <view class='carStatus' hidden='{{ item.state != 1 }}'>现车</view>
             <view class='stock' wx:if="{{item.stockNum != 0}}">库存{{item.stockNum}}台</view>
           </view>
         </view>

@@ -62,12 +62,14 @@ Page({
           userInfo: res.userInfo
         })
         // 处理红点是否显示
+        /*
         if (res.card > 0) {
           wx.setTabBarBadge({
             index: 3,
             text: res.card
           })
         }
+        */
         if (res.list.length > '0') {
           this.setData({
             moreflag: true

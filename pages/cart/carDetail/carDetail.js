@@ -1,6 +1,6 @@
 import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
-
+var app = getApp();
 Page({
 
   /**
@@ -24,11 +24,10 @@ Page({
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    console.log(getCurrentPages()[1])
-    return
+    console.log(123, options)
     var _this = this;
     this.setData({
-      userId: options.userId,
+      userId: app.globalData.authorize_user_id,
       toUserId: options.toUserId,
       id: options.id,
       longitude: options.longitude,
@@ -121,7 +120,7 @@ Page({
     if(res.form == 'button'){
       return {
         title: '',
-        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2' + '&id=' + this.data.id,
         imageUrl: this.data.dataInfo.autoInfo.logoUrl,
         success: (res) => {
           console.log("转发成功", res);

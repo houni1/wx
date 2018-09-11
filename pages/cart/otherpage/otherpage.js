@@ -106,7 +106,8 @@ Page({
       return;
      }
     if (this.data.bushow) {
-        this.business = this.selectComponent("#business");   
+        this.business = this.selectComponent("#business");  
+        this.business.pulldownData() 
      }
   },
 
@@ -118,6 +119,10 @@ Page({
       this.getData = this.selectComponent("#othersCarInfo");
       this.getData.onReachBottom()
     }
+    if (this.data.bushow) {
+      this.business = this.selectComponent("#business");  
+      this.business.uploadData() 
+   }
   },
 
   /**
