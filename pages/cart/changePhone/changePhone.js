@@ -11,7 +11,10 @@ Page({
         flag:true,
         timeValue:10,
         loading:false,
-        codeValue:""
+        codeValue:"",
+        clearTag:false,  //是否清空电话号
+        typefaceTag:false, //字体是否高亮
+        btnTag:false //立即验证按钮是否高亮
     },
 
     /**
@@ -54,8 +57,25 @@ Page({
     watchPhone: function (e) {
         let telPhoneValue = e.detail.value;
         this.setData({
+            clearTag: telPhoneValue ? true : false,
             phoneValue: telPhoneValue
-        })
+        }) 
+
+        var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!phoneReg.test(this.data.phoneValue)) {
+            wx.showToast({
+                title: '请输入正确的手机号',
+                icon: 'none'
+            })
+            this.setData({
+                typefaceTag: false
+            }) 
+        }else{
+            this.setData({
+                typefaceTag:true
+            }) 
+        }
+
     },
 
     //获取验证码内容
@@ -63,6 +83,28 @@ Page({
         let verificationCodeValue = e.detail.value;
         this.setData({
             codeValue: verificationCodeValue 
+        })
+        var codeReg = /^\d{4}$/;
+        if (!codeReg.test(this.data.codeValue)){
+            wx.showToast({
+                title: '请输入正确的验证码',
+                icon: 'none'
+            })
+            this.setData({
+                btnTag: false
+            }) 
+        }else{
+            this.setData({
+                btnTag: true
+            }) 
+        }
+    },
+
+    //清楚电话号码
+    clearPhone:function(){
+        this.setData({
+            phoneValue: '',
+            clearTag:false
         })
     },
 
@@ -172,28 +214,20 @@ Page({
                 code: this.data.codeValue
             }
             bindPhone(params).then(res => {
-                console.log(1);
-                wx.switchTab({
-                    url: '../my/my'
+                wx.showToast({
+                    title: '验证成功',
+                    icon: 'none'
                 })
-
+                console.log(1);
+                setTimeout(function(){
+                    wx.switchTab({
+                        url: '../my/my'
+                    })
+                },2000)
                 console.log(2);
 
             }) 
         }
-
-
-        // if (!codeReg.test(this.data.codeValue) && !phoneReg.test(this.data.phoneValue)){
-        //     let params = {
-        //         phone: this.data.phoneValue,
-        //         code: this.data.codeValue
-        //     }
-        //     bindPhone(params).then(res => {
-        //         wx.switchTab({
-        //             url:"./my/my"
-        //         })
-        //     })
-        // }
        
 
     }

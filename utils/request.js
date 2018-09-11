@@ -25,7 +25,7 @@ let requestBody = function (url, data, method) {
           wx.showToast({
 						title: msg,
             icon: 'loading',
-						duration: 3000
+						duration: 5000
 					})
           reject(msg)
 				}else{

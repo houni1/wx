@@ -1,5 +1,9 @@
 <!--pages/cart/cardcase/cardcase.wxml-->
 <view class="cardcase-wrap" wx:if="{{flag}}">
+    <view class="cardcase-nothing" wx:if="{{apply.length == 0 && apply.length == 0}}">   
+        <image class="cardcase-no-data" src="./images/no-data.png"></image>
+    </view>
+     
     <view wx-if="{{apply.length > 0}}">
         <view class="caedcase-list" 
             wx:for="{{apply}}"
@@ -30,7 +34,6 @@
             </view>
         </view>
     </view>
-
 
     <view wx-if="userInfo.length>0">
         <view class="caedcase-list"
@@ -67,8 +70,5 @@
             </view>
         </view>
     </view>
-
-
-
 
 </view>
