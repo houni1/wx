@@ -36,7 +36,7 @@
     </view>
   </view>
   <view class='card-list'>
-    <button class='card-li' open-type="share">
+    <button bindtap='sendCard' class='card-li' open-type="share">
       <image src='/images/cardli_1.png'></image>
       <text>发名片</text>
     </button>

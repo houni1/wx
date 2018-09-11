@@ -1,6 +1,6 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -88,6 +88,14 @@ Page({
 
   // 点击我的名片按钮进入名片页面
   toMyCard: function () {
+    let btnParams = {
+      buttonType: '3',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../card/card'
     })
@@ -95,6 +103,14 @@ Page({
 
   // 点击名片照片按钮进入名片照片页面
   toCardPic: function () {
+    let btnParams = {
+      buttonType: '4',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../cardpic/cardpic'
     })
@@ -102,6 +118,14 @@ Page({
 
   // 点击我的专属码按钮进入专属码页面
   toMyCode: function () {
+    let btnParams = {
+      buttonType: '6',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../mycode/mycode'
     })
@@ -213,8 +237,29 @@ Page({
   
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
+    let btnParams = {
+      buttonType: '1',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
+
     wx.navigateTo({
       url: '../setup/setup'
+    })
+  },
+
+  // 点击发名片按钮统计
+  sendCard: function () {
+    let btnParams = {
+      buttonType: '2',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
     })
   },
 

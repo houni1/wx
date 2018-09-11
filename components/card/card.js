@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo, changeCard, popStat } from '../../servies/services.js';
+import { getUserInfo, changeCard, popStat, buttonStat } from '../../servies/services.js';
 Component({
 
   /**
@@ -91,6 +91,14 @@ Component({
   },
   // 添加通讯录
   addToAddressBook() {
+    let btnParams = {
+      buttonType: '18',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     // 添加到手机通讯录
     wx.addPhoneContact({
       firstName: this.data.userInfo.nickName,//联系人姓名
@@ -102,6 +110,14 @@ Component({
 
   // 交换名片
   changeCard: function () {
+    let btnParams = {
+      buttonType: '17',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     let params = {
       requestId: globalData.authorize_user_id,
       beRequestId: globalData.saleId
@@ -118,6 +134,14 @@ Component({
 
   // 进入我的名片
   inMyCard: function () {
+    let btnParams = {
+      buttonType: '20',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '/pages/cart/card/card'
     })
@@ -125,6 +149,14 @@ Component({
 
   // 转发名片按钮统计
   sendCard: function () {
+    let btnParams = {
+      buttonType: '16',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     console.log('销售人气，转发名片按钮统计')
     let params = {
       userId: globalData.saleId,

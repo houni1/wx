@@ -1,6 +1,6 @@
 // pages/cart/mycode/mycode.js
 let globalData = getApp().globalData;
-import { getUserInfo, sendEmail } from '../../../servies/services.js';
+import { getUserInfo, sendEmail, buttonStat } from '../../../servies/services.js';
 
 Page({
 
@@ -31,6 +31,15 @@ Page({
   },
    // 保存图片
    saveImg() {
+
+     let btnParams = {
+       buttonType: '12',
+       pageType: '2',
+       appType: '1'
+     }
+     buttonStat(btnParams).then(res => {
+       console.log(res)
+     })
      
       let _this = this;
       // 获取图片路径并保存
@@ -159,6 +168,14 @@ Page({
 
   // 发送至邮箱
   tomail: function () {
+    let btnParams = {
+      buttonType: '13',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     this.setData({
       toMailFlag: true,
       focusflag: true
@@ -167,6 +184,14 @@ Page({
 
   // 点击取消弹窗收起
   cancel: function () {
+    let btnParams = {
+      buttonType: '14',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     this.setData({
       toMailFlag: false,
       focusflag: false
@@ -185,6 +210,14 @@ Page({
 
   // 点击弹框确定按钮发送至邮箱
   sure: function () {
+    let btnParams = {
+      buttonType: '15',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     console.log(this.data.email)
     var emailReg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
     if (emailReg.test(this.data.email)) {
