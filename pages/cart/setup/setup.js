@@ -30,6 +30,8 @@ Page({
     cityData: [],  // 获取市数据
     val: [0, 0],
     currentCity: '北京',   // 所在城市
+    focusflag: false, // 输入手机号后获取焦点
+    textareaFlag: true // 默认展示textarea,城市选择框弹起隐藏
   },
 
   /**
@@ -73,7 +75,8 @@ Page({
   // 点击城市弹起城市组件
   showCityInfo: function () {
     this.setData({
-      cityShow: false
+      cityShow: false,
+      textareaFlag: false
     });
   },
 
@@ -267,6 +270,11 @@ Page({
 
   // 获取用户手机号
   phone: function (e) {
+    if (e.detail.value != '') {
+      this.setData({
+        focusflag: true
+      })
+    }
     var phone = 'userInfo.phone'
     this.setData({
       [phone]: e.detail.value
@@ -302,11 +310,22 @@ Page({
     console.log('点击保存按钮')
     // console.log(this.data.imageList)
     // console.log(this.data.headPortrait)
-    console.log('用户职位', this.data.userInfo.nickName)
+    console.log('用户职位', this.data.userInfo.phone.trim())
+    var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
     if (this.data.userInfo.nickName.trim() == '') {
       wx.showToast({
         icon: 'none',
         title: '请输入真实姓名'
+      })
+    } else if (this.data.userInfo.phone.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入您的手机号'
+      })
+    } else if (!phoneReg.test(this.data.userInfo.phone)) {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号格式有误'
       })
     } else {
       let params = {
@@ -365,6 +384,9 @@ Page({
   },
   // 点击完成获取到选择的省份和城市
   complete: function () {
+    this.setData({
+      textareaFlag: true
+    })
     var val = this.data.val
     // console.log(this.data.provinceData[val[0]].name, this.data.provinceData[val[0]].id + '-' + this.data.cityData[val[1]].name)
     var provinceId = this.data.provinceData[val[0]].id
@@ -390,7 +412,8 @@ Page({
   },
   cancel: function () {
     this.setData({
-      cityShow: true
+      cityShow: true,
+      textareaFlag: true
     })
   }
 })

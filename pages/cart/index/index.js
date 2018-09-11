@@ -79,6 +79,13 @@ Page({
     })
   },
 
+  // 点击查看更多按钮
+  moreCat: function () {
+    wx.navigateTo({
+      url: '../catlist/catlist'
+    })
+  },
+
   // 点击我的名片按钮进入名片页面
   toMyCard: function () {
     wx.navigateTo({

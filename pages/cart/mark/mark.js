@@ -1,5 +1,6 @@
 // pages/cart/mark/mark.js
 let globalData = getApp().globalData;
+import { popStat } from '../../../servies/services.js';
 
 Page({
 
@@ -50,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log('全局的userid', globalData.authorize_user_id)
   },
 
   /**
@@ -110,6 +111,14 @@ Page({
         console.log('跳转至别人的页面', this.data.page)
 
         if (this.data.page == '2') {
+          let params = {
+            userId: globalData.saleId,
+            checkId: globalData.authorize_user_id,
+            checkType: '3'
+          }
+          popStat(params).then(res => {
+            console.log(res)
+          })
           // 跳转至别人的页面
           wx.redirectTo({
             url: '/pages/cart/otherpage/otherpage?page=' + this.data.page

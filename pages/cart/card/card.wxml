@@ -2,7 +2,7 @@
   <image class='card-box-bg' src='/images/header_bj.png'></image>
   <view class='card'>
     <view class='info-box'>
-      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}'></image>
+      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}/227'></image>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
         <view class='card-info-item'>

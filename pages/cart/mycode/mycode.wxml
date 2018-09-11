@@ -1,7 +1,7 @@
 <view class='mycode-box' wx:if="{{flag}}">
   <view class='my-code'>
     <view class='my-code-pic'>
-      <image src="{{userInfo.exclusiveCode}}"></image>
+      <image src="{{userInfo.exclusiveCode}}/55"></image>
     </view>
     <view class='my-code-name'>{{userInfo.nickName}}</view>
     <view class='my-code-company'>{{userInfo.company}}</view>
@@ -37,7 +37,7 @@
         </view>
       </view>
       <view class='mail-code-pic'>
-        <image src='{{userInfo.exclusiveCode}}'></image>
+        <image src='{{userInfo.exclusiveCode}}/227'></image>
       </view>
     </view>
     <view class='to-mail' bindtap='tomail'>

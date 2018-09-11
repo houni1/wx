@@ -135,7 +135,7 @@
 					"id": 16,
 					"name": "推车猫中间页",
 					"pathName": "pages/cart/mark/mark",
-					"query": ""
+					"query": "type=2&page=1"
 				},
 				{
 					"id": 17,

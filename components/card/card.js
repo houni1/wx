@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo, changeCard } from '../../servies/services.js';
+import { getUserInfo, changeCard, popStat } from '../../servies/services.js';
 Component({
 
   /**
@@ -121,6 +121,19 @@ Component({
     wx.navigateTo({
       url: '/pages/cart/card/card'
     })
-  }
+  },
+
+  // 转发名片按钮统计
+  sendCard: function () {
+    console.log('销售人气，转发名片按钮统计')
+    let params = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '4'
+    }
+    popStat(params).then(res => {
+      console.log(res)
+    })
+  },
 }
 })
