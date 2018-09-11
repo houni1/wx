@@ -6,7 +6,7 @@
     <view class='title'>
       <image src='{{ dataInfo.autoInfo.logoUrl }}/245' mode='widthFix'></image>
       <view class='mainTitle'>{{ dataInfo.autoInfo.autoName }}</view>
-      <view class='carStatus' wx:if="{{ dataInfo.autoInfo.sourceType != 1 }}">现车</view>
+      <view class='carStatus' wx:if="{{ dataInfo.autoInfo.sourceType == 1 }}">现车</view>
     </view>
     <!-- 价格 -->
     <view class='price'>
