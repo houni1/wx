@@ -112,22 +112,20 @@ margin-right: 10rpx;
   font-size:24rpx;
   padding-right: 10rpx;
 }
+.foot-fixed{
+  width: 90%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin-left:5%; 
+}
 .button{
-position: relative;
 height: 150rpx;
 }
-/* .weixin-wrap{
-position: absolute;
-top: 0;
-left: 140rpx;
-} */
+
 .down-wrap{
 text-align: center;
 }
-/* .winxin{
-width: 88rpx;
-height: 88rpx;
-} */
 .download{
   width: 88rpx;
   height: 88rpx;
@@ -144,4 +142,54 @@ height: 88rpx;
   font-size: 24rpx;
   text-align: center;
   padding-bottom: 20rpx;
+}
+
+.shadow {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .4)
+}
+.shadow .contain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40rpx;
+  width: 500rpx;
+  background-color: #fff;
+}
+.shadow .contain .ttl {
+  margin-bottom: 50rpx;
+  font-size: 35rpx;
+  color: #2c2c2c;
+}
+.shadow .contain .desc {
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.shadow .btn-wrapper {
+  margin-top: 40rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #2c2c2c;
+}
+.shadow .btn-wrapper .confirm {
+  position: relative;
+  display: inline-block;
+  margin-left: 50rpx;
+  color: #1AAD16;
+}
+.shadow .btn-wrapper .confirm button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
 }

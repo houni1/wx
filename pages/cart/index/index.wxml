@@ -7,6 +7,7 @@
         <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}'></image>
         <text class='user-name'>{{userInfo.nickName}}</text>
         <text class='user-position'>{{userInfo.position}}</text>
+        <text class='user-position'>{{userInfo.cityName}}</text>
       </view>
       <view class='user-list'>
         <view class='user-hot user-li' wx:if="{{userInfo.popularity != ''}}">
@@ -18,10 +19,10 @@
         <view class='user-phone user-li' wx:if="{{userInfo.phone == ''}}">
           <view class='li-icon-box'><image class='li-icon tel-icon' src='/images/tel-icon.png'></image></view>
           <text class='li-text'>暂无手机号</text>
-          <text class='get-phone'>获取手机号</text>
+          <text class='get-phone' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</text>
         </view>
-        <view class='user-email user-li' wx:if="{{userInfo.email != ''}}">
-          <image class='li-icon mail-icon' src='/images/mail-icon.png'></image><text class='li-text'>{{userInfo.email}}</text>
+        <view class='user-email user-li'>
+          <image class='li-icon mail-icon' src='/images/mail-icon.png'></image><text class='li-text'>{{userInfo.email == '' ? '暂无邮箱' : userInfo.email}}</text>
         </view>
       </view>
       <view class='user-company' wx:if="{{userInfo.company != ''}}">{{userInfo.company}}</view>
@@ -46,7 +47,7 @@
       <text>专属码</text>
     </view>
   </view>
-  <view class='home-catlist' wx:if="{{catlist.length != '0'}}">
+  <view class='home-catlist'>
     <view class='catlist-title'>猫哥卫星</view>
     <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
       <view class='catli-pic'>
@@ -71,7 +72,7 @@
         </view>
       </view>
     </view>
-    <view>查看更多</view>
+    <view class='lookMore' wx:if="{{moreflag}}">查看更多</view>
   </view>
   <view class='msg-box' wx:if="{{card > 0}}">
     <text class='number'>{{card}}</text>
