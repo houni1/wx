@@ -73,8 +73,8 @@ Page({
       params = null;
     if (detail.errMsg == "getUserInfo:ok") {
       params = {
-        encryptedData: encodeURIComponent(detail.encryptedData),
-        iv: encodeURIComponent(detail.iv),
+        encryptedData: detail.encryptedData,
+        iv: detail.iv,
         location: '5'
       }
       this.getAuthorizeUserId(params, 1);

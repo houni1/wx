@@ -29,10 +29,14 @@ Page({
         autoId: options.autoId
       })
     }
-    this.setData({
-      page: options.page,
-    })
-    console.log(globalData.saleId)
+    if (options.page) {
+      this.setData({
+        page: options.page,
+      })
+    }
+    console.log('saleId', globalData.saleId)
+    console.log('source', globalData.source)
+    console.log('page', this.data.page)
   },
 
   /**

@@ -243,8 +243,8 @@ Page({
         }
         if (e.detail.errMsg == 'getPhoneNumber:ok') {
           let params = {
-            encryptedData: encodeURIComponent(e.detail.encryptedData),
-            iv: encodeURIComponent(e.detail.iv),
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
             code: _this.data.code
           }
 
@@ -300,30 +300,37 @@ Page({
   // 编辑个人信息接口
   editUserInfo: function (e) {
     console.log('点击保存按钮')
-    console.log(this.data.imageList)
+    // console.log(this.data.imageList)
     // console.log(this.data.headPortrait)
-    console.log(this.data.userInfo)
-    let params = {
-      userId: this.data.userInfo.id,
-      userName: this.data.userInfo.nickName,
-      headPortrait: this.data.headPortrait,
-      userAlbum: this.data.imageList,
-      position: this.data.userInfo.position,
-      provinceId: this.data.userInfo.provinceId,
-      cityId: this.data.userInfo.cityId,
-      provinceName: this.data.userInfo.provinceName,
-      cityName: this.data.userInfo.cityName,
-      phone: this.data.userInfo.phone,
-      wechatNumber: this.data.userInfo.wechatNumber,
-      email: this.data.userInfo.email,
-      introduction: this.data.userInfo.introduction
-    }
-    editUserInfo(params).then(res => {
-      console.log(res)
-      wx.switchTab({
-        url: '/pages/cart/index/index'
+    console.log('用户职位', this.data.userInfo.nickName)
+    if (this.data.userInfo.nickName.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入真实姓名'
       })
-    })
+    } else {
+      let params = {
+        userId: this.data.userInfo.id,
+        userName: this.data.userInfo.nickName.trim(),
+        headPortrait: this.data.headPortrait,
+        userAlbum: this.data.imageList,
+        position: this.data.userInfo.position.trim(),
+        provinceId: this.data.userInfo.provinceId,
+        cityId: this.data.userInfo.cityId,
+        provinceName: this.data.userInfo.provinceName,
+        cityName: this.data.userInfo.cityName,
+        phone: this.data.userInfo.phone.trim(),
+        wechatNumber: this.data.userInfo.wechatNumber.trim(),
+        email: this.data.userInfo.email.trim(),
+        introduction: this.data.userInfo.introduction.trim()
+      }
+      editUserInfo(params).then(res => {
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/cart/index/index'
+        })
+      })
+    }
   },
 
   // 获取省数据
