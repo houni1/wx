@@ -30,12 +30,10 @@ Page({
         id: options.id
       })
     }
-<<<<<<< HEAD
     this.setData({
       page: options.page,
     })
     console.log('saleId',globalData.saleId)
-=======
     if (options.page) {
       this.setData({
         page: options.page,
@@ -44,7 +42,6 @@ Page({
     console.log('saleId', globalData.saleId)
     console.log('source', globalData.source)
     console.log('page', this.data.page)
->>>>>>> 4af715a1de1d76b8bfb38adde751480ff6a52bc3
   },
 
   /**
