@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('分享参数',options)
     // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type
@@ -30,6 +31,10 @@ Page({
         id: options.id
       })
     }
+    this.setData({
+      page: options.page,
+    })
+    console.log('saleId',globalData.saleId)
     if (options.page) {
       this.setData({
         page: options.page,
@@ -102,7 +107,7 @@ Page({
       // 跳转至车型详情页面
       console.log('跳转至车型详情页面')
       wx.redirectTo({
-        url: '/pages/cart/carDetail/carDetail?id=' + this.data.id
+        url: '/pages/cart/carDetail/carDetail?id=' + this.data.id + '&saleId=' + globalData.saleId
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
