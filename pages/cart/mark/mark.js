@@ -18,6 +18,8 @@ Page({
     // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type
+    } else {
+      globalData.source = '2'
     }
     if (options.saleId) {
       globalData.saleId = options.saleId
@@ -30,7 +32,7 @@ Page({
     this.setData({
       page: options.page,
     })
-    // console.log(globalData.saleId)
+    console.log(globalData.saleId)
   },
 
   /**
@@ -84,13 +86,14 @@ Page({
   // 用户授权
   authResult(data) {
     console.log('授权后的id', globalData.authorize_user_id)
+    console.log('saleId', globalData.saleId)
     console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
       wx.reLaunch({
         url: '/pages/cart/index/index'
       })
-    } else if (this.data.page == '5') {
+    } else if (this.data.page == '5' && globalData.source == '2') {
       // 跳转至车型详情页面
       console.log('跳转至车型详情页面')
       wx.redirectTo({

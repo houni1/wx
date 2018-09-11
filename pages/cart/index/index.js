@@ -37,14 +37,16 @@ Page({
     // 请求名片交换的个数
     card: '',
     // 是否覆盖车商猫数据弹框
-    isCoverBox: false
+    isCoverBox: false,
+    // 查看更多默认不显示
+    moreflag: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getIndexUserInfo()
+    this.getIndexUserInfo()
   },
 
 
@@ -64,6 +66,11 @@ Page({
           wx.setTabBarBadge({
             index: 3,
             text: res.card
+          })
+        }
+        if (res.list.length > '0') {
+          this.setData({
+            moreflag: true
           })
         }
       }
@@ -200,5 +207,6 @@ Page({
     wx.navigateTo({
       url: '../setup/setup'
     })
-  }
+  },
+  
 })

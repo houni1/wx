@@ -89,7 +89,7 @@ Component({
               code: res.code,
               wxType: wxType
             });
-            // console.log(params)
+            console.log(params)
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
               globalData.iscover = subRes.status;
@@ -122,7 +122,8 @@ Component({
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
-      } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
+      }
+       else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })

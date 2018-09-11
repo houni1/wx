@@ -5,13 +5,13 @@
       <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}'></image>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
-        <view class='card-info-item' wx:if="{{userInfo.position}}">
+        <view class='card-info-item'>
           <image class='item-icon position-icon' src='/images/position-icon.png'></image>
-          <text class='item-text'>{{userInfo.position}}</text>
+          <text class='item-text'>{{userInfo.position == '' ? '暂无职位' : userInfo.position}}</text>
         </view>
-        <view class='card-info-item' wx:if="{{userInfo.provinceName}}">
+        <view class='card-info-item'>
           <image class='item-icon address-icon' src='/images/address-icon.png'></image>
-          <text class='item-text'>{{userInfo.provinceName}}</text>
+          <text class='item-text'>{{userInfo.provinceName == '' ? '暂无地址' : userInfo.provinceName}}</text>
         </view>
         <view class='card-info-item' wx:if="{{userInfo.popularity}}">
           <image class='item-icon hot-icon' src='/images/hot-icon1.png'></image>
