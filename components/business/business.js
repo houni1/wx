@@ -92,6 +92,10 @@ getData(data){
       this.setData({
         datashow:false
       })
+    }else{
+      this.setData({
+        datashow:true
+      })
     }
     this.setData({
       page:res.page,
@@ -122,7 +126,7 @@ uploadData(){
   console.log("curr",this.data.currentPage)
   let data={
     currentPage:this.data.currentPage,
-
+    shareId:globalData.saleId,
     userId:globalData.authorize_user_id
   }
   getBusinessList(data).then((res)=>{
@@ -142,7 +146,7 @@ pulldownData(){
   })
   let data={
     currentPage:this.data.currentPage,
-
+    shareId:globalData.saleId,
     userId:globalData.authorize_user_id
   }
   this.getData(data)

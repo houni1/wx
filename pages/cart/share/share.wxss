@@ -112,22 +112,20 @@ margin-right: 10rpx;
   font-size:24rpx;
   padding-right: 10rpx;
 }
+.foot-fixed{
+  width: 90%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin-left:5%; 
+}
 .button{
-position: relative;
 height: 150rpx;
 }
-/* .weixin-wrap{
-position: absolute;
-top: 0;
-left: 140rpx;
-} */
+
 .down-wrap{
 text-align: center;
 }
-/* .winxin{
-width: 88rpx;
-height: 88rpx;
-} */
 .download{
   width: 88rpx;
   height: 88rpx;

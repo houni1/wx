@@ -36,13 +36,17 @@
       <view class='myown'>我的专属码</view>
     </footer>
   </view>
-  <view class='button'>
+  <view class="foot-fixed">
+    <view class='button'>
     <view class='down-wrap' bindtap="downPoster">
       <image class='download' src='../business/images/download.png'></image>
       <view class="butn-text">下载</view>
     </view>
   </view>
   <view class="cancel" bindtap="cancel">取消</view>
+  </view>
+  
+  
   <view class='shadow' wx:if='{{isShowShadow}}'>
            <view class='contain border-box'>
              <view class='ttl'>温馨提示</view>

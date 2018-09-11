@@ -92,7 +92,7 @@ Page({
      })
   },
   //加载车商圈列表数据
-  getData(data){
+  getData(data,callback){
     console.log("下拉",data)
     getBusinessList(data).then((res)=>{
       console.log(res)
@@ -112,6 +112,9 @@ Page({
         newNum:res.newNum,
       })
       wx.stopPullDownRefresh()
+      if(callback&&callback instanceof Function){
+        callback()
+      }
     })
 
   },
@@ -146,26 +149,29 @@ Page({
   },
   //下拉刷新数据
   pulldownData(){
+    let _this=this;
     this.setData({
       currentPage:1
     })
     let data={
       currentPage:this.data.currentPage,
       userId:globalData.authorize_user_id
-    }
-    this.getData(data)
-    if(!this.data.alarm){
-      this.setData({
-        alarm:true
-      })
-         setTimeout(()=>{
-      if(this.data.alarm){
-        this.setData({
-          alarm:false
+    }  
+   let remind= function(){
+      if(!_this.data.alarm){
+        _this.setData({
+          alarm:true
         })
+           setTimeout(()=>{
+        if(_this.data.alarm){
+          _this.setData({
+            alarm:false
+          })
+        }
+      },2000)
       }
-    },2000)
     }
+    this.getData(data,remind)
  
   },
   /**
