@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   background:"../business/images/banner.png",//背景图片
+   background:"/images/banner.jpg",//背景图片
    exclusiveCode:"" ,//专属码
    nickName:"",//用户昵称
    position:"",
