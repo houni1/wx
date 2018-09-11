@@ -28,7 +28,7 @@
       <view class='item'>
         <view class='hotTag' hidden="{{ item.state != 1 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
-          <image src='{{ item.cover }}' mode='aspectFit'></image>
+          <image src='{{ item.cover }}/246' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
@@ -53,7 +53,7 @@
           data-brand-id="{{ item.brandId }}"
           bindtap='chooseBrand_list' 
           data-index="{{ index }}">
-          <image src='{{ item.logoUrl }}' mode='widthFix'></image>
+          <image src='{{ item.logoUrl }}/245' mode='widthFix'></image>
           <text>{{ item.brandName }}</text>
         </view>
       </view>

@@ -1,5 +1,8 @@
 {
   "usingComponents": {
     "authorization": "/components/authorization/authorization"
+  },
+  "window": {
+    "navigationBarTitleText": "微信授权"
   }
 }

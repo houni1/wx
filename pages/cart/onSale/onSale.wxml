@@ -19,7 +19,7 @@
       <navigator url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&longitude=116.318768&latitude=39.943956">
         <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
-          <image src='{{ item.cover }}' mode='aspectFit'></image>
+          <image src='{{ item.cover }}/246' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
@@ -36,7 +36,7 @@
             data-title="{{ item.autoName }}"
             data-userId="{{userId}}"
             data-toUserId='{{toUserId}}'
-            data-autoId='{{item.autoId}}'
+            data-id='{{item.id}}'
             data-cover='{{item.cover}}'
             data-longitude=''
             data-latitude=''>

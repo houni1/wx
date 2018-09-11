@@ -212,8 +212,17 @@
   background: #ffcf10;
   color: #282c39;
   border-radius: 50rpx;
+  box-shadow: -5rpx 0rpx 10rpx #fae9ae,   /*左边阴影*/ 
+              0 0 0 #fff,                 /*上边阴影*/ 
+              5rpx 0rpx 10rpx #fae9ae,    /*右边阴影*/ 
+              0rpx 5rpx 10rpx #fae9ae;    /*下边阴影*/
 }
-
+button {
+  padding: 0;
+}
+button::after {
+  border: 0;
+}
 /* 城市联动 */
 /* components/city/city.wxss */
 .dialog-back{
