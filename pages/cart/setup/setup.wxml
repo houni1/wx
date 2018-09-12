@@ -2,7 +2,7 @@
   <view class='set-pic'>
     <view class='item-title'>头像</view>
     <view class='item-content' data-pos='header' bindtap='uploadImage'>
-      <image src='{{headPortrait}}'></image>
+      <image src='{{headPortrait}}/247'></image>
     </view>
   </view>
   <view class='set-box'>
@@ -25,8 +25,8 @@
     <view class='set-item'>
       <view class='item-title'>手机号</view>
       <view class='item-content'>
-        <input type='number' wx:if="{{userInfo.phone != ''}}" placeholder='请输入您的联系电话' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input>
-        <input type='number' wx:if="{{userInfo.phone == ''}}" placeholder='暂无手机号' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input>
+        <!-- <input type='number' wx:if="{{userInfo.phone != ''}}" focus="focusflag" placeholder='请输入您的联系电话' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input> -->
+        <input type='number' placeholder='暂无手机号' maxlength='11' value='{{userInfo.phone}}' bindinput='phone'></input>
       </view>
       <view class='get-phone' wx:if="{{userInfo.phone == ''}}">
         <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
@@ -47,7 +47,7 @@
     <view class='set-person'>
       <view class='item-title'>个人介绍</view>
       <view class='item-content'>
-        <textarea placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></textarea>
+        <textarea wx:if="{{textareaFlag}}" placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></textarea>
       </view>
     </view>
     <view class='set-picture'>
@@ -58,16 +58,15 @@
           <view class='img-close-box' data-ind="{{index}}" bindtap='closeimg'>
             <image class='img-close-icon' src='/images/img-close.png'></image>
           </view>
-          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}' mode="aspectFit"></image>
+          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}/248' mode="aspectFit"></image>
         </view>
       </view>
     </view>
   </view>
-  <view class='btn-box'>
-    <button formType="submit" class='btn'>保存</button>
-  </view>
-  
 </form>
+<view class='btn-box' bindtap='editUserInfo'>
+  <button formType="submit" class='btn'>保存</button>
+</view>
 <!-- 城市选择插件 -->
 <view class="dialog-back" catchtap='cancel' catchtouchmove='true' hidden='{{cityShow}}'>
   <view class="city-wrap">

@@ -21,7 +21,9 @@ Page({
     onShelf: 0,             // 已售出
     unOnShelf: 0,            // 已下架
     lastPage: 1,              // 最后页数
-    noData: false             // 缺省页面
+    noData: false,             // 缺省页面
+    longitude: '',
+    latitude: ''
   },
 
   /**
@@ -34,18 +36,7 @@ Page({
       toUserId: app.globalData.authorize_user_id
     });
     console.log(_this.data.userId)
-    wx.getLocation({
-      success: function (res) {
-        console.log(res)
-        _this.setData({
-          hasLocation: true,
-          location: {
-            longitude: res.longitude,
-            latitude: res.latitude
-          }
-        })
-      }
-    })
+    
     _this.getDataList();
     
     wx.getSystemInfo({
@@ -117,10 +108,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res,e) {
+    console.log(res)
     if (res.from === 'button') {
       return {
         title: res.target.dataset.title,
-        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2&id=' + res.target.dataset.id,
         imageUrl: res.target.dataset.cover,
         success: (res) => {
           console.log("转发成功", res);
@@ -158,8 +150,6 @@ Page({
     }
     // 请求列表数据
     var params = {
-      // userId: 5,       // 当前用户Id [必传]
-      // toUserId: 3,   // 被查看用户Id [必传]
       userId: this.data.userId,       // 当前用户Id [必传]
       toUserId: this.data.toUserId,   // 被查看用户Id [必传]
       page: pageNum,                  // 当前页 [必传]
@@ -168,7 +158,7 @@ Page({
       type: this.data.type            // 1 自营 2 一猫 [非必传]
     }
     getOnSaleData(params).then(function (res) {
-      // console.log(res)
+      // loadKind==9时为上拉加载动作
       if (loadKind == 9) {
         _this.setData({
           onShelf: res.amount.onShelf,
@@ -190,8 +180,8 @@ Page({
           })
         } else {
           _this.setData({
-            onShelf: 0,
-            unOnShelf: 0,
+            onShelf: res.amount.onShelf,
+            unOnShelf: res.amount.unOnShelf,
             list: res.list,
             lastPage: 1,
             page: 1,

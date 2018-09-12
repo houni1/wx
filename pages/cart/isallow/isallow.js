@@ -73,8 +73,8 @@ Page({
       params = null;
     if (detail.errMsg == "getUserInfo:ok") {
       params = {
-        encryptedData: encodeURIComponent(detail.encryptedData),
-        iv: encodeURIComponent(detail.iv),
+        encryptedData: detail.encryptedData,
+        iv: detail.iv,
         location: '5'
       }
       this.getAuthorizeUserId(params, 1);
@@ -120,6 +120,10 @@ Page({
   // 如果是app进入并且拒绝授权跳转至微信授权引导页面
   goPage() {
     if (globalData.source == '1') {
+      wx.redirectTo({
+        url: '/pages/cart/isallow/isallow'
+      })
+    } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
       wx.redirectTo({
         url: '/pages/cart/isallow/isallow'
       })

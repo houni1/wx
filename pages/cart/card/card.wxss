@@ -277,3 +277,19 @@
   flex: 1;
   line-height: 40rpx;
 }
+
+.msg-box {
+  position: fixed;
+  bottom: 140rpx;
+  right: 20rpx;
+  height: 70rpx;
+  background: #ffcf10;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+}

@@ -49,6 +49,13 @@ Page({
     })
   },
 
+  // 点击返回首页
+  toHome: function () {
+    wx.switchTab({
+      url: '/pages/cart/index/index'
+    })
+  },
+
   // 点击预览头像
   lookHeaderpic: function (e) {
     var imgurl = []

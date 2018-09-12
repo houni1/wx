@@ -1,6 +1,12 @@
 /* pages/cart/setup/setup.wxss */
 .setup-box {
+  position: absolute;
+  bottom: 0;
+  top: 0;
   width: 100%;
+  overflow-y: scroll;
+  padding-bottom: 200rpx;
+  box-sizing: border-box;
 }
 /* 头像 */
 .set-pic {
@@ -39,7 +45,7 @@
 
 /* 个人介绍 */
 .set-person {
-  height: 148rpx;
+  /* height: 148rpx; */
   padding-top: 40rpx;
   padding-bottom: 26rpx;
   box-sizing: border-box;
@@ -66,6 +72,10 @@
   flex: 1;
   line-height: 40rpx;
   z-index: -1;
+  word-break:break-all;
+  word-wrap:break-word;
+  /* min-height: 80rpx; */
+  height: 80rpx;
 }
 
 /* 图片展示 */
@@ -197,9 +207,13 @@
 
 /* 保存按钮 */
 .btn-box {
+  position: absolute;
+  bottom: 0;
+  background: #fff;
   width: 100%;
   padding: 60rpx 30rpx 40rpx 30rpx;
   box-sizing: border-box;
+  z-index: 2;
 }
 
 .btn {
@@ -212,8 +226,17 @@
   background: #ffcf10;
   color: #282c39;
   border-radius: 50rpx;
+  box-shadow: -5rpx 0rpx 10rpx #fae9ae,   /*左边阴影*/ 
+              0 0 0 #fff,                 /*上边阴影*/ 
+              5rpx 0rpx 10rpx #fae9ae,    /*右边阴影*/ 
+              0rpx 5rpx 10rpx #fae9ae;    /*下边阴影*/
 }
-
+button {
+  padding: 0;
+}
+button::after {
+  border: 0;
+}
 /* 城市联动 */
 /* components/city/city.wxss */
 .dialog-back{

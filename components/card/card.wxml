@@ -25,7 +25,7 @@
     </view>
   </view>
   <view class='other-box'>
-    <button class='other-item' open-type="share">
+    <button class='other-item' open-type="share" bindtap='sendCard'>
       <image src='/images/cardli_1.png'></image>
       <text>转发名片</text>
     </button>

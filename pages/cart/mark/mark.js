@@ -1,5 +1,6 @@
 // pages/cart/mark/mark.js
 let globalData = getApp().globalData;
+import { popStat } from '../../../servies/services.js';
 
 Page({
 
@@ -8,13 +9,14 @@ Page({
    */
   data: {
     page: '',  // 调到推车猫的哪个页面
-    autoId: ''  // 车型id
+    id: ''  // 车型id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('分享参数',options)
     // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type
@@ -24,15 +26,23 @@ Page({
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
-    if (options.autoId) {
+    if (options.id) {
       this.setData({
-        autoId: options.autoId
+        id: options.id
       })
     }
     this.setData({
       page: options.page,
     })
-    console.log(globalData.saleId)
+    console.log('saleId',globalData.saleId)
+    if (options.page) {
+      this.setData({
+        page: options.page,
+      })
+    }
+    console.log('saleId', globalData.saleId)
+    console.log('source', globalData.source)
+    console.log('page', this.data.page)
   },
 
   /**
@@ -46,7 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log('全局的userid', globalData.authorize_user_id)
   },
 
   /**
@@ -97,7 +107,7 @@ Page({
       // 跳转至车型详情页面
       console.log('跳转至车型详情页面')
       wx.redirectTo({
-        url: '/pages/cart/carDetail/carDetail?autoId=' + this.data.autoId
+        url: '/pages/cart/carDetail/carDetail?id=' + this.data.id + '&saleId=' + globalData.saleId
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
       console.log('是从微信进入的，要区分是自己的还是别人的')
@@ -106,6 +116,14 @@ Page({
         console.log('跳转至别人的页面', this.data.page)
 
         if (this.data.page == '2') {
+          let params = {
+            userId: globalData.saleId,
+            checkId: globalData.authorize_user_id,
+            checkType: '3'
+          }
+          popStat(params).then(res => {
+            console.log(res)
+          })
           // 跳转至别人的页面
           wx.redirectTo({
             url: '/pages/cart/otherpage/otherpage?page=' + this.data.page

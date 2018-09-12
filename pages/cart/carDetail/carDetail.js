@@ -1,6 +1,6 @@
 import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
-
+var app = getApp();
 Page({
 
   /**
@@ -17,35 +17,52 @@ Page({
     brandId: '',    // 品牌id [非必传]
     status: '',      // 上下架状态 1上架 2下架 [非必传]
     autoParam: [],
-    wxParseData: ''
+    wxParseData: '',
+    longitude: '',
+    latitude: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    console.log(getCurrentPages()[1])
-    return
+    console.log('分享携带的参数', options)
     var _this = this;
+    wx.getLocation({
+      success: function (res) {
+        console.log(res)
+        _this.setData({
+          hasLocation: true,
+          longitude: res.longitude,
+          latitude: res.latitude
+        })
+        _this.getData();
+      }
+    })
+    console.log(this.data.latitude)
     this.setData({
-      userId: options.userId,
-      toUserId: options.toUserId,
+      userId: app.globalData.authorize_user_id,
+      toUserId: options.toUserId || options.saleId,
       id: options.id,
-      longitude: options.longitude,
-      latitude: options.latitude,
       dataInfo: options
     });
+    console.log('userId----', options.userId)
+    console.log('saleId----', options.saleId)
+    
+  },
+  getData(){
+    var _this = this;
     // 获取车型详情信息
     var params = {
-      userId: this.data.userId,	        // 当前用户Id [必传]
-      toUserId: this.data.toUserId,	    // 被查看用户Id [必传]
-      id: this.data.id,	                // 车型Id [必传]
+      userId: Number(this.data.userId),	        // 当前用户Id [必传]
+      toUserId: Number(this.data.toUserId),	    // 被查看用户Id [必传]
+      id: Number(this.data.id),	                // 车型Id [必传]
       longitude: this.data.longitude,   // 当前用户经度 [必传]
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
-    console.log(params)
+    console.log('入参----', params)
     autoDetails(params).then(function (res) {
-      console.log(res)
+      console.log('res', res)
       _this.setData({
         dataInfo: res,
         autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
@@ -67,15 +84,15 @@ Page({
   // 打电话
   call: function (event) {
     var telphonenum = event.currentTarget.dataset.telphonenum
-    if (telphonenum) {
+    // if (telphonenum) {
       wx.makePhoneCall({
         phoneNumber: telphonenum
       })
-    } else {
-      wx.showToast({
-        title: '没有找到电话'
-      })
-    }
+    // } else {
+    //   wx.showToast({
+    //     title: '没有找到电话'
+    //   })
+    // }
     var tjParam = {
       buttonType: 11,
       pageType: 11,
@@ -85,6 +102,7 @@ Page({
   },
   // 跳转到地图页面
   toMap: function (event) {
+    console.log('event',event)
     var lon = event.currentTarget.dataset.lon;
     var lat = event.currentTarget.dataset.lat;
     wx.navigateTo({
@@ -121,7 +139,7 @@ Page({
     if(res.form == 'button'){
       return {
         title: '',
-        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2',
+        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2' + '&id=' + this.data.id + '&longitude=' + this.data.longitude + '&latitude=' + this.data.latitude,
         imageUrl: this.data.dataInfo.autoInfo.logoUrl,
         success: (res) => {
           console.log("转发成功", res);

@@ -30,6 +30,8 @@ Page({
     cityData: [],  // 获取市数据
     val: [0, 0],
     currentCity: '北京',   // 所在城市
+    focusflag: false, // 输入手机号后获取焦点
+    textareaFlag: true // 默认展示textarea,城市选择框弹起隐藏
   },
 
   /**
@@ -73,7 +75,8 @@ Page({
   // 点击城市弹起城市组件
   showCityInfo: function () {
     this.setData({
-      cityShow: false
+      cityShow: false,
+      textareaFlag: false
     });
   },
 
@@ -243,8 +246,8 @@ Page({
         }
         if (e.detail.errMsg == 'getPhoneNumber:ok') {
           let params = {
-            encryptedData: encodeURIComponent(e.detail.encryptedData),
-            iv: encodeURIComponent(e.detail.iv),
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
             code: _this.data.code
           }
 
@@ -267,6 +270,11 @@ Page({
 
   // 获取用户手机号
   phone: function (e) {
+    if (e.detail.value != '') {
+      this.setData({
+        focusflag: true
+      })
+    }
     var phone = 'userInfo.phone'
     this.setData({
       [phone]: e.detail.value
@@ -300,30 +308,48 @@ Page({
   // 编辑个人信息接口
   editUserInfo: function (e) {
     console.log('点击保存按钮')
-    console.log(this.data.imageList)
+    // console.log(this.data.imageList)
     // console.log(this.data.headPortrait)
-    console.log(this.data.userInfo)
-    let params = {
-      userId: this.data.userInfo.id,
-      userName: this.data.userInfo.nickName,
-      headPortrait: this.data.headPortrait,
-      userAlbum: this.data.imageList,
-      position: this.data.userInfo.position,
-      provinceId: this.data.userInfo.provinceId,
-      cityId: this.data.userInfo.cityId,
-      provinceName: this.data.userInfo.provinceName,
-      cityName: this.data.userInfo.cityName,
-      phone: this.data.userInfo.phone,
-      wechatNumber: this.data.userInfo.wechatNumber,
-      email: this.data.userInfo.email,
-      introduction: this.data.userInfo.introduction
-    }
-    editUserInfo(params).then(res => {
-      console.log(res)
-      wx.switchTab({
-        url: '/pages/cart/index/index'
+    console.log('用户职位', this.data.userInfo.phone.trim())
+    var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
+    if (this.data.userInfo.nickName.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入真实姓名'
       })
-    })
+    } else if (this.data.userInfo.phone.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入您的手机号'
+      })
+    } else if (!phoneReg.test(this.data.userInfo.phone)) {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号格式有误'
+      })
+    } else {
+      let params = {
+        userId: this.data.userInfo.id,
+        userName: this.data.userInfo.nickName.trim(),
+        headPortrait: this.data.headPortrait,
+        userAlbum: this.data.imageList,
+        position: this.data.userInfo.position.trim(),
+        provinceId: this.data.userInfo.provinceId,
+        cityId: this.data.userInfo.cityId,
+        provinceName: this.data.userInfo.provinceName,
+        cityName: this.data.userInfo.cityName,
+        phone: this.data.userInfo.phone.trim(),
+        wechatNumber: this.data.userInfo.wechatNumber.trim(),
+        email: this.data.userInfo.email.trim(),
+        introduction: this.data.userInfo.introduction.trim()
+      }
+      editUserInfo(params).then(res => {
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/cart/index/index'
+        })
+      })
+    }
   },
 
   // 获取省数据
@@ -358,6 +384,9 @@ Page({
   },
   // 点击完成获取到选择的省份和城市
   complete: function () {
+    this.setData({
+      textareaFlag: true
+    })
     var val = this.data.val
     // console.log(this.data.provinceData[val[0]].name, this.data.provinceData[val[0]].id + '-' + this.data.cityData[val[1]].name)
     var provinceId = this.data.provinceData[val[0]].id
@@ -383,7 +412,8 @@ Page({
   },
   cancel: function () {
     this.setData({
-      cityShow: true
+      cityShow: true,
+      textareaFlag: true
     })
   }
 })

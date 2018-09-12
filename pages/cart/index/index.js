@@ -1,6 +1,6 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo, coverOldData } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -62,12 +62,14 @@ Page({
           userInfo: res.userInfo
         })
         // 处理红点是否显示
+        /*
         if (res.card > 0) {
           wx.setTabBarBadge({
             index: 3,
             text: res.card
           })
         }
+        */
         if (res.list.length > '0') {
           this.setData({
             moreflag: true
@@ -77,8 +79,23 @@ Page({
     })
   },
 
+  // 点击查看更多按钮
+  moreCat: function () {
+    wx.navigateTo({
+      url: '../catlist/catlist'
+    })
+  },
+
   // 点击我的名片按钮进入名片页面
   toMyCard: function () {
+    let btnParams = {
+      buttonType: '3',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../card/card'
     })
@@ -86,6 +103,14 @@ Page({
 
   // 点击名片照片按钮进入名片照片页面
   toCardPic: function () {
+    let btnParams = {
+      buttonType: '4',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../cardpic/cardpic'
     })
@@ -93,6 +118,14 @@ Page({
 
   // 点击我的专属码按钮进入专属码页面
   toMyCode: function () {
+    let btnParams = {
+      buttonType: '6',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.navigateTo({
       url: '../mycode/mycode'
     })
@@ -204,8 +237,70 @@ Page({
   
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
+    let btnParams = {
+      buttonType: '1',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
+
     wx.navigateTo({
       url: '../setup/setup'
+    })
+  },
+
+  // 点击发名片按钮统计
+  sendCard: function () {
+    let btnParams = {
+      buttonType: '2',
+      pageType: '1',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
+  },
+
+  // 获取用户手机号
+  getPhoneNumber: function (e) {
+    let _this = this
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          _this.setData({
+            code: res.code
+          })
+        }
+        if (e.detail.errMsg == 'getPhoneNumber:ok') {
+          let params = {
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
+            code: _this.data.code
+          }
+
+          console.log(params)
+
+          getUserWxPhone(params).then(res => {
+            console.log(res)
+            if (res.phoneNumber) {
+              var phone = 'userInfo.phone'
+              _this.setData({
+                [phone]: res.phoneNumber
+              })
+              let addParams = {
+                userId: globalData.authorize_user_id,
+                phone: res.phoneNumber
+              }
+              addPhone(addParams).then(res => {
+                console.log(res)
+              })
+            }
+          })
+
+        }
+      }
     })
   },
   
