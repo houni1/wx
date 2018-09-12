@@ -1,6 +1,6 @@
 // pages/cart/my/my.js
 let globalData = getApp().globalData;
-import { getUserInfo } from '../../../servies/services.js';
+import { getUserInfo, buttonStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -79,17 +79,38 @@ Page({
       })
   },
  
-   //跳转到关于名片夹页面
+   //跳转到关于推车猫页面
     goToAbout: function () {
-        wx.navigateTo({
-            url: '../about/about'
+
+        let params = {
+            buttonType: 29,
+            pageType: 9,
+            appType: 1,
+            userId: globalData.authorize_user_id
+        }
+        buttonStat(params).then(res => {
+            wx.navigateTo({
+                url: '../about/about'
+            })
         })
+
+       
     },
      //跳转到名片夹
     goToCardcase: function() {
-        wx.navigateTo({
-            url: '../cardcase/cardcase'
+        let params = {
+            buttonType: 28,
+            pageType: 9,
+            appType: 1,
+            userId: globalData.authorize_user_id
+        }
+        buttonStat(params).then(res => {
+            wx.navigateTo({
+                url: '../cardcase/cardcase'
+            })
         })
+
+       
     },
 
     //头像放大
@@ -106,8 +127,17 @@ Page({
 
     //去往设置页面
     goToSetup:function(){
-        wx.navigateTo({
-            url: '../setup/setup'
+        let params = {
+            buttonType:1,
+            pageType:9,
+            appType:1,
+            userId: globalData.authorize_user_id
+        }
+        buttonStat(params).then(res =>{
+            wx.navigateTo({
+                url: '../setup/setup'
+            })
         })
+        
     }
 })
