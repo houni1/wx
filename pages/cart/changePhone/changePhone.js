@@ -63,10 +63,10 @@ Page({
 
         var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
         if (!phoneReg.test(this.data.phoneValue)) {
-            wx.showToast({
-                title: '请输入正确的手机号',
-                icon: 'none'
-            })
+            // wx.showToast({
+            //     title: '请输入正确的手机号',
+            //     icon: 'none'
+            // })
             this.setData({
                 typefaceTag: false
             }) 
@@ -86,10 +86,10 @@ Page({
         })
         var codeReg = /^\d{4}$/;
         if (!codeReg.test(this.data.codeValue)){
-            wx.showToast({
-                title: '请输入正确的验证码',
-                icon: 'none'
-            })
+            // wx.showToast({
+            //     title: '请输入正确的验证码',
+            //     icon: 'none'
+            // })
             this.setData({
                 btnTag: false
             }) 
