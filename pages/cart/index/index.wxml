@@ -9,7 +9,7 @@
         <text class='user-position'>{{userInfo.position}}</text>
       </view>
       <view class='user-list'>
-        <view class='user-city user-li' wx:if="{{userInfo.popularity != ''}}">
+        <view class='user-city user-li' wx:if="{{userInfo.cityName != ''}}">
           <image class='li-icon city-icon' src='/images/address-icon.png'></image><text class='li-text'>{{userInfo.cityName}}</text>
         </view>
         <view class='user-hot user-li' wx:if="{{userInfo.popularity != ''}}">

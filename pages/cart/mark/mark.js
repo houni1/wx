@@ -17,6 +17,8 @@ Page({
    */
   onLoad: function (options) {
     console.log('分享参数',options)
+    var scene = decodeURIComponent(options.scene)
+    console.log('扫描小程序专属码的id', scene)
     // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type

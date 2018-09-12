@@ -1,6 +1,6 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat, starStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -161,7 +161,7 @@ Page({
         isCoverBox: true
       })
     }
-    this.getIndexUserInfo()
+    // this.getIndexUserInfo()
   },
 
   // 拒绝覆盖
@@ -254,11 +254,15 @@ Page({
   // 点击发名片按钮统计
   sendCard: function () {
     let btnParams = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '4',
+      sourceType: '2',
       buttonType: '2',
       pageType: '1',
-      appType: '1'
+      type: '3'
     }
-    buttonStat(btnParams).then(res => {
+    starStat(btnParams).then(res => {
       console.log(res)
     })
   },
