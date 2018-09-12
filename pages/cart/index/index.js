@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag: true,
+    flag: true,  // 请求数据成功展示
+    formId: '', // formId按钮统计
     // 首页用户信息
     userInfo: {
       userId : "",                   // 用户id
@@ -76,6 +77,27 @@ Page({
           })
         }
       }
+    })
+  },
+
+  // formId获取
+  formSubmit: function (e) {
+    console.log("formId", e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
+
+  // 有formId的按钮统计
+  formStat: function (type) {
+    let _this = this;
+    console.log("统计中的formId", _this.data.formId)
+    buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+      console.log(_this.data.formId)
+      _this.setData({
+        formId: ""
+      })
+      console.log("按钮统计成功")
     })
   },
 
@@ -237,14 +259,7 @@ Page({
   
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
-    let btnParams = {
-      buttonType: '1',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(1)
 
     wx.navigateTo({
       url: '../setup/setup'
