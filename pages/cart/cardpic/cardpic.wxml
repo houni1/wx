@@ -31,8 +31,11 @@
       </view>
     
    </view>
+   <form bindsubmit="formSubmit" report-submit style="width:0">
+    <button form-type="submit" id="form_id"></button>
+   </form>   
      <view class='btn-box' bindtap="saveImg">
-            <view class="button">保存照片</view>
+            <label class="button" for='form_id'><view class="button">保存照片</view></label>
 
          </view>
 

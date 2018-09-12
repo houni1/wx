@@ -110,14 +110,7 @@ Page({
 
   // 点击我的名片按钮进入名片页面
   toMyCard: function () {
-    let btnParams = {
-      buttonType: '3',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(3)
     wx.navigateTo({
       url: '../card/card'
     })
@@ -125,14 +118,7 @@ Page({
 
   // 点击名片照片按钮进入名片照片页面
   toCardPic: function () {
-    let btnParams = {
-      buttonType: '4',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(4)
     wx.navigateTo({
       url: '../cardpic/cardpic'
     })
@@ -140,14 +126,7 @@ Page({
 
   // 点击我的专属码按钮进入专属码页面
   toMyCode: function () {
-    let btnParams = {
-      buttonType: '6',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(6)
     wx.navigateTo({
       url: '../mycode/mycode'
     })
