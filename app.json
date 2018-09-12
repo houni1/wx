@@ -18,11 +18,9 @@
       "pages/cart/changePhone/changePhone",
       "pages/cart/isallow/isallow",
       "pages/cart/catlist/catlist",
-      "pages/cart/isnetwork/isnetwork",
       "pages/cart/address/address",
       "pages/index/index",
       "pages/logs/logs",
-      "components/city/city",
       "pages/cart/city/city"
    ],
    "window": {

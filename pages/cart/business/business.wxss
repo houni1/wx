@@ -4,8 +4,7 @@
 .business .containt{
 background: #ebeef5;
 font-size: 0;
-padding-bottom: 160rpx;
-
+margin-bottom: 160rpx;
 }
 .business .remind{
 font-family: 'pingFangSC-Regular';
@@ -26,9 +25,10 @@ margin-bottom: 15rpx;
 }
 .information .picture{
 flex: 0 0 108rpx;
-padding-top: 30rpx;
-margin-right:16rpx;
-
+}
+.information .picture .picture{
+  padding-top: 30rpx;
+  margin-right:16rpx;
 }
 .information .picture .img{
 width: 108rpx;
