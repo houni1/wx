@@ -3,7 +3,9 @@
   "navigationBarTitleText": "车商圈",
   "navigationBarTextStyle": "black",
   "backgroundColor":"#ebeef5",
-  "usingComponents": {},
+  "usingComponents": {
+    "isnetwork":"/components/isnetwork/isnetwork"
+  },
   "enablePullDownRefresh":true,
   "backgroundTextStyle":"dark"
 }

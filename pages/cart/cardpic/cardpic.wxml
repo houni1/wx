@@ -13,13 +13,13 @@
          {{nickName}}
          </view>
          <view class='text'>
-            <view class='job' hidden="{{!position}}">
+            <view class='job'>
             <image class='job-img' src="../business/images/job.png"></image>
-            <text class='job-text'>{{position}}</text>
+            <view class='job-text'>{{position==""?"暂无职位":position}}</view>
             </view>
-            <view class='phone'  hidden="{{!phone}}">
+            <view class='phone'>
                <image class='phone-img' src="../business/images/tel.png"></image>
-               <text class='phone-text'>{{phone}}</text>
+               <view class='phone-text'>{{phone==""?"暂无电话":phone}}</view>
             </view>
          </view>
          <view class='company'>{{company}}</view>

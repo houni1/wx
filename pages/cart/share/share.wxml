@@ -10,7 +10,7 @@
     <block wx:for="{{theme}}" wx:for-index="index" wx:key="index">
       <swiper-item>
         <view class="ban-wrap">
-          <image mode="widthFix" class='ban-img' data-url="{{item.url}}" src="{{item.url}}" bindtap="previewImage"/>
+          <image mode="aspectFill" class='ban-img' data-url="{{item.url}}" src="{{item.url}}" bindtap="previewImage"/>
         </view>
       </swiper-item>
     </block>
@@ -22,7 +22,7 @@
     <view class='text'>{{information}}</view>
     <view class='{{prices.length==4?"picture":""}}'>
       <block wx:for="{{prices}}" wx:key="index">
-        <image src='{{item}}' class='{{prices.length>1?"moreimg":"oneimg"}}'></image>
+        <image src='{{item}}' class='{{prices.length>1?"moreimg":"oneimg"}}' mode="aspectFill"></image>
       </block>
     </view>
     <view class='card'>

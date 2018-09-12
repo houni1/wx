@@ -16,11 +16,13 @@ Page({
       lastPage: "",//总页数
     },
     list:[],//车商圈列表
-    currentPage:1
+    currentPage:1,
+    network:true,
+    formId:""
   },
   //头像预览
    preview_head(e){
-    this.btnStat(21)
+    this.formStat(21)
     let head=e.currentTarget.dataset.head;
     console.log([head])
       wx.previewImage({
@@ -40,7 +42,7 @@ Page({
    },
    //快速联系
    quickcall(e){
-    this.btnStat(11)
+    this.formStat(11)
      let phone=e.currentTarget.dataset.phone;
       wx.showModal({
          title: '拨打电话',
@@ -58,32 +60,53 @@ Page({
       })
    },
    //查看名片
-   checkcard(e){
-    this.btnStat(22)
+   checkcard(e){ 
     let shareId=e.currentTarget.dataset.userid;
     let userId=globalData.authorize_user_id;
-    console.log(e.currentTarget)
-    if(shareId==userId){
-      wx.navigateTo({
-        url: '../card/card',
-     })
-    }else{
-      globalData.saleId=shareId;
-      wx.navigateTo({
-        url: '../otherpage/otherpage',
-     })
-    } 
+      console.log("查看名片")   
+       //猫哥卫星统计
+      starStat({
+      userId:shareId,
+      checkId:globalData.authorize_user_id,
+      checkType:2,
+      sourceType:2,
+      buttonType:22,
+      pageType:5,
+      type:3
+    }).then((res)=>{
+      console.log("猫哥卫星统计成功")
+      if(shareId==userId){
+        wx.navigateTo({
+          url: '../card/card',
+       })
+      }else{
+        globalData.saleId=shareId;
+        wx.navigateTo({
+          url: '../otherpage/otherpage',
+       })
+      }   
+    })  
   },
+  //formId获取
+  formSubmit(e){
+    
+    console.log("formId",e.detail.formId)
+    this.setData({
+      formId:e.detail.formId
+    })   
+   
+  },
+  
   //发布信息
   send() {
-    this.btnStat(24)
+    this.formStat(24)
      wx.navigateTo({
         url: '../sendinfo/sendinfo',
      })
   },
   //分享
   share(e){
-    this.btnStat(23)
+    this.formStat(23)
     let userId=e.currentTarget.dataset.userid;
     let circleId=e.currentTarget.dataset.circleid;
     console.log(e.currentTarget.dataset.userid)
@@ -178,36 +201,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this=this;
+    console.log("加载")
     wx.hideShareMenu()//隐藏右上角分享按钮
     let data={
       currentPage:this.data.currentPage,
       userId:globalData.authorize_user_id,
     }
+    wx.getNetworkType({
+      success(res){
+        console.log(res.networkType)
+        if(res.networkType=="none") {
+          _this.setData({
+            network:false
+          })
+          wx.hideLoading()
+          return ;
+        }
+        }
+      })
     this.getData(data)
- 
-    //人气统计
-    // popStat({
-    //   userId:11,
-    //   checkId:12,
-    //   checkType:1
-    // }).then((res)=>{
-    //   console.log(res)   })
-    //猫哥卫星统计
-    // starStat({
-    //   userId:12,
-    //   checkId:13,
-    //   checkType:2,
-    //   sourceType:1
-    // }).then((res)=>{
-    //   console.log(res)
-    // })
   },
-     //按钮统计
-     btnStat(type){
-        console.log(type)
-        buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
-      console.log(res)
-    })
+     //有formId的按钮统计
+     formStat(type){
+       let _this=this;   
+        console.log("统计中的formId",_this.data.formId)
+        console.log("j")
+       buttonStat({appType:1,pageType:5,buttonType:type,formId:_this.data.formId,userId:globalData.authorize_user_id}).then((res)=>{
+         console.log(_this.data.formId)
+         _this.setData({
+           formId:""
+         })
+        console.log("按钮统计成功")
+       })
      },
    
   /**
@@ -242,8 +268,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    //停止下拉刷新
-    // wx.stopPullDownRefresh() 
     this.pulldownData()
   },
 
@@ -254,12 +278,17 @@ Page({
     this.uploadData()
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
-   
-  
+})
+wx.onNetworkStatusChange((res)=>{
+  let pages = getCurrentPages();
+  let page=pages[pages.length-1];
+  page.setData({
+    network:res.isConnected
+   }) 
+   if(!res.isConnected){
+    wx.hideLoading()
+   }else{
+     wx.showLoading();
+     page.onLoad()
+   }
 })
