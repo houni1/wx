@@ -45,6 +45,7 @@ font-size: 30rpx;
 color: #808080;
 display: flex;
 flex-direction: row;
+padding-top: 30rpx;
 }
 .job{
  flex: 1;
