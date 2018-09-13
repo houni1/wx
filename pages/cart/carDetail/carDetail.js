@@ -20,13 +20,14 @@ Page({
     wxParseData: '',
     longitude: '',
     latitude: '',
+    formId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    // console.log('分享携带的参数', options)
+    console.log('options', options)
     var _this = this;
     wx.getLocation({
       success: function (res) {
@@ -76,24 +77,29 @@ Page({
       isOpen: !this.data.isOpen
     });
   },
+  // 获取formId
+  getFormId: function (e) {
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
   // 打电话
   call: function (event) {
     var telphonenum = event.currentTarget.dataset.telphonenum
-    // if (telphonenum) {
-      wx.makePhoneCall({
-        phoneNumber: telphonenum
-      })
-    // } else {
-    //   wx.showToast({
-    //     title: '没有找到电话'
-    //   })
-    // }
+    wx.makePhoneCall({
+      phoneNumber: telphonenum
+    })
+
     var tjParam = {
       buttonType: 11,
       pageType: 11,
-      appType: 1
+      appType: 1,
+      formId: this.data.formId,     // 模版ID
+      userId: app.globalData.authorize_user_id,     // 用户ID
     }
-    buttonStat(tjParam).then(function (res) { }) 
+    buttonStat(tjParam).then(function (res) { 
+      console.log('电话按钮统计')
+    }) 
   },
   // 跳转到地图页面
   toMap: function (event) {
@@ -120,13 +126,14 @@ Page({
     var tjParam = {
       buttonType: 23,
       pageType: pageType,
-      appType: 1
+      appType: 1,
+      userId: app.globalData.authorize_user_id,
+      formId: this.data.formId
     }
     buttonStat(tjParam).then(function (res) { }) 
   },
   onHide: function () {
     let pages = getCurrentPages();
-    console.log(pages)
     let page = pages[0]
     wx.redirectTo({
       url: "../index/index"
@@ -154,8 +161,19 @@ Page({
     var tjParam = {
       buttonType: 23,
       pageType: 11,
-      appType: 1
+      appType: 1,
+      formId: this.data.formId,
+      userId: app.globalData.authorize_user_id
     }
-    buttonStat(tjParam).then(function (res) { }) 
-  }
+    buttonStat(tjParam).then(function (res) {
+      console.log("按钮统计成功")
+    }) 
+  },
+  // 获取formId
+  getFormId: function (e) {
+    console.log('form获取成功：',e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
 })

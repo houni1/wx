@@ -1,4 +1,4 @@
-import { getOnSaleData, buttonStat } from '../../../servies/services.js';
+import { getOnSaleData, buttonStat, starStat, popStat } from '../../../servies/services.js';
 
 var app = getApp();
 Page({
@@ -23,7 +23,8 @@ Page({
     lastPage: 1,              // 最后页数
     noData: false,             // 缺省页面
     longitude: '',
-    latitude: ''
+    latitude: '',
+    formId: ''
   },
 
   /**
@@ -35,7 +36,6 @@ Page({
       userId: app.globalData.authorize_user_id,
       toUserId: app.globalData.authorize_user_id
     });
-    console.log(_this.data.userId)
     
     _this.getDataList();
     
@@ -45,6 +45,30 @@ Page({
           height: res.windowHeight - res.windowWidth / 750 * 134
         })
       }
+    });
+
+    // 猫哥卫星统计
+    var params = {
+      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
+      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
+      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
+      sourceType: '2',     // 信息来源 [必传] 1.一猫商城小程序 2.非一猫商城小程序
+      buttonType: '8',     // 按钮类型（同按钮统计接口）
+      pageType: '7',       // 浏览页面（同按钮统计接口）
+      type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
+    }
+    starStat(params).then(function (res) {
+      console.log('猫哥卫星统计成功')
+    })
+
+    // 销售人气统计
+    var params1 = {
+      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
+      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
+      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
+    }
+    popStat(params1).then(function (res) {
+      console.log('销售人气统计')
     })
   },
   /**
@@ -103,12 +127,10 @@ Page({
       })
     }
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res,e) {
-    console.log(res)
     if (res.from === 'button') {
       return {
         title: res.target.dataset.title,
@@ -116,6 +138,17 @@ Page({
         imageUrl: res.target.dataset.cover,
         success: (res) => {
           console.log("转发成功", res);
+          // 按钮统计
+          var tjParam = {
+            buttonType: 23,
+            pageType: 7,
+            appType: 1,     // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
+            formId: this.data.formId,     // 模版ID
+            userId: app.globalData.authorize_user_id,     // 用户ID
+          }
+          buttonStat(tjParam).then(function (res) {
+            console.log(tjParam)
+          }) 
         },
         fail: (res) => {
           console.log("转发失败", res);
@@ -127,14 +160,6 @@ Page({
     else {
       console.log("来自右上角转发菜单");
     }
-    
-    // 按钮统计
-    var tjParam = {
-      buttonType: 23,
-      pageType: 7,
-      appType: 1
-    }
-    buttonStat(tjParam).then(function (res) { }) 
   },
   getDataList: function (loadKind) {
     // loadKind 存在并为9时代表上拉加载更多
@@ -191,5 +216,11 @@ Page({
       }
       wx.stopPullDownRefresh();
     })
-  }
+  },
+  // 获取formId
+  getFormId: function (e) {
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
 })

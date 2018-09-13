@@ -32,6 +32,7 @@
         </view>
       </navigator>
       <view class='shareBtn'>
+        <label for='form_id'>
           <button open-type="share"
             data-title="{{ item.autoName }}"
             data-userId="{{userId}}"
@@ -42,10 +43,14 @@
             data-latitude=''>
             <image src='images/fa.png' mode='widthFix'></image>
           </button>
-        </view>
+        </label>
+      </view>
     </view>
   </view>
   <view class='noData' wx:if='{{ noData }}'>
     <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>
+<form bindsubmit="getFormId" report-submit="true">
+  <button formType="submit" id="form_id"></button>
+</form>
