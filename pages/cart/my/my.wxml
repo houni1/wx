@@ -2,52 +2,56 @@
 <view wx:if="{{flag}}">
 
     <view class="my-wrap">
-
         <view class="my-in">
             <view class="personal-info-wrap clear-fix">
                 <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}"></image>
-                <view class="person-info-in clear-fix" bindtap="goToSetup">
-                    <view class="personal-info left" >
-                    <view> <text class="name">{{userInfo.nickName}}</text></view>
-                    <view>
-                         <text class="post" wx:if="{{userInfo.position}}">{{userInfo.position}}</text>
-                        <text class="post" wx:if="{{userInfo.company}}"> - </text>
-                        <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>
-                    </view>
-                   
-                     <!-- <text class="post" >你开电脑</text>
-                    <text class="post" > - </text>
-                    <text class="post" >经典款减肥</text> -->
+                <label class="label-edit" for="form_id">
+                    <view class="person-info-in clear-fix" bindtap="goToSetup">
+                        <view class="personal-info left">
+                            <view>
+                                <text class="name">{{userInfo.nickName}}</text>
+                            </view>
+                            <view>
+                                <text class="post" wx:if="{{userInfo.position}}">{{userInfo.position}}</text>
+                                <text class="post" wx:if="{{userInfo.company}}"> - </text>
+                                <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>
+                            </view>
+                        </view>
+                        <image class="arrow-right right" src="./images/arrow-right.png"></image>
+                     </view>
+                </label>
 
+
+            </view>
+
+            <label for="form_id">
+                <view class="cardcase-wrap clear-fix" bindtap="goToCardcase">
+                    <image class="cardcase-logo left" src="./images/cardcase-logo.png"></image>
+                    <view class="cardcase-title left">名片夹</view>
+                    <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
                 </view>
-                <image class="arrow-right right" src="./images/arrow-right.png"></image>
+            </label>
+
+            <label for="form_id">
+                <view class="about-wrap clear-fix" bindtap="goToAbout">
+                    <image class="about-alogo left" src="./images/about-logo.png"></image>
+                    <view class="about-tuichemao left">关于推车猫</view>
+                    <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
                 </view>
-             
-            </view>
+            </label>
 
-            <view class="cardcase-wrap clear-fix" bindtap="goToCardcase">
-                <image class="cardcase-logo left" src="./images/cardcase-logo.png"></image>
-                <view class="cardcase-title left">名片夹</view>
-                <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
-            </view>
+            
 
-            <view class="about-wrap clear-fix" bindtap="goToAbout">
-                <image class="about-alogo left" src="./images/about-logo.png"></image>
-                <view class="about-tuichemao left">关于推车猫</view>
-                <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
-            </view>
         </view>
-
 
         <view class="change-phone" bindtap="changePhone">
             更换绑定手机
         </view>
     </view>
 
-
-
-
+    <!-- 获取formId -->
+    <form bindsubmit="formSubmit" report-submit style="width:0">
+        <button form-type="submit" id="form_id"></button>
+    </form>
 
 </view>
-
-

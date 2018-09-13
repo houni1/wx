@@ -67,11 +67,12 @@
   box-sizing: border-box;
 }
 .set-person .item-content textarea {
+  position: none;
   display: inline-block;
   width: 100%;
   flex: 1;
   line-height: 40rpx;
-  z-index: -1;
+  /* z-index: -1; */
   word-break:break-all;
   word-wrap:break-word;
   /* min-height: 80rpx; */

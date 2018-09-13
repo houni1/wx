@@ -272,6 +272,9 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  width: 100%;
+  word-break:break-all;
+  word-wrap:break-word;
 }
 
 .set-person .info-item-input textarea {

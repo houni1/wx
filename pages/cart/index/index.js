@@ -71,7 +71,7 @@ Page({
           })
         }
         */
-        if (res.list.length > '0') {
+        if (res.list.length > '5') {
           this.setData({
             moreflag: true
           })
