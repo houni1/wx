@@ -167,6 +167,13 @@ pulldownData(){
   }
 
 },
+  //按钮统计
+  btnStat(type){
+    console.log(type)
+    buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
+  console.log(res)
+})
+ }
   },
   //组件实例化但节点树还未导入，因此这时不能用setData
   created(){
@@ -179,13 +186,7 @@ pulldownData(){
   }
   this.getData(data)
   },
-  //按钮统计
-  btnStat(type){
-    console.log(type)
-    buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
-  console.log(res)
-})
- },
+
   //节点树完成可以用setData渲染节点，但无法操作节点
    attached (){
 
