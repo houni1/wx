@@ -37,10 +37,9 @@ Component({
     // 获取别人车源信息列表
     this.getCarListData();
 
-    
     // 猫哥卫星统计
     var params = {
-      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
+      userId: app.globalData.saleId,         // 销售人员id [必传]
       checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
       checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
       sourceType: '2',     // 信息来源 [必传] 1.一猫商城小程序 2.非一猫商城小程序
@@ -52,14 +51,16 @@ Component({
       console.log('别人车源猫哥卫星统计成功')
     })
 
-    // 销售人气统计
-    var params1 = {
-      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
-      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
-      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
+    // 按钮统计
+    var tjParam = {
+      buttonType: 40,
+      pageType: 0,
+      appType: 1,                               // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
+      formId: this.data.formId,                 // 模版ID
+      userId: app.globalData.authorize_user_id, // 用户ID
     }
-    popStat(params1).then(function (res) {
-      console.log('别人车源销售人气统计')
+    buttonStat(tjParam).then(function (res) {
+      console.log(tjParam)
     })
   },
   /**
@@ -105,6 +106,7 @@ Component({
       }
 
       getOnSaleData(params).then(function (res) {
+        console.log('初始化', res)
         if (loadKind == 9) {
           _this.setData({
             list: _this.data.list.concat(res.list),
@@ -150,7 +152,7 @@ Component({
         formId: this.data.formId
       }
       buttonStat(tjParam).then(function (res) { 
-        // console.log('品牌分类统计formid')
+        console.log('品牌分类统计')
       })      
     },
     // 显示更多车系
@@ -196,6 +198,7 @@ Component({
       } else {
         wx.showToast({
           title: '没有更多数据了！',
+          icon: "none"
         })
       }
     },

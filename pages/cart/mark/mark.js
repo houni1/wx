@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('分享参数',options)
+    console.log('分享携带参数',options)
     var scene = decodeURIComponent(options.scene)
     console.log('扫描小程序专属码的id', scene)
     // var scene = decodeURIComponent(options.scene)
@@ -42,9 +42,9 @@ Page({
         page: options.page,
       })
     }
-    console.log('saleId', globalData.saleId)
-    console.log('source', globalData.source)
-    console.log('page', this.data.page)
+    // console.log('saleId', globalData.saleId)
+    // console.log('source', globalData.source)
+    // console.log('page', this.data.page)
   },
 
   /**
@@ -97,9 +97,9 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    console.log('授权后的id', globalData.authorize_user_id)
-    console.log('saleId', globalData.saleId)
-    console.log('是否覆盖', globalData.iscover)
+    // console.log('授权后的id', globalData.authorize_user_id)
+    // console.log('saleId', globalData.saleId)
+    // console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
       wx.reLaunch({

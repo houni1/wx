@@ -2,6 +2,12 @@
 page {
   background: #f9f9fa;
 }
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
 .topPic image{
   width: 100%;
   display: block;
