@@ -71,12 +71,19 @@ Page({
           })
         }
         */
-        if (res.list.length > '5') {
+        if (res.list.length > '4') {
           this.setData({
             moreflag: true
           })
         }
       }
+    })
+  },
+
+  // 名片申请
+  goToCardcase: function () {
+    wx.navigateTo({
+      url: '../cardcase/cardcase'
     })
   },
 
@@ -86,6 +93,7 @@ Page({
     this.setData({
       formId: e.detail.formId
     })
+    console.log('获取formId', this.data.formId)
   },
 
   // 有formId的按钮统计

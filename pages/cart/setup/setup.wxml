@@ -69,10 +69,11 @@
       </view>
     </view>
   </view>
+  <view class='btn-box' bindtap='editUserInfo'>
+    <button formType="submit" class='btn'>保存</button>
+  </view>
 </form>
-<view class='btn-box' bindtap='editUserInfo'>
-  <button formType="submit" class='btn'>保存</button>
-</view>
+
 <!-- 城市选择插件 -->
 <view class="dialog-back" catchtap='cancel' catchtouchmove='true' hidden='{{cityShow}}'>
   <view class="city-wrap">
