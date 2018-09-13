@@ -11,7 +11,7 @@
             data-userid="{{item.id}}"
             bindtap="toCard">
             <view class="profile clear-fix">
-                <image class="profile-profile-photo" src="{{item.headPortrait}}"></image>
+                <image class="profile-profile-photo" src="{{item.headPortrait}}/226"></image>
                 <text class="profile-name">{{item.nickName}}</text>
                 <text class="profile-post">{{item.position}}-{{item.provinceName}}</text>
             </view>
