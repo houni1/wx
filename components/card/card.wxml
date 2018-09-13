@@ -2,7 +2,7 @@
   <image class='card-box-bg' src='/images/header_bj.png'></image>
   <view class='card'>
     <view class='info-box'>
-      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}'></image>
+      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}/227'></image>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
         <view class='card-info-item' wx:if="{{userInfo.position}}">
@@ -83,7 +83,7 @@
     </view>
   </view>
   <view class='msg-box'>
-    <text wx:if="{{cardText == '0'}}">创建我的名片</text>
+    <text wx:if="{{cardText == '0'}}" bindtap='createMyCard'>创建我的名片</text>
     <text wx:if="{{cardText != '0'}}" bindtap='inMyCard'>进入我的名片</text>
   </view>
 </view>

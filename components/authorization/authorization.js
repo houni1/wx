@@ -69,7 +69,7 @@ Component({
       } else {
         this.goPage();
       }
-      // this.getAuthorizeUserId(params, 2);
+      this.getAuthorizeUserId(params, 2);
     },
     // 获取用户ID
     getAuthorizeUserId (data, wxType) {

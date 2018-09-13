@@ -111,11 +111,15 @@ Component({
   // 交换名片
   changeCard: function () {
     let btnParams = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '5',
+      sourceType: '2',
       buttonType: '17',
       pageType: '3',
-      appType: '1'
+      type: '2'
     }
-    buttonStat(btnParams).then(res => {
+    starStat(btnParams).then(res => {
       console.log(res)
     })
     let params = {
@@ -144,6 +148,13 @@ Component({
     })
     wx.navigateTo({
       url: '/pages/cart/card/card'
+    })
+  },
+
+  // 创建我的名片
+  createMyCard: function () {
+    wx.switchTab({
+      url: '/pages/cart/mark/mark'
     })
   },
 

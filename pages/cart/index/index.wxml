@@ -1,15 +1,20 @@
 <view class='home' wx:if="{{flag}}">
+  <form bindsubmit="formSubmit" report-submit style="width:0">
+    <button form-type="submit" id="form_id"></button>
+  </form>
   <view class='home-card'>
     <image class='home-card-bg' src='/images/header_bj.png'></image>
     <view class='card-box'>
-      <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
+      <label for="form_id">
+        <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
+      </label>
       <view class='user-info'>
         <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}/226'></image>
         <text class='user-name'>{{userInfo.nickName}}</text>
         <text class='user-position'>{{userInfo.position}}</text>
       </view>
       <view class='user-list'>
-        <view class='user-city user-li' wx:if="{{userInfo.popularity != ''}}">
+        <view class='user-city user-li' wx:if="{{userInfo.cityName != ''}}">
           <image class='li-icon city-icon' src='/images/address-icon.png'></image><text class='li-text'>{{userInfo.cityName}}</text>
         </view>
         <view class='user-hot user-li' wx:if="{{userInfo.popularity != ''}}">
@@ -40,18 +45,24 @@
       <image src='/images/cardli_1.png'></image>
       <text>发名片</text>
     </button>
-    <view class='card-li' bindtap='toMyCard'>
-      <image src='/images/cardli_2.png'></image>
-      <text>我的名片</text>
-    </view>
-    <view class='card-li' bindtap='toCardPic'>
-      <image src='/images/cardli_3.png'></image>
-      <text>名片照片</text>
-    </view>
-    <view class='card-li' bindtap='toMyCode'>
-      <image src='/images/cardli_4.png'></image>
-      <text>专属码</text>
-    </view>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toMyCard'>
+        <image src='/images/cardli_2.png'></image>
+        <text>我的名片</text>
+      </view>
+    </label>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toCardPic'>
+        <image src='/images/cardli_3.png'></image>
+        <text>名片照片</text>
+      </view>
+    </label>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toMyCode'>
+        <image src='/images/cardli_4.png'></image>
+        <text>专属码</text>
+      </view>
+    </label>
   </view>
   <view class='home-catlist'>
     <view class='catlist-title'>猫哥卫星</view>

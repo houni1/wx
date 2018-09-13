@@ -20,7 +20,8 @@ Page({
       phone: '', // 手机号
       email: '', //邮箱
     },
-    email: '' // 弹框邮箱
+    email: '', // 弹框邮箱
+    formId: ''
   },
 
   /**
@@ -29,17 +30,31 @@ Page({
   onLoad: function (options) {
     this.getUserInfo()
   },
+
+  // formId获取
+  formSubmit: function (e) {
+    console.log("formId", e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
+
+  // 有formId的按钮统计
+  formStat: function (type) {
+    let _this = this;
+    console.log("统计中的formId", _this.data.formId)
+    buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+      console.log(_this.data.formId)
+      _this.setData({
+        formId: ""
+      })
+      console.log("按钮统计成功")
+    })
+  },
    // 保存图片
    saveImg() {
 
-     let btnParams = {
-       buttonType: '12',
-       pageType: '2',
-       appType: '1'
-     }
-     buttonStat(btnParams).then(res => {
-       console.log(res)
-     })
+     this.formStat(12)
      
       let _this = this;
       // 获取图片路径并保存
@@ -168,14 +183,8 @@ Page({
 
   // 发送至邮箱
   tomail: function () {
-    let btnParams = {
-      buttonType: '13',
-      pageType: '2',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(13)
+
     this.setData({
       toMailFlag: true,
       focusflag: true

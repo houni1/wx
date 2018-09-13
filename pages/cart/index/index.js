@@ -1,13 +1,14 @@
 // pages/cart/index/index.js
 let globalData = getApp().globalData;
-import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat } from '../../../servies/services.js';
+import { getIndexUserInfo, coverOldData, getUserWxPhone, addPhone, buttonStat, starStat } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    flag: true,
+    flag: true,  // 请求数据成功展示
+    formId: '', // formId按钮统计
     // 首页用户信息
     userInfo: {
       userId : "",                   // 用户id
@@ -79,6 +80,27 @@ Page({
     })
   },
 
+  // formId获取
+  formSubmit: function (e) {
+    console.log("formId", e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
+
+  // 有formId的按钮统计
+  formStat: function (type) {
+    let _this = this;
+    console.log("统计中的formId", _this.data.formId)
+    buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+      console.log(_this.data.formId)
+      _this.setData({
+        formId: ""
+      })
+      console.log("按钮统计成功")
+    })
+  },
+
   // 点击查看更多按钮
   moreCat: function () {
     wx.navigateTo({
@@ -88,14 +110,7 @@ Page({
 
   // 点击我的名片按钮进入名片页面
   toMyCard: function () {
-    let btnParams = {
-      buttonType: '3',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(3)
     wx.navigateTo({
       url: '../card/card'
     })
@@ -103,14 +118,7 @@ Page({
 
   // 点击名片照片按钮进入名片照片页面
   toCardPic: function () {
-    let btnParams = {
-      buttonType: '4',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(4)
     wx.navigateTo({
       url: '../cardpic/cardpic'
     })
@@ -118,14 +126,7 @@ Page({
 
   // 点击我的专属码按钮进入专属码页面
   toMyCode: function () {
-    let btnParams = {
-      buttonType: '6',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(6)
     wx.navigateTo({
       url: '../mycode/mycode'
     })
@@ -161,7 +162,7 @@ Page({
         isCoverBox: true
       })
     }
-    this.getIndexUserInfo()
+    // this.getIndexUserInfo()
   },
 
   // 拒绝覆盖
@@ -237,14 +238,7 @@ Page({
   
   // 点击编辑跳转到推车猫设置页面
   toSetUp: function () {
-    let btnParams = {
-      buttonType: '1',
-      pageType: '1',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
+    this.formStat(1)
 
     wx.navigateTo({
       url: '../setup/setup'
@@ -254,11 +248,15 @@ Page({
   // 点击发名片按钮统计
   sendCard: function () {
     let btnParams = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '4',
+      sourceType: '2',
       buttonType: '2',
       pageType: '1',
-      appType: '1'
+      type: '3'
     }
-    buttonStat(btnParams).then(res => {
+    starStat(btnParams).then(res => {
       console.log(res)
     })
   },
