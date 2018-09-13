@@ -26,11 +26,11 @@ Page({
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    console.log('分享携带的参数', options)
+    // console.log('分享携带的参数', options)
     var _this = this;
     wx.getLocation({
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         _this.setData({
           hasLocation: true,
           longitude: res.longitude,
@@ -39,16 +39,13 @@ Page({
         _this.getData();
       }
     })
-    console.log(this.data.latitude)
+    // console.log(this.data.latitude)
     this.setData({
       userId: app.globalData.authorize_user_id,
       toUserId: options.toUserId || options.saleId,
       id: options.id,
       dataInfo: options
     });
-    console.log('userId----', options.userId)
-    console.log('saleId----', options.saleId)
-    
   },
   getData(){
     var _this = this;
@@ -60,9 +57,7 @@ Page({
       longitude: this.data.longitude,   // 当前用户经度 [必传]
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
-    console.log('入参----', params)
     autoDetails(params).then(function (res) {
-      console.log('res', res)
       _this.setData({
         dataInfo: res,
         autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
@@ -102,7 +97,6 @@ Page({
   },
   // 跳转到地图页面
   toMap: function (event) {
-    console.log('event',event)
     var lon = event.currentTarget.dataset.lon;
     var lat = event.currentTarget.dataset.lat;
     wx.navigateTo({
@@ -110,7 +104,6 @@ Page({
     })
   },
   previewImage: function (event) {
-    console.log(event)
     var current = event.currentTarget.dataset.imgUrl;
     wx.previewImage({
       current: current,  // 当前显示图片的http链接
@@ -131,7 +124,15 @@ Page({
     }
     buttonStat(tjParam).then(function (res) { }) 
   },
+  onHide: function () {
+    let pages = getCurrentPages();
+    console.log(pages)
+    let page = pages[0]
+    wx.redirectTo({
+      url: "../index/index"
+    });
 
+  },
   /**
    * 用户点击右上角分享
    */
@@ -142,10 +143,10 @@ Page({
         path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2' + '&id=' + this.data.id + '&longitude=' + this.data.longitude + '&latitude=' + this.data.latitude,
         imageUrl: this.data.dataInfo.autoInfo.logoUrl,
         success: (res) => {
-          console.log("转发成功", res);
+          // console.log("转发成功", res);
         },
         fail: (res) => {
-          console.log("转发失败", res);
+          // console.log("转发失败", res);
         }
       }
     }
