@@ -3,7 +3,13 @@
 // 阿拉丁基本配置
 const ald = require('./utils/ald-stat.js')
 App({
-  onShow: function () {
+  onShow: function (options) {
+    // console.log('场景值获取：', options)
+    // if (options.scene == 1089 || options.scene == 1001) {
+    //   wx.switchTab({
+    //     url: '../index/index',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
+    //   })
+    // }
     const _this = this;
     wx.login({
       success: function (res) {

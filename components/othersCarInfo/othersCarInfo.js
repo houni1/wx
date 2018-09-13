@@ -27,7 +27,6 @@ Component({
   },
 
   ready: function () {
-    console.log(app.globalData.authorize_user_id)
     this.setData({
       userId: app.globalData.authorize_user_id,
       saleId: app.globalData.saleId
@@ -60,7 +59,7 @@ Component({
       userId: app.globalData.authorize_user_id, // 用户ID
     }
     buttonStat(tjParam).then(function (res) {
-      console.log(tjParam)
+      // console.log(tjParam)
     })
   },
   /**
@@ -106,7 +105,6 @@ Component({
       }
 
       getOnSaleData(params).then(function (res) {
-        console.log('初始化', res)
         if (loadKind == 9) {
           _this.setData({
             list: _this.data.list.concat(res.list),
@@ -207,7 +205,6 @@ Component({
       this.setData({
         formId: e.detail.formId
       })
-      console.log("formId获取成功：",e.detail.formId)
     }
   }
 })
