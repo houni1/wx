@@ -16,9 +16,9 @@ Page({
     bannerHeight:"350rpx",//轮播图高度
     swiperCurrent:0,//当前轮播图索引
     list:[],//海报图片容器
-    img:"",
-    isShowShadow:false//是否显示弹窗
-   
+    isShowShadow:false,//是否显示弹窗
+    userId:"",
+    circleId:""
   },
   
   /**
@@ -41,21 +41,12 @@ Page({
           prices:res.prices,
           theme:res.theme,
           userQrCode:res.userQrCode,
+          userId:options.userId,
+          circleId:options.circleId
         })
         console.log(6,this.data.theme)
-        this.pushimg();
-        creatPoster({userId:options.userId,circleId:options.circleId,themeId:this.data.theme[this.data.swiperCurrent].themeId}).then(res=>{
-          console.log(res)
-          this.setData({
-            img:res.posterPrice
-          })
-        })
+        this.pushimg();   
       })
-      
-      
-      
-    
-
   },
    //按钮统计
    btnStat(type){
@@ -99,11 +90,8 @@ Page({
          console.log(44,this.data.list)
 
        },
-       //下载海报
-       downPoster(){
-    let _this = this;
-    // 获取图片路径并保存
-    function getImgInfoToSave (src) {
+           // 获取图片路径并保存
+    getImgInfoToSave (src) {
       console.log(src)
       wx.getImageInfo({
         src: src,
@@ -124,32 +112,38 @@ Page({
           // console.log("失败",src)
         }
       })
-    } 
-    // 判断是否已经授权writePhotosAlbum（保存图片）
-      let imgUrl = this.data.img;
-      wx.getSetting({
-        success(res) {
-          if (!res.authSetting['scope.writePhotosAlbum']) {
-            console.log('授权失败')
-            wx.authorize({
-              scope: 'scope.writePhotosAlbum',
-              success() {
-                console.log("相册授权成功")
-                getImgInfoToSave(imgUrl)
-              },
-              fail(){
-                console.log("需要再次授权")
-                _this.setData({
-                  isShowShadow:true
-                })
-              }
+    } ,    
+       //下载海报
+       downPoster(){
+    let _this = this;
+    creatPoster({userId:this.data.userId,circleId:this.data.circleId,themeId:this.data.theme[this.data.swiperCurrent].themeId}).then(res=>{
+      console.log(res)
+     
+  // 判断是否已经授权writePhotosAlbum（保存图片）
+  let imgUrl = res.posterPrice;
+  wx.getSetting({
+    success(res) {
+      if (!res.authSetting['scope.writePhotosAlbum']) {
+        console.log('授权失败')
+        wx.authorize({
+          scope: 'scope.writePhotosAlbum',
+          success() {
+            console.log("相册授权成功")
+            _this.getImgInfoToSave(imgUrl)
+          },
+          fail(){
+            console.log("需要再次授权")
+            _this.setData({
+              isShowShadow:true
             })
-          } else {
-            getImgInfoToSave(imgUrl)
           }
-        }
+        })
+      } else {
+        _this.getImgInfoToSave(imgUrl)
+      }
+    }
+})
     })
-  
        },
        //取消
        cancel(){

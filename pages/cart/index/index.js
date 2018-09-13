@@ -162,7 +162,7 @@ Page({
         isCoverBox: true
       })
     }
-    // this.getIndexUserInfo()
+    this.getIndexUserInfo()
   },
 
   // 拒绝覆盖
