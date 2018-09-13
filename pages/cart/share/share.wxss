@@ -64,7 +64,7 @@ color: #a6a6a6;
 width:600rpx
 }
 .content{
-  padding: 35rpx 40rpx 0;
+  padding: 35rpx 40rpx 210rpx;
   line-height: 34rpx;
 }
 .oneimg{
@@ -113,14 +113,15 @@ margin-right: 10rpx;
   padding-right: 10rpx;
 }
 .foot-fixed{
-  width: 90%;
+  width: 100%;
   position: fixed;
   bottom: 0;
-  text-align: center;
-  margin-left:5%; 
+  text-align: center; 
+  background: #fff;
 }
 .button{
 height: 150rpx;
+padding: 20rpx 0;
 }
 
 .down-wrap{
@@ -142,6 +143,7 @@ text-align: center;
   font-size: 24rpx;
   text-align: center;
   padding-bottom: 20rpx;
+
 }
 
 .shadow {

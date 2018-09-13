@@ -22,11 +22,13 @@
         <text class='company-text'>{{userInfo.company}}</text>
         <text class='company-icon'></text>
       </view>
-      <view class='send-card-box' bindtap='sendCard'>
-        <button class='send-card' open-type="share">
-          <image class='send-icon' src='/images/to-mail.png'></image>
-          <text class='send-text'>发名片</text>
-        </button>
+      <view class='send-card-wrap'>
+        <view class='send-card-box' bindtap='sendCard'>
+          <button class='send-card' open-type="share">
+            <image class='send-icon' src='/images/to-mail.png'></image>
+            <text class='send-text'>发名片</text>
+          </button>
+        </view>
       </view>
     </view>
   </view>
@@ -71,7 +73,7 @@
   <view class='pic-info' wx:if="{{userInfo.userAlbum.length != '0'}}">
     <view class='info-title'>图片展示</view>
     <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
-      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}'></image>
+      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}' mode="aspectFill"></image>
     </view>
   </view>
   <view class='msg-box' bindtap='toHome'>

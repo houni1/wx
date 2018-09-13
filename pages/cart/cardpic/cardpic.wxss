@@ -88,6 +88,16 @@ font-weight: 800;
   margin-top:60rpx;
 
 }
+.own{
+  position: relative
+}
+.own .cat{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 107rpx;
+  height: 135rpx;
+}
 .own-title{
   font-family: "PingFangSC-Regular";
 font-size: 28rpx;

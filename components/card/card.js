@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo, changeCard, popStat, buttonStat } from '../../servies/services.js';
+import { getUserInfo, changeCard, popStat, buttonStat, starStat } from '../../servies/services.js';
 Component({
 
   /**

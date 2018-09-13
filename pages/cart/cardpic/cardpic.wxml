@@ -26,6 +26,7 @@
          <view class='own'>
             <view class='own-title'>您的专属推车猫名片</view>
             <view class='own-text'>猫卫星监控访客互动，积累线索转化商机，车商圈帮你轻松拓展人脉</view>
+            <image src='/images/cat.png' class='cat'></image>
          </view>
          
       </view>

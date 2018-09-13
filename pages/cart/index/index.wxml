@@ -84,14 +84,14 @@
         </view>
         <view class='catli-info-bottom' wx:if="{{item.checkType != '3'}}">
           <view wx:if="{{item.checkType == '1'}}" class='catli-info-text'>查看了你的车型列表<text class='num'>{{item.number}}次</text></view>
-          <view wx:if="{{item.checkType == '2'}}" class='catli-info-text'>查看了你的名片</view>
-          <view wx:if="{{item.checkType == '4'}}" class='catli-info-text'>分析了你的名片</view>
+          <view wx:if="{{item.checkType == '2'}}" class='catli-info-text'>查看了你的名片<text class='num'>{{item.number}}次</text></view>
+          <view wx:if="{{item.checkType == '4'}}" class='catli-info-text'>分析了你的名片<text class='num'>{{item.number}}次</text></view>
         </view>
       </view>
     </view>
     <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多</view>
   </view>
-  <view class='msg-box' wx:if="{{card > 0}}">
+  <view class='msg-box' wx:if="{{card > 0}}" bindtap="goToCardcase">
     <text class='number'>{{card}}</text>
     <text>个交换名片申请</text>
   </view>

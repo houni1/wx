@@ -1,12 +1,6 @@
 /* pages/cart/setup/setup.wxss */
 .setup-box {
-  position: absolute;
-  bottom: 0;
-  top: 0;
   width: 100%;
-  overflow-y: scroll;
-  padding-bottom: 200rpx;
-  box-sizing: border-box;
 }
 /* 头像 */
 .set-pic {
@@ -67,11 +61,12 @@
   box-sizing: border-box;
 }
 .set-person .item-content textarea {
+  position: none;
   display: inline-block;
   width: 100%;
   flex: 1;
   line-height: 40rpx;
-  z-index: -1;
+  /* z-index: -1; */
   word-break:break-all;
   word-wrap:break-word;
   /* min-height: 80rpx; */
@@ -207,13 +202,10 @@
 
 /* 保存按钮 */
 .btn-box {
-  position: absolute;
-  bottom: 0;
-  background: #fff;
   width: 100%;
   padding: 60rpx 30rpx 40rpx 30rpx;
   box-sizing: border-box;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .btn {
