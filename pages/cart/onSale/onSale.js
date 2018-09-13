@@ -13,20 +13,32 @@ Page({
     goodsSelectIndex: false,
     height: 0,
     goodsSelectName: '全部商品',
-    list: [],               // 列表数据,
-    brandId: '',            // 品牌id [非必传]
-    status: '1',            // 1上架 2下架 [非必传]
-    page: 1,              // 当前页 [必传]
-    type: '',               // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
-    onShelf: 0,             // 已售出
-    unOnShelf: 0,            // 已下架
+    list: [],                 // 列表数据,
+    brandId: '',              // 品牌id [非必传]
+    status: '1',              // 1上架 2下架 [非必传]
+    page: 1,                  // 当前页 [必传]
+    type: '',                 // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
+    onShelf: 0,               // 已售出
+    unOnShelf: 0,             // 已下架
     lastPage: 1,              // 最后页数
-    noData: false,             // 缺省页面
+    noData: false,            // 缺省页面
     longitude: '',
     latitude: '',
     formId: ''
   },
-
+  onShow: function () {
+    // 按钮统计
+    var tjParam = {
+      buttonType: 8,
+      pageType: 0,
+      appType: 1,                               // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
+      formId: this.data.formId,                 // 模版ID
+      userId: app.globalData.authorize_user_id, // 用户ID
+    }
+    buttonStat(tjParam).then(function (res) {
+      console.log(tjParam)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -46,34 +58,10 @@ Page({
         })
       }
     });
-
-    // 猫哥卫星统计
-    var params = {
-      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
-      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
-      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
-      sourceType: '2',     // 信息来源 [必传] 1.一猫商城小程序 2.非一猫商城小程序
-      buttonType: '8',     // 按钮类型（同按钮统计接口）
-      pageType: '7',       // 浏览页面（同按钮统计接口）
-      type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
-    }
-    starStat(params).then(function (res) {
-      console.log('猫哥卫星统计成功')
-    })
-
-    // 销售人气统计
-    var params1 = {
-      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
-      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
-      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
-    }
-    popStat(params1).then(function (res) {
-      console.log('销售人气统计')
-    })
   },
   /**
    * 页面顶部tab切换
-   */
+  */
   tabChange: function (event) {
     var index = event.currentTarget.dataset.index;
     this.setData({
@@ -111,7 +99,6 @@ Page({
       page: 1
     });
     this.getDataList();
-    
   },
 
   /**
@@ -142,13 +129,13 @@ Page({
           var tjParam = {
             buttonType: 23,
             pageType: 7,
-            appType: 1,     // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
-            formId: this.data.formId,     // 模版ID
-            userId: app.globalData.authorize_user_id,     // 用户ID
+            appType: 1,                               // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
+            formId: this.data.formId,                 // 模版ID
+            userId: app.globalData.authorize_user_id, // 用户ID
           }
           buttonStat(tjParam).then(function (res) {
             console.log(tjParam)
-          }) 
+          })
         },
         fail: (res) => {
           console.log("转发失败", res);
@@ -156,8 +143,7 @@ Page({
       }
       var event = e || event;
       event.stopPropagation();
-    }
-    else {
+    } else {
       console.log("来自右上角转发菜单");
     }
   },

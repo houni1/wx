@@ -28,7 +28,7 @@
   </view>
   <view class="carsList">
     <navigator
-      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&longitude=116.318768&latitude=39.943956" 
+      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&enterType=other" 
       wx:for="{{ list }}"
       wx:key="item">
       <view class='item'>
@@ -72,6 +72,6 @@
     <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>
-<form bindsubmit="getFormId" report-submit='true'>
+<form bindsubmit="getFormId" report-submit='true' style="width:0;height: 0;">
   <button form-type="submit" id="form_id"></button>
 </form>
