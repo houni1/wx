@@ -1,4 +1,5 @@
 <!--pages/cart/my/my.wxml-->
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
 <view wx:if="{{flag}}">
 
     <view class="my-wrap">
