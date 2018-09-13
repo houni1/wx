@@ -43,7 +43,7 @@ Component({
       userId: globalData.saleId
     }
 
-    
+    console.log('别人的名片页面saleId获取信息', globalData.saleId)
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
@@ -160,21 +160,19 @@ Component({
 
   // 转发名片按钮统计
   sendCard: function () {
-    let btnParams = {
-      buttonType: '16',
-      pageType: '3',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      console.log(res)
-    })
-    console.log('销售人气，转发名片按钮统计')
+    console.log('点击转发按钮，猫哥卫星和销售人气')
+    console.log('转发谁的名片', globalData.saleId)
     let params = {
       userId: globalData.saleId,
       checkId: globalData.authorize_user_id,
-      checkType: '4'
+      checkType: '4',
+      sourceType: '2',
+      buttonType: '16',
+      pageType: '3',
+      type: '3'
+
     }
-    popStat(params).then(res => {
+    starStat(params).then(res => {
       console.log(res)
     })
   },
