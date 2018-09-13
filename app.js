@@ -44,7 +44,7 @@ App({
     // 链接上的id
     saleId: 0,
     // 微信唯一标识
-    authorize_user_id: 103,
+    authorize_user_id: 0,
     // 是否覆盖信息
     iscover: 0
   }
