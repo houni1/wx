@@ -195,7 +195,9 @@ Page({
         isCoverBox: false
       })
       globalData.iscover = '2'
-      this.getIndexUserInfo()
+      if (globalData.iscover == '2') {
+        this.getIndexUserInfo()
+      }
     })
   },
 
