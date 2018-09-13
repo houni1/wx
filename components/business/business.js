@@ -167,32 +167,36 @@ pulldownData(){
   }
 
 },
-  },
-  //组件实例化但节点树还未导入，因此这时不能用setData
-  created(){
-   //  list=[] datashow: true,
-   console.log(99,globalData.saleId,globalData.authorize_user_id)
-   let data={
-    currentPage:this.data.currentPage,
-    shareId:globalData.saleId,
-    userId:globalData.authorize_user_id
-  }
-  this.getData(data)
-  },
   //按钮统计
   btnStat(type){
     console.log(type)
     buttonStat({appType:1,pageType:5,buttonType:type}).then((res)=>{
   console.log(res)
 })
- },
+ }
+  },
+  //组件实例化但节点树还未导入，因此这时不能用setData
+  created(){
+   //  list=[] datashow: true,
+   buttonStat({appType:1,pageType:0,buttonType:41}).then((res)=>{
+    console.log(res)
+  })
+  },
+
   //节点树完成可以用setData渲染节点，但无法操作节点
    attached (){
 
    },
    //组件布局完成，这时可以获取节点信息，也可以操作节点
    ready (){
-      
+    console.log(99,globalData.saleId,globalData.authorize_user_id)
+    let data={
+     currentPage:this.data.currentPage,
+     shareId:globalData.saleId,
+     userId:globalData.authorize_user_id
+   }
+   this.getData(data)
+
    },
    //组建实例移除
    detached (){

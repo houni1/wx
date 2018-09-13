@@ -14,14 +14,27 @@ Page({
       //   "company":"大宝汽车贸易有限公司"
     },
     flag:false,
-    formId:''
+    formId:'',
+    network:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    
+    let _this=this;
+     wx.getNetworkType({
+      success(res){
+        console.log(res.networkType)
+        if(res.networkType=="none") {
+          _this.setData({
+            network:false
+          })
+          wx.hideLoading()
+          return ;
+        }
+        }
+      })
   },
 
   /**
@@ -36,6 +49,15 @@ Page({
    */
   onShow: function () {
        this.userInfo();
+        let params = {
+            buttonType: 10,
+            pageType: 0,
+            appType: 1,
+            userId: globalData.authorize_user_id
+        }
+        buttonStat(params).then(res => {
+          
+        })
   },
 
   /**
@@ -175,3 +197,17 @@ Page({
     },
 
 })
+wx.onNetworkStatusChange((res)=>{
+    let pages = getCurrentPages();
+    let page=pages[pages.length-1];
+    page.setData({
+      network:res.isConnected
+     }) 
+     if(!res.isConnected){
+      wx.hideLoading()
+     }else{
+       wx.showLoading();
+       page.onLoad()
+       wx.hideLoading()
+     }
+  })

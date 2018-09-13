@@ -1,10 +1,11 @@
 <!--pages/cart/my/my.wxml-->
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
 <view wx:if="{{flag}}">
 
     <view class="my-wrap">
         <view class="my-in">
             <view class="personal-info-wrap clear-fix">
-                <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}"></image>
+                <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}/249"></image>
                 <label class="label-edit" for="form_id">
                     <view class="person-info-in clear-fix" bindtap="goToSetup">
                         <view class="personal-info left">
