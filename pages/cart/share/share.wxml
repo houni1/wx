@@ -6,7 +6,7 @@
       </view>
     </scroll-view>
   </view>
-  <swiper class='banner' current="{{swiperCurrent}}" bindchange="swiperChange" style="height:{{bannerHeight}}px">
+  <swiper class='banner' current="{{swiperCurrent}}" bindchange="swiperChange">
     <block wx:for="{{theme}}" wx:for-index="index" wx:key="index">
       <swiper-item>
         <view class="ban-wrap">
