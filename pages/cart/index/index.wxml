@@ -1,15 +1,22 @@
 <view class='home' wx:if="{{flag}}">
+  <form bindsubmit="formSubmit" report-submit style="width:0">
+    <button form-type="submit" id="form_id"></button>
+  </form>
   <view class='home-card'>
     <image class='home-card-bg' src='/images/header_bj.png'></image>
     <view class='card-box'>
-      <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
+      <label for="form_id">
+        <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
+      </label>
       <view class='user-info'>
-        <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}'></image>
+        <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}/226'></image>
         <text class='user-name'>{{userInfo.nickName}}</text>
         <text class='user-position'>{{userInfo.position}}</text>
-        <text class='user-position'>{{userInfo.cityName}}</text>
       </view>
       <view class='user-list'>
+        <view class='user-city user-li' wx:if="{{userInfo.cityName != ''}}">
+          <image class='li-icon city-icon' src='/images/address-icon.png'></image><text class='li-text'>{{userInfo.cityName}}</text>
+        </view>
         <view class='user-hot user-li' wx:if="{{userInfo.popularity != ''}}">
           <image class='li-icon hot-icon' src='/images/hot-icon.png'></image><text class='li-text'>销售人气 <text class='hot-num'>{{userInfo.popularity}}</text></text>
         </view>
@@ -17,9 +24,13 @@
           <view class='li-icon-box'><image class='li-icon tel-icon' src='/images/tel-icon.png'></image></view><text class='li-text'>{{userInfo.phone}}</text>
         </view>
         <view class='user-phone user-li' wx:if="{{userInfo.phone == ''}}">
-          <view class='li-icon-box'><image class='li-icon tel-icon' src='/images/tel-icon.png'></image></view>
-          <text class='li-text'>暂无手机号</text>
-          <button class='get-phone' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+          <view class='li-phone-box'>
+            <view class='li-icon-box'><image class='li-icon tel-icon' src='/images/tel-icon.png'></image></view>
+            <text class='li-text'>暂无手机号</text>
+          </view>
+          <view class='get-phone'>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+          </view>
         </view>
         <view class='user-email user-li'>
           <image class='li-icon mail-icon' src='/images/mail-icon.png'></image><text class='li-text'>{{userInfo.email == '' ? '暂无邮箱' : userInfo.email}}</text>
@@ -30,28 +41,34 @@
     </view>
   </view>
   <view class='card-list'>
-    <button class='card-li' open-type="share">
+    <button bindtap='sendCard' class='card-li' open-type="share">
       <image src='/images/cardli_1.png'></image>
       <text>发名片</text>
     </button>
-    <view class='card-li' bindtap='toMyCard'>
-      <image src='/images/cardli_2.png'></image>
-      <text>我的名片</text>
-    </view>
-    <view class='card-li' bindtap='toCardPic'>
-      <image src='/images/cardli_3.png'></image>
-      <text>名片照片</text>
-    </view>
-    <view class='card-li' bindtap='toMyCode'>
-      <image src='/images/cardli_4.png'></image>
-      <text>专属码</text>
-    </view>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toMyCard'>
+        <image src='/images/cardli_2.png'></image>
+        <text>我的名片</text>
+      </view>
+    </label>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toCardPic'>
+        <image src='/images/cardli_3.png'></image>
+        <text>名片照片</text>
+      </view>
+    </label>
+    <label class='card-li' for="form_id">
+      <view class='card-li' bindtap='toMyCode'>
+        <image src='/images/cardli_4.png'></image>
+        <text>专属码</text>
+      </view>
+    </label>
   </view>
   <view class='home-catlist'>
     <view class='catlist-title'>猫哥卫星</view>
     <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
       <view class='catli-pic'>
-        <image src='{{item.checkImg}}'></image>
+        <image src='{{item.checkImg}}/183'></image>
       </view>
       <view class='catli-info'>
         <view class='catli-info-top'>
@@ -72,7 +89,7 @@
         </view>
       </view>
     </view>
-    <view class='lookMore' wx:if="{{moreflag}}">查看更多</view>
+    <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多</view>
   </view>
   <view class='msg-box' wx:if="{{card > 0}}">
     <text class='number'>{{card}}</text>
@@ -80,10 +97,23 @@
   </view>
   <view></view>
 </view>
-<view class='home-mark-box' wx:if="{{isCoverBox}}">
+
+
+<!-- <view class='home-mark-box' wx:if="{{isCoverBox}}">
   <view class='home-mark'>
     <view>是否覆盖车商猫的数据?</view>
     <view bindtap='cancel' class='cancel'>取消</view>
     <view bindtap='sure' class='sure'>确定</view>
+  </view>
+</view> -->
+
+<view class='shadow' wx:if='{{isCoverBox}}'>
+  <view class='contain border-box'>
+    <view class='ttl'>温馨提示</view>
+    <view class='desc'>是否将其替换为车商猫资料</view>
+    <view class='btn-wrapper'>
+      <text class='cancle' bindtap='cancel'>取消</text>
+      <view class='confirm' bindtap='sure'>确定</view>
+    </view>
   </view>
 </view>

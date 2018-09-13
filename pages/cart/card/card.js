@@ -1,7 +1,7 @@
 // pages/cart/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../../utils/util.js';
-import { getUserInfo } from '../../../servies/services.js';
+import { getUserInfo, starStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -116,6 +116,22 @@ Page({
    */
   onReachBottom: function () {
   
+  },
+
+  // 点击发名片
+  sendCard: function () {
+    let btnParams = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '4',
+      sourceType: '2',
+      buttonType: '2',
+      pageType: '1',
+      type: '3'
+    }
+    starStat(btnParams).then(res => {
+      console.log(res)
+    })
   },
 
   /**

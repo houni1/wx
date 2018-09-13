@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "推车猫",
   "usingComponents": {
     "authorization": "/components/authorization/authorization"
   },

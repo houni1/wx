@@ -1,0 +1,9 @@
+<view class='isnetwork-box'>
+  <view class='isnetwork-pic'>
+    <image src='/images/wifi-icon.png'></image>
+  </view>
+  <view class='isnetwork-text'>没有网络连接</view>
+  <view class='isnetwork-btns'>
+    <view class='btn' bindtap='refresh'>点击刷新页面</view>
+  </view>
+</view>

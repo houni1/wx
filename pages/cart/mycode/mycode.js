@@ -1,6 +1,6 @@
 // pages/cart/mycode/mycode.js
 let globalData = getApp().globalData;
-import { getUserInfo, sendEmail } from '../../../servies/services.js';
+import { getUserInfo, sendEmail, buttonStat } from '../../../servies/services.js';
 
 Page({
 
@@ -20,7 +20,8 @@ Page({
       phone: '', // 手机号
       email: '', //邮箱
     },
-    email: '' // 弹框邮箱
+    email: '', // 弹框邮箱
+    formId: ''
   },
 
   /**
@@ -29,8 +30,31 @@ Page({
   onLoad: function (options) {
     this.getUserInfo()
   },
+
+  // formId获取
+  formSubmit: function (e) {
+    console.log("formId", e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
+
+  // 有formId的按钮统计
+  formStat: function (type) {
+    let _this = this;
+    console.log("统计中的formId", _this.data.formId)
+    buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+      console.log(_this.data.formId)
+      _this.setData({
+        formId: ""
+      })
+      console.log("按钮统计成功")
+    })
+  },
    // 保存图片
    saveImg() {
+
+     this.formStat(12)
      
       let _this = this;
       // 获取图片路径并保存
@@ -159,6 +183,8 @@ Page({
 
   // 发送至邮箱
   tomail: function () {
+    this.formStat(13)
+
     this.setData({
       toMailFlag: true,
       focusflag: true
@@ -167,6 +193,14 @@ Page({
 
   // 点击取消弹窗收起
   cancel: function () {
+    let btnParams = {
+      buttonType: '14',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     this.setData({
       toMailFlag: false,
       focusflag: false
@@ -185,6 +219,14 @@ Page({
 
   // 点击弹框确定按钮发送至邮箱
   sure: function () {
+    let btnParams = {
+      buttonType: '15',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     console.log(this.data.email)
     var emailReg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
     if (emailReg.test(this.data.email)) {

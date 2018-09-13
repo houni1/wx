@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+   formId: '',
    background:"/images/banner.jpg",//背景图片
    exclusiveCode:"" ,//专属码
    nickName:"",//用户昵称
@@ -40,11 +41,29 @@ Page({
       })
     })
   },
+  // formId获取
+  formSubmit: function (e) {
+    console.log("formId", e.detail.formId)
+    this.setData({
+      formId: e.detail.formId
+    })
+  },
+
+  // 有formId的按钮统计
+  formStat: function (type) {
+    let _this = this;
+    console.log("统计中的formId", _this.data.formId)
+    buttonStat({ appType: 1, pageType: 4, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+      console.log(_this.data.formId)
+      _this.setData({
+        formId: ""
+      })
+      console.log("按钮统计成功")
+    })
+  },
     // 保存图片
   saveImg() {
-    buttonStat({appType:1,pageType:4,buttonType:12}).then((res)=>{
-      console.log(res)
-    })
+    this.formStat(12)
       let _this = this;
       // 获取图片路径并保存
       function getImgInfoToSave (src) {

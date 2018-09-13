@@ -2,7 +2,7 @@
   <image class='card-box-bg' src='/images/header_bj.png'></image>
   <view class='card'>
     <view class='info-box'>
-      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}'></image>
+      <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}/227'></image>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
         <view class='card-info-item'>
@@ -22,7 +22,7 @@
         <text class='company-text'>{{userInfo.company}}</text>
         <text class='company-icon'></text>
       </view>
-      <view class='send-card-box'>
+      <view class='send-card-box' bindtap='sendCard'>
         <button class='send-card' open-type="share">
           <image class='send-icon' src='/images/to-mail.png'></image>
           <text class='send-text'>发名片</text>

@@ -1,12 +1,17 @@
 <view class='mycode-box' wx:if="{{flag}}">
+  <form bindsubmit="formSubmit" report-submit style="width:0">
+    <button form-type="submit" id="form_id"></button>
+  </form>
   <view class='my-code'>
     <view class='my-code-pic'>
-      <image src="{{userInfo.exclusiveCode}}"></image>
+      <image src="{{userInfo.exclusiveCode}}/55"></image>
     </view>
     <view class='my-code-name'>{{userInfo.nickName}}</view>
     <view class='my-code-company'>{{userInfo.company}}</view>
     <view class='my-code-btn'>
-      <view class='btn' bindtap='saveImg'>保存专属码图片</view>
+      <label class='btn' for='form_id'>
+        <view class='btn' bindtap='saveImg'>保存专属码图片</view>
+      </label>
     </view>
   </view>
   <view class='mail-code'>
@@ -37,13 +42,15 @@
         </view>
       </view>
       <view class='mail-code-pic'>
-        <image src='{{userInfo.exclusiveCode}}'></image>
+        <image src='{{userInfo.exclusiveCode}}/227'></image>
       </view>
     </view>
     <view class='to-mail' bindtap='tomail'>
       <view class='to-mail-box'>
         <image class='to-mail-icon' src='/images/to-mail.png'></image>
-        <text class='to-mail-text'>发送至邮箱</text>
+        <label for='form_id'>
+          <text class='to-mail-text'>发送至邮箱</text>
+        </label>
       </view>
     </view>
   </view>

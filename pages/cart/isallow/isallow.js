@@ -123,6 +123,10 @@ Page({
       wx.redirectTo({
         url: '/pages/cart/isallow/isallow'
       })
+    } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
+      wx.redirectTo({
+        url: '/pages/cart/isallow/isallow'
+      })
     }
   }
 })

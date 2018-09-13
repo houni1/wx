@@ -13,13 +13,13 @@
          {{nickName}}
          </view>
          <view class='text'>
-            <view class='job' hidden="{{!position}}">
+            <view class='job'>
             <image class='job-img' src="../business/images/job.png"></image>
-            <text class='job-text'>{{position}}</text>
+            <view class='job-text'>{{position==""?"暂无职位":position}}</view>
             </view>
-            <view class='phone'  hidden="{{!phone}}">
+            <view class='phone'>
                <image class='phone-img' src="../business/images/tel.png"></image>
-               <text class='phone-text'>{{phone}}</text>
+               <view class='phone-text'>{{phone==""?"暂无电话":phone}}</view>
             </view>
          </view>
          <view class='company'>{{company}}</view>
@@ -31,8 +31,11 @@
       </view>
     
    </view>
+   <form bindsubmit="formSubmit" report-submit style="width:0">
+    <button form-type="submit" id="form_id"></button>
+   </form>   
      <view class='btn-box' bindtap="saveImg">
-            <view class="button">保存照片</view>
+            <label class="button" for='form_id'><view class="button">保存照片</view></label>
 
          </view>
 
