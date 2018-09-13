@@ -58,6 +58,14 @@ Page({
 
   // 点击预览头像
   lookHeaderpic: function (e) {
+    let btnParams = {
+      buttonType: '34',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
     console.log(typeof imgurl)
@@ -126,7 +134,7 @@ Page({
       checkType: '4',
       sourceType: '2',
       buttonType: '2',
-      pageType: '1',
+      pageType: '3',
       type: '3'
     }
     starStat(btnParams).then(res => {

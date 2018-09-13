@@ -1,5 +1,6 @@
 // pages/cart/otherpage/otherpage.js
 let globalData = getApp().globalData;
+import { buttonStat } from '../../../servies/services.js';
 Page({
 
   /**
@@ -18,6 +19,14 @@ Page({
     wx.hideShareMenu()//隐藏右上角分享按钮
   },
   tohome(){
+    let btnParams = {
+      buttonType: '39',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     if(this.homeshow)return;
    this.setData({
     homeshow:true,

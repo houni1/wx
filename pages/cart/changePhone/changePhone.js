@@ -9,7 +9,7 @@ Page({
     data: {
         phoneValue: "", //手机号
         flag:true,
-        timeValue:10,
+        timeValue:60,
         loading:false,
         codeValue:"",
         clearTag:false,  //是否清空电话号
@@ -162,7 +162,7 @@ Page({
                         loading:false
                     })
 
-                    var count = 10;
+                    var count = 60;
                     var timer = null;
                     var that = this;
                     timer = setInterval(function () {
@@ -174,7 +174,8 @@ Page({
                         }
                         else {
                             that.setData({
-                                flag: true
+                                flag: true,
+                                timeValue:60
                             })
                             clearInterval(timer);
                         }

@@ -14,12 +14,11 @@ App({
     wx.login({
       success: function (res) {
         console.log('阿拉丁code', res.code)
-        console.log('阿拉丁来源', _this.globalData.source)
         wx.request({
           url: "https://tcmapi.emao.com/cart/login/wxAuthorization",
           data: {
             code: res.code, //向后端发送jscode，由后端向微信请求拿到openid和session_key，返回给前端。 
-            source: _this.globalData.source       
+            source: '3'       
           },
           header: {
             "Accept": "application/json; version=3.13.0",

@@ -13,7 +13,6 @@ Page({
     prices:[],//动态图片
     theme:[],
     userQrCode:"",//二维码图片
-    bannerHeight:"350rpx",//轮播图高度
     swiperCurrent:0,//当前轮播图索引
     list:[],//海报图片容器
     isShowShadow:false,//是否显示弹窗
