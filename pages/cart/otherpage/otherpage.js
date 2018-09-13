@@ -1,4 +1,5 @@
 // pages/cart/otherpage/otherpage.js
+let globalData = getApp().globalData;
 Page({
 
   /**
@@ -132,7 +133,8 @@ Page({
     console.log('转发好友')
     if (ops.from === 'button') {
       // 来自页面内转发按钮
-      console.log(ops.target)
+      console.log('来自页面内转发按钮', ops.target)
+      console.log('转发了谁的id，在otherpage发送出去', globalData.saleId)
     }
     return {
       title: '推车猫小程序',
