@@ -43,7 +43,7 @@ Page({
   formStat: function (type) {
     let _this = this;
     console.log("统计中的formId", _this.data.formId)
-    buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
+    buttonStat({ appType: 1, pageType: 2, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
       console.log(_this.data.formId)
       _this.setData({
         formId: ""
