@@ -13,11 +13,13 @@
       <view class='priceNum'>{{ dataInfo.autoInfo.price }}</view>
       <view class='priceUnit'>万元</view>
       <view class='guidePrice'>指导价{{ dataInfo.autoInfo.guidePrice }}万</view>
-      <view class='call right'
-        wx:if="{{ userId != toUserId }}"
-        bindtap='call'
-        data-telphonenum='{{ dataInfo.userInfo.phone }}'>拨打电话
-      </view>
+      <label for='form_id'>
+        <view class='call right'
+          wx:if="{{ userId != toUserId }}"
+          bindtap='call'
+          data-telphonenum='{{ dataInfo.userInfo.phone }}'>拨打电话
+        </view>
+      </label>
     </view>
   </view>
   <!-- 级别，变速箱,排量 -->
@@ -42,7 +44,7 @@
     <view class='info flex-item'>
       <text class='name'>{{ dataInfo.userInfo.nickname }}</text>
       <view class='flex-wrapper flex-column-center'>
-        <image class='iconAddress' src='images/address.png' mode='widthFix'></image>
+        <image wx:if="{{ dataInfo.userInfo.distance }}" class='iconAddress' src='images/address.png' mode='widthFix'></image>
         <text class='distance'>{{ dataInfo.userInfo.distance }}</text>
         <text class='addressName'>{{ dataInfo.userInfo.address }}</text>
       </view>
@@ -103,12 +105,14 @@
   <view class='realPicture'>
     <view class='title'>实拍图</view>
     <view>
-      <image src='{{dataInfo.autoInfo.picture[index]}}'
-        wx:for="{{ dataInfo.autoInfo.picture }}"
-        wx:key="{{index}}"
-        data-img-url="{{dataInfo.autoInfo.picture[index]}}"
-        bindtap='previewImage'>
-      </image>
+      <label for='form_id'>
+        <image src='{{dataInfo.autoInfo.picture[index]}}'
+          wx:for="{{ dataInfo.autoInfo.picture }}"
+          wx:key="{{index}}"
+          data-img-url="{{dataInfo.autoInfo.picture[index]}}"
+          bindtap='previewImage'>
+        </image>
+      </label>
     </view>
   </view>
   <!-- 创建名片 -->
@@ -125,3 +129,6 @@
     <button open-type='share'><view class='shareBtn'>分享</view></button>
   </view>
 </view>
+<form bindsubmit="getFormId" report-submit="true">
+  <button formType="submit" id="form_id"></button>
+</form>

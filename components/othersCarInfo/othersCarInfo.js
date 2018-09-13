@@ -1,4 +1,4 @@
-import { getBrandList, getOnSaleData, buttonStat } from '../../servies/services.js';
+import { getBrandList, getOnSaleData, buttonStat, starStat, popStat } from '../../servies/services.js';
 var app = getApp();
 Component({
   /**
@@ -33,10 +33,34 @@ Component({
       saleId: app.globalData.saleId
     });
     // 获取品牌列表
-    console.log(77,app.globalData.saleId)
     this.getBrandListData();
     // 获取别人车源信息列表
     this.getCarListData();
+
+    
+    // 猫哥卫星统计
+    var params = {
+      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
+      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
+      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
+      sourceType: '2',     // 信息来源 [必传] 1.一猫商城小程序 2.非一猫商城小程序
+      buttonType: '8',     // 按钮类型（同按钮统计接口）
+      pageType: '10',       // 浏览页面（同按钮统计接口）
+      type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
+    }
+    starStat(params).then(function (res) {
+      console.log('别人车源猫哥卫星统计成功')
+    })
+
+    // 销售人气统计
+    var params1 = {
+      userId: app.globalData.authorize_user_id,         // 销售人员id [必传]
+      checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
+      checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
+    }
+    popStat(params1).then(function (res) {
+      console.log('别人车源销售人气统计')
+    })
   },
   /**
    * 组件的方法列表
@@ -109,7 +133,6 @@ Component({
     },
     // 选择品牌
     chooseBrand: function (event) {
-      console.log(event)
       var brandId = event.currentTarget.dataset.brandId;
       var index = event.currentTarget.dataset.index;
       this.setData({
@@ -122,9 +145,13 @@ Component({
       var tjParam = {
         buttonType: 30,
         pageType: 10,
-        appType: 1
+        appType: 1,
+        userId: app.globalData.authorize_user_id,
+        formId: this.data.formId
       }
-      buttonStat(tjParam).then(function (res) { })      
+      buttonStat(tjParam).then(function (res) { 
+        // console.log('品牌分类统计formid')
+      })      
     },
     // 显示更多车系
     show_move: function () {
@@ -135,13 +162,14 @@ Component({
       var tjParam = {
         buttonType: 31,
         pageType: 10,
-        appType: 1
+        appType: 1,
+        userId: app.globalData.authorize_user_id,
+        formId: this.data.formId
       }
       buttonStat(tjParam).then(function (res) { }) 
     },
     // 品牌列表里选择
     chooseBrand_list: function (event) {
-      console.log(event)
       var brandId = event.currentTarget.dataset.brandId;
       var index = event.currentTarget.dataset.index;
       this.setData({
@@ -155,7 +183,9 @@ Component({
       var tjParam = {
         buttonType: 32,
         pageType: 6,
-        appType: 1
+        appType: 1,
+        userId: app.globalData.authorize_user_id,
+        formId: this.data.formId
       }
       buttonStat(tjParam).then(function (res) { }) 
     },
@@ -168,6 +198,13 @@ Component({
           title: '没有更多数据了！',
         })
       }
+    },
+    // 获取formId
+    getFormId: function (e) {
+      this.setData({
+        formId: e.detail.formId
+      })
+      console.log("formId获取成功：",e.detail.formId)
     }
   }
 })

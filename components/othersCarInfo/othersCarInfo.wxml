@@ -1,28 +1,34 @@
 <view class='wrap flex-wrapper'>
   <view class='kinds flex-wrapper'>
-    <view class='kind' bindtap='chooseBrand' data-index="0" data-brand-id="">
-      <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
-      <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>
-    </view>
+    <label for="form_id" style="flex: 1;">
+      <view class='kind' bindtap='chooseBrand' data-index="0" data-brand-id="">
+        <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
+        <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>
+      </view>
+    </label>
     <view class='kind'
       wx:for="{{ defaultList }}"
       wx:key="item"
       bindtap='chooseBrand'
       data-index="{{ index + 1 }}"
       data-brand-id="{{ item.brandId }}">
-      <text class='{{(chooseBrandIndex == index+1) ? "active" : ""}}'>{{ item.brandName }}</text>
+      <label for="form_id">
+        <text class='{{(chooseBrandIndex == index+1) ? "active" : ""}}'>{{ item.brandName }}</text>
+      </label>
       <image src='images/line.png'
         mode='widthFix' 
         wx:if="{{chooseBrandIndex == index + 1}}">
       </image>
     </view>
     <view class='moreIcon' catchtap='show_move'>
-      <image src='images/arrow-b.png' mode='widthFix'></image>
+      <label for='form_id'>
+        <image src='images/arrow-b.png' mode='widthFix'></image>
+      </label>
     </view>
   </view>
   <view class="carsList">
     <navigator
-      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId=3&id={{item.id}}&longitude=116.318768&latitude=39.943956" 
+      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&longitude=116.318768&latitude=39.943956" 
       wx:for="{{ list }}"
       wx:key="item">
       <view class='item'>
@@ -46,16 +52,18 @@
         <view class='moreIcon' catchtap='show_move'><image src='images/arrow-t.png' mode='widthFix'></image></view>
       </view>
       <view class='brandList'>
-        <view
-          wx:for="{{ brandList }}"
-          wx:key="item"
-          class='flex-wrapper brand {{chooseBrandIndex_list == index ? "choosed" : ""}}'
-          data-brand-id="{{ item.brandId }}"
-          bindtap='chooseBrand_list' 
-          data-index="{{ index }}">
-          <image src='{{ item.logoUrl }}/245' mode='widthFix'></image>
-          <text>{{ item.brandName }}</text>
-        </view>
+        <label for="form_id">
+          <view
+            wx:for="{{ brandList }}"
+            wx:key="item"
+            class='flex-wrapper brand {{chooseBrandIndex_list == index ? "choosed" : ""}}'
+            data-brand-id="{{ item.brandId }}"
+            bindtap='chooseBrand_list' 
+            data-index="{{ index }}">
+              <image src='{{ item.logoUrl }}/245' mode='widthFix'></image>
+              <text>{{ item.brandName }}</text>
+          </view>
+        </label>
       </view>
       <view class='showAll'>已展示全部</view>
     </view>
@@ -64,3 +72,6 @@
     <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>
+<form bindsubmit="getFormId" report-submit='true'>
+  <button form-type="submit" id="form_id"></button>
+</form>

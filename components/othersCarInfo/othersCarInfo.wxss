@@ -107,7 +107,7 @@ page {
 .price {
   font-size: 24rpx;
   color: #f72626;
-  margin-top: 36rpx;
+  margin-top: 24rpx;
 }
 .priceNum {
   font-size: 30rpx;
