@@ -15,7 +15,7 @@
     <view class='set-item'>
       <view class='item-title'>公司名称</view>
       <view class='item-content'>
-        <input type='text' maxlength='20' placeholder='请输入您的公司名称' value='{{userInfo.nickName}}' bindinput='nickName'></input>
+        <input type='text' maxlength='20' placeholder='请输入您的公司名称' value='{{userInfo.company}}' bindinput='company'></input>
       </view>
     </view>
     <view class='set-item'>
