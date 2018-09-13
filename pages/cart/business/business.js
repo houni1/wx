@@ -247,7 +247,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.formStat(9)
+    buttonStat({appType:1,pageType:0,buttonType:9}).then((res)=>{
+      console.log("车商圈页面统计")
+    })
   },
 
   /**

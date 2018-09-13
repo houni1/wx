@@ -178,7 +178,9 @@ pulldownData(){
   //组件实例化但节点树还未导入，因此这时不能用setData
   created(){
    //  list=[] datashow: true,
-   this.btnStat(9);
+   buttonStat({appType:1,pageType:0,buttonType:41}).then((res)=>{
+    console.log(res)
+  })
   },
 
   //节点树完成可以用setData渲染节点，但无法操作节点
