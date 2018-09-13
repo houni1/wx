@@ -16,7 +16,7 @@
   </view>
   <view class='carsList'>
     <view class='item' wx:for="{{ list }}" wx:key="item">
-      <navigator url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&longitude=116.318768&latitude=39.943956">
+      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&entertype=self">
         <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
           <image src='{{ item.cover }}/246' mode='aspectFit'></image>
@@ -51,6 +51,6 @@
     <image src='images/noData.png' mode='widthFix'></image>
   </view>
 </view>
-<form bindsubmit="getFormId" report-submit="true">
+<form bindsubmit="getFormId" report-submit="true" style="width:0;height: 0;">
   <button formType="submit" id="form_id"></button>
 </form>

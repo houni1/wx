@@ -29,9 +29,32 @@ Page({
   onLoad: function (options) {
     console.log('options', options)
     var _this = this;
+    var enterType = options.entertype;
+    if (enterType == "self") {
+      var tjParam = {
+        buttonType: 26,
+        pageType: 7,
+        appType: 1,
+        formId: this.data.formId,                     // 模版ID
+        userId: app.globalData.authorize_user_id,     // 用户ID
+      }
+      buttonStat(tjParam).then(function (res) { 
+        console.log('在售车型商品图片区域')
+      }) 
+    } else if (enterType == "other") {
+      var tjParam = {
+        buttonType: 26,
+        pageType: 10,
+        appType: 1,
+        formId: this.data.formId,                     // 模版ID
+        userId: app.globalData.authorize_user_id,     // 用户ID
+      }
+      buttonStat(tjParam).then(function (res) { 
+        console.log('其他车源商品图片区域')
+      }) 
+    }
     wx.getLocation({
       success: function (res) {
-        // console.log(res)
         _this.setData({
           hasLocation: true,
           longitude: res.longitude,
@@ -40,7 +63,6 @@ Page({
         _this.getData();
       }
     })
-    // console.log(this.data.latitude)
     this.setData({
       userId: app.globalData.authorize_user_id,
       toUserId: options.toUserId || options.saleId,
@@ -59,6 +81,7 @@ Page({
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
+      console.log(res)
       _this.setData({
         dataInfo: res,
         autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
@@ -103,6 +126,17 @@ Page({
   },
   // 跳转到地图页面
   toMap: function (event) {
+    // 导航按钮统计
+    var tjParam = {
+      buttonType: 33,
+      pageType: 11,
+      appType: 1,
+      formId: this.data.formId,
+      userId: app.globalData.authorize_user_id
+    }
+    buttonStat(tjParam).then(function (res) {
+      console.log("导航按钮统计成功")
+    }) 
     var lon = event.currentTarget.dataset.lon;
     var lat = event.currentTarget.dataset.lat;
     wx.navigateTo({
@@ -115,22 +149,6 @@ Page({
       current: current,  // 当前显示图片的http链接
       urls: this.data.dataInfo.autoInfo.picture             // 需要预览的图片http链接列表
     })
-
-    // 按钮统计
-    var pageType;
-    if (this.data.userId == this.data.toUserId) {
-      pageType = 8
-    } else {
-      pageType = 11
-    }
-    var tjParam = {
-      buttonType: 23,
-      pageType: pageType,
-      appType: 1,
-      userId: app.globalData.authorize_user_id,
-      formId: this.data.formId
-    }
-    buttonStat(tjParam).then(function (res) { }) 
   },
   onHide: function () {
     let pages = getCurrentPages();
@@ -142,32 +160,33 @@ Page({
   },
   /**
    * 用户点击右上角分享
-   */
-  onShareAppMessage: function (res) {
-    if(res.form == 'button'){
-      return {
-        title: '',
-        path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&pages=5&type=2' + '&id=' + this.data.id + '&longitude=' + this.data.longitude + '&latitude=' + this.data.latitude,
-        imageUrl: this.data.dataInfo.autoInfo.logoUrl,
-        success: (res) => {
-          // console.log("转发成功", res);
-        },
-        fail: (res) => {
-          // console.log("转发失败", res);
+  */
+  onShareAppMessage: function (res, e) {
+    var _this = this
+    return {
+      title: _this.data.dataInfo.autoInfo.autoName,
+      path: '/pages/cart/mark/mark?saleId=' + _this.data.userId + '&page=5&type=2&id=' + res.target.dataset.id,
+      imageUrl: _this.data.dataInfo.autoInfo.cover,
+      success: (res) => {
+        console.log("转发成功", res);
+        // 按钮统计
+        var tjParam = {
+          buttonType: 33,
+          pageType: 11,
+          appType: 1,
+          formId: this.data.formId,
+          userId: app.globalData.authorize_user_id
         }
+        buttonStat(tjParam).then(function (res) {
+          console.log("分享按钮统计成功")
+        }) 
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
       }
     }
-    // 按钮统计
-    var tjParam = {
-      buttonType: 23,
-      pageType: 11,
-      appType: 1,
-      formId: this.data.formId,
-      userId: app.globalData.authorize_user_id
-    }
-    buttonStat(tjParam).then(function (res) {
-      console.log("按钮统计成功")
-    }) 
+    var event = e || event;
+    event.stopPropagation();
   },
   // 获取formId
   getFormId: function (e) {
@@ -176,4 +195,18 @@ Page({
       formId: e.detail.formId
     })
   },
+  // 头像区域统计
+  storeStatistics: function () {
+    // 按钮统计
+    var tjParam = {
+      buttonType: 34,
+      pageType: 11,
+      appType: 1,
+      formId: this.data.formId,
+      userId: app.globalData.authorize_user_id
+    }
+    buttonStat(tjParam).then(function (res) {
+      console.log("按钮统计成功")
+    }) 
+  }
 })

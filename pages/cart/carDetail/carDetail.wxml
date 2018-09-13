@@ -39,16 +39,18 @@
   </view>
   <!-- 店铺位置信息 -->
   <view class='addressWrap flex-wrapper' wx:if="{{ userId != toUserId }}">
-    <view class='photo' style='background-image:url({{ dataInfo.userInfo.shopPicture }});background-size: cover;'>
-    </view>
-    <view class='info flex-item'>
-      <text class='name'>{{ dataInfo.userInfo.nickname }}</text>
-      <view class='flex-wrapper flex-column-center'>
-        <image wx:if="{{ dataInfo.userInfo.distance }}" class='iconAddress' src='images/address.png' mode='widthFix'></image>
-        <text class='distance'>{{ dataInfo.userInfo.distance }}</text>
-        <text class='addressName'>{{ dataInfo.userInfo.address }}</text>
+    <label for='form_id' class='flex flex1'>
+      <view class='photo' bindtap='storeStatistics' style='background-image:url({{ dataInfo.userInfo.shopPicture }});background-size: cover;'>
       </view>
-    </view>
+      <view class='info flex-item' bindtap='storeStatistics'>
+        <text class='name'>{{ dataInfo.userInfo.nickname }}</text>
+        <view class='flex-wrapper flex-column-center'>
+          <image wx:if="{{ dataInfo.userInfo.distance }}" class='iconAddress' src='images/address.png' mode='widthFix'></image>
+          <text class='distance'>{{ dataInfo.userInfo.distance }}</text>
+          <text class='addressName'>{{ dataInfo.userInfo.address }}</text>
+        </view>
+      </view>
+    </label>
     <view class='toMap' bindtap='toMap' data-lon="{{ dataInfo.userInfo.longitude }}" data-lat="{{ dataInfo.userInfo.latitude }}">
       <image src='images/iconToMap.png' mode='widthFix'></image>
       <text>导航</text>
@@ -126,9 +128,11 @@
   </view>
   <!-- 分享 -->
   <view class='share' wx:if="{{ userId == toUserId }}">
-    <button open-type='share'><view class='shareBtn'>分享</view></button>
+    <label for='form_id'>
+      <button open-type='share' data-id='{{id}}'><view class='shareBtn'>分享</view></button>
+    </label>
   </view>
 </view>
-<form bindsubmit="getFormId" report-submit="true">
+<form bindsubmit="getFormId" report-submit="true" style="width:0;height: 0;">
   <button formType="submit" id="form_id"></button>
 </form>
