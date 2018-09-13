@@ -163,7 +163,7 @@ Page({
         var _this = this;
         setTimeout(function(){
             let params = {
-                buttonType: 1,
+                buttonType: 27,
                 pageType: 9,
                 appType: 1,
                 userId: globalData.authorize_user_id,
