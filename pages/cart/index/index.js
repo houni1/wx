@@ -50,7 +50,6 @@ Page({
     this.getIndexUserInfo()
   },
 
-
   // 获取首页个人信息，默认展示数据
   getIndexUserInfo: function () {
     console.log('获取首页个人信息', globalData.authorize_user_id)
@@ -162,13 +161,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.formStat(7)
     console.log('首页，信息是否覆盖', globalData.iscover)
     console.log('首页，来源', globalData.source)
+    console.log('是否覆盖初始化', this.data.isCoverBox)
     console.log('首页，车商猫上面的id', globalData.saleId)
+    
     if (globalData.iscover == '1' && globalData.source == '1') {
       this.setData({
         isCoverBox: true
       })
+      console.log('是否覆盖，弹窗弹起', this.data.isCoverBox)
     }
     this.getIndexUserInfo()
   },
@@ -191,6 +194,7 @@ Page({
       this.setData({
         isCoverBox: false
       })
+      globalData.iscover = '2'
       this.getIndexUserInfo()
     })
   },
@@ -213,7 +217,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    console.log('下拉刷新')
+    this.getIndexUserInfo()
+    // 停止下拉动作
+    console.log('停止下拉动作')
+    wx.stopPullDownRefresh();
   },
 
   /**

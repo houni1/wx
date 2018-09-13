@@ -36,6 +36,17 @@ Component({
     console.log(this.data.cardText)
   },
 
+  ready () {
+    let btnParams = {
+      buttonType: '22',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
+  },
+
   methods:{
   // 获取个人信息，默认展示数据
   getUserInfo: function () {
@@ -56,6 +67,14 @@ Component({
 
   // 点击预览头像
   lookHeaderpic: function (e) {
+    let btnParams = {
+      buttonType: '34',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
     console.log(typeof imgurl)
@@ -153,6 +172,14 @@ Component({
 
   // 创建我的名片
   createMyCard: function () {
+    let btnParams = {
+      buttonType: '19',
+      pageType: '3',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      console.log(res)
+    })
     wx.switchTab({
       url: '/pages/cart/mark/mark'
     })
