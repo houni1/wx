@@ -22,12 +22,10 @@ Page({
     latitude: '',
     formId: ''
   },
-
   /**
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    console.log('options', options)
     var _this = this;
     var enterType = options.entertype;
     if (enterType == "self") {
@@ -81,7 +79,6 @@ Page({
       latitude: this.data.latitude      // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
-      console.log(res)
       _this.setData({
         dataInfo: res,
         autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
@@ -150,14 +147,6 @@ Page({
       urls: this.data.dataInfo.autoInfo.picture             // 需要预览的图片http链接列表
     })
   },
-  onHide: function () {
-    let pages = getCurrentPages();
-    let page = pages[0]
-    wx.redirectTo({
-      url: "../index/index"
-    });
-
-  },
   /**
    * 用户点击右上角分享
   */
@@ -168,7 +157,7 @@ Page({
       path: '/pages/cart/mark/mark?saleId=' + _this.data.userId + '&page=5&type=2&id=' + res.target.dataset.id,
       imageUrl: _this.data.dataInfo.autoInfo.cover,
       success: (res) => {
-        console.log("转发成功", res);
+        // console.log("转发成功", res);
         // 按钮统计
         var tjParam = {
           buttonType: 33,
@@ -182,7 +171,7 @@ Page({
         }) 
       },
       fail: (res) => {
-        console.log("转发失败", res);
+        // console.log("转发失败", res);
       }
     }
     var event = e || event;
@@ -190,7 +179,6 @@ Page({
   },
   // 获取formId
   getFormId: function (e) {
-    console.log('form获取成功：',e.detail.formId)
     this.setData({
       formId: e.detail.formId
     })

@@ -16,7 +16,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('分享携带参数',options)
     var scene = decodeURIComponent(options.scene)
     console.log('扫描小程序专属码的id', scene)
     // var scene = decodeURIComponent(options.scene)
@@ -107,15 +106,15 @@ Page({
       })
     } else if (this.data.page == '5' && globalData.source == '2') {
       // 跳转至车型详情页面
-      console.log('跳转至车型详情页面')
+      // console.log('跳转至车型详情页面')
       wx.redirectTo({
         url: '/pages/cart/carDetail/carDetail?id=' + this.data.id + '&saleId=' + globalData.saleId
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
-      console.log('是从微信进入的，要区分是自己的还是别人的')
-      console.log('别人的id', globalData.saleId)
+      // console.log('是从微信进入的，要区分是自己的还是别人的')
+      // console.log('别人的id', globalData.saleId)
       if (globalData.saleId != globalData.authorize_user_id) {
-        console.log('跳转至别人的页面', this.data.page)
+        // console.log('跳转至别人的页面', this.data.page)
 
         if (this.data.page == '2') {
           let params = {
