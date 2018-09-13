@@ -36,6 +36,15 @@ Page({
    */
   onShow: function () {
        this.userInfo();
+        let params = {
+            buttonType: 10,
+            pageType: 0,
+            appType: 1,
+            userId: globalData.authorize_user_id
+        }
+        buttonStat(params).then(res => {
+          
+        })
   },
 
   /**
