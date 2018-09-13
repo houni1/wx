@@ -2,7 +2,7 @@
 .personal-info-wrap{display:flex;}
 .my-in{padding:85rpx 40rpx 0 40rpx;}
 .head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;}
-.person-info-in{flex:1;float:left;}
+.person-info-in{}
 .personal-info{}
 .personal-info .name{color:#282c39;font-size:32rpx;}
 .personal-info .post{color:#a6a6a6;font-size:28rpx;}
@@ -15,3 +15,4 @@
 .about-alogo{display:block;width:38rpx;height:38rpx;margin-top:3rpx;margin-right:20rpx;}
 .about-tuichemao{font-size:28rpx;color:#4d4d4d;}
 .change-phone{width:690rpx;height:100rpx;margin:85rpx auto;font-size:32rpx;color:#282c39;line-height:100rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;}
+.label-edit{display:block;flex:1;float:left;}

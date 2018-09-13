@@ -13,7 +13,8 @@ Page({
       //   "position":"经理",
       //   "company":"大宝汽车贸易有限公司"
     },
-    flag:false
+    flag:false,
+    formId:''
   },
 
   /**
@@ -81,43 +82,53 @@ Page({
  
    //跳转到关于推车猫页面
     goToAbout: function () {
-
-        let params = {
-            buttonType: 29,
-            pageType: 9,
-            appType: 1,
-            userId: globalData.authorize_user_id
-        }
-        buttonStat(params).then(res => {
-            wx.navigateTo({
-                url: '../about/about'
+        var _this = this;
+        setTimeout(function(){
+            let params = {
+                buttonType: 29,
+                pageType: 9,
+                appType: 1,
+                userId: globalData.authorize_user_id,
+                formId: _this.data.formId
+            }
+            buttonStat(params).then(res => {
+                _this.setData({
+                    formId: ''
+                })
+                wx.navigateTo({
+                    url: '../about/about'
+                })
             })
-        })
-
+        },500)
        
     },
      //跳转到名片夹
     goToCardcase: function() {
-        let params = {
-            buttonType: 28,
-            pageType: 9,
-            appType: 1,
-            userId: globalData.authorize_user_id
-        }
-        buttonStat(params).then(res => {
-            wx.navigateTo({
-                url: '../cardcase/cardcase'
+        var _this = this;
+        setTimeout(function(){
+            let params = {
+                buttonType: 28,
+                pageType: 9,
+                appType: 1,
+                userId: globalData.authorize_user_id,
+                formId: _this.data.formId
+            }
+            buttonStat(params).then(res => {
+                _this.setData({
+                    formId: ''
+                })
+                wx.navigateTo({
+                    url: '../cardcase/cardcase'
+                })
             })
-        })
-
+        },500)
+      
        
     },
 
     //头像放大
     showPic:function(e){
         var picSrc = this.data.userInfo.headPortrait;
-        console.log(picSrc);
-
         wx.previewImage({
             current: picSrc, // 当前显示图片的http链接
             urls: [picSrc] // 需要预览的图片http链接列表
@@ -127,17 +138,40 @@ Page({
 
     //去往设置页面
     goToSetup:function(){
-        let params = {
-            buttonType:1,
-            pageType:9,
-            appType:1,
-            userId: globalData.authorize_user_id
-        }
-        buttonStat(params).then(res =>{
-            wx.navigateTo({
-                url: '../setup/setup'
+        var _this = this;
+        setTimeout(function(){
+            let params = {
+                buttonType: 1,
+                pageType: 9,
+                appType: 1,
+                userId: globalData.authorize_user_id,
+                formId: _this.data.formId
+            }
+            console.log('全局' + _this.data.formId)
+            console.log('赋值' + params.formId)
+            buttonStat(params).then(res => {
+                _this.setData({
+                    formId: ''
+                })
+                wx.navigateTo({
+                    url: '../setup/setup'
+                })
             })
-        })
+        },500)
+      
         
-    }
+    },
+
+
+      //formId获取
+    formSubmit(e) {
+        console.log("formId", e.detail.formId)
+        console.log(1);
+        this.setData({
+            formId: e.detail.formId
+        })
+        console.log('form触发' + this.data.formId)
+
+    },
+
 })
