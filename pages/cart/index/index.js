@@ -274,6 +274,8 @@ Page({
       pageType: '1',
       type: '3'
     }
+
+    console.log('猫哥卫星统计传参', btnParams)
     starStat(btnParams).then(res => {
       console.log(res)
     })

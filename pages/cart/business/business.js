@@ -65,6 +65,19 @@ Page({
     let userId=globalData.authorize_user_id;
       console.log("查看名片")   
        //猫哥卫星统计
+       let params = {
+        userId:shareId,
+        checkId:globalData.authorize_user_id,
+        checkType:2,
+        sourceType:2,
+        buttonType:22,
+        pageType:5,
+        type:3
+      }
+
+      console.log('猫哥卫星统计传参', params)
+
+      
       starStat({
       userId:shareId,
       checkId:globalData.authorize_user_id,
