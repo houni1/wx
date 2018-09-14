@@ -30,56 +30,56 @@
       <text>转发名片</text>
     </button>
     <view class='other-item' bindtap='changeCard'>
-      <image src='/images/cardli_1.png'></image>
+      <image src='/images/cardli_5.png'></image>
       <text>交换名片</text>
     </view>
     <view class='other-item' bindtap='addToAddressBook'>
-      <image src='/images/cardli_1.png'></image>
+      <image src='/images/cardli_6.png'></image>
       <text>添加通讯录</text>
     </view>
   </view>
-  <view class='person-info' wx:if="{{userInfo.phone && userInfo.wechatNumber && userInfo.email && userInfo.introduction}}">
+  <view class='person-info'>
     <view class='info-title'>个人信息</view>
     <view class='person-info-box'>
-      <view class='person-info-item' wx:if="{{userInfo.phone}}">
+      <view class='person-info-item'>
         <view class='info-item-text'>手机号</view>
         <view class='info-item-input'><input value='{{userInfo.phone}}'></input></view>
         <view class='info-item-btn' bindtap='setPhoneToClipboard'><text>复制</text></view>
       </view>
-      <view class='person-info-item' wx:if="{{userInfo.wechatNumber}}">
+      <view class='person-info-item'>
         <view class='info-item-text'>微信</view>
         <view class='info-item-input'><input value='{{userInfo.wechatNumber}}'></input></view>
         <view class='info-item-btn' bindtap='setWeChatToClipboard'><text>复制</text></view>
       </view>
-      <view class='person-info-item' wx:if="{{userInfo.email}}">
+      <view class='person-info-item'>
         <view class='info-item-text'>邮箱</view>
-        <view class='info-item-input'><input value='{{userInfo.email}}'></input></view>
+        <view class='info-item-input'><input value='{{userInfo.email == "" ? "暂无邮箱" : userInfo.email}}'></input></view>
         <view class='info-item-btn' bindtap='setEMallToClipboard'><text>复制</text></view>
       </view>
-      <view class='set-person' wx:if="{{userInfo.introduction}}">
+      <view class='set-person'>
         <view class='set-person-text'>个人介绍</view>
-        <view class='info-item-input'><view>{{userInfo.introduction}}</view></view>
+        <view class='info-item-input'><view>{{userInfo.introduction == '' ? '暂无个人介绍' : userInfo.introduction}}</view></view>
       </view>
     </view>
   </view>
-  <view class='person-info'wx:if="{{userInfo.company && userInfo.companyAddress}}">
+  <view class='person-info'>
     <view class='info-title'>公司信息</view>
     <view class='person-info-box'>
-      <view class='person-info-item' wx:if="{{userInfo.company}}">
+      <view class='person-info-item'>
         <view class='info-item-text'>公司名称</view>
-        <view class='info-item-input'><input value='{{userInfo.company}}'></input></view>
+        <view class='info-item-input'><input value='{{userInfo.company == "" ? "暂无公司" : userInfo.company}}'></input></view>
         <view class='info-item-btn' bindtap='setNameToClipboard'><text>复制</text></view>
       </view>
-      <view class='set-person' wx:if="{{userInfo.companyAddress}}">
+      <view class='set-person'>
         <view class='set-person-text'>公司地址</view>
-        <view class='info-item-input'><view>{{userInfo.companyAddress}}</view></view>
+        <view class='info-item-input'><view>{{userInfo.companyAddress == '' ?  '暂无公司地址' : userInfo.companyAddress}}</view></view>
       </view>
     </view>
   </view>
   <view class='pic-info' wx:if="{{userInfo.userAlbum.length != '0'}}">
     <view class='info-title'>图片展示</view>
     <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
-      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}' mode="aspectFill"></image>
+      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259' mode="aspectFill"></image>
     </view>
   </view>
   <view class='msg-box'>

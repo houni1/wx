@@ -47,13 +47,5 @@ App({
     authorize_user_id: 0,
     // 是否覆盖信息
     iscover: 0
-  },
-  onHide: function () {
-    if (this.data.enterType == 'self') {
-      console.log('other')
-      wx.switchTab({
-        url: '/pages/cart/index/index',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
-      })
-    }
   }
 })

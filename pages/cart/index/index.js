@@ -164,12 +164,13 @@ Page({
    */
   onShow: function () {
     this.formStat(7)
+    console.log('全局是否覆盖的值', globalData.iscover)
     if (globalData.iscover == '1') {
       this.setData({
         iscover: globalData.iscover
       })
     }
-    console.log('首页，信息是否覆盖，全局', this.data.iscover)
+    console.log('首页全局，信息是否覆盖', this.data.iscover)
     console.log('首页，来源', globalData.source)
     console.log('是否覆盖初始化', this.data.isCoverBox)
     console.log('首页，车商猫上面的id', globalData.saleId)
