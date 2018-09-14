@@ -127,6 +127,7 @@ Page({
      //跳转到名片夹
     goToCardcase: function() {
         var _this = this;
+        
         setTimeout(function(){
             let params = {
                 buttonType: 28,

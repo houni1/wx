@@ -32,7 +32,7 @@
       </view>
     </view>
   </view>
-  <view class='person-info'>
+  <view class='person-info' wx:if="{{userInfo.phone || userInfo.wechatNumber || userInfo.email || userInfo.introduction}}">
     <view class='info-title'>个人信息</view>
     <view class='person-info-box'>
       <view class='person-info-item'>
