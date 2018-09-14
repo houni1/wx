@@ -47,7 +47,7 @@ Component({
       type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
     }
     starStat(params).then(function (res) {
-      console.log('别人车源猫哥卫星统计成功')
+      // console.log('别人车源猫哥卫星统计成功')
     })
 
     // 按钮统计
@@ -150,7 +150,7 @@ Component({
         formId: this.data.formId
       }
       buttonStat(tjParam).then(function (res) { 
-        console.log('品牌分类统计')
+        // console.log('品牌分类统计')
       })      
     },
     // 显示更多车系

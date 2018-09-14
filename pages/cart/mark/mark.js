@@ -17,13 +17,14 @@ Page({
    */
   onLoad: function (options) {
     var scene = decodeURIComponent(options.scene)
-    console.log('扫描小程序专属码的id', scene)
+    // console.log('扫描小程序专属码的id', scene)
     // var scene = decodeURIComponent(options.scene)
     if (options.type) {
       globalData.source = options.type
     } else {
       globalData.source = '2'
     }
+    console.log('mark-saleId:', options)
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
@@ -123,7 +124,7 @@ Page({
             checkType: '3'
           }
           popStat(params).then(res => {
-            console.log(res)
+            // console.log(res)
           })
           // 跳转至别人的页面
           wx.redirectTo({
@@ -131,14 +132,14 @@ Page({
           })
         }
       } else {
-        console.log('查看自己的页面')
+        // console.log('查看自己的页面')
         wx.reLaunch({
           url: '/pages/cart/index/index'
         })
       }
     } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id != '0') {
-      console.log('微信扫描app的码进入小程序')
-      console.log('查看自己的页面')
+      // console.log('微信扫描app的码进入小程序')
+      // console.log('查看自己的页面')
       wx.reLaunch({
         url: '/pages/cart/index/index'
       })

@@ -20,7 +20,8 @@ Page({
     wxParseData: '',
     longitude: '',
     latitude: '',
-    formId: ''
+    formId: '',
+    enterType: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,6 +29,13 @@ Page({
   onLoad: function (options) {
     var _this = this;
     var enterType = options.entertype;
+    this.setData({
+      userId: app.globalData.authorize_user_id,
+      toUserId: options.toUserId || options.saleId,
+      id: options.id,
+      dataInfo: options,
+      enterType: enterType
+    });
     if (enterType == "self") {
       var tjParam = {
         buttonType: 26,
@@ -58,15 +66,10 @@ Page({
           longitude: res.longitude,
           latitude: res.latitude
         })
-        _this.getData();
+        
       }
     })
-    this.setData({
-      userId: app.globalData.authorize_user_id,
-      toUserId: options.toUserId || options.saleId,
-      id: options.id,
-      dataInfo: options
-    });
+    _this.getData();
   },
   getData(){
     var _this = this;
@@ -75,8 +78,8 @@ Page({
       userId: Number(this.data.userId),	        // 当前用户Id [必传]
       toUserId: Number(this.data.toUserId),	    // 被查看用户Id [必传]
       id: Number(this.data.id),	                // 车型Id [必传]
-      longitude: this.data.longitude,   // 当前用户经度 [必传]
-      latitude: this.data.latitude      // 当前用户纬度 [必传]
+      longitude: this.data.longitude || 0,      // 当前用户经度 [必传]
+      latitude: this.data.latitude || 0         // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
       _this.setData({
@@ -109,7 +112,6 @@ Page({
     wx.makePhoneCall({
       phoneNumber: telphonenum
     })
-
     var tjParam = {
       buttonType: 11,
       pageType: 11,
@@ -196,5 +198,13 @@ Page({
     buttonStat(tjParam).then(function (res) {
       console.log("按钮统计成功")
     }) 
-  }
+  }/* ,
+  onHide: function () {
+    if (this.data.enterType == 'self') {
+      console.log('other')
+      wx.switchTab({
+        url: '/pages/cart/index/index',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
+      })
+    }
+  } */
 })

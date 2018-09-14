@@ -4,21 +4,14 @@
 const ald = require('./utils/ald-stat.js')
 App({
   onShow: function (options) {
-    // console.log('场景值获取：', options)
-    // if (options.scene == 1089 || options.scene == 1001) {
-    //   wx.switchTab({
-    //     url: '../index/index',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
-    //   })
-    // }
     const _this = this;
     wx.login({
       success: function (res) {
-        console.log('阿拉丁code', res.code)
         wx.request({
           url: "https://tcmapi.emao.com/cart/login/wxAuthorization",
           data: {
             code: res.code, //向后端发送jscode，由后端向微信请求拿到openid和session_key，返回给前端。 
-            source: '3'       
+            source: _this.globalData.source       
           },
           header: {
             "Accept": "application/json; version=3.13.0",
@@ -26,7 +19,7 @@ App({
           },
           method: "get",
           success: function (res) { //拿到openid和session_key
-            console.log('阿拉丁', res.data.data)
+            // console.log('阿拉丁', res.data.data)
             // 调用sendOpenid方法，将openid以参数形式传入
             _this.aldstat.sendOpenid(res.data.data.openid)
             // 调用sendSession方法，将session_key以参数形式传入
@@ -53,5 +46,13 @@ App({
     authorize_user_id: 0,
     // 是否覆盖信息
     iscover: 0
+  },
+  onHide: function () {
+    if (this.data.enterType == 'self') {
+      console.log('other')
+      wx.switchTab({
+        url: '/pages/cart/index/index',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
+      })
+    }
   }
 })
