@@ -74,13 +74,10 @@ Page({
     if (detail.errMsg == "getUserInfo:ok") {
       params = {
         encryptedData: detail.encryptedData,
-        iv: detail.iv,
-        location: '5'
+        iv: detail.iv
       }
       this.getAuthorizeUserId(params, 1);
       return;
-    } else {
-      this.goPage();
     }
   },
   // 获取用户ID
@@ -89,15 +86,15 @@ Page({
       params = {};
     if (data != null) {
       params = Object.assign(params, data);
-    } else {
-      params = Object.assign(params, {});
     }
     wx.login({
       success: function (res) {
         if (res.code) {
           params = Object.assign(params, {
             code: res.code,
-            wxType: wxType
+            wxType: wxType,
+            saleId: globalData.saleId,
+            source: globalData.source
           });
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
@@ -116,17 +113,5 @@ Page({
         }
       }
     });
-  },
-  // 如果是app进入并且拒绝授权跳转至微信授权引导页面
-  goPage() {
-    if (globalData.source == '1') {
-      wx.redirectTo({
-        url: '/pages/cart/isallow/isallow'
-      })
-    } else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
-      wx.redirectTo({
-        url: '/pages/cart/isallow/isallow'
-      })
-    }
   }
 })

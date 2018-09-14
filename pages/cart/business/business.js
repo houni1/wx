@@ -44,20 +44,30 @@ Page({
    quickcall(e){
     this.formStat(11)
      let phone=e.currentTarget.dataset.phone;
+     if(phone==""){
+       wx.showToast({
+         title: "该用户暂无电话",
+         icon: 'none',
+         duration: 1500,
+         mask: false,
+       });
+     }else{
       wx.showModal({
-         title: '拨打电话',
-         content: phone,
-         success: function (res) {
-            if (res.confirm) {
-               console.log('用户点击确定')
-               wx.makePhoneCall({
-                phoneNumber:phone
-               })
-            } else if (res.cancel) {
-               console.log('用户点击取消')
-            }
-         }
-      })
+        title: '拨打电话',
+        content: phone,
+        success: function (res) {
+           if (res.confirm) {
+              console.log('用户点击确定')
+              wx.makePhoneCall({
+               phoneNumber:phone
+              })
+           } else if (res.cancel) {
+              console.log('用户点击取消')
+           }
+        }
+     })
+     }
+
    },
    //查看名片
    checkcard(e){ 
@@ -65,6 +75,19 @@ Page({
     let userId=globalData.authorize_user_id;
       console.log("查看名片")   
        //猫哥卫星统计
+       let params = {
+        userId:shareId,
+        checkId:globalData.authorize_user_id,
+        checkType:2,
+        sourceType:2,
+        buttonType:22,
+        pageType:5,
+        type:3
+      }
+
+      console.log('猫哥卫星统计传参', params)
+
+      
       starStat({
       userId:shareId,
       checkId:globalData.authorize_user_id,

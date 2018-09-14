@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-     text:"",
+     
      imageList:[],
      imageArr: [],
      textinput:""
@@ -17,9 +17,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this=this
     wx.hideShareMenu()//隐藏右上角分享按钮
+   if(wx.getStorageSync("textinput")){
+     _this.setData({
+      textinput:wx.getStorageSync("textinput")
+     })
+   }
+   if(wx.getStorageSync("imageList")){
+    _this.setData({
+      imageList:wx.getStorageSync("imageList")
+    })
+  }
+    
   },
-
 
   // 点击添加按钮弹起选择类型框
   uploadImage: function () {
@@ -42,8 +53,9 @@ Page({
   // 选择图片，获取图片信息
   addImage: function (types) {
     var _this = this;
+    let num=9-this.data.imageList.length;
     wx.chooseImage({
-      count: 9, // 默认9
+      count: num, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: [types], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
@@ -88,7 +100,7 @@ Page({
               })
             }
             console.log(_this.data.imageList)
-          
+            wx.setStorageSync("imageList",_this.data.imageList)
       
           successUp++;
         },
@@ -119,6 +131,7 @@ Page({
     this.setData({
       imageList: this.data.imageList
     })
+    wx.setStorageSync("imageList",this.data.imageList)
     // console.log(this.data.imageList)
   },
 
@@ -136,6 +149,7 @@ Page({
       this.setData({
         textinput:e.detail.value
       })
+      wx.setStorageSync("textinput",e.detail.value)
   },
 
   // 提交表单提交页面
@@ -152,6 +166,16 @@ Page({
     console.log(0,JSON.stringify(this.data.imageList))
     postMessage({userId:globalData.authorize_user_id,information:this.data.textinput,file:JSON.stringify(this.data.imageList)}).then((res)=>{
       console.log(res)
+      wx.removeStorage({
+        key: "textinput",
+        success(){
+       
+        }
+      })
+      wx.removeStorage({
+        key: "imageList"
+      })
+      
       let pages = getCurrentPages();
     if (pages.length > 1) {
       //上一个页面实例对象
@@ -191,7 +215,35 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+    console.log("卸载")
+    let save=false;
+    if(wx.getStorageSync("textinput")||wx.getStorageSync("imageList")){
+      save=true
+    }
+    if(save){
+      wx.showModal({
+        title: '是否保留当前编辑操作',
+        content: "",
+        success: function (res) {
+           if (res.confirm) {
+             
+           } else if (res.cancel) {
+              console.log('用户点击取消')
+              wx.removeStorage({
+                key: "textinput",
+                success(){ 
+                }
+              })
+              wx.removeStorage({
+                key: "imageList"
+              })
+           }
+        }
+      }
+        
+      )
+    }
+  
   },
 
   /**

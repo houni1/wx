@@ -40,7 +40,9 @@ Page({
     // 是否覆盖车商猫数据弹框
     isCoverBox: false,
     // 查看更多默认不显示
-    moreflag: false
+    moreflag: false,
+    // 全局的是否覆盖值
+    iscover: ''
   },
 
   /**
@@ -162,12 +164,17 @@ Page({
    */
   onShow: function () {
     this.formStat(7)
-    console.log('首页，信息是否覆盖', globalData.iscover)
+    if (globalData.iscover == '1') {
+      this.setData({
+        iscover: globalData.iscover
+      })
+    }
+    console.log('首页，信息是否覆盖，全局', this.data.iscover)
     console.log('首页，来源', globalData.source)
     console.log('是否覆盖初始化', this.data.isCoverBox)
     console.log('首页，车商猫上面的id', globalData.saleId)
     
-    if (globalData.iscover == '1' && globalData.source == '1') {
+    if (this.data.iscover == '1' && globalData.source == '1') {
       this.setData({
         isCoverBox: true
       })
@@ -179,8 +186,10 @@ Page({
   // 拒绝覆盖
   cancel: function () {
     this.setData({
-      isCoverBox: false
+      isCoverBox: false,
+      iscover: '2'
     })
+    console.log('取消覆盖', this.data.iscover)
   },
 
   // 允许覆盖
@@ -192,10 +201,11 @@ Page({
     coverOldData(params).then(res => {
       console.log(res)
       this.setData({
-        isCoverBox: false
+        isCoverBox: false,
+        iscover: '2'
       })
-      globalData.iscover = '2'
-      if (globalData.iscover == '2') {
+      console.log('允许覆盖', this.data.iscover)
+      if (this.data.iscover == '2') {
         this.getIndexUserInfo()
       }
     })
@@ -274,6 +284,8 @@ Page({
       pageType: '1',
       type: '3'
     }
+
+    console.log('猫哥卫星统计传参', btnParams)
     starStat(btnParams).then(res => {
       console.log(res)
     })

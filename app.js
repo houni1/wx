@@ -19,12 +19,15 @@ App({
           },
           method: "get",
           success: function (res) { //拿到openid和session_key
-            // console.log('阿拉丁', res.data.data)
-            // 调用sendOpenid方法，将openid以参数形式传入
-            _this.aldstat.sendOpenid(res.data.data.openid)
-            // 调用sendSession方法，将session_key以参数形式传入
-            _this.aldstat.sendSession(res.data.data.sessionKey)
+            console.log('阿拉丁', res.data.data)
+            if (res.data.data) {
+              // 调用sendOpenid方法，将openid以参数形式传入
+              _this.aldstat.sendOpenid(res.data.data.openid)
+              // 调用sendSession方法，将session_key以参数形式传入
+              _this.aldstat.sendSession(res.data.data.sessionKey)
+            }
           }
+            
         })
       }
     })
@@ -34,8 +37,6 @@ App({
     apiUrl: 'https://tcmapi.emao.com',
     // 授权信息
     userInfo: null,
-    // 是否弹起过授权弹窗
-    isAuthorizeWindowOpen: false,
     // 是否是本人
     isMe: false,
     // 来源
