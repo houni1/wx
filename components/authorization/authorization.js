@@ -38,12 +38,10 @@ Component({
       success(res) {
         // console.log(res)
         console.log('是否授权过', res.authSetting['scope.userInfo'])
-        console.log('弹框是否弹起', (globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen))
-        if ((globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
+        if (!res.authSetting['scope.userInfo']) {
           _this.setData({
             isShow: true
           })
-          globalData.isAuthorizeWindowOpen = true
         } else {
           _this.getAuthorizeUserId(null, 2);
         }
@@ -77,20 +75,22 @@ Component({
         params = {};
       if (data != null) {
         params = Object.assign(params, data);
-      } else {
-        params = Object.assign(params, {});
       }
+
       wx.login({
         success: function (res) {
           if (res.code) {
             params = Object.assign(params, {
               code: res.code,
-              wxType: wxType
+              wxType: wxType,
+              saleId: globalData.saleId,
+              source: globalData.source
             });
-            console.log(params)
+            console.log('授权接口传参', params)
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
               globalData.iscover = subRes.status;
+              _this.goPage()
               _this.triggerEvent('authResult', subRes.userId);
             })
           }
@@ -112,16 +112,16 @@ Component({
         isShow: false
       })
       this.getAuthorizeUserId(null, 3)
-      this.goPage();
     },
     // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
+      console.log('goPage全局id')
       if (globalData.source == '1') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
       }
-       else if (globalData.source == '2' && globalData.saleId == '0' && globalData.authorize_user_id == '0') {
+       else if (globalData.source == '2' && globalData.authorize_user_id == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })

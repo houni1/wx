@@ -30,8 +30,8 @@ let wxAuthorization = function (data) {
   params = Object.assign(params, {
     code: data.code,
     wxType: data.wxType,
-    saleId: globalData.saleId,
-    source: globalData.source
+    saleId: data.saleId,
+    source: data.source
   })
 
   return $get('/cart/login/wxAuthorization', params)
