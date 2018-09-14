@@ -101,7 +101,7 @@ Page({
             success: function (fres) {
               console.log('图片保存成功')
                wx.showToast({
-                  title: "已保存至相册，快发给你的好友看看吧",
+                  title: "保存成功",
                   icon: "success",
                })
             }
