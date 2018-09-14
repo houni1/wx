@@ -29,12 +29,15 @@ Component({
   },
 
   created () {
+    console.log('别人名片组件初始化')
     this.getUserInfo()
-    console.log('用户授权的id,别人页面', globalData.authorize_user_id)
+    console.log('用户授权的id,别人页面', typeof globalData.authorize_user_id)
     this.setData({
       cardText: globalData.authorize_user_id
     })
-    console.log('用户授权的id,别人页面', this.data.cardText)
+    console.log('用户授权的id,别人页面', typeof this.data.cardText)
+    console.log('cardText == 0', this.data.cardText == 0)
+    console.log('cardText != 0', this.data.cardText != 0)
   },
 
   ready () {
@@ -44,11 +47,17 @@ Component({
     })
     console.log('用户授权的id,别人页面', this.data.cardText)
     let btnParams = {
+      userId: globalData.saleId,
+      checkId: globalData.authorize_user_id,
+      checkType: '2',
+      sourceType: '2',
       buttonType: '22',
       pageType: '3',
-      appType: '1'
+      type: '3'
     }
-    buttonStat(btnParams).then(res => {
+
+    console.log('猫哥卫星统计传参', btnParams)
+    starStat(btnParams).then(res => {
       console.log(res)
     })
   },
@@ -186,8 +195,8 @@ Component({
     buttonStat(btnParams).then(res => {
       console.log(res)
     })
-    wx.switchTab({
-      url: '/pages/cart/mark/mark'
+    wx.navigateTo({
+      url: '/pages/cart/mark/mark?type=2&page=1'
     })
   },
 
@@ -203,8 +212,8 @@ Component({
       buttonType: '16',
       pageType: '3',
       type: '3'
-
     }
+    console.log("猫哥卫星统计传参", params)
     starStat(params).then(res => {
       console.log(res)
     })

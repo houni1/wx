@@ -37,9 +37,9 @@ Component({
     wx.getSetting({
       success(res) {
         // console.log(res)
-        // console.log(res.authSetting['scope.userInfo'])
+        console.log('是否授权过', res.authSetting['scope.userInfo'])
+        console.log('弹框是否弹起', (globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen))
         if ((globalData.source == '1' && !res.authSetting['scope.userInfo']) || (!res.authSetting['scope.userInfo'] && !globalData.isAuthorizeWindowOpen)) {
-          _this.triggerEvent('firstAuth');
           _this.setData({
             isShow: true
           })
@@ -61,8 +61,7 @@ Component({
       if (detail.errMsg == "getUserInfo:ok") {
         params = {
           encryptedData: detail.encryptedData,
-          iv: detail.iv,
-          location: '5'
+          iv: detail.iv
         }
         this.getAuthorizeUserId(params, 1);
         return;
@@ -79,9 +78,7 @@ Component({
       if (data != null) {
         params = Object.assign(params, data);
       } else {
-        params = Object.assign(params, {
-          location: '6'
-        });
+        params = Object.assign(params, {});
       }
       wx.login({
         success: function (res) {

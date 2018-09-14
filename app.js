@@ -27,11 +27,14 @@ App({
           method: "get",
           success: function (res) { //拿到openid和session_key
             console.log('阿拉丁', res.data.data)
-            // 调用sendOpenid方法，将openid以参数形式传入
-            _this.aldstat.sendOpenid(res.data.data.openid)
-            // 调用sendSession方法，将session_key以参数形式传入
-            _this.aldstat.sendSession(res.data.data.sessionKey)
+            if (res.data.data) {
+              // 调用sendOpenid方法，将openid以参数形式传入
+              _this.aldstat.sendOpenid(res.data.data.openid)
+              // 调用sendSession方法，将session_key以参数形式传入
+              _this.aldstat.sendSession(res.data.data.sessionKey)
+            }
           }
+            
         })
       }
     })

@@ -74,14 +74,14 @@ Page({
     if (detail.errMsg == "getUserInfo:ok") {
       params = {
         encryptedData: detail.encryptedData,
-        iv: detail.iv,
-        location: '5'
+        iv: detail.iv
       }
       this.getAuthorizeUserId(params, 1);
       return;
     } else {
       this.goPage();
     }
+
   },
   // 获取用户ID
   getAuthorizeUserId(data, wxType) {
