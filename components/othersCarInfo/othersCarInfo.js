@@ -42,25 +42,13 @@ Component({
       checkId: app.globalData.authorize_user_id,        // 查看人id [必传]
       checkType: '1',      //行为 [必传] 1.查看车型列表 2.查看名片 3.拨打电话 4.分享名片 5.互换名片
       sourceType: '2',     // 信息来源 [必传] 1.一猫商城小程序 2.非一猫商城小程序
-      buttonType: '8',     // 按钮类型（同按钮统计接口）
-      pageType: '10',       // 浏览页面（同按钮统计接口）
+      buttonType: '40',     // 按钮类型（同按钮统计接口）
+      pageType: '0',       // 浏览页面（同按钮统计接口）
       type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
     }
     console.log('猫哥卫星统计传参', params)
     starStat(params).then(function (res) {
       // console.log('别人车源猫哥卫星统计成功')
-    })
-
-    // 按钮统计
-    var tjParam = {
-      buttonType: 40,
-      pageType: 0,
-      appType: 1,                               // 来源 [必传] 1-推车猫，2-一猫商城，3-车商猫
-      formId: this.data.formId,                 // 模版ID
-      userId: app.globalData.authorize_user_id, // 用户ID
-    }
-    buttonStat(tjParam).then(function (res) {
-      // console.log(tjParam)
     })
   },
   /**
