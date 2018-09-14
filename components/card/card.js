@@ -9,7 +9,7 @@ Component({
    */
   data: {
     // 获取全局的userid,判断创建/进入我的名片
-    cardText: '',
+    cardText: 'aaa',
     flag: false,
     // 用户默认信息
     userInfo: {
@@ -30,13 +30,19 @@ Component({
 
   created () {
     this.getUserInfo()
+    console.log('用户授权的id,别人页面', globalData.authorize_user_id)
     this.setData({
       cardText: globalData.authorize_user_id
     })
-    console.log(this.data.cardText)
+    console.log('用户授权的id,别人页面', this.data.cardText)
   },
 
   ready () {
+    console.log('用户授权的id,别人页面', globalData.authorize_user_id)
+    this.setData({
+      cardText: globalData.authorize_user_id
+    })
+    console.log('用户授权的id,别人页面', this.data.cardText)
     let btnParams = {
       buttonType: '22',
       pageType: '3',

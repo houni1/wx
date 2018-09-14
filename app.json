@@ -1,7 +1,7 @@
 {
    "pages": [
+    "pages/cart/index/index",
       "pages/cart/mark/mark",
-      "pages/cart/index/index",
       "pages/cart/onSale/onSale",
       "pages/cart/otherpage/otherpage",
       "pages/cart/carDetail/carDetail",

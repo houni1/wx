@@ -1,5 +1,4 @@
 import { getOnSaleData, buttonStat, starStat, popStat } from '../../../servies/services.js';
-
 var app = getApp();
 Page({
   /**
@@ -36,7 +35,7 @@ Page({
       userId: app.globalData.authorize_user_id, // 用户ID
     }
     buttonStat(tjParam).then(function (res) {
-      console.log(tjParam)
+      // console.log(tjParam)
     })
   },
   /**
@@ -124,7 +123,7 @@ Page({
         path: '/pages/cart/mark/mark?saleId=' + this.data.userId + '&page=5&type=2&id=' + res.target.dataset.id,
         imageUrl: res.target.dataset.cover,
         success: (res) => {
-          console.log("转发成功", res);
+          // console.log("转发成功", res);
           // 按钮统计
           var tjParam = {
             buttonType: 23,
@@ -134,11 +133,11 @@ Page({
             userId: app.globalData.authorize_user_id, // 用户ID
           }
           buttonStat(tjParam).then(function (res) {
-            console.log(tjParam)
+            // console.log(tjParam)
           })
         },
         fail: (res) => {
-          console.log("转发失败", res);
+          // console.log("转发失败", res);
         }
       }
       var event = e || event;

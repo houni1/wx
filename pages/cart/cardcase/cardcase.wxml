@@ -22,11 +22,13 @@
             </view>
             <view class="phone-wrap clear-fix">
                 <image src="./images/phone-logo.png"></image>
-                <text class="phone-val">{{item.phone}}</text>
+                <text class="phone-val" wx:if="{{item.phone}}">{{item.phone}}</text>
+                <text class="phone-val" wx:if="{{item.phone == ''}}">暂无手机号</text>
             </view>
             <view class="email-wrap clear-fix">
                 <image src="./images/email-logo.png"></image>
-                <text class="email-val">{{item.email}}</text>
+                <text class="email-val" wx:if="{{item.email}}">{{item.email}}</text>
+                 <text class="email-val" wx:if="{{item.email == '' }}">暂无邮箱</text>
             </view>
             <view class="cardcase-state clear-fix">
                 <view class="cardcase-refuse" bindtap="refuseCardcase" data-id="{{item.id}}">拒绝</view>
