@@ -6,9 +6,9 @@
         <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>
       </view>
     </label>
-    <view class='kind'
+    <view class="kind {{index == 0 ? 'first' : ''}}"
       wx:for="{{ defaultList }}"
-      wx:key="item"
+      wx:key="{{index}}"
       bindtap='chooseBrand'
       data-index="{{ index + 1 }}"
       data-brand-id="{{ item.brandId }}">

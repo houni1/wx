@@ -24,6 +24,7 @@ Page({
     longitude: '',
     latitude: '',
     formId: '',
+    arrowColor: false,
     network: true, // 无网络连接
   },
   onShow: function () {
@@ -89,7 +90,8 @@ Page({
   */ 
   filterGoodsKind: function() {
     this.setData({
-      showSelect: !this.data.showSelect
+      showSelect: !this.data.showSelect,
+      arrowColor: true
     });
   },
   /**
