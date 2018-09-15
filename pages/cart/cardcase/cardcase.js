@@ -77,7 +77,7 @@ Page({
 
   //拒绝交换名片夹
   refuseCardcase:function (event){
-      var proposerId = event.target.dataset.id;
+     var proposerId = event.currentTarget.dataset.id;
       let params = {
           userIdBe: proposerId,
           state:2
@@ -89,7 +89,7 @@ Page({
 
     //同意交换名片夹
     consentCardcase: function (event) {
-        var proposerId = event.target.dataset.id;
+       var proposerId = event.currentTarget.dataset.id;
         let params = {
             userIdBe: proposerId,
             state: 1
@@ -101,10 +101,10 @@ Page({
 
     //前往名片页面
     toCard:function(event){
-        var salesmanId = event.target.dataset.userid;
+       var salesmanId = event.currentTarget.dataset.userid;
         console.log(salesmanId);
         globalData.saleId = salesmanId;
-        console.log(globalData.saleId)
+        console.log("全局数据",globalData.saleId)
         wx.navigateTo({
             url: '../otherpage/otherpage'
         })
