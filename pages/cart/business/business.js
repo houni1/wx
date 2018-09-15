@@ -33,8 +33,12 @@ Page({
    //车商圈图片预览
    preview_friend(e){
       console.log(e);
-      let img =e.currentTarget.dataset.img||"";
-      let list=e.currentTarget.dataset.list||[];    
+      let img =e.currentTarget.dataset.img;
+      img.slice(0,img.length-4);
+      let list=e.currentTarget.dataset.list;
+      list.forEach((item,index)=>{
+          list[index]=item.slice(0,item.length-4)
+      })
       wx.previewImage({
          current: img,
          urls: list   

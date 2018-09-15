@@ -40,16 +40,20 @@ preview_head(e){
        urls: [head]
     }) 
  },
- //车商圈图片预览
- preview_friend(e){
-    console.log(e);
-    let img =e.currentTarget.dataset.img||"";
-    let list=e.currentTarget.dataset.list||[];    
-    wx.previewImage({
-       current: img,
-       urls: list
-    }) 
- },
+    //车商圈图片预览
+    preview_friend(e){
+      console.log(e);
+      let img =e.currentTarget.dataset.img;
+      img.slice(0,img.length-4);
+      let list=e.currentTarget.dataset.list;
+      list.forEach((item,index)=>{
+          list[index]=item.slice(0,item.length-4)
+      })
+      wx.previewImage({
+         current: img,
+         urls: list   
+      }) 
+   },
  quickcall(e){
   this.btnStat(11);
    let phone=e.currentTarget.dataset.phone;
