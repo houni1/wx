@@ -1,3 +1,4 @@
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
 <view class='home' wx:if="{{flag}}">
   <form bindsubmit="formSubmit" report-submit style="width:0">
     <button form-type="submit" id="form_id"></button>
@@ -37,7 +38,8 @@
         </view>
       </view>
       <view class='user-company' wx:if="{{userInfo.company != ''}}">{{userInfo.company}}</view>
-      <view class='user-allow' wx:if="{{userInfo.authorization == '1'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫授权店</text></view>
+      <view class='user-allow' wx:if="{{userInfo.authorization == '1'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫加盟店</text></view>
+      <view class='user-allow' wx:if="{{userInfo.authorization == '2'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫授权店</text></view>
     </view>
   </view>
   <view class='card-list'>
@@ -76,11 +78,11 @@
           <text class='catli-info-time'>{{item.time}}</text>
         </view>
         <view class='catli-info-bottom' wx:if="{{item.checkType == '3'}}">
-          <view class='catli-info-text'>拨打了您的电话</view>
-          <view class='catli-info-phone'>
+          <view class='catli-info-text'>拨打了您的电话<text class='num'>{{item.number}}次</text></view>
+          <!-- <view class='catli-info-phone' wx:if="{{item.tel != ''}}">
             <image class='phone-icon' src='/images/phone-icon.png'></image>
             {{item.tel}}
-          </view>
+          </view> -->
         </view>
         <view class='catli-info-bottom' wx:if="{{item.checkType != '3'}}">
           <view wx:if="{{item.checkType == '1'}}" class='catli-info-text'>查看了你的车型列表<text class='num'>{{item.number}}次</text></view>
@@ -89,7 +91,7 @@
         </view>
       </view>
     </view>
-    <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多</view>
+    <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多线索</view>
   </view>
   <view class='msg-box' wx:if="{{card > 0}}" bindtap="goToCardcase">
     <text class='number'>{{card}}</text>

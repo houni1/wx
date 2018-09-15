@@ -10,6 +10,7 @@
   font-family: 'PingFangSC-Regular';
   background: #fff;
   margin-bottom: 10rpx;
+  box-shadow: 0 2rpx 8rpx #eee;
 }
 .filterTab .tabItem {
   flex: 1;
@@ -59,7 +60,7 @@
 .item {
   position: relative;
   overflow: hidden;
-  margin-bottom: 10rpx;
+  margin-bottom: 15rpx;
 }
 navigator {
   display: flex;
@@ -89,29 +90,27 @@ navigator {
 }
 .carInfo .title {
   font-size: 28rpx;
-  line-break: 42rpx;
+  line-height: 42rpx;
   font-weight: bold;
-}
-.carInfo .subTitle {
-  font-size: 28rpx;
+  margin-bottom: 14rpx;
 }
 .price {
   font-size: 26rpx;
   color: #f72626;
-  margin-top: 20rpx;
+  margin-bottom: 8rpx;
 }
 .priceNum {
-  font-size: 28rpx;
+  font-size: 38rpx;
   font-weight: bold;
   display: inline;
 }
 .guidePrice {
   font-size: 24rpx;
   color: #a6a6a6;
-  margin-top: 14rpx;
+  margin-bottom: 14rpx;
 }
 .status {
-  margin-top: 14rpx;
+  margin-bottom: 10rpx;
 }
 .carStatus, .stock {
   display: inline-block;
@@ -120,10 +119,10 @@ navigator {
   padding: 8rpx 20rpx;
   background: #e5f9f6;
   border-radius: 40rpx;
-  font-size: 22rpx;
+  font-size: 24rpx;
   font-weight: bold;
   color: #01c4a2;
-  margin-right: 30rpx;
+  margin-right: 16rpx;
 }
 .stock {
   font-size: 24rpx;
@@ -150,10 +149,7 @@ button::after {
   border: 0;
 }
 .noData {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: 276rpx auto 0;
   width: 50%;
 }
 .noData image{

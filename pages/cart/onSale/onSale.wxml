@@ -1,10 +1,11 @@
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
-    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
+    <view class="tabItem" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
+    <view class="tabItem" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
     <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
-      <image src='images/arrow_b.png' mode='widthFix' hidden="{{showSelect}}"></image>
-      <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!showSelect}}"></image>
+      <image src='images/arrow_b.png' mode='widthFix' hidden="{{arrowColor}}"></image>
+      <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!arrowColor}}"></image>
     </view>
   </view>
   <view class='allGoods' hidden="{{!showSelect}}" style="height:{{ height }}px">
@@ -23,7 +24,7 @@
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
-          <view class='price'><view class='priceNum'>{{ item.price }}</view>万元</view>
+          <view class='price'><view class='priceNum'>{{ item.price }}</view> 万元</view>
           <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
           <view class='status'>
             <view class='carStatus' hidden='{{ item.state != 1 }}'>现车</view>

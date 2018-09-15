@@ -1,8 +1,11 @@
 <form bindsubmit="editUserInfo" class='setup-box' wx:if="{{flag}}">
   <view class='set-pic'>
     <view class='item-title'>头像</view>
-    <view class='item-content' data-pos='header' bindtap='uploadImage'>
-      <image src='{{headPortrait}}/247'></image>
+    <view class='item-content'>
+      <view class='upload-box' data-pos='header' bindtap='uploadImage'>
+        <image class='album-icon' src='/images/album-icon.png'></image>
+      </view>
+      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247'></image>
     </view>
   </view>
   <view class='set-box'>
@@ -50,10 +53,10 @@
         <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写' value='{{userInfo.email}}' bindinput='email'></input>
       </view>
     </view>
-    <view class='set-person'>
+    <view class='set-item'>
       <view class='item-title'>个人介绍</view>
       <view class='item-content'>
-        <textarea wx:if="{{textareaFlag}}" placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></textarea>
+        <input placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></input>
       </view>
     </view>
     <view class='set-picture'>
@@ -69,10 +72,11 @@
       </view>
     </view>
   </view>
-  <view class='btn-box' bindtap='editUserInfo'>
-    <button formType="submit" class='btn'>保存</button>
-  </view>
 </form>
+
+<view class='btn-box' bindtap='editUserInfo'>
+  <button formType="submit" class='btn'>保存</button>
+</view>
 
 <!-- 城市选择插件 -->
 <view class="dialog-back" catchtap='cancel' catchtouchmove='true' hidden='{{cityShow}}'>

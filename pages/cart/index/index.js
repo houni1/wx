@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    network: true, // 无网络连接
     flag: true,  // 请求数据成功展示
     formId: '', // formId按钮统计
     // 首页用户信息
@@ -49,7 +50,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getIndexUserInfo()
+    let _this = this;
+    wx.getNetworkType({
+      success(res) {
+        console.log(res.networkType)
+        if (res.networkType == "none") {
+          _this.setData({
+            network: false
+          })
+          wx.hideLoading()
+          return;
+        }
+      }
+    })
+    _this.getIndexUserInfo()
   },
 
   // 获取首页个人信息，默认展示数据
@@ -163,6 +177,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.hideShareMenu()
     this.formStat(7)
     console.log('全局是否覆盖的值', globalData.iscover)
     // console.log('首页全局，信息是否覆盖', this.data.iscover)
@@ -244,6 +259,7 @@ Page({
    */
   onShareAppMessage: function (ops) {
     console.log('转发好友')
+
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       console.log(ops.target)
@@ -258,6 +274,7 @@ Page({
         console.log("转发失败", inerr);
       }
     }
+
   },
   
   // 点击编辑跳转到推车猫设置页面
@@ -282,9 +299,11 @@ Page({
     }
 
     console.log('猫哥卫星统计传参', btnParams)
-    starStat(btnParams).then(res => {
-      console.log(res)
-    })
+    setTimeout(() => {
+      starStat(btnParams).then(res => {
+        console.log(res)
+      })
+    }, 500)
   },
 
   // 获取用户手机号
@@ -328,4 +347,18 @@ Page({
     })
   },
   
+})
+wx.onNetworkStatusChange((res) => {
+  let pages = getCurrentPages();
+  let page = pages[pages.length - 1];
+  page.setData({
+    network: res.isConnected
+  })
+  if (!res.isConnected) {
+    wx.hideLoading()
+  } else {
+    wx.showLoading();
+    page.onLoad()
+    wx.hideLoading()
+  }
 })

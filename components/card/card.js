@@ -9,7 +9,7 @@ Component({
    */
   data: {
     // 获取全局的userid,判断创建/进入我的名片
-    cardText: 'aaa',
+    cardText: 0,
     flag: false,
     // 用户默认信息
     userInfo: {
@@ -214,9 +214,13 @@ Component({
       type: '3'
     }
     console.log("猫哥卫星统计传参", params)
-    starStat(params).then(res => {
-      console.log(res)
-    })
+
+    setTimeout(() => {
+      starStat(params).then(res => {
+        console.log(res)
+      })
+    }, 500)
+    
   },
 }
 })

@@ -30,7 +30,8 @@
   box-sizing: border-box;
   border-radius: 15rpx;
   text-align: center;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
 .user-pic {
@@ -43,6 +44,7 @@
   top: -75rpx;
   left: 50%;
   margin-left: -75rpx;
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
 .card-name {
@@ -112,8 +114,18 @@
 
 .company-text {
   font-size: 32rpx;
-  font-weight: 600rpx;
+  font-weight: 600;
   color: #282c39;
+}
+
+.company-icon {
+  display: inline-block;
+  width: 136rpx;
+  height: 44rpx;
+  position: relative;
+  top: 10rpx;
+  left: 10rpx;
+  /* float: left; */
 }
 
 .send-card {
