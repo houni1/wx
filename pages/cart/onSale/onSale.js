@@ -23,7 +23,8 @@ Page({
     noData: false,            // 缺省页面
     longitude: '',
     latitude: '',
-    formId: ''
+    formId: '',
+    arrowColor: false
   },
   onShow: function () {
     // 按钮统计
@@ -75,7 +76,8 @@ Page({
   */ 
   filterGoodsKind: function() {
     this.setData({
-      showSelect: !this.data.showSelect
+      showSelect: !this.data.showSelect,
+      arrowColor: true
     });
   },
   /**
