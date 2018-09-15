@@ -33,6 +33,8 @@
                 </view>
             </label>
 
+            <view class="border-bottom"></view>
+
             <label for="form_id">
                 <view class="about-wrap clear-fix" bindtap="goToAbout">
                     <image class="about-alogo left" src="./images/about-logo.png"></image>

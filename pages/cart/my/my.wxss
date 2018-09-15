@@ -1,18 +1,20 @@
 /* pages/cart/my/my.wxss */
-.personal-info-wrap{display:flex;}
-.my-in{padding:85rpx 40rpx 0 40rpx;}
+page{background-color:#f9f9fa;}
+.personal-info-wrap{display:flex;background-color:#fff;padding:85rpx 40rpx 40rpx 40rpx;}
+.my-in{}
 .head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;}
 .person-info-in{}
 .personal-info{}
 .personal-info .name{color:#282c39;font-size:32rpx;}
 .personal-info .post{color:#a6a6a6;font-size:28rpx;}
 .arrow-right{display:block;width:18rpx;height:31rpx;margin-top:30rpx;}
-.cardcase-wrap{margin-top:83rpx;}
+.cardcase-wrap{margin-top:15rpx;padding:38rpx 40rpx 38rpx 40rpx;background-color:#fff;}
 .cardcase-logo{display:block;width:42rpx;height:33rpx;margin-top:4rpx;margin-right:20rpx;}
 .cardcase-title{font-size:28rpx;color:#4d4d4d;}
 .cardcase-arrow{float:right;margin-top:0;}
-.about-wrap{margin-top:83rpx;}
+.about-wrap{padding:38rpx 40rpx 38rpx 40rpx;background-color:#fff;}
 .about-alogo{display:block;width:38rpx;height:38rpx;margin-top:3rpx;margin-right:20rpx;}
 .about-tuichemao{font-size:28rpx;color:#4d4d4d;}
-.change-phone{width:690rpx;height:100rpx;margin:85rpx auto;font-size:32rpx;color:#282c39;line-height:100rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;}
+.change-phone{width:690rpx;height:100rpx;margin:60rpx auto;font-size:32rpx;color:#282c39;line-height:100rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;}
 .label-edit{display:block;flex:1;float:left;}
+.border-bottom{width:643rpx;height:0;float:right;border-bottom:1px solid #eee;}
