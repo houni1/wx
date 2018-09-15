@@ -31,7 +31,8 @@ Page({
     val: [0, 0],
     currentCity: '北京',   // 所在城市
     focusflag: false, // 输入手机号后获取焦点
-    textareaFlag: true // 默认展示textarea,城市选择框弹起隐藏
+    textareaFlag: true, // 默认展示textarea,城市选择框弹起隐藏
+    inputFlag: false,  // 进入当前页面，内容未发生变化
   },
 
   /**
@@ -84,6 +85,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
+  },
+
+  onUnload: function () {
+    if (this.data.inputFlag) {
+      console.log('关闭了编辑页面')
+    }
     
   },
 
@@ -223,8 +231,10 @@ Page({
   nickName: function (e) {
     var nickName = 'userInfo.nickName'
     this.setData({
-      [nickName]: e.detail.value
+      [nickName]: e.detail.value,
+      inputFlag: true
     })
+    console.log('用户姓名发生改变', this.data.inputFlag)
   },
 
   // 获取用户公司名称

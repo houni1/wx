@@ -244,6 +244,7 @@ Page({
    */
   onShareAppMessage: function (ops) {
     console.log('转发好友')
+
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       console.log(ops.target)
@@ -258,6 +259,7 @@ Page({
         console.log("转发失败", inerr);
       }
     }
+
   },
   
   // 点击编辑跳转到推车猫设置页面
@@ -282,9 +284,11 @@ Page({
     }
 
     console.log('猫哥卫星统计传参', btnParams)
-    starStat(btnParams).then(res => {
-      console.log(res)
-    })
+    setTimeout(() => {
+      starStat(btnParams).then(res => {
+        console.log(res)
+      })
+    }, 500)
   },
 
   // 获取用户手机号

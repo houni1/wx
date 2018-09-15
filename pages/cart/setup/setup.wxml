@@ -50,10 +50,10 @@
         <input placeholder='请输入您的邮箱' maxlength='30' placeholder='没有填写' value='{{userInfo.email}}' bindinput='email'></input>
       </view>
     </view>
-    <view class='set-person'>
+    <view class='set-item'>
       <view class='item-title'>个人介绍</view>
       <view class='item-content'>
-        <textarea wx:if="{{textareaFlag}}" placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></textarea>
+        <input placeholder='请输入个人介绍' maxlength='100' value='{{userInfo.introduction}}' bindinput='introduction'></input>
       </view>
     </view>
     <view class='set-picture'>

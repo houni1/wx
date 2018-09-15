@@ -39,7 +39,7 @@
 
 /* 个人介绍 */
 .set-person {
-  /* height: 148rpx; */
+  height: 148rpx;
   padding-top: 40rpx;
   padding-bottom: 26rpx;
   box-sizing: border-box;
@@ -50,8 +50,10 @@
   font-size: 26rpx;
   color: #a6a6a6;
   width: 155rpx;
+  float: left;
 }
 .set-person .item-content{
+  float: left;
   font-size: 26rpx;
   color: #4d4d4d;
   flex: 1;
@@ -60,18 +62,25 @@
   padding-right: 40rpx;
   box-sizing: border-box;
 }
+/* .placeholder-text {
+  position: none;
+  padding-top: 1rpx;
+  display: inline-block;
+  font-size: 26rpx;
+  width: 100%;
+  flex: 1;
+  line-height: 53rpx;
+  word-break:break-all;
+  word-wrap:break-word;
+} */
 .set-person .item-content textarea {
   position: none;
   display: inline-block;
   width: 100%;
   flex: 1;
-  line-height: 38rpx;
-  /* z-index: -1; */
+  line-height: 40rpx;
   word-break:break-all;
   word-wrap:break-word;
-  /* min-height: 80rpx; */
-  height: 80rpx;
-  padding-top: 1rpx;
 }
 
 /* 图片展示 */

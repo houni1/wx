@@ -9,7 +9,7 @@ Component({
    */
   data: {
     // 获取全局的userid,判断创建/进入我的名片
-    cardText: 'aaa',
+    cardText: 0,
     flag: false,
     // 用户默认信息
     userInfo: {

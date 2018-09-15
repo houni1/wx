@@ -84,6 +84,6 @@
   </view>
   <view class='msg-box'>
     <text wx:if="{{cardText == 0}}" bindtap='createMyCard'>创建我的名片</text>
-    <text wx:elif="{{cardText != 0}}" bindtap='inMyCard'>{{cardText}}进入我的名片</text>
+    <text wx:elif="{{cardText != 0}}" bindtap='inMyCard'>进入我的名片</text>
   </view>
 </view>

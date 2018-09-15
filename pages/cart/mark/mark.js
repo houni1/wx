@@ -17,8 +17,10 @@ Page({
    */
   onLoad: function (options) {
     var scene = decodeURIComponent(options.scene)
-    // console.log('扫描小程序专属码的id', scene)
-    // var scene = decodeURIComponent(options.scene)
+    console.log('扫描小程序专属码的id', scene)
+    // if (scene) {
+    //   globalData.saleId = scene
+    // }
     if (options.type) {
       globalData.source = options.type
     } else {
