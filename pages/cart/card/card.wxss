@@ -29,7 +29,8 @@
   box-sizing: border-box;
   border-radius: 15rpx;
   text-align: center;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
 .user-pic {
@@ -42,6 +43,7 @@
   top: -75rpx;
   left: 50%;
   margin-left: -75rpx;
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
 .card-name {

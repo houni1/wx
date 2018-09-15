@@ -24,7 +24,8 @@ Page({
     longitude: '',
     latitude: '',
     formId: '',
-    arrowColor: false
+    arrowColor: false,
+    network: true, // 无网络连接
   },
   onShow: function () {
     // 按钮统计
@@ -44,6 +45,19 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
+    wx.getNetworkType({
+      success(res) {
+        console.log(res.networkType)
+        if (res.networkType == "none") {
+          _this.setData({
+            network: false
+          })
+          wx.hideLoading()
+          return;
+        }
+      }
+    })
+
     _this.setData({
       userId: app.globalData.authorize_user_id,
       toUserId: app.globalData.authorize_user_id
@@ -210,4 +224,19 @@ Page({
       formId: e.detail.formId
     })
   },
+})
+
+wx.onNetworkStatusChange((res) => {
+  let pages = getCurrentPages();
+  let page = pages[pages.length - 1];
+  page.setData({
+    network: res.isConnected
+  })
+  if (!res.isConnected) {
+    wx.hideLoading()
+  } else {
+    wx.showLoading();
+    page.onLoad()
+    wx.hideLoading()
+  }
 })

@@ -15,7 +15,8 @@ Page({
     },
     flag:false,
     formId:'',
-    network:true
+    network:true,
+    loadingFlag:false
   },
 
   /**
@@ -105,45 +106,61 @@ Page({
    //跳转到关于推车猫页面
     goToAbout: function () {
         var _this = this;
-        setTimeout(function(){
-            let params = {
-                buttonType: 29,
-                pageType: 9,
-                appType: 1,
-                userId: globalData.authorize_user_id,
-                formId: _this.data.formId
-            }
-            buttonStat(params).then(res => {
-                _this.setData({
-                    formId: ''
-                })
-                wx.navigateTo({
-                    url: '../about/about'
-                })
+        if (!_this.data.loadingFlag){
+            _this.setData({
+                loadingFlag: true
             })
-        },500)
+            setTimeout(function () {
+                let params = {
+                    buttonType: 29,
+                    pageType: 9,
+                    appType: 1,
+                    userId: globalData.authorize_user_id,
+                    formId: _this.data.formId
+                }
+                buttonStat(params).then(res => {
+                    console.log("跳往推车猫页面")
+                    _this.setData({
+                        formId: '',
+                        loadingFlag: false
+                    })
+                    wx.navigateTo({
+                        url: '../about/about'
+                    })
+                })
+            }, 500)
+        }
+      
        
     },
      //跳转到名片夹
     goToCardcase: function() {
         var _this = this;
-        setTimeout(function(){
-            let params = {
-                buttonType: 28,
-                pageType: 9,
-                appType: 1,
-                userId: globalData.authorize_user_id,
-                formId: _this.data.formId
-            }
-            buttonStat(params).then(res => {
-                _this.setData({
-                    formId: ''
-                })
-                wx.navigateTo({
-                    url: '../cardcase/cardcase'
-                })
+        if (!_this.data.loadingFlag) {
+            _this.setData({
+                loadingFlag: true
             })
-        },500)
+            setTimeout(function () {
+                let params = {
+                    buttonType: 28,
+                    pageType: 9,
+                    appType: 1,
+                    userId: globalData.authorize_user_id,
+                    formId: _this.data.formId
+                }
+                buttonStat(params).then(res => {
+                    console.log("打开名片夹页面")
+                    _this.setData({
+                        formId: '',
+                        loadingFlag: false
+                    })
+                    wx.navigateTo({
+                        url: '../cardcase/cardcase'
+                    })
+                })
+            }, 500)
+        }
+       
       
        
     },
@@ -161,25 +178,34 @@ Page({
     //去往设置页面
     goToSetup:function(){
         var _this = this;
-        setTimeout(function(){
-            let params = {
-                buttonType: 27,
-                pageType: 9,
-                appType: 1,
-                userId: globalData.authorize_user_id,
-                formId: _this.data.formId
-            }
-            console.log('全局' + _this.data.formId)
-            console.log('赋值' + params.formId)
-            buttonStat(params).then(res => {
-                _this.setData({
-                    formId: ''
-                })
-                wx.navigateTo({
-                    url: '../setup/setup'
-                })
+        if (!_this.data.loadingFlag) {
+            _this.setData({
+                loadingFlag: true
             })
-        },500)
+            setTimeout(function () {
+                console.log("设置页")
+                let params = {
+                    buttonType: 27,
+                    pageType: 9,
+                    appType: 1,
+                    userId: globalData.authorize_user_id,
+                    formId: _this.data.formId
+                }
+                console.log('全局' + _this.data.formId)
+                console.log('赋值' + params.formId)
+                buttonStat(params).then(res => {
+                    _this.setData({
+                        formId: '',
+                        loadingFlag: false
+                    })
+                    wx.navigateTo({
+                        url: '../setup/setup'
+                    })
+                })
+            }, 500)
+        }
+
+      
       
         
     },

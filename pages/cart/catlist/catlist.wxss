@@ -40,6 +40,7 @@
   width: 100%;
   height: 100%;
   border-radius: 100%;
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 .catli-info {
   flex: 1;
