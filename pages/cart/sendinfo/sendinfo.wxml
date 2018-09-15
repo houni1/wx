@@ -11,7 +11,7 @@
           <view class='img-close-box' data-ind="{{index}}" bindtap='closeimg'>
             <image class='img-close-icon' src='/images/img-close.png'></image>
           </view>
-          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}' mode="aspectFit"></image>
+          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}/255' mode="aspectFit"></image>
         </view>
       </view>
       </view>

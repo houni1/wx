@@ -137,6 +137,21 @@ Page({
         url: '../share/share?userId='+userId+'&circleId='+circleId,
      })
   },
+  //加压缩比
+  compress(list){
+    list.forEach( (item,index)=> {
+        
+      if(item.prices.length==1){
+        item.prices[0]=item.prices[0]+"/252"
+      }
+      if(item.prices.length>1){
+        item.prices.forEach((con,num)=>{
+          item.prices[num]=con+"/251"
+        })
+      }
+    });
+    return list
+  },
   //加载车商圈列表数据
   getData(data,callback){
     console.log("下拉",data)
@@ -152,9 +167,11 @@ Page({
           datashow:true
         })
       }
+      
+  let list= this.compress(res.list)
       this.setData({
         page:res.page,
-        list:res.list,
+        list:list,
         newNum:res.newNum,
       })
       wx.stopPullDownRefresh()
@@ -186,6 +203,7 @@ Page({
     }
     getBusinessList(data).then((res)=>{
       console.log(res)
+      let list= this.compress(res.list);
       this.setData({
         page:res.page,
         list:this.data.list.concat(res.list),  

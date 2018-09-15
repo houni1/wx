@@ -1,12 +1,12 @@
 <view class='cardpic'>
    <view class="content">
       <view class='title'>
-         <image class='title-img' src="{{background}}"></image>
+         <image class='title-img' src="{{background}}/257"></image>
         
       </view>
       <view class='infor'>
         <view class='my-card'>
-        <image class='head' src='{{exclusiveCode}}'></image>
+        <image class='head' src='{{exclusiveCode}}/258'></image>
         </view>
 
          <view class='name'>

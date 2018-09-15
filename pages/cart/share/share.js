@@ -33,11 +33,20 @@ Page({
     }
       sharePoster(data).then((res)=>{
         console.log(7,res)
+       let prices=res.prices;
+       if(prices.length==1){
+        prices[0]=prices[0]+"/254"
+      }
+      if(prices.length>1){
+        prices.forEach( (item,index)=> {
+              prices[index]=item+"/255" 
+        });
+      }
         this.setData({
           nickname:res.nickname,
           createdAt:res.createdAt,
           information:res.information,
-          prices:res.prices,
+          prices:prices,
           theme:res.theme,
           userQrCode:res.userQrCode,
           userId:options.userId,
