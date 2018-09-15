@@ -97,6 +97,17 @@ Page({
         handleCardcase(params).then(res => {
             this.cardListInfo();
         })
+    },
+
+    //前往名片页面
+    toCard:function(event){
+        var salesmanId = event.target.dataset.userid;
+        console.log(salesmanId);
+        globalData.saleId = salesmanId;
+        console.log(globalData.saleId)
+        wx.navigateTo({
+            url: '../otherpage/otherpage'
+        })
     }
 
 })

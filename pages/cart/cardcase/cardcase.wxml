@@ -2,6 +2,8 @@
 <view class="cardcase-wrap" wx:if="{{flag}}">
     <view class="cardcase-nothing" wx:if="{{apply.length == 0 && userInfo.length == 0}}">   
         <image class="cardcase-no-data" src="./images/no-data.png"></image>
+        <view class="no-cardcase">您的名片夹空空如也</view>
+        <view class="change-cardcase">快去和大家交换名片吧！</view>
     </view>
      
     <view wx-if="{{apply.length > 0}}">
@@ -12,8 +14,15 @@
             bindtap="toCard">
             <view class="profile clear-fix">
                 <image class="profile-profile-photo" src="{{item.headPortrait}}/226"></image>
-                <text class="profile-name">{{item.nickName}}</text>
-                <text class="profile-post">{{item.position}}-{{item.provinceName}}</text>
+                <view class="profile-name-wrap">
+                    <text class="profile-name">{{item.nickName}}</text>
+                </view>
+                <view class="profile-post-wrap"> 
+                    <text class="profile-post">{{item.position}}</text>
+                    <text wx:if="{{item.position && item.provinceName}}">-</text>
+                    <text>{{item.provinceName}}</text>
+                </view>
+
             </view>
             <view class="moods-wrap clear-fix">
                 <image src="./images/moods-logo.png"></image>
@@ -46,8 +55,14 @@
             >
             <view class="profile clear-fix">
                 <image class="profile-profile-photo" src="{{item.headPortrait}}"></image>
-                <text class="profile-name">{{item.nickName}}</text>
-                <text class="profile-post">{{item.position}}-{{item.provinceName}}</text>
+                 <view class="profile-name-wrap">
+                    <text class="profile-name">{{item.nickName}}</text>
+                </view>
+                <view class="profile-post-wrap"> 
+                    <text class="profile-post">{{item.position}}</text>
+                    <text wx:if="{{item.position && item.provinceName}}">-</text>
+                    <text>{{item.provinceName}}</text>
+                </view>
             </view>
             <view class="moods-wrap clear-fix">
                 <image src="./images/moods-logo.png"></image>
