@@ -154,6 +154,17 @@ Page({
     console.log(this.data.imageList)
   },
 
+  // 点击预览头像
+  lookHeaderpic: function (e) {
+    var imgurl = []
+    imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
+    console.log(typeof imgurl)
+    wx.previewImage({
+      current: imgurl[0], // 当前显示图片的http链接
+      urls: imgurl  // 需要预览的图片链接列表
+    })
+  },
+
   // 点击预览图片
   lookpic: function (e) {
     var imgurl = e.currentTarget.dataset.imgurl

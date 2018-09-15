@@ -4,6 +4,7 @@
   "navigationBarTitleText": "推车猫",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "authorization": "/components/authorization/authorization"
+    "authorization": "/components/authorization/authorization",
+    "isnetwork": "/components/isnetwork/isnetwork"
   }
 }

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    network: true, // 无网络连接
     flag: true,  // 请求数据成功展示
     formId: '', // formId按钮统计
     // 首页用户信息
@@ -49,7 +50,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getIndexUserInfo()
+    let _this = this;
+    wx.getNetworkType({
+      success(res) {
+        console.log(res.networkType)
+        if (res.networkType == "none") {
+          _this.setData({
+            network: false
+          })
+          wx.hideLoading()
+          return;
+        }
+      }
+    })
+    _this.getIndexUserInfo()
   },
 
   // 获取首页个人信息，默认展示数据
@@ -332,4 +346,18 @@ Page({
     })
   },
   
+})
+wx.onNetworkStatusChange((res) => {
+  let pages = getCurrentPages();
+  let page = pages[pages.length - 1];
+  page.setData({
+    network: res.isConnected
+  })
+  if (!res.isConnected) {
+    wx.hideLoading()
+  } else {
+    wx.showLoading();
+    page.onLoad()
+    wx.hideLoading()
+  }
 })

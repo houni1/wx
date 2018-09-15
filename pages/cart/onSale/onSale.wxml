@@ -1,3 +1,4 @@
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
     <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>

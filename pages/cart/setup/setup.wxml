@@ -1,8 +1,11 @@
 <form bindsubmit="editUserInfo" class='setup-box' wx:if="{{flag}}">
   <view class='set-pic'>
     <view class='item-title'>头像</view>
-    <view class='item-content' data-pos='header' bindtap='uploadImage'>
-      <image src='{{headPortrait}}/247'></image>
+    <view class='item-content'>
+      <view class='upload-box' data-pos='header' bindtap='uploadImage'>
+        <image class='album-icon' src='/images/album-icon.png'></image>
+      </view>
+      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247'></image>
     </view>
   </view>
   <view class='set-box'>
@@ -69,10 +72,11 @@
       </view>
     </view>
   </view>
-  <view class='btn-box' bindtap='editUserInfo'>
-    <button formType="submit" class='btn'>保存</button>
-  </view>
 </form>
+
+<view class='btn-box' bindtap='editUserInfo'>
+  <button formType="submit" class='btn'>保存</button>
+</view>
 
 <!-- 城市选择插件 -->
 <view class="dialog-back" catchtap='cancel' catchtouchmove='true' hidden='{{cityShow}}'>

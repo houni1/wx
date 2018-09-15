@@ -1,5 +1,9 @@
 /* pages/cart/setup/setup.wxss */
 .setup-box {
+  position: absolute;
+  top: 0;
+  bottom: 200rpx;
+  overflow-y: scroll;
   width: 100%;
 }
 /* 头像 */
@@ -28,13 +32,35 @@
   padding-bottom: 25rpx;
   box-sizing: border-box;
   text-align: right;
+  position: relative;
 }
 
-.set-pic .item-content image {
+.upload-box {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 12rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 100%;
+  background: #fff;
+  right: -8rpx;
+  bottom: 25rpx;
+  text-align: center;
+}
+
+.upload-box .album-icon {
+  display: block;
+  width: 31rpx;
+  height: 28rpx;
+  margin: 0;
+}
+
+.set-pic .item-content .header-pic {
   display: block;
   width: 110rpx;
   height: 110rpx;
   border-radius: 100%;
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
 /* 个人介绍 */
@@ -212,6 +238,9 @@
 
 /* 保存按钮 */
 .btn-box {
+  position: absolute;
+  bottom: 0;
+  background: #fff;
   width: 100%;
   padding: 60rpx 30rpx 40rpx 30rpx;
   box-sizing: border-box;
