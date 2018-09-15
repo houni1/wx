@@ -153,7 +153,7 @@ uploadData(){
     let list= this.compress(res.list)
     this.setData({
       page:res.page,
-      list:this.data.list.concat(res.list),  
+      list:this.data.list.concat(list),  
     })
     
   })
