@@ -214,9 +214,13 @@ Component({
       type: '3'
     }
     console.log("猫哥卫星统计传参", params)
-    starStat(params).then(res => {
-      console.log(res)
-    })
+
+    setTimeout(() => {
+      starStat(params).then(res => {
+        console.log(res)
+      })
+    }, 500)
+    
   },
 }
 })

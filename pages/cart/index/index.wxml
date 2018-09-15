@@ -38,7 +38,8 @@
         </view>
       </view>
       <view class='user-company' wx:if="{{userInfo.company != ''}}">{{userInfo.company}}</view>
-      <view class='user-allow' wx:if="{{userInfo.authorization == '1'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫授权店</text></view>
+      <view class='user-allow' wx:if="{{userInfo.authorization == '1'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫加盟店</text></view>
+      <view class='user-allow' wx:if="{{userInfo.authorization == '2'}}"><image class='allow-icon' src='/images/allow-icon.png'></image><text>一猫授权店</text></view>
     </view>
   </view>
   <view class='card-list'>
@@ -77,7 +78,7 @@
           <text class='catli-info-time'>{{item.time}}</text>
         </view>
         <view class='catli-info-bottom' wx:if="{{item.checkType == '3'}}">
-          <view class='catli-info-text'>拨打了您的电话</view>
+          <view class='catli-info-text'>拨打了您的电话<text class='num'>{{item.number}}次</text></view>
           <!-- <view class='catli-info-phone' wx:if="{{item.tel != ''}}">
             <image class='phone-icon' src='/images/phone-icon.png'></image>
             {{item.tel}}

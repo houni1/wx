@@ -44,11 +44,9 @@ Page({
     this.getCityInfo(1);
   },
 
-  // onShow: function () {
-  //   this.getUserInfo()
-  //   this.getprovinceInfo();
-  //   this.getCityInfo(1);
-  // },
+  onShow: function () {
+    wx.hideShareMenu()
+  },
 
   // 获取个人信息，默认展示数据
   getUserInfo: function () {

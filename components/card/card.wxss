@@ -114,8 +114,18 @@
 
 .company-text {
   font-size: 32rpx;
-  font-weight: 600rpx;
+  font-weight: 600;
   color: #282c39;
+}
+
+.company-icon {
+  display: inline-block;
+  width: 136rpx;
+  height: 44rpx;
+  position: relative;
+  top: 10rpx;
+  left: 10rpx;
+  /* float: left; */
 }
 
 .send-card {

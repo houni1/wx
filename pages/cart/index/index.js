@@ -177,6 +177,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.hideShareMenu()
     this.formStat(7)
     console.log('全局是否覆盖的值', globalData.iscover)
     // console.log('首页全局，信息是否覆盖', this.data.iscover)

@@ -20,7 +20,8 @@
       </view>
       <view class='info-company' wx:if="{{userInfo.company}}">
         <text class='company-text'>{{userInfo.company}}</text>
-        <text class='company-icon'></text>
+        <image wx:if="{{userInfo.isAuthorization == '1'}}" class='company-icon' src='/images/emao-icon1.png'></image>
+        <image wx:if="{{userInfo.isAuthorization == '2'}}" class='company-icon' src='/images/emao-icon2.png'></image>
       </view>
       <view class='send-card-wrap'>
         <view class='send-card-box' bindtap='sendCard'>
