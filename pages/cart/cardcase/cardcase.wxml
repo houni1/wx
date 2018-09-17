@@ -10,8 +10,7 @@
         <view class="caedcase-list" 
             wx:for="{{apply}}"
             wx:key="{{index}}"
-            data-userid="{{item.id}}"
-            bindtap="toCard">
+            data-userid="{{item.id}}">
             <view class="profile clear-fix">
                 <image class="profile-profile-photo" src="{{item.headPortrait}}/226"></image>
                 <view class="profile-name-wrap">
