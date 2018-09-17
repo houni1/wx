@@ -2,7 +2,7 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "车商圈",
   "navigationBarTextStyle": "black",
-  "backgroundColor":"#ebeef5",
+  "backgroundColor":"#f9f9fa",
   "usingComponents": {
     "isnetwork":"/components/isnetwork/isnetwork"
   },

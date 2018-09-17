@@ -1,7 +1,7 @@
 <view class='cardpic'>
    <view class="content">
       <view class='title'>
-         <image class='title-img' src="{{background}}/257"></image>
+         <image class='title-img' src="{{background}}"></image>
         
       </view>
       <view class='infor'>
