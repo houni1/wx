@@ -178,6 +178,11 @@ Component({
       }
       buttonStat(tjParam).then(function (res) { }) 
     },
+    clickAround(){
+      this.setData({
+        s_move: false
+      })
+    },
     // 触底操作
     onReachBottom: function () {
       if (this.data.page < this.data.lastPage) {
