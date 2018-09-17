@@ -20,7 +20,7 @@ App({
           },
           method: "get",
           success: function (res) { //拿到openid和session_key
-            console.log('阿拉丁', res.data.data)
+            console.log('阿拉丁111', res.data.data)
             if (res.data.data) {
               // 调用sendOpenid方法，将openid以参数形式传入
               _this.aldstat.sendOpenid(res.data.data.openid)
@@ -52,7 +52,7 @@ App({
     // 链接上的id
     saleId: 0,
     // 微信唯一标识
-    authorize_user_id: 5,
+    authorize_user_id: 0,
     // 是否覆盖信息
     iscover: 0,
     // emaoCarShop

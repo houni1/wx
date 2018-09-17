@@ -51,19 +51,19 @@
       <label class='card-li' for="form_id">
         <view class='card-li' bindtap='toMyCard'>
           <image src='/images/cardli_2.png'></image>
-          <text>我的名片</text>
+          <text class='card-li-text'>我的名片</text>
         </view>
       </label>
       <label class='card-li' for="form_id">
         <view class='card-li' bindtap='toCardPic'>
           <image src='/images/cardli_3.png'></image>
-          <text>名片照片</text>
+          <text class='card-li-text'>名片照片</text>
         </view>
       </label>
       <label class='card-li' for="form_id">
         <view class='card-li' bindtap='toMyCode'>
           <image src='/images/cardli_4.png'></image>
-          <text>专属码</text>
+          <text class='card-li-text'>专属码</text>
         </view>
       </label>
     </view>
