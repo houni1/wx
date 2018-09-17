@@ -7,7 +7,7 @@ page{position: absolute;
   overflow-y:auto;
   }
 .cardcase-wrap{width:100%;height:100%;padding:60rpx 30rpx 0 30rpx;box-sizing:border-box;overflow-y:scroll;} 
-.caedcase-list{padding:50rpx;margin-bottom:40rpx;border:1px solid #999;border-radius:30rpx;background-color:#fff;}
+.caedcase-list{padding:50rpx;margin-bottom:40rpx; box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;border-radius:30rpx;background-color:#fff;}
 .profile image{display:block;float:left;width:98rpx;height:98rpx;border-radius:64rpx;}
 .profile-name-wrap{float:left;}
 .profile-post-wrap{float:left;}
@@ -21,11 +21,11 @@ page{position: absolute;
 .phone-wrap{margin-left:125rpx;margin-top:30rpx;}
 .phone-wrap image{display:block;float:left;width:20rpx;height:29rpx;margin-top:5rpx;}
 .phone-val{display:block;float:left;margin-left:25rpx;margin-right:20rpx;font-size:26rpx;color:#808080;}
-.email-wrap{margin-left:125rpx;margin-top:30rpx;}
+.email-wrap{margin-left:125rpx;margin-top:25rpx;}
 .email-wrap image{display:block;float:left;width:24rpx;height:19rpx;margin-top:10rpx;}
 .email-val{display:block;float:left;margin-left:25rpx;margin-right:20rpx;font-size:26rpx;color:#808080;}
 .company-wrap{margin-top:60rpx;}
-.company-name{font-size:32rpx;color:#282c39;}
+.company-name{font-size:32rpx;font-weight:bold;color:#282c39;}
 .company{margin-top:45rpx;}
 .company image{display:block;float:left;width:27rpx;height:32rpx;margin-top:5rpx;}
 .company-warranty{display:block;float:left;margin-left:25rpx;font-size:26rpx;color:#808080;}

@@ -215,34 +215,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log("卸载")
-    let save=false;
-    if(wx.getStorageSync("textinput")||wx.getStorageSync("imageList")){
-      save=true
-    }
-    if(save){
-      wx.showModal({
-        title: '是否保留当前编辑操作',
-        content: "",
-        success: function (res) {
-           if (res.confirm) {
-             
-           } else if (res.cancel) {
-              console.log('用户点击取消')
-              wx.removeStorage({
-                key: "textinput",
-                success(){ 
-                }
-              })
-              wx.removeStorage({
-                key: "imageList"
-              })
-           }
-        }
-      }
-        
-      )
-    }
   
   },
 

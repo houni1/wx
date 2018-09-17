@@ -95,7 +95,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.hideShareMenu()
   },
 
   /**
@@ -139,9 +139,12 @@ Page({
     }
 
     console.log('猫哥卫星统计传参', btnParams)
-    starStat(btnParams).then(res => {
-      console.log(res)
-    })
+    setTimeout(() => {
+      starStat(btnParams).then(res => {
+        console.log(res)
+      })
+    }, 500)
+    
   },
 
   /**

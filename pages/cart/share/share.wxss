@@ -76,7 +76,7 @@ width:600rpx
   width:205rpx;
   height:205rpx;
   margin-right:15rpx;
-  box-shadow:0 0 5rpx 5rpx rgb(235, 229, 235);
+  /* box-shadow:0 0 5rpx 5rpx rgb(235, 229, 235); */
   border-radius:5rpx;
   margin-bottom:15rpx;
   display: inline-block;

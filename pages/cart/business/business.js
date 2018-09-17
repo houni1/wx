@@ -33,8 +33,12 @@ Page({
    //车商圈图片预览
    preview_friend(e){
       console.log(e);
-      let img =e.currentTarget.dataset.img||"";
-      let list=e.currentTarget.dataset.list||[];    
+      let img =e.currentTarget.dataset.img;
+      img.slice(0,img.length-4);
+      let list=e.currentTarget.dataset.list;
+      list.forEach((item,index)=>{
+          list[index]=item.slice(0,item.length-4)
+      })
       wx.previewImage({
          current: img,
          urls: list   
@@ -137,6 +141,21 @@ Page({
         url: '../share/share?userId='+userId+'&circleId='+circleId,
      })
   },
+  //加压缩比
+  compress(list){
+    list.forEach( (item,index)=> {
+        
+      if(item.prices.length==1){
+        item.prices[0]=item.prices[0]+"/252"
+      }
+      if(item.prices.length>1){
+        item.prices.forEach((con,num)=>{
+          item.prices[num]=con+"/251"
+        })
+      }
+    });
+    return list
+  },
   //加载车商圈列表数据
   getData(data,callback){
     console.log("下拉",data)
@@ -152,9 +171,11 @@ Page({
           datashow:true
         })
       }
+      
+  let list= this.compress(res.list)
       this.setData({
         page:res.page,
-        list:res.list,
+        list:list,
         newNum:res.newNum,
       })
       wx.stopPullDownRefresh()
@@ -186,9 +207,10 @@ Page({
     }
     getBusinessList(data).then((res)=>{
       console.log(res)
+      let list= this.compress(res.list);
       this.setData({
         page:res.page,
-        list:this.data.list.concat(res.list),  
+        list:this.data.list.concat(list),  
       })
       
     })

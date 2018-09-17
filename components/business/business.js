@@ -40,16 +40,20 @@ preview_head(e){
        urls: [head]
     }) 
  },
- //车商圈图片预览
- preview_friend(e){
-    console.log(e);
-    let img =e.currentTarget.dataset.img||"";
-    let list=e.currentTarget.dataset.list||[];    
-    wx.previewImage({
-       current: img,
-       urls: list
-    }) 
- },
+    //车商圈图片预览
+    preview_friend(e){
+      console.log(e);
+      let img =e.currentTarget.dataset.img;
+      img.slice(0,img.length-4);
+      let list=e.currentTarget.dataset.list;
+      list.forEach((item,index)=>{
+          list[index]=item.slice(0,item.length-4)
+      })
+      wx.previewImage({
+         current: img,
+         urls: list   
+      }) 
+   },
  quickcall(e){
   this.btnStat(11);
    let phone=e.currentTarget.dataset.phone;
@@ -86,6 +90,21 @@ share(e){
         url: '../share/share?userId='+userId+'&circleId='+circleId,
      })
 },
+//加压缩比
+compress(list){
+  list.forEach( (item,index)=> {
+      
+    if(item.prices.length==1){
+      item.prices[0]=item.prices[0]+"/252"
+    }
+    if(item.prices.length>1){
+      item.prices.forEach((con,num)=>{
+        item.prices[num]=con+"/251"
+      })
+    }
+  });
+  return list
+},
 //获取列表数据
 getData(data){
   getBusinessList(data).then((res)=>{
@@ -100,9 +119,10 @@ getData(data){
         datashow:true
       })
     }
+    let list= this.compress(res.list)
     this.setData({
       page:res.page,
-      list:res.list,
+      list:list,
       newNum:res.newNum,
     })
     wx.stopPullDownRefresh()
@@ -134,10 +154,10 @@ uploadData(){
   }
   getBusinessList(data).then((res)=>{
     console.log(res)
-    // console.log(res.page)
+    let list= this.compress(res.list)
     this.setData({
       page:res.page,
-      list:this.data.list.concat(res.list),  
+      list:this.data.list.concat(list),  
     })
     
   })
