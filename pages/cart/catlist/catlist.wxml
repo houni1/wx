@@ -6,20 +6,20 @@
     </view>
     <view class='catli-info'>
       <view class='catli-info-top'>
-        <text class='catli-info-name'>{{item.checkName}}</text><image wx:if="{{item.sourceType == '1'}}" class='emao-logo' src='../index/images/emao-logo.png'></image>
+        <text class='catli-info-name'>{{item.checkName}}</text><image wx:if="{{item.sourceType == '1'}}" class='emao-logo' src='/images/emao-logo.png'></image>
         <text class='catli-info-time'>{{item.time}}</text>
       </view>
       <view class='catli-info-bottom' wx:if="{{item.checkType == '3'}}">
-        <view class='catli-info-text'>拨打了您的电话</view>
-        <view class='catli-info-phone'>
+        <view class='catli-info-text'>拨打了您的电话<text class='num'>{{item.number}}次</text></view>
+        <!-- <view class='catli-info-phone'>
           <image class='phone-icon' src='/images/phone-icon.png'></image>
           {{item.tel}}
-        </view>
+        </view> -->
       </view>
       <view class='catli-info-bottom' wx:if="{{item.checkType != '3'}}">
         <view wx:if="{{item.checkType == '1'}}" class='catli-info-text'>查看了你的车型列表<text class='num'>{{item.number}}次</text></view>
-        <view wx:if="{{item.checkType == '2'}}" class='catli-info-text'>查看了你的名片</view>
-        <view wx:if="{{item.checkType == '4'}}" class='catli-info-text'>分享了你的名片</view>
+        <view wx:if="{{item.checkType == '2'}}" class='catli-info-text'>查看了你的名片<text class='num'>{{item.number}}次</text></view>
+        <view wx:if="{{item.checkType == '4'}}" class='catli-info-text'>分享了你的名片<text class='num'>{{item.number}}次</text></view>
       </view>
     </view>
   </view>

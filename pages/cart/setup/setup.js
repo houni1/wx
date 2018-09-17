@@ -373,8 +373,11 @@ Page({
       }
       editUserInfo(params).then(res => {
         console.log(res)
-        wx.switchTab({
-          url: '/pages/cart/index/index'
+        // wx.switchTab({
+        //   url: '/pages/cart/index/index'
+        // })
+        wx.navigateBack({
+          delta: 1
         })
       })
     }

@@ -116,7 +116,7 @@ Component({
     // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
       console.log('goPage全局id')
-      if (globalData.source == '1') {
+      if (globalData.source == '1' && globalData.authorize_user_id == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
