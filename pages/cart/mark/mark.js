@@ -35,6 +35,9 @@ Page({
         id: options.id
       })
     }
+    if (options.kind) {
+      globalData.kind = options.kind
+    }
     this.setData({
       page: options.page,
     })
@@ -44,6 +47,7 @@ Page({
         page: options.page,
       })
     }
+    console.log('kind', globalData.kind)
     // console.log('saleId', globalData.saleId)
     // console.log('source', globalData.source)
     // console.log('page', this.data.page)
@@ -120,14 +124,6 @@ Page({
         // console.log('跳转至别人的页面', this.data.page)
 
         if (this.data.page == '2') {
-          let params = {
-            userId: globalData.saleId,
-            checkId: globalData.authorize_user_id,
-            checkType: '3'
-          }
-          popStat(params).then(res => {
-            // console.log(res)
-          })
           // 跳转至别人的页面
           wx.redirectTo({
             url: '/pages/cart/otherpage/otherpage?page=' + this.data.page
