@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class='allGoods' hidden="{{!showSelect}}" style="height:{{ height }}px">
-    <view class='thiv'>
+    <view class='thiv' bindtap="clickAround">
       <text bindtap='goodsSelect' data-type="" data-name="全部商品">全部商品</text>
       <text bindtap='goodsSelect' data-type="1" data-name="自营商品">自营商品</text>
       <text bindtap='goodsSelect' data-type="2" data-name="一猫商品">一猫商品</text>

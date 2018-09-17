@@ -15,12 +15,12 @@ Component({
   data: {
      datashow: true,
     alarm:false,  //加载数据后提示弹框
-    newNum:"10" ,//加载数据条数
+    newNum:"" ,//加载数据条数
     list:[],
     page:{
-      perPage:  "10",//每页条数
+      perPage:  "",//每页条数
       currentPage:  "1",//当前页
-      lastPage:  "3",//总页数
+      lastPage:  "",//总页数
     },
       currentPage:1
   },
