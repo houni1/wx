@@ -46,7 +46,7 @@ page {
   text-align: center;
   font-family: 'PingFangSC-Semibold';
 }
-.kinds text.active {
+.active {
   color: #282c39;
 }
 .moreIcon {
@@ -134,7 +134,7 @@ page {
   background: rgba(0, 0, 0, 0.3);
 }
 .thiv {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: -100%;
   width: 100%;
@@ -196,11 +196,8 @@ page {
   to {top: -100%;}
 }
 .noData {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
+  margin: 276rpx auto 0;
+  width: 245rpx;
 }
 .noData image{
   width: 100%;
