@@ -198,7 +198,7 @@ Page({
        
         var codeReg = /^\d{4}$/;
         var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-        console.log(this.data)
+        // console.log(this.data)
         if (!phoneReg.test(this.data.phoneValue)){
             wx.showToast({
                 title: '请输入正确的手机号',
@@ -219,13 +219,13 @@ Page({
                     title: '验证成功',
                     icon: 'none'
                 })
-                console.log(1);
+                // console.log(1);
                 setTimeout(function(){
                     wx.switchTab({
                         url: '../my/my'
                     })
                 },2000)
-                console.log(2);
+                // console.log(2);
 
             }) 
         }

@@ -64,15 +64,15 @@ Page({
         var failUp = 0; //失败个数
         var length = res.tempFilePaths.length; //总共个数
         var i = 0; //第几个
-        console.log(res.tempFilePaths)
+        // console.log(res.tempFilePaths)
         _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length);
       }
     })
   },
     // 图片上传请求接口
     uploadDIY: function (filePaths, successUp, failUp, i, length) {
-      console.log(length)
-      console.log(filePaths[i])
+      // console.log(length)
+      // console.log(filePaths[i])
       var _this = this
       wx.uploadFile({
         url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
@@ -86,7 +86,7 @@ Page({
           
         
             var data = JSON.parse(res.data).data
-            console.log(data)
+            // console.log(data)
             _this.setData({
               imageList: _this.data.imageList.concat(data)
             })
@@ -99,7 +99,7 @@ Page({
                 imageList: _this.data.imageList.slice(0, 9)
               })
             }
-            console.log(_this.data.imageList)
+            // console.log(_this.data.imageList)
             wx.setStorageSync("imageList",_this.data.imageList)
       
           successUp++;
@@ -109,10 +109,10 @@ Page({
         },
         complete: () => {
           i++;
-          console.log(i)
+          // console.log(i)
           if (i == length) {
-            console.log(successUp)
-            console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+            // console.log(successUp)
+            // console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
           }
           else {  //递归调用uploadDIY函数
             _this.uploadDIY(filePaths, successUp, failUp, i, length);
@@ -124,7 +124,7 @@ Page({
   // 删除图片
   closeimg: function (e) {
     var ind = e.currentTarget.dataset.ind
-    console.log(ind)
+    // console.log(ind)
 
     this.data.imageList.splice(ind, 1)
 
@@ -138,8 +138,8 @@ Page({
   // 点击预览图片
   lookpic: function (e) {
     var imgurl = e.currentTarget.dataset.imgurl
-    console.log(imgurl)
-    console.log(this.data.imageList)
+    // console.log(imgurl)
+    // console.log(this.data.imageList)
     wx.previewImage({
       current: imgurl, // 当前显示图片的http链接
       urls: this.data.imageList // 需要预览的图片http链接列表
@@ -171,9 +171,9 @@ Page({
       });
       return
     }
-    console.log(0,JSON.stringify(this.data.imageList))
+    // console.log(0,JSON.stringify(this.data.imageList))
     postMessage({userId:globalData.authorize_user_id,information:this.data.textinput,file:JSON.stringify(this.data.imageList)}).then((res)=>{
-      console.log(res)
+      // console.log(res)
       wx.removeStorage({
         key: "textinput",
         success(){

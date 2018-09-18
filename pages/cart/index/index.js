@@ -53,7 +53,7 @@ Page({
     let _this = this;
     wx.getNetworkType({
       success(res) {
-        console.log(res.networkType)
+        // console.log(res.networkType)
         if (res.networkType == "none") {
           _this.setData({
             network: false
@@ -68,9 +68,9 @@ Page({
 
   // 获取首页个人信息，默认展示数据
   getIndexUserInfo: function () {
-    console.log('获取首页个人信息', globalData.authorize_user_id)
+    // console.log('获取首页个人信息', globalData.authorize_user_id)
     getIndexUserInfo().then(res => {
-      console.log('首页头像路径', res.userInfo.userImg)
+      // console.log('首页头像路径', res.userInfo.userImg)
       if (res) {
         this.setData({
           flag: true,
@@ -105,23 +105,23 @@ Page({
 
   // formId获取
   formSubmit: function (e) {
-    console.log("formId", e.detail.formId)
+    // console.log("formId", e.detail.formId)
     this.setData({
       formId: e.detail.formId
     })
-    console.log('获取formId', this.data.formId)
+    // console.log('获取formId', this.data.formId)
   },
 
   // 有formId的按钮统计
   formStat: function (type) {
     let _this = this;
-    console.log("统计中的formId", _this.data.formId)
+    // console.log("统计中的formId", _this.data.formId)
     buttonStat({ appType: 1, pageType: 1, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
-      console.log(_this.data.formId)
+      // console.log(_this.data.formId)
       _this.setData({
         formId: ""
       })
-      console.log("按钮统计成功")
+      // console.log("按钮统计成功")
     })
   },
 
@@ -160,7 +160,7 @@ Page({
   lookpic: function (e) {
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
-    console.log(typeof imgurl)
+    // console.log(typeof imgurl)
     wx.previewImage({
       current: imgurl[0], // 当前显示图片的http链接
       urls: imgurl  // 需要预览的图片链接列表
@@ -180,17 +180,17 @@ Page({
   onShow: function () {
     wx.hideShareMenu()
     this.formStat(7)
-    console.log('全局是否覆盖的值', globalData.iscover)
+    // console.log('全局是否覆盖的值', globalData.iscover)
     // console.log('首页全局，信息是否覆盖', this.data.iscover)
-    console.log('首页，来源', globalData.source)
-    console.log('是否覆盖初始化', this.data.isCoverBox)
-    console.log('首页，车商猫上面的id', globalData.saleId)
+    // console.log('首页，来源', globalData.source)
+    // console.log('是否覆盖初始化', this.data.isCoverBox)
+    // console.log('首页，车商猫上面的id', globalData.saleId)
     
     if (globalData.iscover == '1' && globalData.source == '1') {
       this.setData({
         isCoverBox: true
       })
-      console.log('是否覆盖，弹窗弹起', this.data.isCoverBox)
+      // console.log('是否覆盖，弹窗弹起', this.data.isCoverBox)
     }
     this.getIndexUserInfo()
   },
@@ -201,7 +201,7 @@ Page({
       isCoverBox: false
     })
     globalData.iscover = '2'
-    console.log('取消覆盖', globalData.iscover)
+    // console.log('取消覆盖', globalData.iscover)
   },
 
   // 允许覆盖
@@ -211,12 +211,12 @@ Page({
       saleId: globalData.saleId
     }
     coverOldData(params).then(res => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         isCoverBox: false
       })
       globalData.iscover = '2'
-      console.log('允许覆盖', globalData.iscover)
+      // console.log('允许覆盖', globalData.iscover)
       if (globalData.iscover == '2') {
         this.getIndexUserInfo()
       }
@@ -241,10 +241,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log('下拉刷新')
+    // console.log('下拉刷新')
     this.getIndexUserInfo()
     // 停止下拉动作
-    console.log('停止下拉动作')
+    // console.log('停止下拉动作')
     wx.stopPullDownRefresh();
   },
 
@@ -259,20 +259,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (ops) {
-    console.log('转发好友')
+    // console.log('转发好友')
 
     if (ops.from === 'button') {
       // 来自页面内转发按钮
-      console.log(ops.target)
+      // console.log(ops.target)
     }
     return {
       title: '推车猫小程序',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
       success(inres) {
-        console.log("转发成功", inres);
+        // console.log("转发成功", inres);
       },
       fail(inerr) {
-        console.log("转发失败", inerr);
+        // console.log("转发失败", inerr);
       }
     }
 
@@ -299,10 +299,10 @@ Page({
       type: '3'
     }
 
-    console.log('猫哥卫星统计传参', btnParams)
+    // console.log('猫哥卫星统计传参', btnParams)
     setTimeout(() => {
       starStat(btnParams).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     }, 500)
   },
@@ -324,10 +324,10 @@ Page({
             code: _this.data.code
           }
 
-          console.log(params)
+          // console.log(params)
 
           getUserWxPhone(params).then(res => {
-            console.log(res)
+            // console.log(res)
             if (res.phoneNumber) {
               var phone = 'userInfo.phone'
               _this.setData({
@@ -338,7 +338,7 @@ Page({
                 phone: res.phoneNumber
               }
               addPhone(addParams).then(res => {
-                console.log(res)
+                // console.log(res)
               })
             }
           })

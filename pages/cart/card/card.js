@@ -64,11 +64,11 @@ Page({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
-    console.log(typeof imgurl)
+    // console.log(typeof imgurl)
     wx.previewImage({
       current: imgurl[0], // 当前显示图片的http链接
       urls: imgurl  // 需要预览的图片链接列表
@@ -138,10 +138,10 @@ Page({
       type: '3'
     }
 
-    console.log('猫哥卫星统计传参', btnParams)
+    // console.log('猫哥卫星统计传参', btnParams)
     setTimeout(() => {
       starStat(btnParams).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     }, 500)
     
@@ -151,19 +151,19 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (ops) {
-    console.log('转发好友')
+    // console.log('转发好友')
     if (ops.from === 'button') {
       // 来自页面内转发按钮
-      console.log(ops.target)
+      // console.log(ops.target)
     }
     return {
       title: '推车猫小程序',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
       success(inres) {
-        console.log("转发成功", inres);
+        // console.log("转发成功", inres);
       },
       fail(inerr) {
-        console.log("转发失败", inerr);
+        // console.log("转发失败", inerr);
       }
     }
   },

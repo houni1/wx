@@ -102,9 +102,9 @@ Page({
     //前往名片页面
     toCard:function(event){
        var salesmanId = event.currentTarget.dataset.userid;
-        console.log(salesmanId);
+        // console.log(salesmanId);
         globalData.saleId = salesmanId;
-        console.log("全局数据",globalData.saleId)
+        // console.log("全局数据",globalData.saleId)
         wx.navigateTo({
             url: '../otherpage/otherpage'
         })
