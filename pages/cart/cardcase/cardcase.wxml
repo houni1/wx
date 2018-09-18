@@ -38,6 +38,20 @@
                 <text class="email-val" wx:if="{{item.email}}">{{item.email}}</text>
                  <text class="email-val" wx:if="{{item.email == '' }}">暂无邮箱</text>
             </view>
+
+             <view class="company-wrap">
+                <view class="company-name">{{item.deamerName}}</view>
+                <view class="company clear-fix" wx-if="{{item.isAuthorization == '1'}}">
+                    <image src="./images/warranty-logo.png"></image>
+                    <text class="company-warranty">一猫加盟店</text>
+                </view>
+                <view class="company clear-fix" wx-if="{{item.isAuthorization == '2'}}">
+                    <image src="./images/warranty-logo.png"></image>
+                    <text class="company-warranty">一猫授权店</text>
+                </view>
+
+            </view>
+
             <view class="cardcase-state clear-fix">
                 <view class="cardcase-refuse" bindtap="refuseCardcase" data-id="{{item.id}}">拒绝</view>
                 <view class="cardcase-permit" bindtap="consentCardcase" data-id="{{item.id}}">同意</view>

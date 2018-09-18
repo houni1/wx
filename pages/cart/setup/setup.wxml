@@ -5,7 +5,7 @@
       <view class='upload-box' data-pos='header' bindtap='uploadImage'>
         <image class='album-icon' src='/images/album-icon.png'></image>
       </view>
-      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247'></image>
+      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247' mode="aspectFit"></image>
     </view>
   </view>
   <view class='set-box'>

@@ -2,7 +2,7 @@
 page{background-color:#f9f9fa;}
 .personal-info-wrap{display:flex;background-color:#fff;padding:85rpx 40rpx 40rpx 40rpx;}
 .my-in{}
-.head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;}
+.head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;box-shadow:0rpx 4rpx 40rpx 0rpx #C2BEC0;}
 .person-info-in{}
 .personal-info{}
 .personal-info .name{color:#282c39;font-size:32rpx;}
