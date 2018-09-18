@@ -5,7 +5,7 @@
       <view class='upload-box' data-pos='header' bindtap='uploadImage'>
         <image class='album-icon' src='/images/album-icon.png'></image>
       </view>
-      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247'></image>
+      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247' mode="aspectFit"></image>
     </view>
   </view>
   <view class='set-box'>
@@ -30,6 +30,9 @@
     <view class='set-item'>
       <view class='item-title'>所在城市</view>
       <view class='item-content item-city' bindtap='showCityInfo'>{{userInfo.cityName}}</view>
+      <view class='right-icon-box'>
+        <image class='right-icon' src='/images/right-icon.png'></image>
+      </view>
     </view>
     <view class='set-item'>
       <view class='item-title'>手机号</view>

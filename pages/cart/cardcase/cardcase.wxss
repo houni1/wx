@@ -26,7 +26,7 @@ page{position: absolute;
 .email-val{display:block;float:left;margin-left:25rpx;margin-right:20rpx;font-size:26rpx;color:#808080;}
 .company-wrap{margin-top:60rpx;}
 .company-name{font-size:32rpx;font-weight:bold;color:#282c39;}
-.company{margin-top:45rpx;}
+.company{margin-top:40rpx;}
 .company image{display:block;float:left;width:27rpx;height:32rpx;margin-top:5rpx;}
 .company-warranty{display:block;float:left;margin-left:25rpx;font-size:26rpx;color:#808080;}
 .cardcase-state{margin:60rpx auto 0;padding-top:40rpx;border-top:1px dashed #eee;}
