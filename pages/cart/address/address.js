@@ -14,7 +14,7 @@ Page({
     // }]
   },
   onLoad: function(options) {
-    console.log(options)
+    // console.log(options)
     var lon = options.lon;
     var lat = options.lat;
     this.setData({

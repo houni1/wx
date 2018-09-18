@@ -33,7 +33,7 @@ Page({
 
   // formId获取
   formSubmit: function (e) {
-    console.log("formId", e.detail.formId)
+    // console.log("formId", e.detail.formId)
     this.setData({
       formId: e.detail.formId
     })
@@ -42,13 +42,13 @@ Page({
   // 有formId的按钮统计
   formStat: function (type) {
     let _this = this;
-    console.log("统计中的formId", _this.data.formId)
+    // console.log("统计中的formId", _this.data.formId)
     buttonStat({ appType: 1, pageType: 2, buttonType: type, formId: _this.data.formId, userId: globalData.authorize_user_id }).then((res) => {
-      console.log(_this.data.formId)
+      // console.log(_this.data.formId)
       _this.setData({
         formId: ""
       })
-      console.log("按钮统计成功")
+      // console.log("按钮统计成功")
     })
   },
    // 保存图片
@@ -59,15 +59,15 @@ Page({
       let _this = this;
       // 获取图片路径并保存
       function getImgInfoToSave(src) {
-         console.log(src)
+        //  console.log(src)
          wx.getImageInfo({
             src: src,
             success: function (sres) {
-               console.log('获取图片信息')
+              //  console.log('获取图片信息')
                wx.saveImageToPhotosAlbum({
                   filePath: sres.path,
                   success: function (fres) {
-                     console.log('图片保存成功')
+                    //  console.log('图片保存成功')
                      wx.showToast({
                         title: "图片保存成功",
                         icon: "success",
@@ -86,15 +86,15 @@ Page({
       wx.getSetting({
          success(res) {
             if (!res.authSetting['scope.writePhotosAlbum']) {
-               console.log('授权失败')
+              //  console.log('授权失败')
                wx.authorize({
                   scope: 'scope.writePhotosAlbum',
                   success() {
-                     console.log("相册授权成功")
+                    //  console.log("相册授权成功")
                      getImgInfoToSave(imgUrl)
                   },
                   fail() {
-                     console.log("需要再次授权")
+                    //  console.log("需要再次授权")
                      
                      _this.setData({
                         isShowShadow: true
@@ -113,7 +113,7 @@ Page({
     let data = {
       userId: globalData.authorize_user_id
     }
-    console.log('获取个人信息userid', data)
+    // console.log('获取个人信息userid', data)
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
@@ -199,7 +199,7 @@ Page({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     this.setData({
       toMailFlag: false,
@@ -225,9 +225,9 @@ Page({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
-    console.log(this.data.email)
+    // console.log(this.data.email)
     var emailReg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
     if (emailReg.test(this.data.email)) {
       let params = {
@@ -235,7 +235,7 @@ Page({
         userId: globalData.authorize_user_id
       }
       sendEmail(params).then(res => {
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           title: '已发送至邮箱',
           icon: 'none'

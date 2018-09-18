@@ -66,7 +66,7 @@ Page({
             imageList: []
           })
         }
-        console.log(this.data.imageList)
+        // console.log(this.data.imageList)
       }
     })
   },
@@ -88,7 +88,7 @@ Page({
 
   onUnload: function () {
     if (this.data.inputFlag) {
-      console.log('关闭了编辑页面')
+      // console.log('关闭了编辑页面')
     }
     
   },
@@ -132,7 +132,7 @@ Page({
         var failUp = 0; //失败个数
         var length = res.tempFilePaths.length; //总共个数
         var i = 0; //第几个
-        console.log('上传图片', res.tempFilePaths)
+        // console.log('上传图片', res.tempFilePaths)
         _this.uploadDIY(res.tempFilePaths, successUp, failUp, i, length, pos);
       }
     })
@@ -149,14 +149,14 @@ Page({
     this.setData({
       imageList: this.data.imageList
     })
-    console.log(this.data.imageList)
+    // console.log(this.data.imageList)
   },
 
   // 点击预览头像
   lookHeaderpic: function (e) {
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
-    console.log(typeof imgurl)
+    // console.log(typeof imgurl)
     wx.previewImage({
       current: imgurl[0], // 当前显示图片的http链接
       urls: imgurl  // 需要预览的图片链接列表
@@ -166,8 +166,8 @@ Page({
   // 点击预览图片
   lookpic: function (e) {
     var imgurl = e.currentTarget.dataset.imgurl
-    console.log(imgurl)
-    console.log(this.data.imageList)
+    // console.log(imgurl)
+    // console.log(this.data.imageList)
     wx.previewImage({
       current: imgurl, // 当前显示图片的http链接
       urls: this.data.imageList // 需要预览的图片http链接列表
@@ -177,8 +177,8 @@ Page({
 
   // 图片上传请求接口
   uploadDIY: function (filePaths, successUp, failUp, i, length, pos) {
-    console.log(length)
-    console.log(filePaths[i])
+    // console.log(length)
+    // console.log(filePaths[i])
     var _this = this
     wx.uploadFile({
       url: 'https://tcmapi.emao.com/cart/user/imgUpload', //仅为示例，非真实的接口地址  
@@ -192,12 +192,12 @@ Page({
         
         if (pos == 'list') {
           var data = JSON.parse(res.data).data
-          console.log(data)
-          console.log('拼接前的list', _this.data.imageList)
+          // console.log(data)
+          // console.log('拼接前的list', _this.data.imageList)
           _this.setData({
             imageList: _this.data.imageList.concat(data)
           })
-          console.log('拼接后的list', _this.data.imageList)
+          // console.log('拼接后的list', _this.data.imageList)
           if (_this.data.imageList.length > 6) {
             wx.showToast({
               icon: 'none',
@@ -207,15 +207,15 @@ Page({
               imageList: _this.data.imageList.slice(0, 6)
             })
           }
-          console.log(_this.data.imageList)
+          // console.log(_this.data.imageList)
         }
         if (pos == 'header') {
           var data = JSON.parse(res.data).data
-          console.log(data)
+          // console.log(data)
           _this.setData({
             headPortrait: data
           })
-          console.log(this.data.headPortrait)
+          // console.log(this.data.headPortrait)
         }
         successUp++;
       },
@@ -224,10 +224,10 @@ Page({
       },
       complete: () => {
         i++;
-        console.log(i)
+        // console.log(i)
         if (i == length) {
-          console.log(successUp)
-          console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
+          // console.log(successUp)
+          // console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
         }
         else {  //递归调用uploadDIY函数
           _this.uploadDIY(filePaths, successUp, failUp, i, length, pos);
@@ -243,7 +243,7 @@ Page({
       [nickName]: e.detail.value,
       inputFlag: true
     })
-    console.log('用户姓名发生改变', this.data.inputFlag)
+    // console.log('用户姓名发生改变', this.data.inputFlag)
   },
 
   // 获取用户公司名称
@@ -278,10 +278,10 @@ Page({
             code: _this.data.code
           }
 
-          console.log(params)
+          // console.log(params)
 
           getUserWxPhone(params).then(res => {
-            console.log(res)
+            // console.log(res)
             if (res.phoneNumber) {
               var phone = 'userInfo.phone'
               _this.setData({
@@ -334,10 +334,10 @@ Page({
 
   // 编辑个人信息接口
   editUserInfo: function (e) {
-    console.log('点击保存按钮')
+    // console.log('点击保存按钮')
     // console.log(this.data.imageList)
     // console.log(this.data.headPortrait)
-    console.log('用户职位', this.data.userInfo.phone.trim())
+    // console.log('用户职位', this.data.userInfo.phone.trim())
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
     if (this.data.userInfo.nickName.trim() == '') {
       wx.showToast({
@@ -372,7 +372,7 @@ Page({
         introduction: this.data.userInfo.introduction.trim()
       }
       editUserInfo(params).then(res => {
-        console.log(res)
+        // console.log(res)
         // wx.switchTab({
         //   url: '/pages/cart/index/index'
         // })
@@ -424,10 +424,10 @@ Page({
     var provinceName = this.data.provinceData[val[0]].name
     var cityId = this.data.cityData[val[1]].id
     var cityName = this.data.cityData[val[1]].name
-    console.log(provinceId)
-    console.log(provinceName)
-    console.log(cityId)
-    console.log(cityName)
+    // console.log(provinceId)
+    // console.log(provinceName)
+    // console.log(cityId)
+    // console.log(cityName)
     var provinceIdParams = 'userInfo.provinceId'
     var provinceNameParams = 'userInfo.provinceName'
     var cityIdParams = 'userInfo.cityId'

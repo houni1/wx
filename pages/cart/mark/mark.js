@@ -26,7 +26,7 @@ Page({
     } else {
       globalData.source = '2'
     }
-    console.log('mark-saleId:', options)
+    // console.log('mark-saleId:', options)
     if (options.saleId) {
       globalData.saleId = options.saleId
     }
@@ -41,13 +41,13 @@ Page({
     this.setData({
       page: options.page,
     })
-    console.log('saleId',globalData.saleId)
+    // console.log('saleId',globalData.saleId)
     if (options.page) {
       this.setData({
         page: options.page,
       })
     }
-    console.log('kind', globalData.kind)
+    // console.log('kind', globalData.kind)
     // console.log('saleId', globalData.saleId)
     // console.log('source', globalData.source)
     // console.log('page', this.data.page)
@@ -64,7 +64,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('全局的userid', globalData.authorize_user_id)
+    // console.log('全局的userid', globalData.authorize_user_id)
   },
 
   /**
@@ -103,7 +103,7 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    console.log('授权后的id', globalData.authorize_user_id)
+    // console.log('授权后的id', globalData.authorize_user_id)
     // console.log('saleId', globalData.saleId)
     // console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页

@@ -29,24 +29,24 @@ Component({
   },
 
   created () {
-    console.log('别人名片组件初始化')
+    // console.log('别人名片组件初始化')
     this.getUserInfo()
-    console.log('用户授权的id,别人页面', typeof globalData.authorize_user_id)
+    // console.log('用户授权的id,别人页面', typeof globalData.authorize_user_id)
     this.setData({
       cardText: globalData.authorize_user_id
     })
-    console.log('用户授权的id,别人页面', typeof this.data.cardText)
-    console.log('cardText == 0', this.data.cardText == 0)
-    console.log('cardText != 0', this.data.cardText != 0)
+    // console.log('用户授权的id,别人页面', typeof this.data.cardText)
+    // console.log('cardText == 0', this.data.cardText == 0)
+    // console.log('cardText != 0', this.data.cardText != 0)
   },
 
   ready () {
-    console.log('用户授权的id,别人页面', globalData.authorize_user_id)
+    // console.log('用户授权的id,别人页面', globalData.authorize_user_id)
     this.setData({
       cardText: globalData.authorize_user_id
     })
-    console.log('用户授权的id,别人页面', this.data.cardText)
-    console.log('otherpage-kind', globalData.kind)
+    // console.log('用户授权的id,别人页面', this.data.cardText)
+    // console.log('otherpage-kind', globalData.kind)
     if (globalData.kind != '3') {
       let btnParams = {
         userId: globalData.saleId,
@@ -58,9 +58,9 @@ Component({
         type: '3'
       }
 
-      console.log('猫哥卫星统计传参', btnParams)
+      // console.log('猫哥卫星统计传参', btnParams)
       starStat(btnParams).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     }
   },
@@ -72,7 +72,7 @@ Component({
       userId: globalData.saleId
     }
 
-    console.log('别人的名片页面saleId获取信息', globalData.saleId)
+    // console.log('别人的名片页面saleId获取信息', globalData.saleId)
     getUserInfo(data).then(res => {
       if (res) {
         this.setData({
@@ -91,11 +91,11 @@ Component({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     var imgurl = []
     imgurl = imgurl.concat(e.currentTarget.dataset.imgurl)
-    console.log(typeof imgurl)
+    // console.log(typeof imgurl)
     wx.previewImage({
       current: imgurl[0], // 当前显示图片的http链接
       urls: imgurl  // 需要预览的图片链接列表
@@ -134,7 +134,7 @@ Component({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     // 添加到手机通讯录
     wx.addPhoneContact({
@@ -157,14 +157,14 @@ Component({
       type: '2'
     }
     starStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     let params = {
       requestId: globalData.authorize_user_id,
       beRequestId: globalData.saleId
     }
     changeCard(params).then(res => {
-      console.log(res)
+      // console.log(res)
       wx.showToast({
         title: '已发送申请',
         icon: 'none'
@@ -181,7 +181,7 @@ Component({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     wx.navigateTo({
       url: '/pages/cart/card/card'
@@ -196,7 +196,7 @@ Component({
       appType: '1'
     }
     buttonStat(btnParams).then(res => {
-      console.log(res)
+      // console.log(res)
     })
     // wx.navigateTo({
     //   url: '/pages/cart/mark/mark?type=2&page=1'
@@ -239,13 +239,13 @@ Component({
             saleId: globalData.saleId,
             source: globalData.source
           });
-          console.log('强制授权页面传参', params)
+          // console.log('强制授权页面传参', params)
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
-            console.log('aaaa', globalData.authorize_user_id)
+            // console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
             if (globalData.authorize_user_id != '0') {
-              console.log('跳转页面')
+              // console.log('跳转页面')
               wx.reLaunch({
                 url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
               })
@@ -253,7 +253,7 @@ Component({
           })
         }
         else {
-          console.log('登录失败！' + res.errMsg)
+          // console.log('登录失败！' + res.errMsg)
         }
       }
     });
@@ -261,8 +261,8 @@ Component({
 
   // 转发名片按钮统计
   sendCard: function () {
-    console.log('点击转发按钮，猫哥卫星和销售人气')
-    console.log('转发谁的名片', globalData.saleId)
+    // console.log('点击转发按钮，猫哥卫星和销售人气')
+    // console.log('转发谁的名片', globalData.saleId)
     let params = {
       userId: globalData.saleId,
       checkId: globalData.authorize_user_id,
@@ -272,11 +272,11 @@ Component({
       pageType: '3',
       type: '3'
     }
-    console.log("猫哥卫星统计传参", params)
+    // console.log("猫哥卫星统计传参", params)
 
     setTimeout(() => {
       starStat(params).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     }, 500)
     
