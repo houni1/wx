@@ -23,10 +23,14 @@ Component({
     saleId: '',                 // 被查看人id
     page: 1,                    // 当前页
     lastPage: 1,                // 总页数
-    noData: false               // 缺省页面
+    noData: false,               // 缺省页面
+    longitude: '',
+    latitude: '',
+    isShowShadow: false
   },
 
   ready: function () {
+    this.getLocation();
     this.setData({
       userId: app.globalData.authorize_user_id,
       saleId: app.globalData.saleId
@@ -46,7 +50,6 @@ Component({
       pageType: '0',       // 浏览页面（同按钮统计接口）
       type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
     }
-    console.log('猫哥卫星统计传参', params)
     starStat(params).then(function (res) {
       // console.log('别人车源猫哥卫星统计成功')
     })
@@ -55,6 +58,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 关闭弹窗
+    toggleShadow(e) {
+      let bool = e.currentTarget.dataset.isshow;
+
+      this.setData({
+        isShowShadow: bool
+      })
+    },
     // 获取品牌列表
     getBrandListData: function() {
       var _this = this;
@@ -145,7 +156,6 @@ Component({
     },
     // 显示更多车系
     show_move: function () {
-      console.log(this.data.s_move)
       this.setData({
         s_move: !this.data.s_move
       })
@@ -207,6 +217,38 @@ Component({
       this.setData({
         s_move: false
       });
+    },
+    // 获取地理定位并转化成城市信息，并存入公共空间
+    getLocation() {
+      let _this = this;
+      wx.getLocation({
+        type: 'wgs84',
+        complete(res) {
+          let errMsg = res.errMsg;
+          if (errMsg == "getLocation:ok") {
+            _this.setData({
+              latitude: res.latitude,
+              longitude: res.longitude
+            });
+            app.globalData.latitude = res.latitude
+            app.globalData.longitude = res.longitude
+            wx.getSetting({
+              success(res) {
+                if (!res.authSetting['scope.userLocation']) {
+                  _this.setData({
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                  });
+                }
+              }
+            })
+          } else {
+            _this.setData({
+              isShowShadow: true
+            });
+          }
+        }
+      })
     }
   }
 })

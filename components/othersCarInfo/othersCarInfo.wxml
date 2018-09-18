@@ -28,13 +28,14 @@
   </view>
   <view class="carsList">
     <navigator
-      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&enterType=other" 
+      url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&enterType=other&latitude={{latitude}}&longitude={{longitude}}" 
       wx:for="{{ list }}"
       wx:key="item">
       <view class='item'>
         <view class='hotTag' hidden="{{ item.state != 1 }}"><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
-          <image src='{{ item.cover }}/246' mode='aspectFit'></image>
+          <image wx:if="{{ item.cover }}" src='{{ item.cover }}/246' mode='aspectFit'></image>
+          <image wx:else src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
@@ -75,3 +76,16 @@
 <form bindsubmit="getFormId" report-submit='true' style="width:0;height: 0;">
   <button form-type="submit" id="form_id"></button>
 </form>
+<!-- 获取地理位置弹窗 -->
+<view class='shadow' wx:if='{{isShowShadow}}'>
+  <view class='content border-box'>
+    <view class='ttl'>温馨提示</view>
+    <view class='desc'>推车猫申请获取您的位置信息</view>
+    <view class='btn-wrapper'>
+      <text class='cancle' data-isshow="{{false}}" bindtap='toggleShadow'>取消</text>
+      <view class='confirm' data-isshow="{{false}}" bindtap='toggleShadow'>
+        <button open-type="openSetting">打开授权</button>确定
+      </view>
+    </view>
+  </view>
+</view>

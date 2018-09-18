@@ -1,4 +1,5 @@
 <isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
+
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
     <view class="tabItem" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
@@ -17,10 +18,11 @@
   </view>
   <view class='carsList'>
     <view class='item' wx:for="{{ list }}" wx:key="item">
-      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&entertype=self">
+      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&enterType=self">
         <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
-          <image src='{{ item.cover }}/246' mode='aspectFit'></image>
+          <image wx:if="{{ item.cover }}" src='{{ item.cover }}/246' mode='aspectFit'></image>
+          <image wx:else src='{{ item.cover }}' mode='aspectFit'></image>
         </view>
         <view class='carInfo'>
           <view class='title'>{{ item.autoName }}</view>
@@ -39,9 +41,7 @@
             data-userId="{{userId}}"
             data-toUserId='{{toUserId}}'
             data-id='{{item.id}}'
-            data-cover='{{item.cover}}'
-            data-longitude=''
-            data-latitude=''>
+            data-cover='{{item.cover}}'>
             <image src='images/fa.png' mode='widthFix'></image>
           </button>
         </label>
@@ -55,3 +55,5 @@
 <form bindsubmit="getFormId" report-submit="true">
   <button formType="submit" id="form_id" style="width:0;height:0;"></button>
 </form>
+
+

@@ -26,8 +26,10 @@ Page({
     formId: '',
     arrowColor: false,
     network: true, // 无网络连接
+    isShowShadow: false
   },
   onShow: function () {
+    var _this = this;
     // 按钮统计
     var tjParam = {
       buttonType: 8,
@@ -38,7 +40,7 @@ Page({
     }
     buttonStat(tjParam).then(function (res) {
       // console.log(tjParam)
-    })
+    }) 
   },
   /**
    * 生命周期函数--监听页面加载
@@ -47,7 +49,6 @@ Page({
     var _this = this;
     wx.getNetworkType({
       success(res) {
-        console.log(res.networkType)
         if (res.networkType == "none") {
           _this.setData({
             network: false
@@ -164,7 +165,7 @@ Page({
       var event = e || event;
       event.stopPropagation();
     } else {
-      console.log("来自右上角转发菜单");
+      // console.log("来自右上角转发菜单");
     }
   },
   getDataList: function (loadKind) {
@@ -228,7 +229,8 @@ Page({
     this.setData({
       formId: e.detail.formId
     })
-  },
+  }
+
 })
 
 wx.onNetworkStatusChange((res) => {

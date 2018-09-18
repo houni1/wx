@@ -4,7 +4,8 @@
   <view class='mainInfo'>
     <!-- 标题 -->
     <view class='title'>
-      <image src='{{ dataInfo.autoInfo.logoUrl }}/245' mode='widthFix'></image>
+      <image wx:if="{{ dataInfo.autoInfo.logoUrl }}" src='{{ dataInfo.autoInfo.logoUrl }}/245' mode='widthFix'></image>
+      <image wx:if="{{ !dataInfo.autoInfo.logoUrl }}" src='{{ dataInfo.autoInfo.logoUrl }}' mode='widthFix'></image>
       <view class='mainTitle'>{{ dataInfo.autoInfo.autoName }}</view>
       <view class='carStatus' wx:if="{{ dataInfo.autoInfo.sourceType == 1 }}">现车</view>
     </view>
@@ -51,7 +52,11 @@
         </view>
       </view>
     </label>
-    <view class='toMap' bindtap='toMap' data-lon="{{ dataInfo.userInfo.longitude }}" data-lat="{{ dataInfo.userInfo.latitude }}">
+    <view class='toMap'
+      bindtap='toMap' 
+      data-lon="{{ dataInfo.userInfo.longitude }}"
+      data-lat="{{  dataInfo.userInfo.latitude }}"
+      wx:if='{{longitude && latitude}}'>
       <image src='images/iconToMap.png' mode='widthFix'></image>
       <text>导航</text>
     </view>

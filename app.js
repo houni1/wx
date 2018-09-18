@@ -56,6 +56,8 @@ App({
     // 是否覆盖信息
     iscover: 0,
     // emaoCarShop
-    kind: 0
+    kind: 0,
+    latitude: 0,
+    longitude: 0
   }
 })
