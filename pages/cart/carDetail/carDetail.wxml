@@ -59,7 +59,7 @@
   <!-- 车辆简介 -->
   <view class='introduction'>
     <view class='title'>车辆简介</view>
-    <view class='content'>{{ dataInfo.autoInfo.introduction }}</view>
+    <view class='content' wx:if="{{ dataInfo.autoInfo.introduction }}">{{ dataInfo.autoInfo.introduction }}</view>
   </view>
   <!-- 参数配置 -->
   <view class='parameter'>
@@ -119,7 +119,7 @@
   </view>
   <!-- 创建名片 -->
   <view class='msg-box'>
-    <navigator wx:if="{{userId & userId != 0}}" url="/pages/cart/card/card">
+    <navigator wx:if="{{userId && userId != 0}}" url="/pages/cart/card/card">
       <text>进入我的名片</text>
     </navigator>
     <navigator wx:else url="/pages/cart/mark/mark?type=2&page=1">
@@ -127,11 +127,13 @@
     </navigator>
   </view>
   <!-- 分享 -->
-  <view class='share' wx:if="{{ userId == toUserId }}">
+  <view class='share' wx:if="{{ userId != toUserId }}">
     <label for='form_id'>
-      <button open-type='share' data-id='{{id}}'><view class='shareBtn'>分享</view></button>
+      <button open-type='share' data-id='{{id}}'></button>
+      <view class='shareBtn'>分 享</view>
     </label>
   </view>
+  <view class='box' wx:if="{{userId != toUserId}}"></view>
 </view>
 <form bindsubmit="getFormId" report-submit="true" style="width:0;height: 0;">
   <button formType="submit" id="form_id"></button>

@@ -12,18 +12,18 @@ Component({
    * 组件的初始数据
    */
   data: {
-    list: [],          // 车型列表
+    list: [],                   // 车型列表
     defaultList: ['奥迪', '宝马', '奔驰', '本田'],
-    brandList: [],    // 品牌列表
+    brandList: [],              // 品牌列表
     chooseBrandIndex: 0,
     chooseBrandIndex_list: -1,
     s_move: false,
-    brandId: '',    // 车型id
-    userId: '',  // 用户id
-    saleId: '',  // 被查看人id
-    page: 1,        // 当前页
-    lastPage: 1,       // 总页数
-    noData: false             // 缺省页面
+    brandId: '',                // 车型id
+    userId: '',                 // 用户id
+    saleId: '',                 // 被查看人id
+    page: 1,                    // 当前页
+    lastPage: 1,                // 总页数
+    noData: false               // 缺省页面
   },
 
   ready: function () {
@@ -126,6 +126,7 @@ Component({
       var index = event.currentTarget.dataset.index;
       this.setData({
         chooseBrandIndex: index,
+        chooseBrandIndex_list: index - 1,
         brandId: brandId,
         page: 1
       })
@@ -144,6 +145,7 @@ Component({
     },
     // 显示更多车系
     show_move: function () {
+      console.log(this.data.s_move)
       this.setData({
         s_move: !this.data.s_move
       })
