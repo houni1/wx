@@ -70,6 +70,7 @@ Page({
   getIndexUserInfo: function () {
     console.log('获取首页个人信息', globalData.authorize_user_id)
     getIndexUserInfo().then(res => {
+      console.log('首页头像路径', res.userInfo.userImg)
       if (res) {
         this.setData({
           flag: true,

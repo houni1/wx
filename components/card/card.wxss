@@ -339,3 +339,17 @@
   padding-left: 26rpx;
   padding-right: 26rpx;
 }
+
+.msg-box button {
+  border: none;
+  padding: 0;
+  outline: none;
+  background: none;
+  font-size: 26rpx;
+  line-height: 78rpx;
+  color: #fff;
+}
+
+.msg-box button::after {
+  border: none;
+}

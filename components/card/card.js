@@ -198,9 +198,65 @@ Component({
     buttonStat(btnParams).then(res => {
       console.log(res)
     })
-    wx.navigateTo({
-      url: '/pages/cart/mark/mark?type=2&page=1'
+    // wx.navigateTo({
+    //   url: '/pages/cart/mark/mark?type=2&page=1'
+    // })
+  },
+
+  // 授权触发的方法
+  cartedmyCard(data) {
+    let detail = data.detail,
+      params = null;
+    if (detail.errMsg == "getUserInfo:ok") {
+      params = {
+        encryptedData: detail.encryptedData,
+        iv: detail.iv
+      }
+      this.getAuthorizeUserId(params, 1);
+      return;
+    } else {
+      this.goPage()
+    }
+  },
+  goPage: function () {
+    wx.redirectTo({
+      url: '/pages/cart/isallow/isallow'
     })
+  },
+  // 获取用户ID
+  getAuthorizeUserId(data, wxType) {
+    let _this = this,
+      params = {};
+    if (data != null) {
+      params = Object.assign(params, data);
+    }
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          params = Object.assign(params, {
+            code: res.code,
+            wxType: wxType,
+            saleId: globalData.saleId,
+            source: globalData.source
+          });
+          console.log('强制授权页面传参', params)
+          wxAuthorization(params).then(subRes => {
+            globalData.authorize_user_id = subRes.userId;
+            console.log('aaaa', globalData.authorize_user_id)
+            // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
+            if (globalData.authorize_user_id != '0') {
+              console.log('跳转页面')
+              wx.reLaunch({
+                url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+              })
+            }
+          })
+        }
+        else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
   },
 
   // 转发名片按钮统计
