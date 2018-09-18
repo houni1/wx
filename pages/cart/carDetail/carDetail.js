@@ -61,12 +61,13 @@ Page({
     }
     wx.getLocation({
       success: function (res) {
+        console.log(11111111)
         _this.setData({
-          hasLocation: true,
+          type: 'wgs84',
           longitude: res.longitude,
           latitude: res.latitude
         })
-        
+        console.log(res)
       }
     })
     _this.getData();
@@ -136,11 +137,25 @@ Page({
     buttonStat(tjParam).then(function (res) {
       console.log("导航按钮统计成功")
     }) 
-    var lon = event.currentTarget.dataset.lon;
-    var lat = event.currentTarget.dataset.lat;
-    wx.navigateTo({
-      url: '../address/address?lon=' + lon + '&lat=' + lat,
-    })
+    var lon = this.data.longitude;
+    var lat = this.data.latitude;
+    if (lon && lat) {
+      wx.navigateTo({
+        url: '../address/address?lon=' + lon + '&lat=' + lat,
+      })
+    } else {
+      wx.getLocation({
+        success: function (res) {
+          _this.setData({
+            type: 'wgs84',
+            longitude: res.longitude,
+            latitude: res.latitude
+          })
+          console.log(res)
+        }
+      })
+    }
+    
   },
   previewImage: function (event) {
     var current = event.currentTarget.dataset.imgUrl;

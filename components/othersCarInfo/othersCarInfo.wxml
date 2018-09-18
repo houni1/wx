@@ -1,6 +1,6 @@
 <view class='wrap flex-wrapper'>
   <view class='kinds flex-wrapper'>
-    <label for="form_id" style="flex: 1;">
+    <label for="form_id" style="flex: 3;">
       <view class='kind' bindtap='chooseBrand' data-index="0" data-brand-id="">
         <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>
         <image src='images/line.png' mode='widthFix' wx:if="{{chooseBrandIndex == 0}}"></image>

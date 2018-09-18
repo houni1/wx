@@ -46,8 +46,8 @@
         <text class='name'>{{ dataInfo.userInfo.nickname }}</text>
         <view class='flex-wrapper flex-column-center'>
           <image wx:if="{{ dataInfo.userInfo.distance }}" class='iconAddress' src='images/address.png' mode='widthFix'></image>
-          <text class='distance'>{{ dataInfo.userInfo.distance }}</text>
-          <text class='addressName'>{{ dataInfo.userInfo.address }}</text>
+          <text wx:if="{{ dataInfo.userInfo.distance }}" class='distance'>{{ dataInfo.userInfo.distance }}</text>
+          <text class='addressName flex1'>{{ dataInfo.userInfo.address }}</text>
         </view>
       </view>
     </label>
@@ -127,13 +127,13 @@
     </navigator>
   </view>
   <!-- 分享 -->
-  <view class='share' wx:if="{{ userId != toUserId }}">
+  <view class='share' wx:if="{{ userId == toUserId }}">
     <label for='form_id'>
       <button open-type='share' data-id='{{id}}'></button>
       <view class='shareBtn'>分 享</view>
     </label>
   </view>
-  <view class='box' wx:if="{{userId != toUserId}}"></view>
+  <view class='box' wx:if="{{userId == toUserId}}"></view>
 </view>
 <form bindsubmit="getFormId" report-submit="true" style="width:0;height: 0;">
   <button formType="submit" id="form_id"></button>
