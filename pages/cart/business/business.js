@@ -73,25 +73,8 @@ Page({
   checkcard(e) {
     let shareId = e.currentTarget.dataset.userid;
     let userId = globalData.authorize_user_id;
-    //猫哥卫星统计
-    let params = {
-      userId: shareId,
-      checkId: globalData.authorize_user_id,
-      checkType: 2,
-      sourceType: 2,
-      buttonType: 22,
-      pageType: 5,
-      type: 3
-    }
-    starStat({
-      userId: shareId,
-      checkId: globalData.authorize_user_id,
-      checkType: 2,
-      sourceType: 2,
-      buttonType: 22,
-      pageType: 5,
-      type: 3
-    }).then((res) => {
+    //按钮
+    buttonStat({ appType: 1, pageType: 5, buttonType: 22}).then((res) => {
       if (shareId == userId) {
         wx.navigateTo({
           url: '../card/card',
