@@ -9,10 +9,10 @@ Page({
   data: {
     alarm: false,  //加载数据后提示弹框
     datashow: true,
-    newNum: "10",
+    newNum: "",
     page: {
-      perPage: "10",//每页条数
-      currentPage: "1",//当前页
+      perPage: "",//每页条数
+      currentPage: "",//当前页
       lastPage: "",//总页数
     },
     list: [],//车商圈列表
