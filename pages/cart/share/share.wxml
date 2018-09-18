@@ -10,7 +10,7 @@
     <block wx:for="{{theme}}" wx:for-index="index" wx:key="index">
       <swiper-item>
         <view class="ban-wrap">
-          <image  class='ban-img' data-url="{{item.url}}/253" src="{{item.url}}" bindtap="previewImage"/>
+          <image  class='ban-img' data-url="{{item.url}}" src="{{item.url}}/253" bindtap="previewImage"/>
         </view>
       </swiper-item>
     </block>

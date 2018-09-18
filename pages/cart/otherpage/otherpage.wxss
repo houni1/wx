@@ -19,6 +19,6 @@ z-index: 9999;
   align-items: center
 }
 .tabBar image{
-  width: 48rpx;
-  height: 48rpx;
+  width: 58rpx;
+  height: 58rpx;
 }
