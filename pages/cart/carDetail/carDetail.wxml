@@ -56,7 +56,7 @@
       bindtap='toMap' 
       data-lon="{{ dataInfo.userInfo.longitude }}"
       data-lat="{{  dataInfo.userInfo.latitude }}"
-      wx:if='{{longitude && latitude}}'>
+      wx:if='{{dataInfo.userInfo.longitude && dataInfo.userInfo.latitude}}'>
       <image src='images/iconToMap.png' mode='widthFix'></image>
       <text>导航</text>
     </view>

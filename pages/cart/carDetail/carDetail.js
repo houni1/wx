@@ -75,7 +75,6 @@ Page({
       latitude: this.data.latitude || 0         // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
-      console.log('res',res)
       _this.setData({
         dataInfo: res,
         autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
