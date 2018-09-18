@@ -96,6 +96,7 @@ Page({
             saleId: globalData.saleId,
             source: globalData.source
           });
+          console.log('强制授权页面传参', params)
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
             console.log('aaaa', globalData.authorize_user_id)

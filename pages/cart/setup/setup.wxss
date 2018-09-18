@@ -205,8 +205,19 @@
   flex-direction: column;
 }
 
+.set-item .right-icon-box {
+  line-height: 108rpx;
+}
+
+.set-item .right-icon-box .right-icon{
+  display: inline-block;
+  width: 18rpx;
+  height: 31rpx;
+}
+
 .item-city {
   line-height: 108rpx;
+  padding-right: 20rpx;
 }
 
 /* 获取手机号 */
