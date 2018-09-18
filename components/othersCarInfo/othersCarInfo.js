@@ -194,6 +194,12 @@ Component({
       this.setData({
         formId: e.detail.formId
       })
+    },
+    // 点击半透明层收起品牌列表弹窗
+    closeThiv: function () {
+      this.setData({
+        s_move: false
+      });
     }
   }
 })
