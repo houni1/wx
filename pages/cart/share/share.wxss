@@ -1,10 +1,10 @@
 .share .title{
   padding: 0 10rpx;
   background:#fff ;
-  border-top: 10rpx solid #f8f8f8
+  box-shadow: 0 5px 5px -5px #eee inset;
 }
 .wraper{
- height: 60rpx;
+ height: 65rpx;
 }
 
 .wraper .type{
@@ -16,15 +16,16 @@
   width:130rpx;
    text-align:center; 
 }
-.wraper .hot{
+.wraper .active{
   color: #282c39;
+  font-weight: bold;
 }
 .wraper .active::after{
   content: "";
   color: #282c39;
   display: block;
   width: 60rpx;
-  border-bottom: #ffcf10 solid 5rpx;
+  border-bottom: #ffcf10 solid 8rpx;
   margin: 0 auto;
   padding-top:10rpx;
 }
