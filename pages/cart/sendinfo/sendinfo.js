@@ -149,6 +149,14 @@ Page({
       this.setData({
         textinput:e.detail.value
       })
+      if(e.detail.value.length>=100){
+       wx.showToast({
+         title: "字数不能超过100",
+         icon: 'none',
+         duration: 1500,
+         mask: false,
+       });
+      }
       wx.setStorageSync("textinput",e.detail.value)
   },
 
