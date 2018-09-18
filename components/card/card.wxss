@@ -194,6 +194,12 @@
   color:#4d4d4d;
 }
 
+.card-li-text {
+  display: inline-block;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+}
+
 .person-info, .pic-info {
   /* margin-top: 15rpx; */
   margin-bottom: 15rpx;

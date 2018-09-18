@@ -3,7 +3,7 @@
 .phone-wrap{height:80rpx;border-bottom:1px solid #eee;}
 .phone-write{display:block;float:left;width:300rpx;font-size:26rpx;color:#4d4d4d;}
 .code-in{float:right;position:relative;width:180rpx;margin-top:8rpx;}
-.get-code{position:absolute;font-size:26rpx;color:#a6a6a6;}
+.get-code{position:absolute;right:0;font-size:26rpx;color:#a6a6a6;}
 .get-code-yellow{color:#ffcf10;}
 /* .get-code-yellow{color:#ffcf10;} */
 .code-tit{position:absolute;font-size:26rpx;color:#a6a6a6;}

@@ -45,10 +45,7 @@
     </navigator>
   </view>
   <!-- 车型列表弹窗 -->
-  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}"
-  catchtap='closeThiv'
-    wx:if="{{s_move && s_move == true}}"
-    catchtouchmove='true'>
+  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" wx:if="{{s_move && s_move == true}}" catchtouchmove='true' bindtap="clickAround">
     <view class="thiv {{s_move && s_move == true ? 'move_t' : ''}}">
       <view class='flex-wrapper chooseBrand'>
         <view class='flex-item toChoose'>请选择</view>

@@ -20,13 +20,20 @@ App({
           },
           method: "get",
           success: function (res) { //拿到openid和session_key
-            console.log('阿拉丁', res.data.data)
+            console.log('阿拉丁111', res.data.data)
             if (res.data.data) {
               // 调用sendOpenid方法，将openid以参数形式传入
               _this.aldstat.sendOpenid(res.data.data.openid)
               // 调用sendSession方法，将session_key以参数形式传入
               _this.aldstat.sendSession(res.data.data.sessionKey)
             }
+          },
+          fail: function (res) {
+            console.log('阿拉丁失败回调', res.data.data)
+            // 调用sendOpenid方法，将openid以参数形式传入
+            _this.aldstat.sendOpenid(res.data.data.openid)
+            // 调用sendSession方法，将session_key以参数形式传入
+            _this.aldstat.sendSession(res.data.data.sessionKey)
           }
             
         })
@@ -47,6 +54,8 @@ App({
     // 微信唯一标识
     authorize_user_id: 0,
     // 是否覆盖信息
-    iscover: 0
+    iscover: 0,
+    // emaoCarShop
+    kind: 0
   }
 })

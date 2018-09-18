@@ -84,6 +84,7 @@ width:600rpx
 .card{
 height: 150rpx;
 overflow: hidden;
+margin-top: 38rpx;
 }
 .card .my-card{
 width: 140rpx;
@@ -104,9 +105,10 @@ border-radius: 50%;
   align-content: center;
 }
 .out{
-width: 36rpx;
-height: 36rpx;
+width: 26rpx;
+height: 26rpx;
 margin-right: 10rpx;
+padding-top: 5rpx;
 }
 .myown{
   font-size:24rpx;

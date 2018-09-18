@@ -15,12 +15,12 @@ Component({
   data: {
      datashow: true,
     alarm:false,  //加载数据后提示弹框
-    newNum:"10" ,//加载数据条数
+    newNum:"" ,//加载数据条数
     list:[],
     page:{
-      perPage:  "10",//每页条数
+      perPage:  "",//每页条数
       currentPage:  "1",//当前页
-      lastPage:  "3",//总页数
+      lastPage:  "",//总页数
     },
       currentPage:1
   },
@@ -44,10 +44,10 @@ preview_head(e){
     preview_friend(e){
       console.log(e);
       let img =e.currentTarget.dataset.img;
-      img.slice(0,img.length-4);
+      img.slice(0,img.length-6);
       let list=e.currentTarget.dataset.list;
       list.forEach((item,index)=>{
-          list[index]=item.slice(0,item.length-4)
+          list[index]=item.slice(0,item.length-6)
       })
       wx.previewImage({
          current: img,
@@ -95,11 +95,11 @@ compress(list){
   list.forEach( (item,index)=> {
       
     if(item.prices.length==1){
-      item.prices[0]=item.prices[0]+"/252"
+      item.prices[0]=item.prices[0]+"/252/2"
     }
     if(item.prices.length>1){
       item.prices.forEach((con,num)=>{
-        item.prices[num]=con+"/251"
+        item.prices[num]=con+"/251/2"
       })
     }
   });

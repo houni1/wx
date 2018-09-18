@@ -256,9 +256,17 @@
   height: 60rpx;
   margin: 0 auto;
 }
+
+
 .card-li text {
   font-size: 26rpx;
   color: #4d4d4d;
+}
+
+.card-li-text {
+  display: inline-block;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
 }
 
 .lookMore {

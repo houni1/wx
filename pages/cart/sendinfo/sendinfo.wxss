@@ -1,5 +1,5 @@
 .seninfo{
-
+background: #fff;
 }
 .seninfo .content{
   width: 90%;
@@ -31,7 +31,7 @@ margin-top: 50rpx auto;
   bottom: 0;
   width: 205rpx;
   height: 205rpx;
-  border-radius: 5rpx;
+  
 }
 .img-close-box {
   width: 34rpx;
@@ -45,8 +45,7 @@ margin-top: 50rpx auto;
   padding-bottom: 11rpx;
   padding-top: 5rpx;
   box-sizing: border-box;
-  border-top-right-radius: 5rpx;
-  border-bottom-left-radius: 100%;
+  border-bottom-left-radius: 85%;
 }
 .img-close-icon {
   display: block;
@@ -57,14 +56,14 @@ margin-top: 50rpx auto;
 
 .text .area{
   width: 95%;
-  margin: 50rpx 0 0;
+  margin: 58rpx 0 0;
   font-size:30rpx;
   font-family: "PingFangSC-Regular";
   color: #4d4d4d;
-  line-height: 34rpx;
+  line-height: 40rpx;
 }
 .btn-box{
-  margin: 60rpx auto 60rpx;
+  margin: 103rpx auto 60rpx;
   }
   .btn-box .button{
   width: 90%;

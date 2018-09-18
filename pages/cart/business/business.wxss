@@ -2,7 +2,7 @@
 
 }
 .business .containt{
-background: #ebeef5;
+background: #f9f9fa;
 font-size: 0;
 margin-bottom: 160rpx;
 }
@@ -28,13 +28,13 @@ flex: 0 0 108rpx;
 }
 .information .picture .picture{
   padding-top: 30rpx;
-  margin-right:16rpx;
+  margin-right:26rpx;
 }
 .information .picture .img{
 width: 108rpx;
 height: 108rpx;
 border-radius: 50%;
-/* box-shadow: 0 0 40rpx 10rpx #e5e5e5 */
+box-shadow: 0 4rpx 40rpx  #C2BEC0;
 }
 .information .text{
 flex: 1;
@@ -77,6 +77,7 @@ color: #282c39;
 .content .img-group{
  
 }
+
 .content .four{
   width: 400rpx;
 }
@@ -91,6 +92,9 @@ color: #282c39;
 .img-group .bigcar{
   width: 350rpx;
   height: 350rpx;
+}
+.notfour .car:nth-child(3n+0){
+  margin-right: 0;
 }
 .text .time{
 padding: 20rpx 0 30rpx 0;  
@@ -111,9 +115,19 @@ align-items: center;
 display: flex
 }
 
-.foot .foot-icon{
-  width: 36rpx;
-  height: 36rpx;
+.foot .icon-check{
+  width: 34rpx;
+  height: 23rpx;
+  margin-right: 20rpx;
+}
+.foot .icon-quick{
+width: 27rpx;
+height: 28rpx;
+margin-right: 20rpx;
+}
+.foot .icon-share{
+  width: 26rpx;
+  height: 26rpx;
   margin-right: 20rpx;
 }
 .btn-box{

@@ -35,11 +35,11 @@ Page({
         console.log(7,res)
        let prices=res.prices;
        if(prices.length==1){
-        prices[0]=prices[0]+"/254"
+        prices[0]=prices[0]+"/254/2"
       }
       if(prices.length>1){
         prices.forEach( (item,index)=> {
-              prices[index]=item+"/255" 
+              prices[index]=item+"/255/2" 
         });
       }
         this.setData({

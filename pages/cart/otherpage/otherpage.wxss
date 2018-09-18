@@ -4,7 +4,6 @@ height: 100rpx;
 display: flex;
 font-family: "PingFangSC-Regular";
 font-size: 20rpx;
-/* color: #282c39; */
 color: #a6a6a6;
 position: fixed;
 bottom: 0;

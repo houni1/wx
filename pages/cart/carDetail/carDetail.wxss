@@ -2,6 +2,9 @@
 page {
   background: #f9f9fa;
 }
+.wraper{
+padding-bottom: 130rpx;
+}
 .flex {
   display: flex;
 }
@@ -241,31 +244,34 @@ page {
 /* 分享 */
 .share {
   position: fixed;
-  right: 20rpx;
-  bottom: 240rpx;
-  width: 220rpx;
-  height: 78rpx;
+  bottom: 0rpx;
+  width: 100%;
+  padding: 30rpx 0;
+  background: #fff;
 }
 button {
   padding: 0;
 }
 button::after {
   border: 0;
+  /* background: #fff; */
 } 
 .shareBtn {
-  height: 78rpx;
+  height: 100%;
   background: #ffcf10;
-  border-radius: 78rpx;
-  line-height: 78rpx;
+  border-radius: 93rpx;
+  line-height: 93rpx;
   text-align: center;
   font-size: 26rpx;
   color: #fff;
+  width: 90%;
+  margin: auto;
 }
 
 .msg-box {
   position: fixed;
-  bottom: 140rpx;
-  right: 20rpx;
+  bottom: 150rpx;
+  right: 37rpx;
   height: 78rpx;
   width: 220rpx;
   background: #ffcf10;
