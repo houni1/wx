@@ -1,7 +1,7 @@
 <view class='share'>
   <view class='title'>
     <scroll-view class='wraper' scroll-x="true" style="white-space: nowrap;">
-      <view wx:for="{{theme}}" class='type {{index==0?"hot":""}} {{swiperCurrent==index?"active":""}}' id="{{index}}" bindtap="clickEvent" data-themid="{{item.themeId}}" wx:key="item.themeId">
+      <view wx:for="{{theme}}" class='type  {{swiperCurrent==index?"active":""}}' id="{{index}}" bindtap="clickEvent" data-themid="{{item.themeId}}" wx:key="item.themeId">
         {{item.title}}
       </view>
     </scroll-view>

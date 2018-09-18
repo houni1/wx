@@ -18,13 +18,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-     refresh(){
-        let pages = getCurrentPages();
-        let page=pages[pages.length-1]
-        page.onLoad()
-        page.setData({
-          network:true
-        })
-     }
+    refresh() {
+      let pages = getCurrentPages();
+      let page = pages[pages.length - 1]
+      page.onLoad()
+      page.setData({
+        network: true
+      })
+    }
   }
 })
