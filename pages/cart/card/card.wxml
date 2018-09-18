@@ -76,7 +76,7 @@
   <view class='pic-info' wx:if="{{userInfo.userAlbum.length != '0'}}">
     <view class='info-title'>图片展示</view>
     <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
-      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259' mode="aspectFill"></image>
+      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259/2' mode="aspectFill"></image>
     </view>
   </view>
   <view class='msg-box' bindtap='toHome'>

@@ -5,7 +5,7 @@
       <view class='upload-box' data-pos='header' bindtap='uploadImage'>
         <image class='album-icon' src='/images/album-icon.png'></image>
       </view>
-      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247' mode="aspectFit"></image>
+      <image data-imgurl="{{headPortrait}}" bindtap='lookHeaderpic' class='header-pic' src='{{headPortrait}}/247/2' mode="aspectFit"></image>
     </view>
   </view>
   <view class='set-box'>
@@ -70,7 +70,7 @@
           <view class='img-close-box' data-ind="{{index}}" bindtap='closeimg'>
             <image class='img-close-icon' src='/images/img-close.png'></image>
           </view>
-          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}/248' mode="aspectFit"></image>
+          <image class='img' bindtap='lookpic' data-imgurl="{{item}}" src='{{item}}/248/2' mode="aspectFit"></image>
         </view>
       </view>
     </view>

@@ -1,7 +1,7 @@
 import { getprovinceInfo, getCityInfo } from '../../servies/services.js';
 Component({
   created () {
-    console.log('城市组件')
+    // console.log('城市组件')
     this.getprovinceInfo();
     this.getCityInfo(1)
   },
@@ -29,7 +29,7 @@ Component({
 
     // 滚动省数据获取省id
     bindChange: function (e) {
-      console.log(e.detail)
+      // console.log(e.detail)
     },
 
     // 获取市数据
@@ -56,7 +56,7 @@ Component({
     // 点击完成获取到选择的省份和城市
     complete: function () {
       var val = this.data.val
-      console.log(this.data.provinceData[val[0]].name,this.data.provinceData[val[0]].id + '-' + this.data.cityData[val[1]].name)
+      // console.log(this.data.provinceData[val[0]].name,this.data.provinceData[val[0]].id + '-' + this.data.cityData[val[1]].name)
     },
     cancel: function () {
       this.setData({

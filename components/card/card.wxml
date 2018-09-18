@@ -82,11 +82,11 @@
   <view class='pic-info' wx:if="{{userInfo.userAlbum.length != '0'}}">
     <view class='info-title'>图片展示</view>
     <view wx:for="{{userInfo.userAlbum}}" wx:key="{{index}}" class='pic-item'>
-      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259' mode="aspectFill"></image>
+      <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259/2' mode="aspectFill"></image>
     </view>
   </view>
   <view class='msg-box'>
-    <text wx:if="{{cardText == 0}}" bindtap='createMyCard'>创建我的名片</text>
+    <button wx:if="{{cardText == 0}}" bindtap='createMyCard' open-type="getUserInfo" bindgetuserinfo="cartedmyCard">创建我的名片</button>
     <text wx:elif="{{cardText != 0}}" bindtap='inMyCard'>进入我的名片</text>
   </view>
 </view>

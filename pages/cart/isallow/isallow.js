@@ -96,13 +96,13 @@ Page({
             saleId: globalData.saleId,
             source: globalData.source
           });
-          console.log('强制授权页面传参', params)
+          // console.log('强制授权页面传参', params)
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
-            console.log('aaaa', globalData.authorize_user_id)
+            // console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
             if (globalData.authorize_user_id != '0') {
-              console.log('跳转页面')
+              // console.log('跳转页面')
               wx.reLaunch({
                 url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
               })
@@ -110,7 +110,7 @@ Page({
           })
         }
         else {
-          console.log('登录失败！' + res.errMsg)
+          // console.log('登录失败！' + res.errMsg)
         }
       }
     });

@@ -50,6 +50,7 @@ Component({
       pageType: '0',       // 浏览页面（同按钮统计接口）
       type: '3'            // 事件区分 1.只猫哥卫星 2.只人气统计 3.两个都需要
     }
+    // console.log('猫哥卫星统计传参', params)
     starStat(params).then(function (res) {
       // console.log('别人车源猫哥卫星统计成功')
     })
@@ -156,6 +157,7 @@ Component({
     },
     // 显示更多车系
     show_move: function () {
+      // console.log(this.data.s_move)
       this.setData({
         s_move: !this.data.s_move
       })

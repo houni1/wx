@@ -55,7 +55,7 @@ Page({
 
   // 上拉加载
   scrollBottom: function () {
-    console.log('上拉加载数据')
+    // console.log('上拉加载数据')
     if (this.data.params.page == this.data.lastPage) {
       return
     }

@@ -26,7 +26,7 @@ Page({
     let _this=this;
      wx.getNetworkType({
       success(res){
-        console.log(res.networkType)
+        // console.log(res.networkType)
         if(res.networkType=="none") {
           _this.setData({
             network:false
@@ -119,7 +119,7 @@ Page({
                     formId: _this.data.formId
                 }
                 buttonStat(params).then(res => {
-                    console.log("跳往推车猫页面")
+                    // console.log("跳往推车猫页面")
                     _this.setData({
                         formId: '',
                         loadingFlag: false
@@ -149,7 +149,7 @@ Page({
                     formId: _this.data.formId
                 }
                 buttonStat(params).then(res => {
-                    console.log("打开名片夹页面")
+                    // console.log("打开名片夹页面")
                     _this.setData({
                         formId: '',
                         loadingFlag: false
@@ -183,7 +183,7 @@ Page({
                 loadingFlag: true
             })
             setTimeout(function () {
-                console.log("设置页")
+                // console.log("设置页")
                 let params = {
                     buttonType: 27,
                     pageType: 9,
@@ -191,8 +191,8 @@ Page({
                     userId: globalData.authorize_user_id,
                     formId: _this.data.formId
                 }
-                console.log('全局' + _this.data.formId)
-                console.log('赋值' + params.formId)
+                // console.log('全局' + _this.data.formId)
+                // console.log('赋值' + params.formId)
                 buttonStat(params).then(res => {
                     _this.setData({
                         formId: '',
@@ -213,12 +213,12 @@ Page({
 
       //formId获取
     formSubmit(e) {
-        console.log("formId", e.detail.formId)
-        console.log(1);
+        // console.log("formId", e.detail.formId)
+        // console.log(1);
         this.setData({
             formId: e.detail.formId
         })
-        console.log('form触发' + this.data.formId)
+        // console.log('form触发' + this.data.formId)
 
     },
 

@@ -37,7 +37,7 @@ Component({
     wx.getSetting({
       success(res) {
         // console.log(res)
-        console.log('是否授权过', res.authSetting['scope.userInfo'])
+        // console.log('是否授权过', res.authSetting['scope.userInfo'])
         if (!res.authSetting['scope.userInfo']) {
           _this.setData({
             isShow: true
@@ -70,7 +70,7 @@ Component({
     },
     // 获取用户ID
     getAuthorizeUserId (data, wxType) {
-      console.log(data)
+      // console.log(data)
       let _this = this,
         params = {};
       if (data != null) {
@@ -79,6 +79,7 @@ Component({
 
       wx.login({
         success: function (res) {
+          // console.log('test code', res.code)
           if (res.code) {
             params = Object.assign(params, {
               code: res.code,
@@ -86,7 +87,7 @@ Component({
               saleId: globalData.saleId,
               source: globalData.source
             });
-            console.log('授权接口传参', params)
+            // console.log('授权接口传参', params)
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
               globalData.iscover = subRes.status;
@@ -95,7 +96,7 @@ Component({
             })
           }
           else {
-            console.log('登录失败！' + res.errMsg)
+            // console.log('登录失败！' + res.errMsg)
           }
         }
       });
@@ -115,21 +116,11 @@ Component({
     },
     // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
-      console.log('强制授权页面别人的id', globalData.saleId)
-      if (globalData.source == '1' && globalData.authorize_user_id == '0') {
+      // console.log('强制授权页面别人的id', globalData.saleId)
+      if (globalData.authorize_user_id == '0' && globalData.saleId == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
-      } else if (globalData.source == '2' && globalData.authorize_user_id == '0') {
-        if (globalData.saleId != '0') {
-          wx.redirectTo({
-            url: '/pages/cart/otherpage/otherpage'
-          })
-        } else if (globalData.saleId == '0') {
-          wx.redirectTo({
-            url: '/pages/cart/isallow/isallow'
-          })
-        }
       }
     }
   }
