@@ -56,11 +56,13 @@ margin-top: 50rpx auto;
 
 .text .area{
   width: 95%;
-  margin: 58rpx 0 0;
+  padding: 58rpx 0 0;
   font-size:30rpx;
   font-family: "PingFangSC-Regular";
   color: #4d4d4d;
   line-height: 40rpx;
+  background: #fff;
+
 }
 .btn-box{
   margin: 103rpx auto 60rpx;
