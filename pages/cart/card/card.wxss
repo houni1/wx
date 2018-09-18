@@ -33,17 +33,30 @@
   box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
 }
 
+.user-pic-box {
+  background: #fff;
+  display: block;
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: -84rpx;
+  left: 50%;
+  margin-left: -84rpx;
+}
+
 .user-pic {
   background: #eee;
   display: block;
   width: 150rpx;
   height: 150rpx;
   border-radius: 50%;
-  position: absolute;
+  margin: 10rpx auto;
+  /* position: absolute;
   top: -75rpx;
   left: 50%;
-  margin-left: -75rpx;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  margin-left: -75rpx; */
+  box-shadow: 0rpx 4rpx 40rpx 0rpx #eee;
 }
 
 .card-name {

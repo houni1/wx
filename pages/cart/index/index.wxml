@@ -92,8 +92,8 @@
           </view>
         </view>
       </view>
-      <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多线索</view>
     </view>
+    <view class='lookMore' bindtap='moreCat' wx:if="{{moreflag}}">查看更多线索</view>
     <view class='msg-box' wx:if="{{card > 0}}" bindtap="goToCardcase">
       <text class='number'>{{card}}</text>
       <text>个交换名片申请</text>
