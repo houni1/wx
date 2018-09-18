@@ -34,15 +34,17 @@ Page({
    preview_friend(e){
       console.log(e);
       let img =e.currentTarget.dataset.img;
-      img.slice(0,img.length-6);
+      img=img.slice(0,img.length-6);
       let list=e.currentTarget.dataset.list;
       list.forEach((item,index)=>{
           list[index]=item.slice(0,item.length-6)
       })
+      console.log("点击图片",img,list)
       wx.previewImage({
          current: img,
          urls: list   
       }) 
+      console.log("点击后",img,list)
    },
    //快速联系
    quickcall(e){
