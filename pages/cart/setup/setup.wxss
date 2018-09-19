@@ -60,7 +60,7 @@
   width: 110rpx;
   height: 110rpx;
   border-radius: 100%;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  box-shadow:0rpx 4rpx 20rpx 0rpx #C2BEC0;
 }
 
 /* 个人介绍 */
