@@ -34,7 +34,7 @@ Page({
     wx.getSystemInfo({
       success: function(res) {
         let name = 'iPhone X'
-        if(res.model.indexOf(name) > -1){
+        if(res.model.indexOf(name) > -1||res.system.indexOf("iOS 12.0")>-1){
           _this.setData({
             iphoneX:"40%"
           })
