@@ -78,5 +78,5 @@ margin-top: 50rpx auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  font-weight: bold;
   }

@@ -11,7 +11,7 @@
           <image class='edit-icon' bindtap='toSetUp' src='/images/edit-icon.png'></image>
         </label>
         <view class='user-info'>
-          <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' src='{{userInfo.userImg}}/226'></image>
+          <image class='user-pic' data-imgurl="{{userInfo.userImg}}" bindtap='lookpic' mode="aspectFill" src='{{userInfo.userImg}}'></image>
           <text class='user-name'>{{userInfo.nickName}}</text>
           <text class='user-position'>{{userInfo.position}}</text>
         </view>

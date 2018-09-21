@@ -35,7 +35,7 @@
   color: #282c39;
   font-weight: 600;
   padding-top: 50rpx;
-  padding-bottom: 28rpx;
+  padding-bottom: 25rpx;
 }
 
 .my-code-company {
@@ -45,7 +45,7 @@
 
 .my-code-btn {
   width: 100%;
-  padding: 60rpx 50rpx;
+  padding:55rpx 50rpx 60rpx 50rpx;
   box-sizing: border-box;
 }
 
@@ -59,6 +59,7 @@
   background: #ffcf10;
   color: #282c39;
   border-radius: 50rpx;
+  box-shadow:5rpx 5rpx 15rpx #ffe68f;
 }
 
 
@@ -72,7 +73,7 @@
   border-radius: 16rpx;
   /* border: 1px solid; */
   position: relative;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  box-shadow:0rpx 4rpx 30rpx 0rpx #ebebeb;
 }
 
 .right-top-icon {

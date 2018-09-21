@@ -56,21 +56,22 @@
   top: -75rpx;
   left: 50%;
   margin-left: -75rpx; */
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #eee;
+  /* box-shadow: 0rpx 4rpx 40rpx 0rpx #eee; */
+  box-shadow:0rpx 4rpx 20rpx 0rpx #C2BEC0;
 }
 
 .card-name {
   font-size: 40rpx;
   font-weight: 600;
   color: #282c39;
-  padding-bottom: 45rpx;
+  padding-bottom: 30rpx;
 }
 
 .info-list {
   width: 100%;
   /* display: flex; */
   /* display: inline-block; */
-  padding-bottom: 45rpx;
+  padding-bottom: 30rpx;
 }
 
 .card-info-item {
@@ -89,6 +90,7 @@
 
 .item-icon {
   display: inline-block;
+  vertical-align:middle;
 }
 
 .position-icon {
@@ -291,7 +293,7 @@
 
 .set-person {
   padding-top: 40rpx;
-  padding-bottom: 26rpx;
+  padding-bottom: 40rpx;
   box-sizing: border-box;
   display: flex;
 }
@@ -335,4 +337,5 @@
   vertical-align: middle;
   padding-left: 26rpx;
   padding-right: 26rpx;
+  box-shadow:5rpx 5rpx 15rpx #ffe68f;
 }

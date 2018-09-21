@@ -12,7 +12,7 @@
                             <view>
                                 <text class="name">{{userInfo.nickName}}</text>
                             </view>
-                            <view>
+                            <view class="personal-company">
                                 <text class="post" wx:if="{{userInfo.position}}">{{userInfo.position}}</text>
                                 <text class="post" wx:if="{{userInfo.company}}"> - </text>
                                 <text class="post" wx:if="{{userInfo.company}}">{{userInfo.company}}</text>

@@ -9,7 +9,9 @@
         <view class='title'>
           <view class='name'>{{item.nickname}}</view>
           <view class='hot'>
+            <view class="hot-pic">
             <image class='hot-img' src='/images/hot.png'></image>
+            </view>
             销售人气{{item.popularity}}
           </view>
         </view>
