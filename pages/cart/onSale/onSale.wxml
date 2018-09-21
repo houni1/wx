@@ -2,18 +2,18 @@
 
 <view class='wrap'>
   <view class='filterTab flex-wrapper'>
-    <view class="tabItem" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
-    <view class="tabItem" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
+    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
     <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
       <image src='images/arrow_b.png' mode='widthFix' hidden="{{arrowColor}}"></image>
       <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!arrowColor}}"></image>
     </view>
   </view>
-  <view class='allGoods' hidden="{{!showSelect}}" style="height:{{ height }}px">
+  <view class='allGoods' hidden="{{!showSelect}}" catchtouchmove='true'>
     <view class='thiv' bindtap="clickAround">
-      <text bindtap='goodsSelect' data-type="" data-name="全部商品">全部商品</text>
-      <text bindtap='goodsSelect' data-type="1" data-name="自营商品">自营商品</text>
-      <text bindtap='goodsSelect' data-type="2" data-name="一猫商品">一猫商品</text>
+      <text bindtap='goodsSelect' data-type="" data-name="全部商品" class="{{type == '' ? 'filterActive' : ''}}">全部商品</text>
+      <text bindtap='goodsSelect' data-type="1" data-name="自营商品" class="{{type == 1 ? 'filterActive' : ''}}">自营商品</text>
+      <text bindtap='goodsSelect' data-type="2" data-name="一猫商品" class="{{type == 2 ? 'filterActive' : ''}}">一猫商品</text>
     </view>
   </view>
   <view class='carsList'>
