@@ -1,16 +1,21 @@
 .wrap {
   background:#fbfbfb; 
   overflow: hidden;
+  padding-top: 84rpx;
 }
 .filterTab {
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84rpx;
   font-size: 26rpx;
   color: #28293c;
-  height: 84rpx;
+  align-items: center;
   font-family: 'PingFangSC-Regular';
   background: #fff;
-  margin-bottom: 10rpx;
-  box-shadow: 0 2rpx 8rpx #eee;
+  box-shadow: 0 4rpx 10rpx #f5f5f5;
+  z-index: 100;
 }
 .filterTab .tabItem {
   flex: 1;
@@ -18,6 +23,11 @@
 }
 .filterTab .filterActive {
   color: #fcc91a;
+  font-weight: bold;
+}
+.allGoods .filterActive {
+  color: #fcc91a;
+  font-weight: bold;
 }
 .filterTab image {
   width: 14rpx;
@@ -26,12 +36,12 @@
 .allGoods {
   position: absolute;
   left: 0;
-  top: 95rpx;
+  top: 84rpx;
   width: 100%;
   height: 100%;
   line-height: 60rpx;
   padding: 20rpx 0;
-  z-index: 100;
+  z-index: 99;
 }
 .thiv {
   position: absolute;

@@ -99,6 +99,7 @@ Page({
    * 选择商品类型
    */
   goodsSelect: function (event){
+    console.log(event.currentTarget.dataset.type)
     this.setData({
       showSelect: false,
       goodsSelectName: event.currentTarget.dataset.name,

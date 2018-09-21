@@ -2,9 +2,6 @@
 page {
   background: #f9f9fa;
 }
-/* .wraper{
-padding-bottom: 130rpx;
-} */
 .flex {
   display: flex;
 }
@@ -27,8 +24,8 @@ padding-bottom: 130rpx;
   display: inline;
 }
 .mainInfo image {
-  display: inline-block;
-  vertical-align: middle;
+  float: left;
+  margin-top: 4rpx;
   width: 50rpx;
   height: 50rpx;
   margin-right: 10rpx;
@@ -80,7 +77,7 @@ padding-bottom: 130rpx;
   color: #282c39;
   background: #ffcf10;
   border-radius: 62rpx;
-  box-shadow: 0 5rpx 20rpx #ffcf10;
+  box-shadow:5rpx 5rpx 15rpx #ffe68f;
 }
 /* 位置信息 */
 .addressWrap {
@@ -169,7 +166,7 @@ padding-bottom: 130rpx;
   color: #282c39;
 }
 .introduction .content {
-  margin-top: 32rpx;
+  margin-top: 25rpx;
   font-size: 26rpx;
   color: #a6a6a6;
   line-height: 40rpx;
@@ -242,6 +239,9 @@ padding-bottom: 130rpx;
 .realPicture .title {
   height: 130rpx;
   line-height: 120rpx;
+  font-size: 40rpx;
+  color: #282c39;
+  font-weight: bold;
 }
 
 /* 分享 */
@@ -271,29 +271,28 @@ button::after {
   border-radius: 93rpx;
   line-height: 93rpx;
   text-align: center;
-  color: #fff;
+  color: #282c39;
   width: 90%;
   margin: auto;
   font-weight: bold;
   font-size: 34rpx;
-  box-shadow: 5rpx 5rpx 10rpx #eee;
+  box-shadow: 5rpx 5rpx 15rpx #ffe68f;
 }
 
 .msg-box {
   position: fixed;
-  bottom: 155rpx;
+  bottom: 158rpx;
   right: 37rpx;
   height: 78rpx;
   width: 220rpx;
-  font-weight: bold;
-  background: #ffcf10;
-  border-radius: 36rpx;
-  font-size: 26rpx;
   line-height: 78rpx;
   text-align: center;
   color: #fff;
+  background: #ffcf10;
+  border-radius: 78rpx;
+  font-size: 26rpx;
   vertical-align: middle;
-  box-shadow: 5rpx 5rpx 10rpx #eee;
+  box-shadow: 5rpx 5rpx 15rpx #ffe68f;
 }
 .box {
   height: 130rpx;
