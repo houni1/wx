@@ -12,7 +12,7 @@
   right: 20rpx;
   height: 78rpx;
   background: #ffcf10;
-  border-radius: 36rpx;
+  border-radius: 40rpx;
   font-size: 26rpx;
   line-height: 78rpx;
   text-align: center;
@@ -20,6 +20,7 @@
   vertical-align: middle;
   padding-left: 26rpx;
   padding-right: 26rpx;
+  box-shadow:5rpx 5rpx 15rpx #ffe68f;
 }
 .msg-box text{
   float: left;
@@ -47,7 +48,7 @@
   /* border: 1px solid #ccc; */
   padding: 40rpx 50rpx 40rpx 50rpx;
   box-sizing: border-box;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  box-shadow: 0rpx 4rpx 30rpx 0rpx #ebebeb;
 }
 
 .edit-icon {
@@ -74,7 +75,8 @@
   height: 98rpx;
   border-radius: 100%;
   background: #eee;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  /* box-shadow: 0rpx 4rpx 20rpx 0rpx #C2BEC0; */
+  box-shadow: 0rpx 4rpx 20rpx 0rpx #C2BEC0;
 }
 .user-name, .user-position {
   float: left;
@@ -121,8 +123,8 @@
 }
 
 .user-li .city-icon {
-  width: 26rpx;
-  height: 33rpx;
+  width: 24rpx;
+  height: 30rpx;
   margin-top: 1rpx;
 }
 
@@ -141,7 +143,7 @@
   font-size: 26rpx;
   color: #808080;
   padding-left: 24rpx;
-  line-height: 54rpx;
+  line-height: 50rpx;
 }
 
 .hot-num {
@@ -203,7 +205,7 @@
   width: 100%;
   line-height: 32rpx;
   height: 32rpx;
-  padding-top: 20rpx;
+  padding-top: 30rpx;
   box-sizing: border-box;
 }
 .user-allow .allow-icon {
@@ -274,6 +276,7 @@
   font-size: 26rpx;
   color: #a6a6a6;
   line-height: 50rpx;
+  padding-top:10rpx;
   padding-bottom: 20rpx;
   background: #fff;
 }
@@ -314,11 +317,11 @@
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  box-shadow: 0rpx 4rpx 40rpx 0rpx #C2BEC0;
+  box-shadow: 0rpx 4rpx 20rpx 0rpx #C2BEC0;
 }
 .catli-info {
   flex: 1;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f5f5f5;
   font-size: 24rpx;
   padding-top: 35rpx;
   padding-bottom: 35rpx;
@@ -381,6 +384,7 @@
 .catli-info-text .num {
   color: #fcc91a;
   font-size: 26rpx;
+  font-weight:bold;
 }
 
 .home-mark-box {
