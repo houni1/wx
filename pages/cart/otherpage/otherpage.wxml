@@ -2,7 +2,7 @@
 <othersCarInfo wx:if="{{carshow}}" id="othersCarInfo"></othersCarInfo>
 <business wx:if="{{bushow}}" id="business" bind:myevent="tohome"></business>
 
-<view class='tabBar'>
+<view class='tabBar' style="padding-bottom:{{isIPhoneX}}">
   <view class='home ' style="color:{{homeshow?'#282c39':'#a6a6a6'}}" bindtap="tohome">
     <image src='{{homeshow?"/images/home1.png":"/images/home.png"}}'></image>
     <text>推车猫</text>

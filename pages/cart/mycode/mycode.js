@@ -21,7 +21,8 @@ Page({
       email: '', //邮箱
     },
     email: '', // 弹框邮箱
-    formId: ''
+    formId: '',
+    iphoneX:"50%"
   },
 
   /**
@@ -29,6 +30,20 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfo()
+    let _this=this;
+    wx.getSystemInfo({
+      success: function(res) {
+        let name = 'iPhone X'
+        if(res.model.indexOf(name) > -1){
+          _this.setData({
+            iphoneX:"40%"
+          })
+        }
+      },
+      fail(e){
+        console.log("失败",e)
+      }
+    })
   },
 
   // formId获取

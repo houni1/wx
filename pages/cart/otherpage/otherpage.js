@@ -9,7 +9,8 @@ Page({
   data: {
     homeshow: true,
     carshow: false,
-    bushow: false
+    bushow: false,
+    isIPhoneX:0
   },
 
   /**
@@ -17,6 +18,20 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()//隐藏右上角分享按钮
+    let _this=this;
+    wx.getSystemInfo({
+      success: function(res) {
+        let name = 'iPhone X'
+        if(res.model.indexOf(name) > -1){
+          _this.setData({
+            isIPhoneX:"35rpx"
+          })
+        }
+      },
+      fail(){
+        console.log("失败",e)
+      }
+    })
   },
   tohome() {
     let btnParams = {

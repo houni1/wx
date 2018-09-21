@@ -165,10 +165,13 @@ Component({
     }
     changeCard(params).then(res => {
       // console.log(res)
-      wx.showToast({
-        title: '已发送申请',
-        icon: 'none'
-      })
+      setTimeout(()=>{
+        wx.showToast({
+          title: '已发送申请',
+          icon: 'none',
+          duration: 1500
+        })
+      },500)
     })
   },
 

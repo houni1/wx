@@ -71,7 +71,7 @@ color: #a6a6a6;
 width:600rpx
 }
 .content{
-  padding: 35rpx 40rpx 210rpx;
+  padding: 35rpx 40rpx 215rpx;
   line-height: 34rpx;
 }
 .oneimg{

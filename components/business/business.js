@@ -13,10 +13,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-    datashow: true,
+    datashow: true,//车商圈列表是否有数据
     alarm: false,  //加载数据后提示弹框
     newNum: "",//加载数据条数
-    list: [],
+    list: [],//车商圈列表数据
     page: {
       perPage: "",//每页条数
       currentPage: "1",//当前页
@@ -32,12 +32,13 @@ Component({
 
     //头像预览
     preview_head(e) {
-      this.btnStat(21);
-      let head = e.currentTarget.dataset.head;
-      wx.previewImage({
-        current: head,
-        urls: [head]
-      })
+      // this.btnStat(21);
+      // let head = e.currentTarget.dataset.head;
+      // wx.previewImage({
+      //   current: head,
+      //   urls: [head]
+      // })
+      this.triggerEvent('myevent')
     },
     //车商圈图片预览
     preview_friend(e) {
@@ -52,21 +53,31 @@ Component({
         urls: list
       })
     },
+    //快速联系
     quickcall(e) {
       this.btnStat(11);
       let phone = e.currentTarget.dataset.phone;
-      wx.showModal({
-        title: '拨打电话',
-        content: phone,
-        success: function (res) {
-          if (res.confirm) {
-            wx.makePhoneCall({
-              phoneNumber: phone
-            })
-          } else if (res.cancel) {
+      if (phone == "") {
+        wx.showToast({
+          title: "该用户暂无电话",
+          icon: 'none',
+          duration: 1500,
+          mask: false,
+        });
+      } else {
+        wx.showModal({
+          title: '拨打电话',
+          content: phone,
+          success: function (res) {
+            if (res.confirm) {
+              wx.makePhoneCall({
+                phoneNumber: phone
+              })
+            } else if (res.cancel) {
+            }
           }
-        }
-      })
+        })
+      }
     },
     //查看名片
     checkcard(e) {
@@ -74,6 +85,7 @@ Component({
       //跳转到别人名片页
       this.triggerEvent('myevent')
     },
+    //分享按钮点击
     share(e) {
       this.btnStat(23);
       let userId = e.currentTarget.dataset.userid;
