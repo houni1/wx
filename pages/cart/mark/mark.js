@@ -16,8 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var scene = decodeURIComponent(options.scene)
-    // console.log('扫描小程序专属码的id', scene)
+    var scene = decodeURIComponent(options.scene)
+    console.log('扫描小程序专属码的id', scene)
     // if (scene) {
     //   globalData.saleId = scene
     // }
