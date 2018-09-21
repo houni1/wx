@@ -243,7 +243,7 @@ Page({
       // console.log(res)
     })
     // console.log(this.data.email)
-    var emailReg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
+    var emailReg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
     if (emailReg.test(this.data.email)) {
       let params = {
         email: this.data.email,

@@ -194,8 +194,8 @@ Page({
       // loadKind==9时为上拉加载动作
       if (loadKind == 9) {
         _this.setData({
-          onShelf: res.amount.onShelf,
-          unOnShelf: res.amount.unOnShelf,
+          onShelf: res.amount.onShelf || 0,
+          unOnShelf: res.amount.unOnShelf || 0,
           list: _this.data.list.concat(res.list),
           lastPage: res.page.lastPage,
           page: res.page.currentPage,
@@ -204,8 +204,8 @@ Page({
       } else {
         if (res.list.length > 0) {
           _this.setData({
-            onShelf: res.amount.onShelf,
-            unOnShelf: res.amount.unOnShelf,
+            onShelf: res.amount.onShelf || 0,
+            unOnShelf: res.amount.unOnShelf || 0,
             list: res.list,
             lastPage: res.page.lastPage,
             page: res.page.currentPage,
@@ -213,8 +213,8 @@ Page({
           })
         } else {
           _this.setData({
-            onShelf: res.amount.onShelf,
-            unOnShelf: res.amount.unOnShelf,
+            onShelf: res.amount.onShelf || 0,
+            unOnShelf: res.amount.unOnShelf || 0,
             list: res.list,
             lastPage: 1,
             page: 1,

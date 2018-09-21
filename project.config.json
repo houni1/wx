@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -154,6 +154,11 @@
 					"name": "无网络链接组件",
 					"pathName": "components/isnetwork/isnetwork",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地图",
+					"pathName": "pages/cart/address/address"
 				}
 			]
 		}
