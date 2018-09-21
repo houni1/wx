@@ -14,7 +14,8 @@ Page({
         codeValue:"",
         clearTag:false,  //是否清空电话号
         typefaceTag:false, //字体是否高亮
-        btnTag:false //立即验证按钮是否高亮
+        btnTag:false, //立即验证按钮是否高亮
+        getCodeTag:false //是否获取验证码
     },
 
     /**
@@ -94,9 +95,20 @@ Page({
                 btnTag: false
             }) 
         }else{
-            this.setData({
-                btnTag: true
-            }) 
+            if (this.data.getCodeTag){
+                this.setData({
+                    btnTag: true
+                }) 
+            }else{
+                this.setData({
+                    btnTag: false
+                }) 
+                wx.showToast({
+                    title: '请输入正确的验证码',
+                    icon: 'none'
+                })
+            }
+            
         }
     },
 
@@ -104,7 +116,8 @@ Page({
     clearPhone:function(){
         this.setData({
             phoneValue: '',
-            clearTag:false
+            clearTag:false,
+            typefaceTag:false
         })
     },
 
@@ -153,13 +166,10 @@ Page({
                     loading: true
                 })
                 getCode(params).then(res => {
-                    // this.setData({
-                    //     flag:false
-                    // })
-
                     this.setData({
                         flag: false,
-                        loading:false
+                        loading:false,
+                        getCodeTag: true
                     })
 
                     var count = 60;
