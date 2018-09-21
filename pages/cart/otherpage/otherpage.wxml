@@ -2,17 +2,17 @@
 <othersCarInfo wx:if="{{carshow}}" id="othersCarInfo"></othersCarInfo>
 <business wx:if="{{bushow}}" id="business" bind:myevent="tohome"></business>
 
-<view class='tabBar'>
+<view class='tabBar' style="padding-bottom:{{isIPhoneX}}">
   <view class='home ' style="color:{{homeshow?'#282c39':'#a6a6a6'}}" bindtap="tohome">
-    <image src='{{homeshow?"/images/home1.png":"/images/home.png"}}'></image>
+    <image src='{{homeshow?"./images/home1.png":"./images/home.png"}}'></image>
     <text>推车猫</text>
   </view>
   <view class='source' style="color:{{carshow?'#282c39':'#a6a6a6'}}" bindtap="tosource">
-    <image src='{{carshow?"/images/carlist1.png":"/images/carlist.png"}}'></image>
+    <image src='{{carshow?"./images/carlist1.png":"./images/carlist.png"}}'></image>
     <text>车源</text>
   </view>
   <view class='circle' style="color:{{bushow?'#282c39':'#a6a6a6'}}" bindtap="tocircle">
-    <image src='{{bushow?"/images/business1.png":"/images/business.png"}}'></image>
+    <image src='{{bushow?"./images/business1.png":"./images/business.png"}}'></image>
     <text>车商圈</text>
   </view>
 </view>

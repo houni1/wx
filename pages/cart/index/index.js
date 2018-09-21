@@ -307,6 +307,15 @@ Page({
     }, 500)
   },
 
+  // 点击猫哥卫星列表头像进入对方名片页面
+  toCard: function (e) {
+    var saleId = e.currentTarget.dataset.checkid
+    globalData.saleId = saleId
+    wx.navigateTo({
+      url: '../otherpage/otherpage',
+    })
+  },
+
   // 获取用户手机号
   getPhoneNumber: function (e) {
     let _this = this

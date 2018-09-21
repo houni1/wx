@@ -9,7 +9,8 @@ Page({
   data: {
     homeshow: true,
     carshow: false,
-    bushow: false
+    bushow: false,
+    isIPhoneX:0
   },
 
   /**
@@ -17,7 +18,23 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()//隐藏右上角分享按钮
+    //iPhone X适配
+    let _this=this;
+    wx.getSystemInfo({
+      success: function(res) {
+        let name = 'iPhone X'
+        if(res.model.indexOf(name) > -1){
+          _this.setData({
+            isIPhoneX:"35rpx"
+          })
+        }
+      },
+      fail(){
+        console.log("失败",e)
+      }
+    })
   },
+  //首页显示
   tohome() {
     let btnParams = {
       buttonType: '39',
@@ -38,6 +55,7 @@ Page({
       }
     })
   },
+  //车源显示
   tosource() {
     if (this.carshow) return;
     this.setData({
@@ -51,6 +69,7 @@ Page({
       }
     })
   },
+  //车商圈显示
   tocircle() {
     if (this.bushow) return;
     this.setData({

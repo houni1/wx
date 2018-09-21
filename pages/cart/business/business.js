@@ -22,12 +22,13 @@ Page({
   },
   //头像预览
   preview_head(e) {
-    this.formStat(21)
-    let head = e.currentTarget.dataset.head;
-    wx.previewImage({
-      current: head,
-      urls: [head]
-    })
+    // this.formStat(21)
+    // let head = e.currentTarget.dataset.head;
+    // wx.previewImage({
+    //   current: head,
+    //   urls: [head]
+    // })
+    this.checkcard(e)
   },
   //车商圈图片预览
   preview_friend(e) {
