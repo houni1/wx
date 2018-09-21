@@ -1,5 +1,5 @@
 <view class='wrap flex-wrapper'>
-  <view class='kinds flex-wrapper'>
+  <view class='kinds flex-wrapper' hidden="{{isShowBrand}}">
     <label for="form_id" style="flex: 3;">
       <view class='kind' bindtap='chooseBrand' data-index="0" data-brand-id="">
         <text class='{{chooseBrandIndex == 0 ? "active" : ""}}'>全部品牌</text>

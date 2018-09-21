@@ -26,7 +26,8 @@ Component({
     noData: false,               // 缺省页面
     longitude: '',
     latitude: '',
-    isShowShadow: false
+    isShowShadow: false,
+    isShowBrand: true
   },
 
   ready: function () {
@@ -75,6 +76,11 @@ Component({
         userId: _this.data.saleId     // 被查看用户Id [必传]
       }
       getBrandList(params).then(function (res) {
+        if (res.length > 0) {
+          _this.setData({
+            isShowBrand: false
+          });
+        }
         _this.setData({
           brandList: res,
           defaultList: res.slice(0, 4)

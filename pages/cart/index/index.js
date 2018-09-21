@@ -340,6 +340,8 @@ Page({
               addPhone(addParams).then(res => {
                 // console.log(res)
               })
+            } else {
+              console.log("手机号获取失败")
             }
           })
 
