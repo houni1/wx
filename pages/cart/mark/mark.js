@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page: '',  // 调到推车猫的哪个页面
+    page: '1',  // 调到推车猫的哪个页面
     id: ''  // 车型id
   },
 
@@ -18,9 +18,15 @@ Page({
   onLoad: function (options) {
     var scene = decodeURIComponent(options.scene)
     console.log('扫描小程序专属码的id', scene)
-    // if (scene) {
-    //   globalData.saleId = scene
-    // }
+    if (scene == 'undefined') {
+      globalData.saleId = '0'
+    } else if (scene) {
+      globalData.saleId = scene
+      this.setData({
+        page: '2'
+      })
+    }
+    // console.log(globalData.saleId)
     if (options.type) {
       globalData.source = options.type
     } else {
@@ -38,9 +44,6 @@ Page({
     if (options.kind) {
       globalData.kind = options.kind
     }
-    this.setData({
-      page: options.page,
-    })
     // console.log('saleId',globalData.saleId)
     if (options.page) {
       this.setData({
@@ -103,8 +106,8 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    // console.log('授权后的id', globalData.authorize_user_id)
-    // console.log('saleId', globalData.saleId)
+    console.log('授权后的id', globalData.authorize_user_id)
+    console.log('saleId', globalData.saleId)
     // console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
