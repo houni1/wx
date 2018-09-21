@@ -50,6 +50,7 @@ float: left;
 font-family: "PingFangSC-Semibold";
 font-size: 32rpx;
 color: #282c39;
+font-weight: bold;
 }
 .title .hot{
 float: right;
@@ -59,7 +60,11 @@ color: #a6a6a6;
 margin-right:10rpx;
 
 }
-.hot .hot-img{
+.hot .hot-pic{
+display: inline-block;
+vertical-align: middle;
+}
+.hot .hot-img {
  width: 21rpx;
  height: 25rpx;
 }
@@ -68,15 +73,14 @@ margin-right:10rpx;
 }
 .content .content-title{
 display: block;
-margin-top:25rpx;
-margin-bottom: 30rpx;
+margin-top:20rpx;
 font-family: "PingFangSC-Regular";
 line-height: 34rpx;
 font-size: 26rpx;
 color: #282c39;
 }
 .content .img-group{
- 
+ padding-top: 30rpx;
 }
 
 .content .four{
@@ -149,7 +153,8 @@ font-size: 34rpx;
 display: flex;
 align-items: center;
 justify-content: center;
-
+box-shadow:5rpx 8rpx 15rpx #ffe68f;
+font-weight: bold;
 }
 .nodata{
   width:100% ;

@@ -4,7 +4,7 @@ background: #f8f8f9;
 .content{
 width: 690rpx;
 margin: 40rpx auto 60rpx;
-box-shadow:5rpx 5rpx 5rpx #e9e3e3;
+box-shadow:10rpx 10rpx 20rpx #f3eeee;
 border-radius: 20rpx; 
 }
 .title{
@@ -84,7 +84,7 @@ margin-right: 20rpx;
 font-family: "PingFangSC-Semibold";
 font-size: 32rpx;
 color: #282c39;
-margin: 50rpx 50rpx 65rpx;
+margin: 50rpx 50rpx 60rpx;
 text-align: center;
 font-weight: bold;
 
@@ -113,7 +113,7 @@ font-weight: bold;
 font-size: 28rpx;
 color: #282c39;
 text-align: center;
-margin-bottom: 40rpx;
+margin-bottom: 35rpx;
 font-weight: bold;
 }
 .own-text{
@@ -121,7 +121,7 @@ font-weight: bold;
   font-size: 26rpx;
   color: #a6a6a6;
   padding: 0 20rpx 100rpx;
-  line-height: 40rpx;
+  line-height: 42rpx;
   letter-spacing:3rpx;
 }
 .btn-box{
@@ -140,6 +140,9 @@ font-weight: bold;
   justify-content: center;
   font-weight: bold;
   
+  }
+  label.button{
+    box-shadow:5rpx 8rpx 15rpx #ffe68f;
   }
 
   .shadow {

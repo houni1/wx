@@ -1,10 +1,14 @@
+.share{
+  background: #fff;
+}
 .share .title{
   padding: 0 10rpx;
   background:#fff ;
   box-shadow: 0 5px 5px -5px #eee inset;
 }
 .wraper{
- height: 65rpx;
+ height: 98rpx;
+ 
 }
 
 .wraper .type{
@@ -14,7 +18,8 @@
   font-size: 26rpx;
   color: #a6a6a6;
   width:130rpx;
-   text-align:center; 
+  text-align:center; 
+  padding-top: 25rpx;
 }
 .wraper .active{
   color: #282c39;
@@ -24,16 +29,16 @@
   content: "";
   color: #282c39;
   display: block;
-  width: 60rpx;
-  border-bottom: #ffcf10 solid 8rpx;
+  width: 65rpx;
+  height: 8rpx;
+  background: #ffcf10;
   margin: 0 auto;
-  padding-top:10rpx;
+  margin-top:18rpx;
+  border-radius: 6rpx;
 }
 .banner{
 width:100%;
 height: 350rpx;
-
-padding-top: 10rpx
 }
 .ban-wrap{
   width: 100%;
@@ -47,7 +52,8 @@ padding-top: 10rpx
 font-family: "PingFangSC-Semibold";
 font-size: 32rpx;
 color: #282c39;
-margin-bottom: 15rpx
+margin-bottom: 15rpx;
+font-weight: bold;
 }
 .date{
 font-size:22rpx;
@@ -59,7 +65,7 @@ color: #a6a6a6;
   font-family: "PingFangSC-Regular";
   font-size:26rpx;
   color: #282c39;
-  margin: 25rpx auto
+  margin: 20rpx auto 30rpx;
 }
 .picture{
 width:600rpx
@@ -77,7 +83,6 @@ width:600rpx
   width:205rpx;
   height:205rpx;
   margin-right:15rpx;
-  /* box-shadow:0 0 5rpx 5rpx rgb(235, 229, 235); */
   border-radius:5rpx;
   margin-bottom:15rpx;
   display: inline-block;
@@ -99,6 +104,7 @@ border-radius: 50%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 40rpx;
+  
 }
 .shareout{
   font-size:22rpx;
@@ -121,10 +127,11 @@ padding-top: 5rpx;
   bottom: 0;
   text-align: center; 
   background: #fff;
+  box-shadow:-10rpx -10rpx 14rpx #faf5f5;
 }
 .button{
 height: 150rpx;
-padding: 20rpx 0;
+padding: 35rpx 0 10rpx;
 }
 
 .down-wrap{
