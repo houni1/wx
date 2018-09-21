@@ -114,7 +114,7 @@ Page({
     }
     buttonStat(tjParam).then(function (res) { 
       // console.log('电话按钮统计')
-    }) 
+    })
   },
   // 跳转到地图页面
   toMap: function (event) {
@@ -126,15 +126,22 @@ Page({
       formId: this.data.formId,
       userId: app.globalData.authorize_user_id
     }
-    var lon = event.currentTarget.dataset.lon;
-    var lat = event.currentTarget.dataset.lat;
+    var lon = Number(event.currentTarget.dataset.lon);
+    var lat = Number(event.currentTarget.dataset.lat);
     if (lon && lat) {
       buttonStat(tjParam).then(function (res) {
       // console.log("导航按钮统计成功")
-      }) 
-      wx.navigateTo({
-        url: '../address/address?lon=' + lon + '&lat=' + lat,
-      }) 
+      })
+      console.log(this.data.dataInfo)
+      wx.openLocation({
+        latitude: lat,
+        longitude: lon,
+        name: this.data.dataInfo.userInfo.address,
+        scale: 14
+      })
+      // wx.navigateTo({
+      //   url: '../address/address?lon=' + lon + '&lat=' + lat,
+      // })
     } else {
       wx.showToast({
         title: '暂无法获取到地址信息',
@@ -146,7 +153,6 @@ Page({
               // console.log("导航按钮统计成功")
             })
           },2000)
-          
         }
       })
     }
