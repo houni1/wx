@@ -1,12 +1,7 @@
 <view class="change-phone-wrap">
+    <!--输入手机号，获取验证码-->
     <view class="phone-wrap">
-        <input class="phone-write" 
-        type="number" 
-        maxlength="11" 
-        placeholder="请输入手机号"
-        value='{{phoneValue}}'
-        bindinput="watchPhone"
-        ></input>
+        <input class="phone-write" type="number" maxlength="11" placeholder="请输入手机号" value='{{phoneValue}}' bindinput="watchPhone"></input>
 
         <view class="code-in">
             <view class="get-code {{typefaceTag == true ? 'get-code-yellow' : '' }}" bindtap="getVerificationCode" wx:if="{{flag}}">获取验证码</view>
@@ -16,20 +11,18 @@
         </view>
 
         <view class="clear-phone" wx:if="{{clearTag}}" bindtap="clearPhone">
-            <image  src="./images/clear-logo.png"></image>
+            <image src="./images/clear-logo.png"></image>
         </view>
-        
+
     </view>
+    <!--输入验证码-->
     <view class="code-wrap">
-        <input type="number" 
-        placeholder="请输入验证码" 
-        maxlength="4" 
-        value='{{codeValue}}'
-        bindinput="watchCode">
+        <input type="number" placeholder="请输入验证码" maxlength="4" value='{{codeValue}}' bindinput="watchCode">
         </input>
     </view>
 
-    <view class="verify {{btnTag == true ? 'verify-yellow' : '' }}"  bindtap="changePhone">
+    <!--立即验证-->
+    <view class="verify {{btnTag == true ? 'verify-yellow' : '' }}" bindtap="changePhone">
         立即验证
     </view>
 </view>
