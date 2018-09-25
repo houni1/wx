@@ -1,7 +1,7 @@
 // components/card/card.js
 let globalData = getApp().globalData;
 import { setClipboard } from '../../utils/util.js';
-import { getUserInfo, changeCard, popStat, buttonStat, starStat } from '../../servies/services.js';
+import { getUserInfo, changeCard, popStat, buttonStat, starStat, wxAuthorization } from '../../servies/services.js';
 Component({
 
   /**
@@ -10,6 +10,7 @@ Component({
   data: {
     // 获取全局的userid,判断创建/进入我的名片
     cardText: 0,
+    // 请求数据成功后展示页面内容
     flag: false,
     // 用户默认信息
     userInfo: {
@@ -47,6 +48,7 @@ Component({
     })
     // console.log('用户授权的id,别人页面', this.data.cardText)
     // console.log('otherpage-kind', globalData.kind)
+    // 如果从一猫汽车商城进入推车猫，通过kind判断，不用加猫哥卫星统计
     if (globalData.kind != '3') {
       let btnParams = {
         userId: globalData.saleId,
@@ -201,9 +203,6 @@ Component({
     buttonStat(btnParams).then(res => {
       // console.log(res)
     })
-    // wx.navigateTo({
-    //   url: '/pages/cart/mark/mark?type=2&page=1'
-    // })
   },
 
   // 授权触发的方法

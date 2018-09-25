@@ -157,7 +157,7 @@ Page({
       // 来自页面内转发按钮
     }
     return {
-      title: '推车猫小程序',
+      title: '您好，这是我的名片，请惠存',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.saleId,
       success(inres) {
       },

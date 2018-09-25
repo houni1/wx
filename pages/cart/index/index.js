@@ -51,6 +51,7 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    // 监听网络连接
     wx.getNetworkType({
       success(res) {
         // console.log(res.networkType)
@@ -266,7 +267,7 @@ Page({
       // console.log(ops.target)
     }
     return {
-      title: '推车猫小程序',
+      title: '您好，这是我的名片，请惠存',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
       success(inres) {
         // console.log("转发成功", inres);

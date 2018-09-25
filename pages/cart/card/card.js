@@ -95,6 +95,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 隐藏小程序顶部分享按钮
     wx.hideShareMenu()
   },
 
@@ -157,7 +158,7 @@ Page({
       // console.log(ops.target)
     }
     return {
-      title: '推车猫小程序',
+      title: '您好，这是我的名片，请惠存',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
       success(inres) {
         // console.log("转发成功", inres);

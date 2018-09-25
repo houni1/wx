@@ -9,7 +9,7 @@
   </view>
   <view class='source' style="color:{{carshow?'#282c39':'#a6a6a6'}}" bindtap="tosource">
     <image src='{{carshow?"./images/carlist1.png":"./images/carlist.png"}}'></image>
-    <text>车源</text>
+    <text>在售车型</text>
   </view>
   <view class='circle' style="color:{{bushow?'#282c39':'#a6a6a6'}}" bindtap="tocircle">
     <image src='{{bushow?"./images/business1.png":"./images/business.png"}}'></image>

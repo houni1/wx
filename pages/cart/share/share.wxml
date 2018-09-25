@@ -36,28 +36,28 @@
       <view class='myown'>我的专属码</view>
     </footer>
   </view>
-  <view class="foot-fixed">
+  <!-- <view class="foot-fixed">
     <view class='button'>
-    <view class='down-wrap' bindtap="downPoster">
-      <image class='download' src='../business/images/download.png'></image>
-      <view class="butn-text">下载</view>
+      <view class='down-wrap' bindtap="downPoster">
+        <image class='download' src='../business/images/download.png'></image>
+        <view class="butn-text">下载</view>
+      </view>
     </view>
-  </view>
-  <view class="cancel" bindtap="cancel">取消</view>
-  </view>
+    <view class="cancel" bindtap="cancel">取消</view>
+  </view> -->
   
   
   <view class='shadow' wx:if='{{isShowShadow}}'>
-           <view class='contain border-box'>
-             <view class='ttl'>温馨提示</view>
-             <view class='desc'>推车猫小程序没有保存图片到您相册的权限，请点击确定打开权限设置</view>
-             <view class='btn-wrapper'>
-               <text class='cancle' bindtap='toggleShadow'>取消</text>
-               <view class='confirm' bindtap='toggleShadow'>
-                 <button open-type="openSetting">打开授权</button>
-                 确定
-               </view>
-             </view>
-           </view>
-         </view>
+    <view class='contain border-box'>
+      <view class='ttl'>温馨提示</view>
+      <view class='desc'>推车猫小程序没有保存图片到您相册的权限，请点击确定打开权限设置</view>
+      <view class='btn-wrapper'>
+        <text class='cancle' bindtap='toggleShadow'>取消</text>
+        <view class='confirm' bindtap='toggleShadow'>
+          <button open-type="openSetting">打开授权</button>
+          确定
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
