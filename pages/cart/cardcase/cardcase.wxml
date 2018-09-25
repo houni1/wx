@@ -1,22 +1,21 @@
 <!--pages/cart/cardcase/cardcase.wxml-->
 <view class="cardcase-wrap" wx:if="{{flag}}">
-    <view class="cardcase-nothing" wx:if="{{apply.length == 0 && userInfo.length == 0}}">   
+    <!--名片夹没有数据-->
+    <view class="cardcase-nothing" wx:if="{{apply.length == 0 && userInfo.length == 0}}">
         <image class="cardcase-no-data" src="./images/no-data.png"></image>
         <view class="no-cardcase">您的名片夹空空如也</view>
         <view class="change-cardcase">快去和大家交换名片吧！</view>
     </view>
-     
+
+    <!--未处理的名片夹-->
     <view wx-if="{{apply.length > 0}}">
-        <view class="caedcase-list" 
-            wx:for="{{apply}}"
-            wx:key="{{index}}"
-            data-userid="{{item.id}}">
+        <view class="caedcase-list" wx:for="{{apply}}" wx:key="{{index}}" data-userid="{{item.id}}">
             <view class="profile clear-fix">
                 <image class="profile-profile-photo" src="{{item.headPortrait}}/226"></image>
                 <view class="profile-name-wrap">
                     <text class="profile-name">{{item.nickName}}</text>
                 </view>
-                <view class="profile-post-wrap"> 
+                <view class="profile-post-wrap">
                     <text class="profile-post">{{item.position}}</text>
                     <text wx:if="{{item.position && item.provinceName}}">-</text>
                     <text>{{item.provinceName}}</text>
@@ -36,10 +35,10 @@
             <view class="email-wrap clear-fix">
                 <image src="./images/email-logo.png"></image>
                 <text class="email-val" wx:if="{{item.email}}">{{item.email}}</text>
-                 <text class="email-val" wx:if="{{item.email == '' }}">暂无邮箱</text>
+                <text class="email-val" wx:if="{{item.email == '' }}">暂无邮箱</text>
             </view>
 
-             <view class="company-wrap">
+            <view class="company-wrap">
                 <view class="company-name">{{item.deamerName}}</view>
                 <view class="company clear-fix" wx-if="{{item.isAuthorization == '1'}}">
                     <image src="./images/warranty-logo.png"></image>
@@ -59,19 +58,15 @@
         </view>
     </view>
 
+    <!--已经处理的名片夹-->
     <view wx-if="{{userInfo.length>0}}">
-        <view class="caedcase-list"
-            wx:for="{{userInfo}}"
-            wx:key="{{index}}"
-            data-userid="{{item.id}}"
-            bindtap="toCard"
-            >
+        <view class="caedcase-list" wx:for="{{userInfo}}" wx:key="{{index}}" data-userid="{{item.id}}" bindtap="toCard">
             <view class="profile clear-fix">
                 <image class="profile-profile-photo" src="{{item.headPortrait}}"></image>
-                 <view class="profile-name-wrap">
+                <view class="profile-name-wrap">
                     <text class="profile-name">{{item.nickName}}</text>
                 </view>
-                <view class="profile-post-wrap"> 
+                <view class="profile-post-wrap">
                     <text class="profile-post">{{item.position}}</text>
                     <text wx:if="{{item.position && item.provinceName}}">-</text>
                     <text>{{item.provinceName}}</text>

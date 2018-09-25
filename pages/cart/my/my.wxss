@@ -1,10 +1,7 @@
 /* pages/cart/my/my.wxss */
 page{background-color:#f9f9fa;}
 .personal-info-wrap{display:flex;background-color:#fff;padding:85rpx 40rpx 40rpx 40rpx;}
-.my-in{}
 .head-portrait{display:block;float:left;width:128rpx;height:128rpx;margin-top:-25rpx;margin-right:20rpx;border-radius:64rpx;box-shadow:0rpx 4rpx 20rpx 0rpx #C2BEC0;}
-.person-info-in{}
-.personal-info{}
 .personal-info .name{color:#282c39;font-size:32rpx;font-weight:bold;}
 .personal-info .post{color:#a6a6a6;font-size:28rpx;}
 .arrow-right{display:block;width:18rpx;height:31rpx;margin-top:30rpx;}
