@@ -76,7 +76,7 @@ Page({
         this.setData({
           flag: true,
           card: res.card,
-          catlist: res.list,
+          // catlist: res.list,
           userInfo: res.userInfo
         })
         // 处理红点是否显示
@@ -88,6 +88,16 @@ Page({
           })
         }
         */
+        for (var i = 0; i < res.list.length; i++) {
+          if (res.list[i].checkImg != '') {
+            res.list[i].checkImg = res.list[i].checkImg + '/183'
+          }
+        }
+        // console.log(res.list)
+        this.setData({
+          catlist: res.list
+        })
+        // console.log('猫哥卫星列表', this.data.catlist)
         if (res.list.length > '4') {
           this.setData({
             moreflag: true

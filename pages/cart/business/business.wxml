@@ -54,9 +54,10 @@
     </view>
   </view>
 </view>
-<label for="form_id" class="btn-box">
-<view class='btn-box'>
-  <view class='button' bindtap='send'>发布信息</view>
+<label for="form_id">
+<view>
+  <!-- <view class='button' bindtap='send'>发布信息</view> -->
+  <image class='button' bindtap='send' src='/images/send-info.png'></image>
 </view>
 </label>
 <view wx:if="{{!datashow}}" class="nodata">

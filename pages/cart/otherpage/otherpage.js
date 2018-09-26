@@ -64,7 +64,7 @@ Page({
       bushow: false
     })
     wx.setNavigationBarTitle({
-      title: "车源",
+      title: "在售车型",
       success() {
       }
     })
