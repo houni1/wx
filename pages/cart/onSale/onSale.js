@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bindFlag: false,     // 输入企业账号弹框
+    focusflag: false,      // 弹框弹起默认获取焦点
+    phone: '',            // 绑定企业的手机号
+    iphoneX: "50%",
     userId: '',            // 当前用户Id [必传]
     toUserId: '',          // 被查看用户Id [必传]
     tabIndex: 0,            // 顶部tab切换索引
@@ -73,6 +77,21 @@ Page({
         })
       }
     });
+    
+    
+    wx.getSystemInfo({
+      success: function (res) {
+        let name = 'iPhone X'
+        if (res.model.indexOf(name) > -1 || res.system.indexOf("iOS 12.0") > -1) {
+          _this.setData({
+            iphoneX: "40%"
+          })
+        }
+      },
+      fail(e) {
+        console.log("失败", e)
+      }
+    })
   },
   /**
    * 页面顶部tab切换
@@ -121,6 +140,77 @@ Page({
       page: 1
     });
     this.getDataList();
+  },
+
+  // 绑定企业按钮点击出弹框
+  bindbtn: function () {
+    this.setData({
+      bindFlag: true,
+      focusflag: true
+    })
+  },
+
+  // 点击取消弹窗收起
+  cancel: function () {
+    let btnParams = {
+      buttonType: '14',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      // console.log(res)
+    })
+    this.setData({
+      bindFlag: false,
+      focusflag: false
+    })
+    this.setData({
+      phone: ''
+    })
+  },
+
+  // 获取弹框手机号
+  phone: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+
+  // 点击弹框确定按钮获取在售车型
+  sure: function () {
+    let btnParams = {
+      buttonType: '15',
+      pageType: '2',
+      appType: '1'
+    }
+    buttonStat(btnParams).then(res => {
+      // console.log(res)
+    })
+    // console.log(this.data.email)
+    var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (phoneReg.test(this.data.phone)) {
+      // let params = {
+      //   email: this.data.email,
+      //   userId: globalData.authorize_user_id
+      // }
+      // sendEmail(params).then(res => {
+      //   // console.log(res)
+      // })
+      this.setData({
+        bindFlag: false,
+        focusflag: false,
+        phone: ''
+      })
+    } else {
+      wx.showToast({
+        title: '手机号格式有误，请重新输入',
+        icon: 'none'
+      })
+      this.setData({
+        phone: ''
+      })
+    }
+
   },
 
   /**

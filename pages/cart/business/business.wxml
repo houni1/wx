@@ -30,7 +30,12 @@
             </block>
           </view>
         </view>
-        <view class='time'>{{item.createdAt}}</view>
+        <view class='time'>
+          <view class='time-text'>{{item.createdAt}}</view>
+          <view class='tiem-img'>
+            <image src='/images/delete-icon.png'></image>
+          </view>
+        </view>
         <view class='foot'>
           
             <view class='check left' bindtap='checkcard' data-userId="{{item.userId}}">
