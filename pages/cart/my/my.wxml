@@ -45,6 +45,17 @@
                     <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
                 </view>
             </label>
+
+            <!--跳转到我的车商圈-->
+            <view class="border-bottom"></view>
+
+            <label for="form_id">
+              <view class="about-wrap clear-fix" bindtap="toBusiness">
+                  <image class="about-alogo left" src="./images/about-logo.png"></image>
+                  <view class="about-tuichemao left"> 我的车商圈</view>
+                  <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
+              </view>
+            </label>
         </view>
 
         <!--更换绑定手机-->

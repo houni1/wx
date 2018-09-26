@@ -32,7 +32,7 @@
         </view>
         <view class='time'>
           <view class='time-text'>{{item.createdAt}}</view>
-          <view class='tiem-img'>
+          <view class='tiem-img' wx:if="{{item.userId == authUser}}">
             <image src='/images/delete-icon.png'></image>
           </view>
         </view>

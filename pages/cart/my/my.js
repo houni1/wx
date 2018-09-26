@@ -160,6 +160,13 @@ Page({
 
     },
 
+    // 跳转到我的车商圈
+    toBusiness: function () {
+      wx.navigateTo({
+        url: '../mybusiness/mybusiness'
+      })
+    },
+
     //头像放大
     showPic: function (e) {
         var picSrc = this.data.userInfo.headPortrait;

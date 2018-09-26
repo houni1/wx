@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    authUser: '',  // 全局userid赋值
     alarm: false,  //加载数据后提示弹框
     datashow: true,
     newNum: "",
@@ -252,6 +253,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      authUser: globalData.authorize_user_id
+    })
+    console.log('车商圈userid', this.data.authUser)
     buttonStat({ appType: 1, pageType: 0, buttonType: 9 }).then((res) => {
     })
   },
