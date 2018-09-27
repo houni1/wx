@@ -1,0 +1,21 @@
+  var handleWrap = function (item) {
+    var reg = getRegExp('\n', 'g');
+    return item.replace(reg, '<br>')
+  }
+  var getDomHeight = function (el) {
+    console.log('el----',el)
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    //选择id
+    console.log(query)
+    query.select(el).boundingClientRect();
+    query.exec(function (res) {
+      console.log('打印demo的元素的信息', res);
+      console.log('打印高度', res[0].height);
+      return res[0].height
+    })
+  }
+module.exports = {
+  handleWrap: handleWrap,
+  getDomHeight: getDomHeight
+}

@@ -83,8 +83,6 @@ Page({
           "X-Emao-TCM-WeChat": "1"
         },
         success: function (res) {
-          
-        
             var data = JSON.parse(res.data).data
             // console.log(data)
             _this.setData({
@@ -149,9 +147,9 @@ Page({
       this.setData({
         textinput:e.detail.value
       })
-      if(e.detail.value.length>=100){
+      if(e.detail.value.length>=1000){
        wx.showToast({
-         title: "字数不能超过100",
+         title: "字数不能超过1000",
          icon: 'none',
          duration: 1500,
          mask: false,
@@ -171,20 +169,18 @@ Page({
       });
       return
     }
-    // console.log(0,JSON.stringify(this.data.imageList))
     postMessage({userId:globalData.authorize_user_id,information:this.data.textinput,file:JSON.stringify(this.data.imageList)}).then((res)=>{
-      // console.log(res)
-      wx.removeStorage({
-        key: "textinput",
-        success(){
-       
-        }
-      })
-      wx.removeStorage({
-        key: "imageList"
-      })
+    wx.removeStorage({
+      key: "textinput",
+      success(){
       
-      let pages = getCurrentPages();
+      }
+    })
+    wx.removeStorage({
+      key: "imageList"
+    })
+    
+    let pages = getCurrentPages();
     if (pages.length > 1) {
       //上一个页面实例对象
       let prePage = pages[pages.length - 2];
