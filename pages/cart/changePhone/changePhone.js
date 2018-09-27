@@ -8,10 +8,10 @@ Page({
      */
     data: {
         phoneValue: "", //手机号
-        flag:true,
-        timeValue:60,
-        loading:false,
-        codeValue:"",
+        flag:true,  //是否渲染页面
+        timeValue:60, //获取验证码倒计时
+        loading:false,//是否加载动画
+        codeValue:"", //验证码内容
         clearTag:false,  //是否清空电话号
         typefaceTag:false, //字体是否高亮
         btnTag:false, //立即验证按钮是否高亮
@@ -36,6 +36,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        //隐藏分享功能
       wx.hideShareMenu()
     },
 
@@ -64,10 +65,6 @@ Page({
 
         var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
         if (!phoneReg.test(this.data.phoneValue)) {
-            // wx.showToast({
-            //     title: '请输入正确的手机号',
-            //     icon: 'none'
-            // })
             this.setData({
                 typefaceTag: false
             }) 
@@ -87,10 +84,6 @@ Page({
         })
         var codeReg = /^\d{4}$/;
         if (!codeReg.test(this.data.codeValue)){
-            // wx.showToast({
-            //     title: '请输入正确的验证码',
-            //     icon: 'none'
-            // })
             this.setData({
                 btnTag: false
             }) 
@@ -123,34 +116,6 @@ Page({
 
     //获取验证码
     getVerificationCode: function () {
-        
-        // this.setData({
-        //     flag: false,
-        // })
-
-        // var count = 10;
-        // var timer = null;
-        // var that = this;
-        // timer = setInterval(function () {
-        //     if (count > 0) {
-        //         count = count - 1;
-        //         that.setData({
-        //             timeValue: count
-        //         })
-        //     }
-        //     else {
-        //         that.setData({
-        //             flag: true
-        //         })
-        //         clearInterval(timer);
-        //     }
-        // }, 1000);
-
-      
-
-        
-
-
         var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
         if (!phoneReg.test(this.data.phoneValue)) {
             wx.showToast({
@@ -208,7 +173,6 @@ Page({
        
         var codeReg = /^\d{4}$/;
         var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-        // console.log(this.data)
         if (!phoneReg.test(this.data.phoneValue)){
             wx.showToast({
                 title: '请输入正确的手机号',
@@ -229,13 +193,11 @@ Page({
                     title: '验证成功',
                     icon: 'none'
                 })
-                // console.log(1);
                 setTimeout(function(){
                     wx.switchTab({
                         url: '../my/my'
                     })
                 },2000)
-                // console.log(2);
 
             }) 
         }

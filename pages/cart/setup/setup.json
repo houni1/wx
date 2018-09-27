@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "推车猫设置",
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "disableScroll": true
 }

@@ -4,6 +4,7 @@
 
     <view class="my-wrap">
         <view class="my-in">
+            <!--个人信息简介-->
             <view class="personal-info-wrap clear-fix">
                 <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}/249"></image>
                 <label class="label-edit" for="form_id">
@@ -19,12 +20,13 @@
                             </view>
                         </view>
                         <image class="arrow-right right" src="./images/arrow-right.png"></image>
-                     </view>
+                    </view>
                 </label>
 
 
             </view>
 
+            <!--跳转到名片夹-->
             <label for="form_id">
                 <view class="cardcase-wrap clear-fix" bindtap="goToCardcase">
                     <image class="cardcase-logo left" src="./images/cardcase-logo.png"></image>
@@ -33,6 +35,7 @@
                 </view>
             </label>
 
+            <!--跳转到关于推车猫-->
             <view class="border-bottom"></view>
 
             <label for="form_id">
@@ -43,10 +46,19 @@
                 </view>
             </label>
 
-            
+            <!--跳转到我的车商圈-->
+            <view class="border-bottom"></view>
 
+            <label for="form_id">
+              <view class="about-wrap clear-fix" bindtap="toBusiness">
+                  <image class="about-alogo left" src="./images/about-logo.png"></image>
+                  <view class="about-tuichemao left"> 我的车商圈</view>
+                  <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
+              </view>
+            </label>
         </view>
 
+        <!--更换绑定手机-->
         <view class="change-phone" bindtap="changePhone">
             更换绑定手机
         </view>

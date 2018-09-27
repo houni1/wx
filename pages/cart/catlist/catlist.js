@@ -46,9 +46,20 @@ Page({
       }
       let catlist = params.page == 1 ? [] : this.data.catlist;
       this.setData({
-        catlist: catlist.concat(res.list),
+        // catlist: catlist.concat(res.list),
         lastPage: res.page.lastPage,
         currentPage: res.page.currentPage
+      })
+      for (var i = 0; i < res.list.length; i++) {
+        console.log('猫哥卫星列表页面', res.list[i].checkImg)
+        if (res.list[i].checkImg != '') {
+          res.list[i].checkImg = res.list[i].checkImg + '/183'
+        }
+      }
+
+      console.log('猫哥卫星列表更多', res.list)
+      this.setData({
+        catlist: catlist.concat(res.list),
       })
     })
   },
@@ -67,6 +78,15 @@ Page({
 
     this.getCatList(this.data.params)
 
+  },
+
+  // 点击猫哥卫星列表头像进入对方名片页面
+  toCard: function (e) {
+    var saleId = e.currentTarget.dataset.checkid
+    globalData.saleId = saleId
+    wx.navigateTo({
+      url: '../otherpage/otherpage',
+    })
   },
 
   /**

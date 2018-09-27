@@ -1,16 +1,15 @@
 <!--pages/cart/about/about.wxml-->
 <view class="about-wrap">
+    <!--推车猫logo-->
     <view class="tuichemao-intro-wrap">
         <image class="tuichemao-logo" src="{{tcmData.img}}"></image>
         <text class="tuichemao-name">{{tcmData.name}}</text>
         <text class="tuichemao-intro">{{tcmData.intro}}</text>
     </view>
 
+    <!--推车猫介绍-->
     <view class="tuichemao-info-wrap">
-        <view class="tuichemao-info" 
-            wx:for="{{tcmData.text}}"
-            wx:key="{{index}}"
-            >
+        <view class="tuichemao-info" wx:for="{{tcmData.text}}" wx:key="{{index}}">
             <view class="tuichemao-title clear-fix">
                 <text class="yellow-icon"></text>
                 <text class="title-info">{{item.title}}</text>
@@ -20,9 +19,10 @@
 
     </view>
 
+    <!--推车猫版本-->
     <view class="tuichemao-versoin-wrap">
         <view class="tuichemao-version">版本号：V 1.0.0</view>
     </view>
-    
+
 
 </view>

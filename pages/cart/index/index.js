@@ -51,6 +51,7 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    // 监听网络连接
     wx.getNetworkType({
       success(res) {
         // console.log(res.networkType)
@@ -75,7 +76,7 @@ Page({
         this.setData({
           flag: true,
           card: res.card,
-          catlist: res.list,
+          // catlist: res.list,
           userInfo: res.userInfo
         })
         // 处理红点是否显示
@@ -87,6 +88,16 @@ Page({
           })
         }
         */
+        for (var i = 0; i < res.list.length; i++) {
+          if (res.list[i].checkImg != '') {
+            res.list[i].checkImg = res.list[i].checkImg + '/183'
+          }
+        }
+        // console.log(res.list)
+        this.setData({
+          catlist: res.list
+        })
+        // console.log('猫哥卫星列表', this.data.catlist)
         if (res.list.length > '4') {
           this.setData({
             moreflag: true
@@ -266,7 +277,7 @@ Page({
       // console.log(ops.target)
     }
     return {
-      title: '推车猫小程序',
+      title: '您好，这是我的名片，请惠存',
       path: "pages/cart/mark/mark?type=2&page=2&saleId=" + globalData.authorize_user_id,
       success(inres) {
         // console.log("转发成功", inres);

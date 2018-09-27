@@ -135,6 +135,7 @@ Component({
               lastPage: 1
             });
           }
+          console.log('车型列表缺省页', _this.data.noData)
         }
       })
     },

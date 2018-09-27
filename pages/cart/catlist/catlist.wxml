@@ -2,7 +2,7 @@
 <view class='home-catlist' wx:if="{{catlist}}">
   <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
     <view class='catli-pic'>
-      <image src='{{item.checkImg}}'></image>
+      <image data-checkid="{{item.checkId}}" bindtap='toCard' src='{{item.checkImg}}'></image>
     </view>
     <view class='catli-info'>
       <view class='catli-info-top'>

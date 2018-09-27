@@ -47,17 +47,17 @@
       <view class='person-info-item'>
         <view class='info-item-text'>手机号</view>
         <view class='info-item-input'><input disabled value='{{userInfo.phone == "" ? "暂无手机号" : userInfo.phone}}'></input></view>
-        <view class='info-item-btn' bindtap='setPhoneToClipboard'><text>复制</text></view>
+        <view class='info-item-btn' bindtap='setPhoneToClipboard'><text wx:if="{{userInfo.phone != ''}}">复制</text></view>
       </view>
       <view class='person-info-item'>
         <view class='info-item-text'>微信</view>
         <view class='info-item-input'><input disabled value='{{userInfo.wechatNumber == "" ? "暂无微信号" : userInfo.wechatNumber}}'></input></view>
-        <view class='info-item-btn' bindtap='setWeChatToClipboard'><text>复制</text></view>
+        <view class='info-item-btn' bindtap='setWeChatToClipboard'><text wx:if="{{userInfo.wechatNumber != ''}}">复制</text></view>
       </view>
       <view class='person-info-item'>
         <view class='info-item-text'>邮箱</view>
         <view class='info-item-input'><input disabled value='{{userInfo.email == "" ? "暂无邮箱" : userInfo.email}}'></input></view>
-        <view class='info-item-btn' bindtap='setEMallToClipboard'><text>复制</text></view>
+        <view class='info-item-btn' bindtap='setEMallToClipboard'><text wx:if="{{userInfo.email != ''}}">复制</text></view>
       </view>
       <view class='set-person'>
         <view class='set-person-text'>个人介绍</view>
@@ -71,7 +71,7 @@
       <view class='person-info-item'>
         <view class='info-item-text'>公司名称</view>
         <view class='info-item-input'><input disabled value='{{userInfo.company == "" ? "暂无公司" : userInfo.company}}'></input></view>
-        <view class='info-item-btn' bindtap='setNameToClipboard'><text>复制</text></view>
+        <view class='info-item-btn' bindtap='setNameToClipboard'><text wx:if="{{userInfo.company != ''}}">复制</text></view>
       </view>
       <view class='set-person'>
         <view class='set-person-text'>公司地址</view>
