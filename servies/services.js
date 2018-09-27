@@ -170,6 +170,9 @@ let coverOldData = function (data) {
 let addPhone = function (data) {
   return $post("/cart/user/addPhone", data)
 }
+let deleteCircle=function(data){
+  return $get("/cart/carCircle/myCarCircleDel",data)
+}
 
 export {
   wxAuthorization,
@@ -199,5 +202,6 @@ export {
   sendEmail,
   changeCard,
   coverOldData,
-  addPhone
+  addPhone,
+  deleteCircle
 };

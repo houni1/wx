@@ -14,17 +14,17 @@
          </view>
          <view class='text'>
             <view class='job'>
-            <image class='job-img' src="../business/images/job.png"></image>
+            <image class='job-img' src="/images/job.png"></image>
             <view class='job-text'>{{position==""?"暂无职位":position}}</view>
             </view>
             <view class='phone'>
-               <image class='phone-img' src="../business/images/tel.png"></image>
+               <image class='phone-img' src="/images/tel.png"></image>
                <view class='phone-text'>{{phone==""?"暂无电话":phone}}</view>
             </view>
          </view>
          <view class='company'>{{company}}</view>
          <view class='own'>
-            <view class='own-title'>您的专属推车猫名片</view>
+            <view class='own-title'>您的专属车商猫电子名片</view>
             <view class='own-text'>猫卫星监控访客互动，积累线索转化商机，车商圈帮你轻松拓展人脉</view>
             <image src='/images/cat.png' class='cat'></image>
          </view>
@@ -43,7 +43,7 @@
         <view class='shadow' wx:if='{{isShowShadow}}'>
            <view class='contain border-box'>
              <view class='ttl'>温馨提示</view>
-             <view class='desc'>推车猫小程序没有保存图片到您相册的权限，请点击确定打开权限设置</view>
+             <view class='desc'>车商猫电子名片小程序没有保存图片到您相册的权限，请点击确定打开权限设置</view>
              <view class='btn-wrapper'>
                <text class='cancle' bindtap='toggleShadow'>取消</text>
                <view class='confirm' bindtap='toggleShadow'>

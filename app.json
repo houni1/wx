@@ -27,7 +27,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "推车猫",
+    "navigationBarTitleText": "车商猫电子名片",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -37,7 +37,7 @@
     "list": [
       {
         "pagePath": "pages/cart/index/index",
-        "text": "推车猫",
+        "text": "首页",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home1.png"
       },

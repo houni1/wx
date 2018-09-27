@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "车商圈",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#f9f9fa",
+  "backgroundTextStyle":"dark"
+}

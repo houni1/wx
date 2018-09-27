@@ -5,7 +5,7 @@
 <view class='tabBar' style="padding-bottom:{{isIPhoneX}}">
   <view class='home ' style="color:{{homeshow?'#282c39':'#a6a6a6'}}" bindtap="tohome">
     <image src='{{homeshow?"./images/home1.png":"./images/home.png"}}'></image>
-    <text>推车猫</text>
+    <text>名片</text>
   </view>
   <view class='source' style="color:{{carshow?'#282c39':'#a6a6a6'}}" bindtap="tosource">
     <image src='{{carshow?"./images/carlist1.png":"./images/carlist.png"}}'></image>
