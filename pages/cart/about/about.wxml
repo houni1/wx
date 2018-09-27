@@ -20,9 +20,25 @@
     </view>
 
     <!--推车猫版本-->
-    <view class="tuichemao-versoin-wrap">
-        <view class="tuichemao-version">版本号：V 1.0.0</view>
-    </view>
+    <!-- <view class="tuichemao-versoin-wrap">
+        <button class="change-phone" open-type="contact">下载车商猫</button> -->
+
+        <!-- <contact-button 
+            class="change-phone"
+            type="default-light" 
+            size="20"
+            session-from="weapp"
+        >下载车商猫
+        </contact-button> -->
+
+        <!-- <view class="tuichemao-version">版本号：V 1.0.0</view>
+    </view> -->
 
 
 </view>
+
+  <!--推车猫版本-->
+    <view class="tuichemao-versoin-wrap">
+        <button class="change-phone" open-type="contact" session-from="weapp">下载车商猫</button>
+        <view class="tuichemao-version">版本号：V 1.0.0</view>
+    </view>

@@ -6,7 +6,7 @@
         <view class="my-in">
             <!--个人信息简介-->
             <view class="personal-info-wrap clear-fix">
-                <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}/249"></image>
+                <image class="head-portrait left" bindtap="showPic" src="{{userInfo.headPortrait}}/249/3"></image>
                 <label class="label-edit" for="form_id">
                     <view class="person-info-in clear-fix" bindtap="goToSetup">
                         <view class="personal-info left">
@@ -41,7 +41,7 @@
             <label for="form_id">
                 <view class="about-wrap clear-fix" bindtap="goToAbout">
                     <image class="about-alogo left" src="./images/about-logo.png"></image>
-                    <view class="about-tuichemao left">关于推车猫</view>
+                    <view class="about-tuichemao left">关于我们</view>
                     <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
                 </view>
             </label>
