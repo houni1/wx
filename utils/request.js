@@ -25,7 +25,7 @@ let requestBody = function (url, data, method) {
                     let msg = data.msg || "好像失败了哦！";
                     wx.showToast({
                         title: msg,
-                        icon: 'loading',
+                         icon: "none",
                         duration: 3000
                     })
                     

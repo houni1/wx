@@ -254,6 +254,14 @@ Page({
     })
   },
 
+  // 获取用户公司地址
+  companyAddress: function (e) {
+    var companyAddress = 'userInfo.companyAddress'
+    this.setData({
+      [companyAddress]: e.detail.value
+    })
+  },
+
   // 获取用户职位
   position: function (e) {
     var position = 'userInfo.position'
@@ -359,6 +367,7 @@ Page({
         userId: this.data.userInfo.id,
         userName: this.data.userInfo.nickName.trim(),
         company: this.data.userInfo.company.trim(),
+        companyAddress: this.data.userInfo.companyAddress.trim(),
         headPortrait: this.data.headPortrait,
         userAlbum: this.data.imageList,
         position: this.data.userInfo.position.trim(),

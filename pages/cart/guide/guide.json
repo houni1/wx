@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "车商猫电子名片",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}
