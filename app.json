@@ -22,12 +22,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/cart/city/city",
-    "pages/cart/mybusiness/mybusiness"
+    "pages/cart/mybusiness/mybusiness",
+    "pages/cart/guide/guide"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "推车猫",
+    "navigationBarTitleText": "车商猫电子名片",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

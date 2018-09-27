@@ -55,6 +55,7 @@ Component({
     // 授权触发的方法
     getUserInfo(data) {
       let detail = data.detail,
+      // console.log('getuserInfo', detail)
           params = null;
       if (detail.errMsg == "getUserInfo:ok") {
         params = {
@@ -79,7 +80,7 @@ Component({
 
       wx.login({
         success: function (res) {
-          // console.log('test code', res.code)
+          // console.log('test code', res)
           if (res.code) {
             params = Object.assign(params, {
               code: res.code,
