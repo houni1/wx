@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "推车猫",
+  "navigationBarTitleText": "车商猫电子名片",
   "usingComponents": {
     "authorization": "/components/authorization/authorization"
   },
