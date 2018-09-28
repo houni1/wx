@@ -79,6 +79,7 @@ Page({
     let userId = globalData.authorize_user_id;
     //按钮
     buttonStat({ appType: 1, pageType: 5, buttonType: 22}).then((res) => {
+      wx.showTabBar();
       if (shareId == userId) {
         wx.navigateTo({
           url: '../card/card',

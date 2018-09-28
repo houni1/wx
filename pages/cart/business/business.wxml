@@ -24,14 +24,8 @@
           </view>
         </view>
         <view class="content">
-          <!-- <view class="content-title">{{item.information}}</view> -->
-          
+          <!-- <view class="content-title">{{item.information}}</view> -->          
           <text class="content-title {{commonFn.handleWrap(item.information).lineNum > 6 && item.isAll ? 'max-height' : ''}}">{{commonFn.handleWrap(item.information).str}}</text>
-          <!-- <rich-text 
-            class="content-title {{item.isAll ? 'max-height' : ''}}" 
-            id='title{{index}}' 
-            nodes="{{commonFn.handleWrap(item.information)}}">
-          </rich-text> -->
           <text class='showClose' bindtap='showClose'
             wx:if='{{commonFn.handleWrap(item.information).lineNum > 6 && item.isAll}}'
             data-index='{{index}}'>显示全文</text>

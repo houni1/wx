@@ -15,7 +15,8 @@ Page({
       currentPage: "1",//当前页
       lastPage: "",//总页数
     },
-    currentPage: 1
+    currentPage: 1,
+    isAll: true   // 是否显示全文
   },
 
   /**
@@ -120,6 +121,9 @@ Page({
         })
       }
       let list = this.compress(res.list)
+      for(var i=0;i<list.length;i++){
+        list[i].isAll = true
+      }
       this.setData({
         page: res.page,
         list: list,
@@ -158,6 +162,16 @@ Page({
       })
 
     })
+  },
+  // 显示全文，收起
+  showClose: function(event){
+    var index = event.currentTarget.dataset.index;
+    this.data.list[index].isAll = !this.data.list[index].isAll
+    console.log(index)
+    console.log(this.data.list)
+    this.setData({
+      list:  this.data.list
+    });
   },
 
   deleteCircle(e){

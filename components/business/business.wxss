@@ -65,16 +65,24 @@ margin-right:10rpx;
  width: 21rpx;
  height: 25rpx;
 }
-.text .content{
-
+.text .content .showClose{
+  display: block;
+  color: #fcc91a;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.content {
+  padding-top:20rpx;
 }
 .content .content-title{
-display: block;
-margin-top:20rpx;
-font-family: "PingFangSC-Regular";
-line-height: 34rpx;
-font-size: 26rpx;
-color: #282c39;
+  display: block;
+  font-family: "PingFangSC-Regular";
+  line-height: 34rpx;
+  font-size: 26rpx;
+  color: #282c39;
+  overflow: hidden;
+  word-wrap:break-word;
+  word-break:break-all;
 }
 .content .img-group{
   padding-top: 30rpx;
@@ -157,4 +165,8 @@ margin-right: 20rpx;
 .nodata .no-text{
   padding-left: 11rpx;
   margin-top: 40rpx;
+}
+.max-height {
+  height: 200rpx;
+  overflow: hidden;
 }

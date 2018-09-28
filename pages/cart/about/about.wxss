@@ -23,6 +23,7 @@ page{background-color:#fff; overflow-y:scroll !important;}
 .title-info{display:block;float:left;margin-top:-12rpx;font-size:26rpx;color:#282c39;font-weight:bold;}
 .tuichemao-info-wrap{margin-top:95rpx;}
 .info-con{line-height:40rpx;font-size:26rpx;color:#a6a6a6;}
-.tuichemao-versoin-wrap{position:fixed;left: 50%;bottom:0rpx;transform: translate(-50%, 0%);font-size:20rpx;color:#a6a6a6;padding:20rpx 30rpx 40rpx 30rpx;background-color:#fff;box-shadow:0rpx -5rpx 5rpx #f9f9fa;}
+.tuichemao-versoin-wrap{position:fixed;left: 50%;bottom:0rpx;transform: translate(-50%, 0%);font-size:20rpx;color:#a6a6a6;padding:20rpx 30rpx 40rpx 30rpx;background-color:#fff;width:100%;}
+/* box-shadow:0rpx -5rpx 5rpx #f9f9fa; */
 .tuichemao-version{position:relative;text-align:center;}
 .change-phone{width:690rpx;height:100rpx;margin-bottom:30rpx;font-size:32rpx;color:#282c39;line-height:100rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;box-shadow:5rpx 5rpx 15rpx #ffe68f;border:transparent;}
