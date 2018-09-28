@@ -1,5 +1,5 @@
 <import src="../../../utils/wxParse/wxParse.wxml"/>
-<view class="wraper">
+<view class="wraper" wx:if="{{flag}}">
   <view class='topPic'><image src='{{ dataInfo.autoInfo.cover }}' mode='widthFix'></image></view>
   <view class='mainInfo'>
     <!-- 标题 -->
