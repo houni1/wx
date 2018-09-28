@@ -1,4 +1,4 @@
-/* pages/cart/helpcard/helpcard.wxss */
+/* pages/cart/helpcircle/helpcircle.wxss */
 .help-item-wrap {
   width: 100%;
   padding: 30rpx 30rpx 0 30rpx;
@@ -9,16 +9,13 @@
   width: 100%;
   padding-bottom: 25rpx;
   border-radius: 18rpx;
-  background: #fff;
+  background: pink;
   margin-bottom: 60rpx;
 }
 
 .help-item-title {
   width: 100%;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  padding-top: 24rpx;
-  padding-bottom: 26rpx;
+  padding: 45rpx 30rpx;
   box-sizing: border-box;
   color: #fff;
   height: 120rpx;
@@ -26,7 +23,7 @@
   border-top-left-radius: 18rpx;
   border-top-right-radius: 18rpx;
   font-size: 30rpx;
-  line-height: 38rpx;
+  line-height: 30rpx;
 }
 
 .help-item-pic {
@@ -43,7 +40,6 @@
 }
 
 .help-item-text {
-  display: block;
   width: 100%;
   padding-left: 30rpx;
   padding-right: 30rpx;
