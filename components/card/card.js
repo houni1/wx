@@ -189,8 +189,11 @@ Component({
       // console.log(res)
     })
     wx.navigateTo({
-      url: '/pages/cart/card/card'
+      url: '/pages/cart/card/card',
     })
+    // wx.switchTab({
+    //   url: '/pages/cart/index/index'
+    // })
   },
 
   // 创建我的名片
