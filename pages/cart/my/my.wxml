@@ -51,7 +51,7 @@
 
             <label for="form_id">
               <view class="about-wrap clear-fix" bindtap="toBusiness">
-                  <image class="about-alogo left" src="./images/circle-logo.png"></image>
+                  <image class="circle-alogo left" src="./images/circle-logo.png"></image>
                   <view class="about-tuichemao left"> 我的车商圈</view>
                   <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
               </view>
