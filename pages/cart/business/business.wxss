@@ -84,6 +84,8 @@ vertical-align: middle;
   font-size: 26rpx;
   color: #282c39;
   overflow: hidden;
+  word-wrap:break-word;
+  word-break:break-all;
 }
 .content .img-group{
  padding-top: 30rpx;

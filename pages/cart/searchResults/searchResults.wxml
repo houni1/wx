@@ -2,7 +2,10 @@
 <view class='wrap'>
   <view class='searchInfo'>
     <view class='flex infoBox'>
-      <view class='photo'><image src='images/photo.png' mode='widthFix'></image></view>
+      <view class='photo'>
+        <image wx:if="{{userInfo.avatar}}" src='{{userInfo.avatar}}' mode='widthFix'></image>
+        <image wx:else src='images/defaultPhoto.png' mode='widthFix'></image>
+      </view>
       <view class='flex1'>
         <view class='name'>{{userInfo.name}}</view>
         <view class='tag'>{{userInfo.dealerName}}</view>

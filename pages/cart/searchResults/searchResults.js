@@ -200,9 +200,9 @@ Page({
 
       let params = {
         page: 1,                  // 当前页 [必传]
-        brandId: '',                    // 品牌id [非必传]
-        status: 1,       // 上下架状态 1上架 2下架 [非必传]
-        type: '',            // 1 自营 2 一猫 [非必传]
+        brandId: '',              // 品牌id [非必传]
+        status: 1,                // 上下架状态 1上架 2下架 [非必传]
+        type: '',                 // 1 自营 2 一猫 [非必传]
         phone: this.data.phone
       }
       bindingEnterprise(params).then(res => {
@@ -215,7 +215,8 @@ Page({
             page: res.page.currentPage,
             noData: false,
             isShowBrand: false,
-            status: 1
+            status: 1,
+            userInfo: res.userInfo
           })
         } else {
           _this.setData({
@@ -225,7 +226,8 @@ Page({
             lastPage: 1,
             page: 1,
             noData: true,
-            isShowBrand: true
+            isShowBrand: true,
+            userInfo: res.userInfo
           })
         }
       })
@@ -236,7 +238,8 @@ Page({
     } else {
       wx.showToast({
         title: '手机号格式有误，请重新输入',
-        icon: 'none'
+        icon: 'none',
+        duration: 2000
       })
       this.setData({
         phone: ''
@@ -371,9 +374,7 @@ Page({
       isCoverBox: false
     })
     app.globalData.iscover = '2'
-    // console.log('取消覆盖', globalData.iscover)
   },
-
   // 允许覆盖
   sureBind: function () {
     var params = {
@@ -381,15 +382,16 @@ Page({
       saleId: this.data.saleId      //车商猫用户Id （必填）
     }
     coverOldData(params).then(res => {
-      // console.log(res)
       this.setData({
         isCoverBox: false
       })
       app.globalData.iscover = '2'
-      // console.log('允许覆盖', globalData.iscover)
-      if (globalData.iscover == '2') {
-        this.getIndexUserInfo()
-      }
+      // if (app.globalData.iscover == '2') {
+      //   this.getIndexUserInfo()
+      // }
+      wx.switchTab({
+        url: '../onSale/onSale',
+      })
     })
   },
   // 绑定企业
