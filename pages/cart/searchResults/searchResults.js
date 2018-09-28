@@ -1,4 +1,4 @@
-import { getOnSaleData, buttonStat, starStat, popStat } from '../../../servies/services.js';
+import { bindingEnterprise, buttonStat, starStat, popStat, coverOldData } from '../../../servies/services.js';
 var app = getApp();
 Page({
   /**
@@ -7,7 +7,7 @@ Page({
   data: {
     bindFlag: false,     // 输入企业账号弹框
     focusflag: false,      // 弹框弹起默认获取焦点
-    phone: '',            // 绑定企业的手机号
+    phone: '15622221111',            // 绑定企业的手机号
     iphoneX: "50%",
     userId: '',            // 当前用户Id [必传]
     toUserId: '',          // 被查看用户Id [必传]
@@ -16,6 +16,7 @@ Page({
     goodsSelectIndex: false,
     height: 0,
     goodsSelectName: '全部商品',
+    userInfo: {},             // 个人信息
     list: [],                 // 列表数据,
     brandId: '',              // 品牌id [非必传]
     status: '1',              // 1上架 2下架 [非必传]
@@ -30,7 +31,9 @@ Page({
     formId: '',
     arrowColor: false,
     network: true, // 无网络连接
-    isShowShadow: false
+    isShowShadow: false,
+    isShowBrand: false,
+    saleId: ''        //  要覆盖的saleId
   },
   onShow: function () {
     var _this = this;
@@ -44,12 +47,13 @@ Page({
     }
     buttonStat(tjParam).then(function (res) {
       // console.log(tjParam)
-    }) 
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var _this = this;
     wx.getNetworkType({
       success(res) {
@@ -65,11 +69,12 @@ Page({
 
     _this.setData({
       userId: app.globalData.authorize_user_id,
-      toUserId: app.globalData.authorize_user_id
+      toUserId: app.globalData.authorize_user_id,
+      phone: options.phone
     });
-    
+
     _this.getDataList();
-    
+
     wx.getSystemInfo({
       success: function (res) {
         _this.setData({
@@ -77,8 +82,8 @@ Page({
         })
       }
     });
-    
-    
+
+
     wx.getSystemInfo({
       success: function (res) {
         let name = 'iPhone X'
@@ -107,8 +112,8 @@ Page({
   },
   /*
   * 显示隐藏下拉菜单
-  */ 
-  filterGoodsKind: function() {
+  */
+  filterGoodsKind: function () {
     this.setData({
       showSelect: !this.data.showSelect,
       arrowColor: true
@@ -117,7 +122,7 @@ Page({
   /**
    * 选择商品类型
    */
-  goodsSelect: function (event){
+  goodsSelect: function (event) {
     console.log(event.currentTarget.dataset.type)
     this.setData({
       showSelect: false,
@@ -127,7 +132,7 @@ Page({
     });
     this.getDataList();
   },
-  clickAround(){
+  clickAround() {
     this.setData({
       showSelect: false
     })
@@ -178,6 +183,7 @@ Page({
 
   // 点击弹框确定按钮获取在售车型
   sure: function () {
+    var _this = this;
     let btnParams = {
       buttonType: '15',
       pageType: '2',
@@ -186,15 +192,44 @@ Page({
     buttonStat(btnParams).then(res => {
       // console.log(res)
     })
+    // console.log(this.data.email)
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
-      wx.navigateTo({
-        url: '../searchResults/searchResults?phone=' + this.data.phone,
+
+      let params = {
+        page: 1,                  // 当前页 [必传]
+        brandId: '',                    // 品牌id [非必传]
+        status: 1,       // 上下架状态 1上架 2下架 [非必传]
+        type: '',            // 1 自营 2 一猫 [非必传]
+        phone: this.data.phone
+      }
+      bindingEnterprise(params).then(res => {
+        if (res.list.length > 0) {
+          _this.setData({
+            onShelf: res.amount.onShelf || 0,
+            unOnShelf: res.amount.unOnShelf || 0,
+            list: res.list,
+            lastPage: res.page.lastPage,
+            page: res.page.currentPage,
+            noData: false,
+            isShowBrand: false,
+            status: 1
+          })
+        } else {
+          _this.setData({
+            onShelf: res.amount.onShelf || 0,
+            unOnShelf: res.amount.unOnShelf || 0,
+            list: res.list,
+            lastPage: 1,
+            page: 1,
+            noData: true,
+            isShowBrand: true
+          })
+        }
       })
       this.setData({
         bindFlag: false,
-        focusflag: false,
-        phone: ''
+        focusflag: false
       })
     } else {
       wx.showToast({
@@ -205,7 +240,6 @@ Page({
         phone: ''
       })
     }
-
   },
 
   /**
@@ -224,7 +258,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res,e) {
+  onShareAppMessage: function (res, e) {
     if (res.from === 'button') {
       return {
         title: res.target.dataset.title,
@@ -268,14 +302,18 @@ Page({
     }
     // 请求列表数据
     var params = {
-      userId: this.data.userId,       // 当前用户Id [必传]
-      toUserId: this.data.toUserId,   // 被查看用户Id [必传]
+      // userId: this.data.userId,       // 当前用户Id [必传]
+      // toUserId: this.data.toUserId,   // 被查看用户Id [必传]
       page: pageNum,                  // 当前页 [必传]
       brandId: '',                    // 品牌id [非必传]
       status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
-      type: this.data.type            // 1 自营 2 一猫 [非必传]
+      type: this.data.type,            // 1 自营 2 一猫 [非必传]
+      phone: this.data.phone
     }
-    getOnSaleData(params).then(function (res) {
+    bindingEnterprise(params).then(function (res) {
+      _this.setData({
+        userInfo: res.userInfo
+      });
       // loadKind==9时为上拉加载动作
       if (loadKind == 9) {
         _this.setData({
@@ -294,7 +332,9 @@ Page({
             list: res.list,
             lastPage: res.page.lastPage,
             page: res.page.currentPage,
-            noData: false
+            noData: false,
+            isShowBrand: false,
+            saleId: res.userInfo.saleId
           })
         } else {
           _this.setData({
@@ -303,7 +343,8 @@ Page({
             list: res.list,
             lastPage: 1,
             page: 1,
-            noData: true
+            noData: true,
+            saleId: res.userInfo.saleId
           })
         }
       }
@@ -315,8 +356,32 @@ Page({
     this.setData({
       formId: e.detail.formId
     })
+  },
+  relocate: function(){
+    this.setData({
+      bindFlag: true
+    });
+  },
+  // 绑定企业
+  bindCompany: function(){
+    var params = {
+      userId: app.globalData.authorize_user_id,    // 用户Id （必填）
+      saleId: this.data.saleId      //车商猫用户Id （必填）
+    }
+    wx.showModal({
+      title: '确定要绑定企业吗？',
+      content: '',
+      success: function (res) {
+        if (res.confirm) {
+          coverOldData(params).then(function (res) {
+            console.log(res);
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
-
 })
 
 wx.onNetworkStatusChange((res) => {

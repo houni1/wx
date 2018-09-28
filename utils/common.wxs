@@ -1,13 +1,41 @@
   var handleWrap = function (item) {
-    var reg = getRegExp('\n', 'g');
-    return item.replace(reg, '<br>')
+    // 去除尾部换行符
+    var reg1 = getRegExp('\n+$', 'g');
+    item1 = item.replace(reg1, '');
+    // console.log('去除尾部换行符',item1)
+    var reg_1 = getRegExp('\n', 'g');
+    // 匹配换行符的个数
+    var enterNum = 0;
+    if (reg_1.test(item1)) {
+      enterNum = item1.match(reg_1).length;
+      // console.log('enterNum', enterNum)
+    }
+    // 回车符代表的字符个数,一个回车代表20个字符
+    var enterTotalNum = enterNum * 20;
+    // console.log('enterTotalNum', enterTotalNum)
+    
+    // item中总长度totalLength
+    var totalLength = item1.length - enterNum + enterTotalNum
+    // 文本行数lineNum
+    var lineNum = parseInt(totalLength / 20 + 1);
+    // console.log("lineNum", lineNum)
+    // var reg_2 = getRegExp(('&hc', 'g'))
+    var obj = {
+      "lineNum": lineNum,
+      "str": item1.replace(reg1, '')
+    }
+    // console.log('-----',obj.lineNum)
+    // console.log('====',obj.str)
+    return obj
+
   }
   var getDomHeight = function (el) {
-    console.log('el----',el)
+    console.log('el----',el);
+    // return typeof el
     //创建节点选择器
     var query = wx.createSelectorQuery();
     //选择id
-    console.log(query)
+    console.log(query);
     query.select(el).boundingClientRect();
     query.exec(function (res) {
       console.log('打印demo的元素的信息', res);

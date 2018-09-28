@@ -171,6 +171,11 @@ let addPhone = function (data) {
   return $post("/cart/user/addPhone", data)
 }
 
+// 绑定企业接口
+let bindingEnterprise = function (data) {
+  return $get("/cart/user/bindingEnterprise", data)
+}
+
 export {
   wxAuthorization,
   getUserInfo,
@@ -199,5 +204,6 @@ export {
   sendEmail,
   changeCard,
   coverOldData,
-  addPhone
+  addPhone,
+  bindingEnterprise
 };

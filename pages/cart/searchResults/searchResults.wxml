@@ -1,0 +1,89 @@
+<isnetwork class="isnetwork" wx:if="{{!network}}"></isnetwork>
+<view class='wrap'>
+  <view class='searchInfo'>
+    <view class='flex infoBox'>
+      <view class='photo'><image src='images/photo.png' mode='widthFix'></image></view>
+      <view class='flex1'>
+        <view class='name'>{{userInfo.name}}</view>
+        <view class='tag'>{{userInfo.dealerName}}</view>
+      </view>
+      <view class='relocate' bindtap='relocate'>重新查找</view>
+    </view>
+  </view>
+  <view class='filterTab flex-wrapper' hidden="{{isShowBrand}}">
+    <view class="tabItem {{tabIndex == 0 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='0'>出售中({{ onShelf }})</view>
+    <view class="tabItem {{tabIndex == 1 ? 'filterActive' : ''}}" bindtap="tabChange" data-index='1'>已下架({{ unOnShelf }})</view>
+    <view class="tabItem {{goodsSelectIndex ? 'filterActive' : ''}}" bindtap="filterGoodsKind">{{goodsSelectName}}
+      <image src='images/arrow_b.png' mode='widthFix' hidden="{{arrowColor}}"></image>
+      <image src='images/arrow_b1.png' mode='widthFix' hidden="{{!arrowColor}}"></image>
+    </view>
+  </view>
+  <view class='allGoods' hidden="{{!showSelect}}" catchtouchmove='true'>
+    <view class='thiv' bindtap="clickAround">
+      <text bindtap='goodsSelect' data-type="" data-name="全部商品" class="{{type == '' ? 'filterActive' : ''}}">全部商品</text>
+      <text bindtap='goodsSelect' data-type="1" data-name="自营商品" class="{{type == 1 ? 'filterActive' : ''}}">自营商品</text>
+      <text bindtap='goodsSelect' data-type="2" data-name="一猫商品" class="{{type == 2 ? 'filterActive' : ''}}">一猫商品</text>
+    </view>
+  </view>
+  <view class='carsList'>
+    <view class='item' wx:for="{{ list }}" wx:key="item">
+      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&enterType=self">
+        <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
+        <view class='imgWrap'>
+          <image wx:if="{{ item.cover }}" src='{{ item.cover }}/246' mode='aspectFit'></image>
+          <image wx:else src='{{ item.cover }}' mode='aspectFit'></image>
+        </view>
+        <view class='carInfo'>
+          <view class='title'>{{ item.autoName }}</view>
+          <view class='price'><view class='priceNum'>{{ item.price }}</view> 万元</view>
+          <view class='guidePrice'>指导价{{ item.guidePrice }}万</view>
+          <view class='status'>
+            <view class='carStatus' hidden='{{ item.state != 1 }}'>现车</view>
+            <view class='stock' wx:if="{{item.stockNum != 0}}">库存{{item.stockNum}}台</view>
+          </view>
+        </view>
+      </navigator>
+      <view class='shareBtn'>
+        <label for='form_id'>
+          <button open-type="share"
+            data-title="{{ item.autoName }}"
+            data-userId="{{userId}}"
+            data-toUserId='{{toUserId}}'
+            data-id='{{item.id}}'
+            data-cover='{{item.cover}}'>
+            <image src='images/fa.png' mode='widthFix'></image>
+          </button>
+        </label>
+      </view>
+    </view>
+  </view>
+  <view class='noData' wx:if='{{ noData }}'>
+    <image src='images/noData.png' mode='widthFix'></image>
+    <view class='btn-box'>
+      <view class='btn' bindtap='bindbtn'>绑定企业</view>
+    </view>
+  </view>
+</view>
+<view class='mail-mark' wx:if="{{bindFlag}}">
+  <view class='mail-box' style="top:{{iphoneX}}">
+    <view class='mail-box-title'>请输入车商猫登录账号</view>
+    <view class='mail-box-input'>
+      <input placeholder='请输入手机号' bindinput='phone' focus="focusflag" value='{{phone}}'></input>
+    </view>
+    <view class='mail-box-btns'>
+      <text class='cancel-btn' bindtap='cancel'>取消</text>
+      <text class='sure-btn' bindtap='sure'>确定</text>
+    </view>
+  </view>
+</view>
+<view class='bindCompany' wx:if='{{ !noData }}'>
+    <view class='btn-box'>
+      <view class='btn' bindtap='bindCompany'>绑定企业</view>
+    </view>
+  </view>
+<form bindsubmit="getFormId" report-submit="true">
+  <button formType="submit" id="form_id" style="width:0;height:0;"></button>
+</form>
+
+
+

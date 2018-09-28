@@ -147,7 +147,7 @@ Page({
       for(var i=0;i<list.length;i++){
         list[i].isAll = true
       }
-      console.log(list)
+      // console.log(list)
       this.setData({
         page: res.page,
         list: list,
@@ -273,7 +273,7 @@ Page({
     this.setData({
       authUser: globalData.authorize_user_id
     })
-    console.log('车商圈userid', this.data.authUser)
+    // console.log('车商圈userid', this.data.authUser)
     buttonStat({ appType: 1, pageType: 0, buttonType: 9 }).then((res) => {
     })
   },
