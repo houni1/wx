@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 22,
 			"list": [
 				{
 					"id": -1,
@@ -166,6 +166,11 @@
 					"name": "新用户使用引导页面",
 					"pathName": "pages/cart/guide/guide",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帮助使用页面",
+					"pathName": "pages/cart/help/help"
 				}
 			]
 		}

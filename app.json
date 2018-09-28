@@ -23,7 +23,8 @@
     "pages/logs/logs",
     "pages/cart/city/city",
     "pages/cart/mybusiness/mybusiness",
-    "pages/cart/guide/guide"
+    "pages/cart/guide/guide",
+    "pages/cart/help/help"
   ],
   "window": {
     "backgroundTextStyle": "light",
