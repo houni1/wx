@@ -190,6 +190,12 @@
 					"name": "帮助使用车商圈3",
 					"pathName": "pages/cart/helpcircle/helpcircle",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帮助页面",
+					"pathName": "pages/cart/help/help",
+					"query": ""
 				}
 			]
 		}

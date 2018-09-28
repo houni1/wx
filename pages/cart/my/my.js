@@ -167,6 +167,14 @@ Page({
       })
     },
 
+
+    // 跳转到使用帮助页面
+    toHelp: function () {
+        wx.navigateTo({
+            url: '../help/help'
+        })
+    },
+
     //头像放大
     showPic: function (e) {
         var picSrc = this.data.userInfo.headPortrait;

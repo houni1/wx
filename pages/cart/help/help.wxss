@@ -1,1 +1,12 @@
 /* pages/cart/help/help.wxss */
+page{background-color:#fff;}
+.abstract{padding:50rpx 35rpx 20rpx 35rpx;}
+.abstract-title{font-size:32rpx;color:#282c39;text-align:center;font-weight:bold;margin-bottom:20rpx;}
+.abstract-con{font-size:26rpx;color:#282c39;}
+.tuichemao-info-wrap{margin-top:95rpx;padding:0 30rpx 0 30rpx;}
+.tuichemao-info{margin-top:60rpx;padding:30rpx 40rpx 30rpx 40rpx;border-radius:20rpx;box-shadow:0rpx 4rpx 30rpx 0rpx #ebebeb;}
+.tuichemao-title{margin-bottom:20rpx;}
+.yellow-icon{display:block;float:left;width:10rpx;height:10rpx;margin-top:3rpx;margin-right:20rpx;background-color:#ffcf10;box-shadow:5rpx 5rpx 15rpx #ffe68f;}
+.title-info{display:block;float:left;margin-top:-12rpx;font-size:26rpx;color:#282c39;font-weight:bold;}
+.info-con{line-height:40rpx;font-size:26rpx;color:#a6a6a6;}
+.change-phone{width:300rpx;height:60rpx;margin:40rpx auto 0;font-size:32rpx;color:#282c39;line-height:60rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;box-shadow:5rpx 5rpx 15rpx #ffe68f;}
