@@ -3,7 +3,7 @@
   <view class='containt'>
     <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
       <view class='picture'>
-        <image src='{{item.headPortrait}}/247' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head'></image>
+        <image src='{{item.headPortrait}}/247/3' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head'></image>
       </view>
       <view class='text'>
         <view class='title'>
