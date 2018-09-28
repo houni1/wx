@@ -17,6 +17,24 @@ Page({
      */
     onLoad: function(options) {
         // this.tcmInfo();
+
+        //iPhone 6P 适配
+        let _this = this;
+        wx.getSystemInfo({
+            success: function (res) {
+                let name = 'iPhone 6 Plus'
+                if (res.model.indexOf(name) > -1) {
+                    _this.setData({
+                        isIPhone6P: "scroll !important;"
+                    })
+                }
+                console.log(res.model);
+            },
+            fail() {
+                console.log("失败", e)
+            }
+        })
+
     },
 
     /**

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 23,
 			"list": [
 				{
 					"id": -1,
@@ -168,9 +168,16 @@
 					"query": ""
 				},
 				{
+					"id": 22,
+					"name": "帮助使用电子名片页面",
+					"pathName": "pages/cart/helpcard/helpcard",
+					"query": ""
+				},
+				{
 					"id": -1,
-					"name": "帮助使用页面",
-					"pathName": "pages/cart/help/help"
+					"name": "帮助使用车源列表介绍页面",
+					"pathName": "pages/cart/helpcar/helpcar",
+					"query": ""
 				}
 			]
 		}

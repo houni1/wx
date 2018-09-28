@@ -1,0 +1,20 @@
+<view class='help-item-wrap'>
+  <view class='help-item-box'>
+    <view class='help-item-title'>1.通过小程序码或者搜索进入推车猫首页，怎 么去完善自己的名片呢？</view>
+    <view class='help-item-pic'>
+      <image></image>
+    </view>
+    <view class='help-item-text'>
+      解答：通过编辑按钮，进到名片编辑页，将自己的的个人信息快捷的维护到电子名片（ps：都是你想让别人看到的信息哟）。
+    </view>
+  </view>
+  <view class='help-item-box'>
+    <view class='help-item-title'>1.通过小程序码或者搜索进入推车猫首页，怎 么去完善自己的名片呢？</view>
+    <view class='help-item-pic'>
+      <image></image>
+    </view>
+    <view class='help-item-text'>
+      解答：通过编辑按钮，进到名片编辑页，将自己的的个人信息快捷的维护到电子名片（ps：都是你想让别人看到的信息哟）。
+    </view>
+  </view>
+</view>
