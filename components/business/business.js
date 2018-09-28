@@ -22,7 +22,8 @@ Component({
       currentPage: "1",//当前页
       lastPage: "",//总页数
     },
-    currentPage: 1
+    currentPage: 1,
+    isAll: true   // 是否显示全文
   },
 
   /**
@@ -122,6 +123,9 @@ Component({
           })
         }
         let list = this.compress(res.list)
+        for(var i=0;i<list.length;i++){
+          list[i].isAll = true
+        }
         this.setData({
           page: res.page,
           list: list,
@@ -190,6 +194,16 @@ Component({
     btnStat(type) {
       buttonStat({ appType: 1, pageType: 5, buttonType: type }).then((res) => {
       })
+    },
+    // 显示全文，收起
+    showClose: function(event){
+      var index = event.currentTarget.dataset.index;
+      this.data.list[index].isAll = !this.data.list[index].isAll
+      console.log(index)
+      console.log(this.data.list)
+      this.setData({
+        list:  this.data.list
+      });
     }
   },
   //组件实例化但节点树还未导入，因此这时不能用setData

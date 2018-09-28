@@ -66,6 +66,8 @@ color: #a6a6a6;
   font-size:26rpx;
   color: #282c39;
   margin: 20rpx auto 30rpx;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 .picture{
 width:600rpx
