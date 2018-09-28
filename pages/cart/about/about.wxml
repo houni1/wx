@@ -1,6 +1,6 @@
 <!--pages/cart/about/about.wxml-->
 
-<view class="about-us" style="overflow-y:{{isIPhone6P}}">
+<view class="about-us">
     <view class="about-wrap">
         <!--推车猫logo-->
         <view class="tuichemao-intro-wrap">
