@@ -178,19 +178,30 @@ Page({
 
   // 点击弹框确定按钮获取在售车型
   sure: function () {
-    let btnParams = {
-      buttonType: '15',
-      pageType: '2',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      // console.log(res)
-    })
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
-      wx.navigateTo({
-        url: '../searchResults/searchResults?phone=' + this.data.phone,
+      var params = {
+        page: pageNum,                  // 当前页 [必传]
+        brandId: '',                    // 品牌id [非必传]
+        status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
+        type: this.data.type,            // 1 自营 2 一猫 [非必传]
+        phone: this.data.phone
+      }
+      bindingEnterprise(params).then(function (res) {
+       console.log(res)
+       if (res.list.length >= 0) {
+         wx.navigateTo({
+           url: '../searchResults/searchResults?phone=' + this.data.phone,
+         })
+       } else {
+         wx.showToast({
+           title: ''
+         })
+       }
+        
       })
+        
+     
       this.setData({
         bindFlag: false,
         focusflag: false,
@@ -199,13 +210,20 @@ Page({
     } else {
       wx.showToast({
         title: '手机号格式有误，请重新输入',
-        icon: 'none'
+        icon: 'none',
+        success: function(){
+          this.setData({
+            phone: ''
+          })
+        }
       })
-      this.setData({
-        phone: ''
-      })
-    }
 
+      let btnParams = {
+        buttonType: '15',
+        pageType: '2',
+        appType: '1'
+      }
+    }
   },
 
   /**

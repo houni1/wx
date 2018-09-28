@@ -80,7 +80,7 @@
   <image class='button' bindtap='send' src='/images/send-info.png'></image>
 </view>
 <view class='showTab' bindtap='showTab' wx:if="{{showTab}}">
-  ^
+  <image src='/images/bottomMenu.png'></image>
 </view>
 </label>
 <view wx:if="{{!datashow}}" class="nodata">
