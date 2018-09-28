@@ -22,6 +22,12 @@
       </view>
     </view>
     <view class='set-item'>
+      <view class='item-title'>公司地址</view>
+      <view class='item-content'>
+        <input type='text' maxlength='30' placeholder='请输入您的公司地址' value='{{userInfo.companyAddress}}' bindinput='companyAddress'></input>
+      </view>
+    </view>
+    <view class='set-item'>
       <view class='item-title'>职位</view>
       <view class='item-content'>
         <input maxlength='5' placeholder='请输入您的职位' value='{{userInfo.position}}' bindinput='position'></input>

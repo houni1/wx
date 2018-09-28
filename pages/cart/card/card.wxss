@@ -278,7 +278,7 @@
   padding-bottom: 25rpx;
 }
 
-.person-info-item .info-item-btn text {
+.info-item-btn text {
   display: block;
   width: 115rpx;
   height: 58rpx;
@@ -290,6 +290,35 @@
   border-radius: 29rpx;
 }
 
+.person-info-wxnumber {
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+}
+
+.info-wxnumber-text {
+  min-width: 160rpx;
+  font-size: 26rpx;
+  color: #a6a6a6;
+  line-height: 58rpx;
+}
+
+.info-wxnumber-input {
+  font-size: 26rpx;
+  color: #4d4d4d;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  word-break:break-all;
+  word-wrap:break-word;
+  padding-top: 12rpx;
+  line-height: 40rpx;
+  padding-right: 40rpx;
+}
 
 .set-person {
   padding-top: 40rpx;
@@ -314,6 +343,7 @@
   width: 100%;
   word-break:break-all;
   word-wrap:break-word;
+  line-height: 40rpx;
 }
 
 .set-person .info-item-input textarea {

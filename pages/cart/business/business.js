@@ -1,6 +1,6 @@
 // pages/cart/business/business.js
 let globalData = getApp().globalData;
-import { getBusinessList, buttonStat, popStat, starStat } from "../../../servies/services.js"
+import { getBusinessList, buttonStat,deleteCircle } from "../../../servies/services.js"
 Page({
 
   /**
@@ -20,7 +20,8 @@ Page({
     currentPage: 1,
     network: true,
     formId: "",
-    isAll: true   // 是否显示全文
+    isAll: true,   // 是否显示全文
+    showTab:false
   },
   //头像预览
   preview_head(e) {
@@ -258,7 +259,33 @@ Page({
       })
     })
   },
-
+  deleteCircle(e){
+    let userId = e.currentTarget.dataset.userid;
+    let circleId = e.currentTarget.dataset.circleid;
+    let data={userId,circleId}
+    let index=e.currentTarget.dataset.index;
+    let _this=this;
+    wx.showModal({
+      title: "确定要删除这条动态吗？",
+      content:"" ,
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: res => {
+        if(res.confirm){
+          deleteCircle(data).then(()=>{
+           let list= _this.data.list;
+           list.splice(index,1)
+            _this.setData({
+              list:list
+            })
+          })
+        }
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -277,7 +304,25 @@ Page({
     buttonStat({ appType: 1, pageType: 0, buttonType: 9 }).then((res) => {
     })
   },
-
+  onPageScroll(e){
+    if(e.scrollTop > 200){
+      wx.hideTabBar()
+      this.setData({
+        showTab:true
+      })
+    }else{
+      this.setData({
+        showTab:false
+      })
+      wx.showTabBar();
+    }
+  },
+  showTab(){
+    this.setData({
+      showTab:false
+    })
+    wx.showTabBar();
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

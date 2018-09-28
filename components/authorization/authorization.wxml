@@ -2,7 +2,7 @@
 <view class='authorization-shandow' hidden='{{isInitiativeOpen || !isShow}}'>
   <view class='authorization-wrapper'>
     <image class='icon-logo' src="./images/icon-logo.png"></image>
-    <view class='welcome-text'>欢迎光临推车猫</view>
+    <view class='welcome-text'>欢迎光临车商猫电子名片</view>
     <view class='weChat-login'>
       微信登录
       <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap="authBtn">授权</button>

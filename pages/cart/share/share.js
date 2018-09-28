@@ -137,13 +137,6 @@ Page({
       })
     })
   },
-  //取消
-  cancel() {
-    this.btnStat(14)
-    wx.navigateBack({
-      delta: 1
-    });
-  },
   // 关闭弹窗
   toggleShadow(e) {
     this.setData({

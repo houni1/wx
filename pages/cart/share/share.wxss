@@ -71,7 +71,7 @@ color: #a6a6a6;
 width:600rpx
 }
 .content{
-  padding: 35rpx 40rpx 215rpx;
+  padding: 35rpx 40rpx 0;
   line-height: 34rpx;
 }
 .oneimg{
@@ -121,41 +121,23 @@ padding-top: 5rpx;
   font-size:24rpx;
   padding-right: 10rpx;
 }
-.foot-fixed{
+/* .foot-fixed{
   width: 100%;
   position: fixed;
   bottom: 0;
   text-align: center; 
   background: #fff;
   box-shadow:-10rpx -10rpx 14rpx #faf5f5;
-}
-.button{
-height: 150rpx;
-padding: 35rpx 0 10rpx;
-}
-
+} */
 .down-wrap{
-text-align: center;
+position: fixed;
+right: 30rpx;
+bottom: 408rpx;
 }
 .download{
   width: 88rpx;
   height: 88rpx;
 }
-.butn-text{
-  font-family: "PingFangSC-Regular";
-  color: #a6a6a6;
-  font-size: 24rpx;
-  text-align: center
-}
-.cancel{
-  font-family: "PingFangSC-Regular";
-  color: #282c39;
-  font-size: 24rpx;
-  text-align: center;
-  padding-bottom: 20rpx;
-
-}
-
 .shadow {
   position: fixed;
   z-index: 30;

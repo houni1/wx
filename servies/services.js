@@ -170,6 +170,9 @@ let coverOldData = function (data) {
 let addPhone = function (data) {
   return $post("/cart/user/addPhone", data)
 }
+let deleteCircle=function(data){
+  return $get("/cart/carCircle/myCarCircleDel",data)
+}
 
 // 绑定企业接口
 let bindingEnterprise = function (data) {
@@ -205,5 +208,6 @@ export {
   changeCard,
   coverOldData,
   addPhone,
-  bindingEnterprise
+  bindingEnterprise,
+  deleteCircle
 };

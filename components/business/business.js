@@ -1,6 +1,6 @@
 // components/business/business.js
 let globalData = getApp().globalData;
-import { getBusinessList, buttonStat, popStat, starStat } from "../../servies/services.js";
+import { getBusinessList, buttonStat} from "../../servies/services.js";
 Component({
   /**
    * 组件的属性列表

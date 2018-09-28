@@ -50,7 +50,7 @@ Page({
       bushow: false
     })
     wx.setNavigationBarTitle({
-      title: "名片",
+      title: "电子名片",
       success() {
       }
     })

@@ -1,0 +1,47 @@
+<swiper>
+  <swiper-item>
+    <image src='/images/guide-item1.png'></image>
+    <view class='item-text-box'>
+      <view class='item-text-title'>电子名片</view>
+      <view class='item-text item-text-top'>资料管理</view>
+      <view class='item-text'>线上管理维护用户的个人资料数据</view>
+    </view>
+    <view class='index-box'>
+      <image src='/images/guide-ind1.png'></image>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/guide-item2.png'></image>
+    <view class='item-text-box'>
+      <view class='item-text-title'>猫哥卫星</view>
+      <view class='item-text item-text-top'>线索监控</view>
+      <view class='item-text'>自动采集C端、B端访客互动、全面展现互动 数据</view>
+    </view>
+    <view class='index-box'>
+      <image src='/images/guide-ind2.png'></image>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/guide-item3.png'></image>
+    <view class='item-text-box'>
+      <view class='item-text-title'>车商圈</view>
+      <view class='item-text item-text-top'>行业内部打通</view>
+      <view class='item-text'>实时了解行业内资讯，同行业人员学习、交 流、拓展人脉平台</view>
+    </view>
+    <view class='index-box'>
+      <image src='/images/guide-ind3.png'></image>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/guide-item4.png'></image>
+    <view class='item-text-box'>
+      <view class='item-text-title'>在售车型</view>
+      <view class='item-text item-text-top'>多维度展示车源</view>
+      <view class='item-text'>与车商猫网店功能打通，抓取网店上架车源数 据，分享名片的同时可快捷展示商品</view>
+    </view>
+    <view class='index-box'>
+      <image src='/images/guide-ind4.png'></image>
+      <view class='home-btn' bindtap='goHomeBtn'></view>
+    </view>
+  </swiper-item>
+</swiper>

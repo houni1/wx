@@ -33,7 +33,9 @@ Page({
     network: true, // 无网络连接
     isShowShadow: false,
     isShowBrand: false,
-    saleId: ''        //  要覆盖的saleId
+    saleId: '',        //  要覆盖的saleId,
+    // 是否覆盖车商猫数据弹框
+    isCoverBox: false,
   },
   onShow: function () {
     var _this = this;
@@ -362,25 +364,39 @@ Page({
       bindFlag: true
     });
   },
-  // 绑定企业
-  bindCompany: function(){
+
+  // 拒绝覆盖
+  cancelBind: function () {
+    this.setData({
+      isCoverBox: false
+    })
+    app.globalData.iscover = '2'
+    // console.log('取消覆盖', globalData.iscover)
+  },
+
+  // 允许覆盖
+  sureBind: function () {
     var params = {
-      userId: app.globalData.authorize_user_id,    // 用户Id （必填）
+      userId: app.globalData.authorize_user_id,
       saleId: this.data.saleId      //车商猫用户Id （必填）
     }
-    wx.showModal({
-      title: '确定要绑定企业吗？',
-      content: '',
-      success: function (res) {
-        if (res.confirm) {
-          coverOldData(params).then(function (res) {
-            console.log(res);
-          })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+    coverOldData(params).then(res => {
+      // console.log(res)
+      this.setData({
+        isCoverBox: false
+      })
+      app.globalData.iscover = '2'
+      // console.log('允许覆盖', globalData.iscover)
+      if (globalData.iscover == '2') {
+        this.getIndexUserInfo()
       }
     })
+  },
+  // 绑定企业
+  bindCompany: function(){
+    this.setData({
+      isCoverBox: true
+    });
   }
 })
 

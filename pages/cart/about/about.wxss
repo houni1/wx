@@ -1,6 +1,14 @@
 /* pages/cart/about/about.wxss */
-page{background-color:#fff;}
-.about-wrap{padding:60rpx 79rpx 0 79rpx;}
+page{background-color:#fff; overflow-y:scroll !important;}
+/* page{position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height:100%;
+  overflow-y:scroll;
+  background-color:#fff;
+  } */
+.about-wrap{padding:60rpx 79rpx 160rpx 79rpx;}
 .tuichemao-intro-wrap{text-align:center;}
 .tuichemao-logo{display:block;width:157rpx;height:157rpx;margin:0 auto;border-radius:30rpx;box-shadow:5rpx 5rpx 15rpx #ffe68f;}
 .tuichemao-name{margin-top:30rpx;margin-bottom:15rpx;font-size:38rpx;font-weight:bold;color:#282c39;}
@@ -12,5 +20,6 @@ page{background-color:#fff;}
 .title-info{display:block;float:left;margin-top:-12rpx;font-size:26rpx;color:#282c39;font-weight:bold;}
 .tuichemao-info-wrap{margin-top:95rpx;}
 .info-con{line-height:40rpx;font-size:26rpx;color:#a6a6a6;}
-.tuichemao-versoin-wrap{position:fixed;left: 50%;bottom:40rpx;transform: translate(-50%, -50%);font-size:20rpx;color:#a6a6a6;}
+.tuichemao-versoin-wrap{position:fixed;left: 50%;bottom:0rpx;transform: translate(-50%, 0%);font-size:20rpx;color:#a6a6a6;padding:20rpx 30rpx 40rpx 30rpx;background-color:#fff;box-shadow:0rpx -5rpx 5rpx #f9f9fa;}
 .tuichemao-version{position:relative;text-align:center;}
+.change-phone{width:690rpx;height:100rpx;margin-bottom:30rpx;font-size:32rpx;color:#282c39;line-height:100rpx;text-align:center;font-weight:bold;border-radius:50rpx;background-color:#ffcf10;box-shadow:5rpx 5rpx 15rpx #ffe68f;border:transparent;}

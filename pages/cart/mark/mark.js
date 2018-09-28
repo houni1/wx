@@ -25,7 +25,7 @@ Page({
       this.setData({
         page: '2'
       })
-    }
+    } 
     // console.log(globalData.saleId)
     if (options.type) {
       globalData.source = options.type

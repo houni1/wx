@@ -47,7 +47,7 @@
         </view>
         <view class='time'>
           <view class='time-text'>{{item.createdAt}}</view>
-          <view class='tiem-img' wx:if="{{item.userId == authUser}}">
+          <view class='time-img' wx:if="{{item.userId == authUser}}" bindtap="deleteCircle" data-userId="{{item.userId}}" data-circleid="{{item.circleId}}" data-index="{{index}}">
             <image src='/images/delete-icon.png'></image>
           </view>
         </view>
@@ -78,6 +78,9 @@
 <view>
   <!-- <view class='button' bindtap='send'>发布信息</view> -->
   <image class='button' bindtap='send' src='/images/send-info.png'></image>
+</view>
+<view class='showTab' bindtap='showTab' wx:if="{{showTab}}">
+  ^
 </view>
 </label>
 <view wx:if="{{!datashow}}" class="nodata">

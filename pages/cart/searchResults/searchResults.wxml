@@ -77,10 +77,20 @@
   </view>
 </view>
 <view class='bindCompany' wx:if='{{ !noData }}'>
-    <view class='btn-box'>
-      <view class='btn' bindtap='bindCompany'>绑定企业</view>
+  <view class='btn-box'>
+    <view class='btn' bindtap='bindCompany'>绑定企业</view>
+  </view>
+</view>
+<view class='shadow' wx:if='{{isCoverBox}}'>
+  <view class='contain border-box'>
+    <view class='ttl'>温馨提示</view>
+    <view class='desc'>是否将其替换为车商猫资料</view>
+    <view class='btn-wrapper'>
+      <text class='cancle' bindtap='cancelBind'>取消</text>
+      <view class='confirm' bindtap='sureBind'>确定</view>
     </view>
   </view>
+</view>
 <form bindsubmit="getFormId" report-submit="true">
   <button formType="submit" id="form_id" style="width:0;height:0;"></button>
 </form>
