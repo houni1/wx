@@ -109,7 +109,6 @@ page {
   width: 38rpx;
 }
 .distance {
-  width: 100rpx;
   font-size: 30rpx;
   color: #ffa800;
   margin-right: 20rpx;

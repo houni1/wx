@@ -1,26 +1,28 @@
 <!--pages/cart/about/about.wxml-->
-<view class="about-wrap">
-    <!--推车猫logo-->
-    <view class="tuichemao-intro-wrap">
-        <image class="tuichemao-logo" src="{{tcmData.img}}"></image>
-        <text class="tuichemao-name">{{tcmData.name}}</text>
-        <text class="tuichemao-intro">{{tcmData.intro}}</text>
-    </view>
 
-    <!--推车猫介绍-->
-    <view class="tuichemao-info-wrap">
-        <view class="tuichemao-info" wx:for="{{tcmData.text}}" wx:key="{{index}}">
-            <view class="tuichemao-title clear-fix">
-                <text class="yellow-icon"></text>
-                <text class="title-info">{{item.title}}</text>
-            </view>
-            <view class="info-con">{{item.content}}</view>
+<view class="about-us" style="overflow-y:{{isIPhone6P}}">
+    <view class="about-wrap">
+        <!--推车猫logo-->
+        <view class="tuichemao-intro-wrap">
+            <image class="tuichemao-logo" src="{{tcmData.img}}"></image>
+            <text class="tuichemao-name">{{tcmData.name}}</text>
+            <text class="tuichemao-intro">{{tcmData.intro}}</text>
         </view>
 
-    </view>
+        <!--推车猫介绍-->
+        <view class="tuichemao-info-wrap">
+            <view class="tuichemao-info" wx:for="{{tcmData.text}}" wx:key="{{index}}">
+                <view class="tuichemao-title clear-fix">
+                    <text class="yellow-icon"></text>
+                    <text class="title-info">{{item.title}}</text>
+                </view>
+                <view class="info-con">{{item.content}}</view>
+            </view>
 
-    <!--推车猫版本-->
-    <!-- <view class="tuichemao-versoin-wrap">
+        </view>
+
+        <!--推车猫版本-->
+        <!-- <view class="tuichemao-versoin-wrap">
         <button class="change-phone" open-type="contact">下载车商猫</button> -->
 
         <!-- <contact-button 
@@ -35,10 +37,15 @@
     </view> -->
 
 
+    </view>
+    <view style="height:180rpx;">
+    </view>
+
 </view>
 
-  <!--推车猫版本-->
-    <view class="tuichemao-versoin-wrap">
-        <button class="change-phone" open-type="contact" session-from="weapp">下载车商猫</button>
-        <view class="tuichemao-version">版本号：V 1.0.0</view>
-    </view>
+
+<!--推车猫版本-->
+<view class="tuichemao-versoin-wrap">
+    <button class="change-phone" open-type="contact" session-from="weapp">下载车商猫</button>
+    <view class="tuichemao-version">版本号：V 1.0.0</view>
+</view>

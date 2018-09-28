@@ -1,7 +1,7 @@
 <view class='seninfo'>
    <view class='content'>
       <view class='text'>
-         <textarea placeholder='输入要发表的文字' maxlength="100" value="{{textinput}}" class="area" auto-focus rows="5" bindinput="textinput" >
+         <textarea placeholder='输入要发表的文字' maxlength="1000" value="{{textinput}}" class="area" auto-focus rows="5" bindinput="textinput" >
          </textarea>
       </view>
       <view class='picture'>

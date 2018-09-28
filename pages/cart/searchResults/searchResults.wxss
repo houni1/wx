@@ -1,12 +1,55 @@
 .wrap {
-  background:#fbfbfb; 
+  background:#fff; 
   overflow: hidden;
-  padding-top: 84rpx;
+  height: 100%;
+  margin-bottom: 138rpx;
+  /* padding-top: 84rpx; */
+}
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.searchInfo {
+  padding: 30rpx 30rpx 10rpx;
+}
+.searchInfo .infoBox {
+  padding: 30rpx;
+  align-items: center;
+  -webkit-box-shadow: #ebebeb 0px 0px 10px;
+  -moz-box-shadow: #ebebeb 0px 0px 10px;
+  box-shadow: #ebebeb 0px 0px 10px;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.searchInfo .photo {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 28rpx;
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px #ebebeb, -2px 5px 5px #ebebeb; 
+}
+.searchInfo .name {
+  font-size: 26rpx;
+  color: #282c39;
+  font-weight: bold;
+}
+.searchInfo .tag {
+  font-size: 26rpx;
+  color: #282c39;
+  padding-top: 20rpx;
+}
+.searchInfo .photo image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.searchInfo .relocate {
+  font-size: 26rpx;
+  color: #fbc836;
+  margin-top: -40rpx;
 }
 .filterTab {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 84rpx;
   font-size: 26rpx;
@@ -15,7 +58,6 @@
   font-family: 'PingFangSC-Regular';
   background: #fff;
   box-shadow: 0 4rpx 10rpx #f5f5f5;
-  z-index: 100;
 }
 .filterTab .tabItem {
   flex: 1;
@@ -34,9 +76,10 @@
   vertical-align: middle;
 }
 .allGoods {
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 84rpx;
+  /* top: 210rpx; */
+  top: 0;
   width: 100%;
   height: 100%;
   line-height: 60rpx;
@@ -49,6 +92,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1000;
   background: rgba(0, 0, 0, 0.3);
 }
 .allGoods text {
@@ -64,8 +108,7 @@
 }
 /* 列表 */
 .carsList {
-  display: flex;
-  flex-direction: column;
+  background: #f9f9fa;
 }
 .item {
   position: relative;
@@ -169,13 +212,13 @@ button::after {
   margin: 270rpx auto 0 auto;
 }
 
-.btn-box {
+.noData .btn-box {
   width: 100%;
   padding: 80rpx;
   box-sizing: border-box;
 }
 
-.btn {
+.noData .btn {
   width: 100%;
   height: 100rpx;
   font-size:32rpx;
@@ -188,6 +231,29 @@ button::after {
   box-shadow:5rpx 5rpx 15rpx #ffe68f;
 }
 
+.bindCompany {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 30rpx 0;
+  height: 138rpx;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 -2rpx 2rpx #efefef;
+}
+.bindCompany .btn {
+  width: 100%;
+  height: 100rpx;
+  font-size:32rpx;
+  color:#282c39;
+  line-height:100rpx;
+  text-align:center;
+  font-weight:bold;
+  border-radius:50rpx;
+  background-color:#ffcf10;
+  box-shadow:5rpx 5rpx 15rpx #ffe68f;
+}
 
 .mail-mark {
   position: absolute;
@@ -259,4 +325,55 @@ button::after {
 .sure-btn {
   color: #ffcf10;
   border-left: 1rpx solid #eee;
+}
+
+
+.shadow {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .4)
+}
+.shadow .contain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40rpx;
+  width: 500rpx;
+  background-color: #fff;
+}
+.shadow .contain .ttl {
+  margin-bottom: 50rpx;
+  font-size: 35rpx;
+  color: #2c2c2c;
+}
+.shadow .contain .desc {
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.shadow .btn-wrapper {
+  margin-top: 40rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #2c2c2c;
+}
+.shadow .btn-wrapper .confirm {
+  position: relative;
+  display: inline-block;
+  margin-left: 50rpx;
+  color: #1AAD16;
+}
+.shadow .btn-wrapper .confirm button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
 }

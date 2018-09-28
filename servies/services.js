@@ -177,6 +177,9 @@ let deleteCircle=function(data){
 // 帮助使用页面接口
 let useHelp = function (data) {
   return $get("/cart/user/useHelp", data)
+// 绑定企业接口
+let bindingEnterprise = function (data) {
+  return $get("/cart/user/bindingEnterprise", data)
 }
 
 export {
@@ -208,6 +211,6 @@ export {
   changeCard,
   coverOldData,
   addPhone,
-  deleteCircle,
-  useHelp
+  useHelp,
+  bindingEnterprise
 };

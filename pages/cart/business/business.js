@@ -20,6 +20,7 @@ Page({
     currentPage: 1,
     network: true,
     formId: "",
+    isAll: true,   // 是否显示全文
     showTab:false
   },
   //头像预览
@@ -131,6 +132,7 @@ Page({
   },
   //加载车商圈列表数据
   getData(data, callback) {
+    var that = this;
     getBusinessList(data).then((res) => {
       if (res.list.length == 0) {
         this.setData({
@@ -141,19 +143,23 @@ Page({
           datashow: true
         })
       }
-
+      
       let list = this.compress(res.list)
+      for(var i=0;i<list.length;i++){
+        list[i].isAll = true
+      }
+      // console.log(list)
       this.setData({
         page: res.page,
         list: list,
         newNum: res.newNum,
       })
+        
       wx.stopPullDownRefresh()
       if (callback && callback instanceof Function) {
         callback()
       }
     })
-
   },
   //上拉加载数据
   uploadData() {
@@ -210,6 +216,17 @@ Page({
     this.getData(data, remind)
 
   },
+  // 显示全文，收起
+  showClose: function(event){
+    var index = event.currentTarget.dataset.index;
+    this.data.list[index].isAll = !this.data.list[index].isAll
+    console.log(index)
+    console.log(this.data.list)
+    this.setData({
+      list:  this.data.list
+    });
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -283,7 +300,7 @@ Page({
     this.setData({
       authUser: globalData.authorize_user_id
     })
-    console.log('车商圈userid', this.data.authUser)
+    // console.log('车商圈userid', this.data.authUser)
     buttonStat({ appType: 1, pageType: 0, buttonType: 9 }).then((res) => {
     })
   },
