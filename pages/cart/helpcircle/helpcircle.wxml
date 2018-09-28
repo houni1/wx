@@ -1,0 +1,11 @@
+<view class='help-item-wrap'>
+  <view class='help-item-box' wx:for="{{content}}" wx:key="{{index}}">
+    <view class='help-item-title'>{{item.problem}}</view>
+    <view class='help-item-pic'>
+      <image src='{{item.img}}'></image>
+    </view>
+    <text class='help-item-text'>
+      {{item.answer}}
+    </text>
+  </view>
+</view>

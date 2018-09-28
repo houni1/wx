@@ -13,7 +13,7 @@
         </view>
         <view class='card-info-item info-item-provinceName'>
           <image class='item-icon address-icon' src='/images/address-icon.png'></image>
-          <text class='item-text'>{{userInfo.provinceName == '' ? '暂无地址' : userInfo.provinceName}}</text>
+          <text class='item-text'>{{userInfo.cityName == '' ? '暂无地址' : userInfo.cityName}}</text>
         </view>
         <view class='card-info-item info-item-popularity' wx:if="{{userInfo.popularity}}">
           <image class='item-icon hot-icon' src='/images/hot-icon1.png'></image>

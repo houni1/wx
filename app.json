@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cart/searchResults/searchResults",
     "pages/cart/mark/mark",
     "pages/cart/index/index",
     "pages/cart/onSale/onSale",
@@ -23,7 +24,12 @@
     "pages/logs/logs",
     "pages/cart/city/city",
     "pages/cart/mybusiness/mybusiness",
-    "pages/cart/guide/guide"
+    "pages/cart/guide/guide",
+    "pages/cart/help/help",
+    "pages/cart/helpcard/helpcard",
+    "pages/cart/helpcar/helpcar",
+    "pages/cart/helpcat/helpcat",
+    "pages/cart/helpcircle/helpcircle"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -8,7 +8,10 @@ page{background-color:#fff; overflow-y:scroll !important;}
   overflow-y:scroll;
   background-color:#fff;
   } */
-.about-wrap{padding:60rpx 79rpx 160rpx 79rpx;}
+/* .about-wrap{padding:60rpx 79rpx 160rpx 79rpx;} */
+
+.about-us{height:100%;overflow-y:scroll !important;}
+.about-wrap{padding:60rpx 79rpx 0 79rpx;}
 .tuichemao-intro-wrap{text-align:center;}
 .tuichemao-logo{display:block;width:157rpx;height:157rpx;margin:0 auto;border-radius:30rpx;box-shadow:5rpx 5rpx 15rpx #ffe68f;}
 .tuichemao-name{margin-top:30rpx;margin-bottom:15rpx;font-size:38rpx;font-weight:bold;color:#282c39;}

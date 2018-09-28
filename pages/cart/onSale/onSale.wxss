@@ -87,6 +87,7 @@ navigator {
 }
 .imgWrap {
   width: 330rpx;
+  height: 200rpx;
   text-align: center;
 }
 .item .imgWrap image {

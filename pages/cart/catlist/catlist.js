@@ -51,13 +51,13 @@ Page({
         currentPage: res.page.currentPage
       })
       for (var i = 0; i < res.list.length; i++) {
-        console.log('猫哥卫星列表页面', res.list[i].checkImg)
+        // console.log('猫哥卫星列表页面', res.list[i].checkImg)
         if (res.list[i].checkImg != '') {
-          res.list[i].checkImg = res.list[i].checkImg + '/183'
+          res.list[i].checkImg = res.list[i].checkImg + '/183/3'
         }
       }
 
-      console.log('猫哥卫星列表更多', res.list)
+      // console.log('猫哥卫星列表更多', res.list)
       this.setData({
         catlist: catlist.concat(res.list),
       })

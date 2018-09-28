@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
   */
   data: {
+    flag: false,
     wxParseData: '',
     dataInfo: {},
     isOpen: false,
@@ -75,10 +76,17 @@ Page({
       latitude: this.data.latitude || 0         // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
-      _this.setData({
-        dataInfo: res,
-        autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
-      });
+      if (res) {
+        _this.setData({
+          flag: true,
+          dataInfo: res,
+          autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
+        })
+      }
+      // _this.setData({
+      //   dataInfo: res,
+      //   autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
+      // });
       if (!res.autoParam.list) {
         var article = res.autoParam;
         WxParse.wxParse('article', 'html', article, _this, 5);

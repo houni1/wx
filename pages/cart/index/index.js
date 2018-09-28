@@ -90,7 +90,7 @@ Page({
         */
         for (var i = 0; i < res.list.length; i++) {
           if (res.list[i].checkImg != '') {
-            res.list[i].checkImg = res.list[i].checkImg + '/183'
+            res.list[i].checkImg = res.list[i].checkImg + '/183/3'
           }
         }
         // console.log(res.list)
@@ -207,7 +207,7 @@ Page({
   },
 
   // 拒绝覆盖
-  cancel: function () {
+  cancelBind: function () {
     this.setData({
       isCoverBox: false
     })
@@ -216,7 +216,7 @@ Page({
   },
 
   // 允许覆盖
-  sure: function () {
+  sureBind: function () {
     var params = {
       userId: globalData.authorize_user_id,
       saleId: globalData.saleId

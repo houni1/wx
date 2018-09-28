@@ -186,16 +186,11 @@ Page({
     buttonStat(btnParams).then(res => {
       // console.log(res)
     })
-    // console.log(this.data.email)
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
-      // let params = {
-      //   email: this.data.email,
-      //   userId: globalData.authorize_user_id
-      // }
-      // sendEmail(params).then(res => {
-      //   // console.log(res)
-      // })
+      wx.navigateTo({
+        url: '../searchResults/searchResults?phone=' + this.data.phone,
+      })
       this.setData({
         bindFlag: false,
         focusflag: false,
