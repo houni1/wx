@@ -3,7 +3,7 @@
   <view class='card'>
     <view class='info-box'>
       <view class='user-pic-box'>
-        <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}/227'></image>
+        <image class='user-pic' data-imgurl="{{userInfo.headPortrait}}" bindtap='lookHeaderpic' src='{{userInfo.headPortrait}}/227/3'></image>
       </view>
       <view class='card-name' wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
       <view class='info-list'>
