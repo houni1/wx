@@ -1,38 +1,55 @@
 <!--pages/cart/help/help.wxml-->
-<view>
+<view wx-if="{{flag}}">
     <view class="abstract">
-        <view class="abstract-title">车商猫电子名片是什么</view>
+        <view class="abstract-title">{{content.problem}}</view>
         <view class="abstract-con">
-            是一款基于微信平台专为汽车销售人员做的电子名片小程序；可供用户随时管理、交换自己的小名片；车商猫-电子名片平台是主要针对的是全国汽车销售人员，让他们在平台统一集合；实现行业交流、线索互换等。
+          {{content.answer}}
         </view>
     </view>
 
-     <!--推车猫介绍-->
-        <!-- <view class="tuichemao-info-wrap">
-            <view class="tuichemao-info" wx:for="{{tcmData.text}}" wx:key="{{index}}">
-                <view class="tuichemao-title clear-fix">
-                    <text class="yellow-icon"></text>
-                    <text class="title-info">{{item.title}}</text>
-                </view>
-                <view class="info-con">{{item.content}}</view>
-            </view>
-
-        </view> -->
-
-
-
-
+   
      <!--推车猫介绍-->
         <view class="tuichemao-info-wrap">
+            <!--电子名片管理-线索管理-->
             <view class="tuichemao-info">
                 <view class="tuichemao-title clear-fix">
                     <text class="yellow-icon"></text>
-                    <text class="title-info">电子名片管理-线索管理</text>
+                    <text class="title-info">{{content.vcard.title}}</text>
                 </view>
-                <view class="info-con">线索管理就是看了就爱上了附加拉斯</view>
+                <view class="info-con">{{content.vcard.introduce}}</view>
                  <view class="change-phone">去查看</view>
-
             </view>
+
+            <!--猫卫星-线索监控-->
+            <view class="tuichemao-info">
+                <view class="tuichemao-title clear-fix">
+                    <text class="yellow-icon"></text>
+                    <text class="title-info">{{content.satellite.title}}</text>
+                </view>
+                <view class="info-con">{{content.satellite.introduce}}</view>
+                 <view class="change-phone">去查看</view>
+            </view>
+
+            <!--车商圈-行业内部打通-->
+            <view class="tuichemao-info">
+                <view class="tuichemao-title clear-fix">
+                    <text class="yellow-icon"></text>
+                    <text class="title-info">{{content.carCircle.title}}</text>
+                </view>
+                <view class="info-con">{{content.carCircle.introduce}}</view>
+                 <view class="change-phone">去查看</view>
+            </view>
+
+            <!--车源列表-多维度展示商品-->
+             <view class="tuichemao-info">
+                <view class="tuichemao-title clear-fix">
+                    <text class="yellow-icon"></text>
+                    <text class="title-info">{{content.auto.title}}</text>
+                </view>
+                <view class="info-con">{{content.auto.introduce}}</view>
+                 <view class="change-phone">去查看</view>
+            </view>
+
 
         </view>
 </view>

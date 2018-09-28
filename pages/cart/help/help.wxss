@@ -1,5 +1,5 @@
 /* pages/cart/help/help.wxss */
-page{background-color:#fff;}
+page{background-color:#fff;overflow-y:auto !important;}
 .abstract{padding:50rpx 35rpx 20rpx 35rpx;}
 .abstract-title{font-size:32rpx;color:#282c39;text-align:center;font-weight:bold;margin-bottom:20rpx;}
 .abstract-con{font-size:26rpx;color:#282c39;}
