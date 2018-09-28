@@ -46,6 +46,6 @@
 
 <!--推车猫版本-->
 <view class="tuichemao-versoin-wrap">
-    <button class="change-phone" open-type="contact" session-from="weapp">下载车商猫</button>
+    <!-- <button class="change-phone" open-type="contact" session-from="weapp">下载车商猫</button> -->
     <view class="tuichemao-version">版本号：V 1.0.0</view>
 </view>
