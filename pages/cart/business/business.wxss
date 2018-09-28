@@ -4,7 +4,6 @@
 .business .containt{
 background: #f9f9fa;
 font-size: 0;
-padding-bottom: 160rpx;
 }
 .business .remind{
 font-family: 'pingFangSC-Regular';
