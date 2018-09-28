@@ -31,7 +31,8 @@
 
 .help-item-pic {
   width: 100%;
-  padding: 19rpx 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   box-sizing: border-box;
 }
 

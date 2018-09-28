@@ -3,7 +3,6 @@
     "navigationBarTitleText": "电子名片概览",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false,
-    "disableScroll": true,
     "usingComponents": {
         "isnetwork": "/components/isnetwork/isnetwork"
     }
