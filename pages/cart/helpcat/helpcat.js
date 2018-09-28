@@ -1,11 +1,12 @@
 // pages/cart/helpcat/helpcat.js
+import { useHelp } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content: []  // 内容列表
   },
 
   /**
@@ -26,7 +27,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let params = {
+      helpOptions: '2'
+    }
 
+    useHelp(params).then(res => {
+      console.log(res.content)
+      this.setData({
+        content: res.content
+      })
+    })
   },
 
   /**

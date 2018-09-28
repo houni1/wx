@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -169,14 +169,26 @@
 				},
 				{
 					"id": 22,
-					"name": "帮助使用电子名片页面",
+					"name": "帮助使用电子名片页面1",
 					"pathName": "pages/cart/helpcard/helpcard",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "帮助使用车源列表介绍页面",
+					"id": 23,
+					"name": "帮助使用车源列表介绍页面4",
 					"pathName": "pages/cart/helpcar/helpcar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帮助使用猫哥卫星2",
+					"pathName": "pages/cart/helpcat/helpcat",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帮助使用车商圈3",
+					"pathName": "pages/cart/helpcircle/helpcircle",
 					"query": ""
 				}
 			]
