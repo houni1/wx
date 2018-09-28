@@ -1,11 +1,13 @@
 // pages/cart/help/help.js
+import { useHelp } from '../../../servies/services.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      content: {},//帮助页面内容
+      flag:false
   },
 
   /**
@@ -26,7 +28,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      useHelp({}).then(res => {
+          console.log(res)
+          this.setData({
+              content: res,
+              flag:true
+          })
+      })
   },
 
   /**

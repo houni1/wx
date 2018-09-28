@@ -4,7 +4,6 @@
 .business .containt{
 background: #f9f9fa;
 font-size: 0;
-padding-bottom: 160rpx;
 }
 .business .remind{
 font-family: 'pingFangSC-Regular';
@@ -170,16 +169,15 @@ height: 100rpx;
 box-shadow:5rpx 8rpx 15rpx #ffe68f;
 }
 .showTab{
-width: 50rpx;
-height: 50rpx;
-line-height: 50rpx;
-text-align: center;
-border-radius: 50%;
+width:67rpx;
+height: 100rpx;
 position: fixed;
-font-size: 30rpx;
-bottom: 40rpx;
-right: 40rpx;
-background: #ffcf10;
+bottom: 0;
+right: 45rpx;
+}
+.showTab image{
+   width: 67rpx;
+   height: 100rpx
 }
 .nodata{
   width:100% ;

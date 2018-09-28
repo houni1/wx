@@ -1,1 +1,9 @@
-{}
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "电子名片概览",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "isnetwork": "/components/isnetwork/isnetwork"
+    }
+}

@@ -1,4 +1,4 @@
-// pages/cart/helpcar/helpcar.js
+// pages/cart/helpcircle/helpcircle.js
 import { useHelp } from '../../../servies/services.js';
 Page({
 
@@ -28,7 +28,7 @@ Page({
    */
   onShow: function () {
     let params = {
-      helpOptions: '4'
+      helpOptions: '3'
     }
 
     useHelp(params).then(res => {

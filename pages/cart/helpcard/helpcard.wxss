@@ -9,7 +9,7 @@
   width: 100%;
   padding-bottom: 25rpx;
   border-radius: 18rpx;
-  background: pink;
+  background: #fff;
   margin-bottom: 60rpx;
 }
 
@@ -31,18 +31,18 @@
 
 .help-item-pic {
   width: 100%;
-  padding: 19rpx 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   box-sizing: border-box;
 }
 
 .help-item-pic image {
   display: block;
   width: 100%;
-  height: 640rpx;
-  background: yellow;
 }
 
 .help-item-text {
+  display: block;
   width: 100%;
   padding-left: 30rpx;
   padding-right: 30rpx;

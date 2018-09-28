@@ -1,11 +1,11 @@
 <view class='help-item-wrap'>
-  <view class='help-item-box'>
-    <view class='help-item-title'>这些猫哥卫星线索都是怎么过来的？</view>
+  <view class='help-item-box' wx:for="{{content}}" wx:key="{{index}}">
+    <view class='help-item-title'>{{item.problem}}</view>
     <view class='help-item-pic'>
-      <image></image>
+      <image src='{{item.img}}'></image>
     </view>
-    <view class='help-item-text'>
-      解答：车源列表要配合车商猫网店一起使用，在网店上架自己的车源信息，可以直接同步到电子名片。 如何同步到电子名片呢？ 方法1：登
-    </view>
+    <text class='help-item-text'>
+      {{item.answer}}
+    </text>
   </view>
 </view>

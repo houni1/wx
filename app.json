@@ -28,7 +28,8 @@
     "pages/cart/help/help",
     "pages/cart/helpcard/helpcard",
     "pages/cart/helpcar/helpcar",
-    "pages/cart/helpcat/helpcat"
+    "pages/cart/helpcat/helpcat",
+    "pages/cart/helpcircle/helpcircle"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -10,7 +10,7 @@
     <view class='information' wx:for="{{list}}" wx:key="index" data-index="{{index}}">
       <label for="form_id" class="picture">
       <view class='picture'>
-        <image src='{{item.headPortrait}}/247' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head' data-userId="{{item.userId}}"></image>
+        <image src='{{item.headPortrait}}/247/3' class='img' data-head="{{item.headPortrait}}" bindtap='preview_head' data-userId="{{item.userId}}"></image>
       </view>
         </label>
       <view class='text'>
@@ -80,7 +80,7 @@
   <image class='button' bindtap='send' src='/images/send-info.png'></image>
 </view>
 <view class='showTab' bindtap='showTab' wx:if="{{showTab}}">
-  ^
+  <image src='/images/bottomMenu.png'></image>
 </view>
 </label>
 <view wx:if="{{!datashow}}" class="nodata">
