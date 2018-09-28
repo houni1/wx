@@ -24,7 +24,10 @@
     "pages/cart/city/city",
     "pages/cart/mybusiness/mybusiness",
     "pages/cart/guide/guide",
-    "pages/cart/help/help"
+    "pages/cart/help/help",
+    "pages/cart/helpcard/helpcard",
+    "pages/cart/helpcar/helpcar",
+    "pages/cart/helpcat/helpcat"
   ],
   "window": {
     "backgroundTextStyle": "light",
