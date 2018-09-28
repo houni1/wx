@@ -50,9 +50,9 @@
   </view>
   <view class='noData' wx:if='{{ noData }}'>
     <image src='images/noData.png' mode='widthFix'></image>
-    <!-- <view class='btn-box'>
+    <view class='btn-box'>
       <view class='btn' bindtap='bindbtn'>绑定企业</view>
-    </view> -->
+    </view>
   </view>
 </view>
 <view class='mail-mark' wx:if="{{bindFlag}}">

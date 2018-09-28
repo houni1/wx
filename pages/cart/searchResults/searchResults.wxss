@@ -28,6 +28,7 @@
   height: 110rpx;
   margin-right: 28rpx;
   border-radius: 50%;
+  overflow: hidden;
   box-shadow: 5px 5px 5px #ebebeb, -2px 5px 5px #ebebeb; 
 }
 .searchInfo .name {
