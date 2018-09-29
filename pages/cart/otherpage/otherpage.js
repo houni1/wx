@@ -95,10 +95,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log('app.globalData', globalData)
-    // if (globalData.latitude == 0 || globalData.longitude == 0) {
+    if (globalData.latitude == 0 || globalData.longitude == 0) {
       this.getLocation();
-    // }
+    }
     
   },
   // 获取地理定位并转化成城市信息，并存入公共空间
@@ -107,9 +106,11 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       complete(res) {
+        console.log(res)
         let errMsg = res.errMsg;
         console.log('errmsg', errMsg)
         if (errMsg == "getLocation:ok") {
+          
           _this.setData({
             latitude: res.latitude,
             longitude: res.longitude
@@ -118,7 +119,7 @@ Page({
           globalData.longitude = res.longitude
           wx.getSetting({
             success(res) {
-              if (!res.authSetting['scope.userLocation']) {
+              if (res.authSetting['scope.userLocation']) {
                 _this.setData({
                   latitude: res.latitude,
                   longitude: res.longitude

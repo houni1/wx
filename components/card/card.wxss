@@ -269,6 +269,7 @@
 
 .person-info-item .info-item-input input {
   flex: 1;
+  z-index: 0;
 }
 
 .person-info-item .info-item-btn {
@@ -376,6 +377,6 @@
   color: #fff;
 }
 
-.msg-box button::after {
+button::after {
   border: none;
 }
