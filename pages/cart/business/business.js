@@ -21,7 +21,9 @@ Page({
     network: true,
     formId: "",
     isAll: true,   // 是否显示全文
-    showTab:true
+    showTab:true,
+    scrollTop:0,
+    maxScrollTop:0
   },
   //头像预览
   preview_head(e) {
@@ -51,12 +53,15 @@ Page({
     this.formStat(11)
     let phone = e.currentTarget.dataset.phone;
     if (phone == "") {
-      wx.showToast({
-        title: "该用户暂无电话",
-        icon: 'none',
-        duration: 1500,
-        mask: false,
-      });
+       setTimeout(()=>{
+          wx.showToast({
+             title: "该用户暂无电话",
+             icon: 'none',
+             duration: 1500,
+             mask: false,
+          });
+       },500)
+     
     } else {
       wx.showModal({
         title: '拨打电话',
@@ -163,8 +168,12 @@ Page({
   },
   //上拉加载数据
   uploadData() {
+    let _this=this;
     let curpage = this.data.currentPage - 0 + 1;
     if (curpage > this.data.page.lastPage) {
+        _this.setData({
+          maxScrollTop:_this.data.scrollTop
+        })
       wx.showToast({
         title: "已没有更多内容",
         icon: 'none',
@@ -312,13 +321,20 @@ Page({
     })
   },
   onPageScroll(e){
+    this.setData({
+      scrollTop:e.scrollTop
+    })
+    if(this.data.currentPage==this.data.page.lastPage&&this.data.maxScrollTop-e.scrollTop<5){
+      return
+    }
+    let _this=this;
     if(e.scrollTop > 200){
       wx.hideTabBar()
-      this.setData({
+      _this.setData({
         showTab:false
       })
     }else{
-      this.setData({
+      _this.setData({
         showTab:true
       })
       wx.showTabBar();

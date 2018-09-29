@@ -161,7 +161,7 @@ background: #fff;
 .button{
 z-index: 1;
 position: fixed;
-bottom: 400rpx;
+bottom: 200rpx;
 right: 30rpx;
 width: 100rpx;
 border-radius: 100%;
