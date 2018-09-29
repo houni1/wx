@@ -11,7 +11,7 @@
     <view wx-if="{{apply.length > 0}}">
         <view class="caedcase-list" wx:for="{{apply}}" wx:key="{{index}}" data-userid="{{item.id}}">
             <view class="profile clear-fix">
-                <image class="profile-profile-photo" src="{{item.headPortrait}}/226"></image>
+                <image class="profile-profile-photo" src="{{item.headPortrait}}/226/3"></image>
                 <view class="profile-name-wrap">
                     <text class="profile-name">{{item.nickName}}</text>
                 </view>
@@ -62,7 +62,7 @@
     <view wx-if="{{userInfo.length>0}}">
         <view class="caedcase-list" wx:for="{{userInfo}}" wx:key="{{index}}" data-userid="{{item.id}}" bindtap="toCard">
             <view class="profile clear-fix">
-                <image class="profile-profile-photo" src="{{item.headPortrait}}"></image>
+                <image class="profile-profile-photo" src="{{item.headPortrait}}/226/3"></image>
                 <view class="profile-name-wrap">
                     <text class="profile-name">{{item.nickName}}</text>
                 </view>
