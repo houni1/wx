@@ -182,6 +182,9 @@ Page({
     }
     getBusinessList(data).then((res) => {
       let list = this.compress(res.list);
+      for (var i = 0; i < list.length; i++) {
+        list[i].isAll = true
+      }
       this.setData({
         page: res.page,
         list: this.data.list.concat(list),
