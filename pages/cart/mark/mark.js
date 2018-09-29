@@ -51,7 +51,7 @@ Page({
       })
     }
     // console.log('kind', globalData.kind)
-    console.log('saleId', globalData.saleId)
+    // console.log('saleId', globalData.saleId)
     // console.log('source', globalData.source)
     // console.log('page', this.data.page)
   },
@@ -107,7 +107,7 @@ Page({
   // 用户授权
   authResult(data) {
     // console.log('授权后的id', globalData.authorize_user_id)
-    console.log('saleId', globalData.saleId)
+    // console.log('saleId', globalData.saleId)
     // console.log('oldUser', globalData.oldUser)
     // console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
@@ -122,10 +122,10 @@ Page({
         url: '/pages/cart/carDetail/carDetail?id=' + this.data.id + '&saleId=' + globalData.saleId
       })
     } else if (globalData.source == '2' && globalData.saleId != '0') {
-      console.log('是从微信进入的，要区分是自己的还是别人的')
-      console.log('别人的id', globalData.saleId)
+      // console.log('是从微信进入的，要区分是自己的还是别人的')
+      // console.log('别人的id', globalData.saleId)
       if (globalData.saleId != globalData.authorize_user_id) {
-        console.log('跳转至别人的页面', this.data.page)
+        // console.log('跳转至别人的页面', this.data.page)
 
         if (this.data.page == '2') {
           // 跳转至别人的页面
