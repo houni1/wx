@@ -106,8 +106,9 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    console.log('授权后的id', globalData.authorize_user_id)
-    console.log('saleId', globalData.saleId)
+    // console.log('授权后的id', globalData.authorize_user_id)
+    // console.log('saleId', globalData.saleId)
+    // console.log('oldUser', globalData.oldUser)
     // console.log('是否覆盖', globalData.iscover)
     // 如果从app进入推车猫，并且授权，则跳转至推车猫（查看自己）首页
     if (globalData.source == '1' && globalData.authorize_user_id != '0') {
@@ -134,6 +135,11 @@ Page({
         }
       } else {
         // console.log('查看自己的页面')
+        // if (globalData.oldUser == '2') {
+        //   wx.reLaunch({
+        //     url: '/pages/cart/guide/guide'
+        //   })
+        // }
         wx.reLaunch({
           url: '/pages/cart/index/index'
         })

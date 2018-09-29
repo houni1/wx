@@ -213,5 +213,6 @@ export {
   coverOldData,
   addPhone,
   useHelp,
-  bindingEnterprise
+  bindingEnterprise,
+  deleteCircle
 };

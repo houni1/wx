@@ -185,7 +185,7 @@ Page({
       //上一个页面实例对象
       let prePage = pages[pages.length - 2];
       //关键在这里
-      prePage.onLoad()
+      prePage.onLoad({reload:true})
     }
       wx.switchTab({
         url: "../business/business"

@@ -55,6 +55,8 @@ App({
     authorize_user_id: 0,
     // 是否覆盖信息
     iscover: 0,
+    // 判断新老用户
+    oldUser: 0,
     // emaoCarShop
     kind: 0,
     latitude: 0,
