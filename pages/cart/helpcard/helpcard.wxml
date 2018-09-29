@@ -2,7 +2,7 @@
   <view class='help-item-box' wx:for="{{content}}" wx:key="{{index}}">
     <view class='help-item-title'>{{item.problem}}</view>
     <view class='help-item-pic'>
-      <image src='{{item.img}}' style="height: {{index == 0 ? '631rpx' : '660rpx'}}"></image>
+      <image src='{{item.img}}' style="height:{{item.height}}; width:{{item.width}}"></image>
     </view>
     <text class='help-item-text'>
       {{item.answer}}
