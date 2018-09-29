@@ -31,7 +31,7 @@ Component({
   },
 
   ready: function () {
-    this.getLocation();
+    // this.getLocation();
     this.setData({
       userId: app.globalData.authorize_user_id,
       saleId: app.globalData.saleId

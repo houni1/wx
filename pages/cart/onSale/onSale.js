@@ -1,4 +1,4 @@
-import { getOnSaleData, buttonStat, starStat, popStat } from '../../../servies/services.js';
+import { getOnSaleData, buttonStat, starStat, popStat, bindingEnterprise } from '../../../servies/services.js';
 var app = getApp();
 Page({
   /**
@@ -32,7 +32,10 @@ Page({
     network: true, // 无网络连接
     isShowShadow: false
   },
-  onShow: function () {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onShow: function (options) {
     var _this = this;
     // 按钮统计
     var tjParam = {
@@ -45,12 +48,6 @@ Page({
     buttonStat(tjParam).then(function (res) {
       // console.log(tjParam)
     }) 
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var _this = this;
     wx.getNetworkType({
       success(res) {
         if (res.networkType == "none") {
@@ -178,35 +175,41 @@ Page({
 
   // 点击弹框确定按钮获取在售车型
   sure: function () {
+    var _this = this;
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
       var params = {
-        page: pageNum,                  // 当前页 [必传]
+        page: 1,                  // 当前页 [必传]
         brandId: '',                    // 品牌id [非必传]
-        status: this.data.status,       // 上下架状态 1上架 2下架 [非必传]
-        type: this.data.type,            // 1 自营 2 一猫 [非必传]
-        phone: this.data.phone
+        status: 1,       // 上下架状态 1上架 2下架 [非必传]
+        type: '',            // 1 自营 2 一猫 [非必传]
+        phone: _this.data.phone
       }
       bindingEnterprise(params).then(function (res) {
        console.log(res)
-       if (res.list.length >= 0) {
+       if (res.type == 1) {
          wx.navigateTo({
-           url: '../searchResults/searchResults?phone=' + this.data.phone,
+           url: '../searchResults/searchResults?phone=' + _this.data.phone,
+         })
+         _this.setData({
+           bindFlag: false,
+           focusflag: false,
+           phone: ''
          })
        } else {
          wx.showToast({
-           title: ''
+            title: '没有查询到此用户',
+            icon: 'none'
+         })
+         _this.setData({
+           focusflag: false
          })
        }
         
       })
         
      
-      this.setData({
-        bindFlag: false,
-        focusflag: false,
-        phone: ''
-      })
+     
     } else {
       wx.showToast({
         title: '手机号格式有误，请重新输入',

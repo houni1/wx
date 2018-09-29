@@ -3,7 +3,7 @@
   <view class='searchInfo'>
     <view class='flex infoBox'>
       <view class='photo'>
-        <image wx:if="{{userInfo.avatar}}" src='{{userInfo.avatar}}' mode='widthFix'></image>
+        <image wx:if="{{userInfo.avatar}}" src='{{userInfo.avatar}}/247/3' mode='widthFix'></image>
         <image wx:else src='images/defaultPhoto.png' mode='widthFix'></image>
       </view>
       <view class='flex1'>
@@ -46,7 +46,7 @@
           </view>
         </view>
       </navigator>
-      <view class='shareBtn'>
+      <!-- <view class='shareBtn'>
         <label for='form_id'>
           <button open-type="share"
             data-title="{{ item.autoName }}"
@@ -57,7 +57,7 @@
             <image src='images/fa.png' mode='widthFix'></image>
           </button>
         </label>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class='noData' wx:if='{{ noData }}'>

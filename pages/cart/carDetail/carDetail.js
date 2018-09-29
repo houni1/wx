@@ -24,6 +24,12 @@ Page({
     formId: '',
     enterType: ''
   },
+  onShow: function(){
+    this.setData({
+      longitude: app.globalData.longitude,
+      latitude: app.globalData.latitude
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
   */
@@ -72,8 +78,8 @@ Page({
       userId: Number(this.data.userId),	        // 当前用户Id [必传]
       toUserId: Number(this.data.toUserId),	    // 被查看用户Id [必传]
       id: Number(this.data.id),	                // 车型Id [必传]
-      longitude: this.data.longitude || 0,      // 当前用户经度 [必传]
-      latitude: this.data.latitude || 0         // 当前用户纬度 [必传]
+      longitude: app.globalData.longitude,      // 当前用户经度 [必传]
+      latitude: app.globalData.latitude        // 当前用户纬度 [必传]
     };
     autoDetails(params).then(function (res) {
       if (res) {
