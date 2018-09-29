@@ -18,6 +18,9 @@ Page({
   // 点击箭头进入首页
   goHomeBtn: function () {
     console.log('点击进入首页')
+    wx.reLaunch({
+      url: '/pages/cart/index/index'
+    })
   },
 
   /**
