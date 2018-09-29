@@ -95,10 +95,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log('app.globalData', globalData)
-    // if (globalData.latitude == 0 || globalData.longitude == 0) {
+    if (globalData.latitude == 0 || globalData.longitude == 0) {
       this.getLocation();
-    // }
+    }
     
   },
   // 获取地理定位并转化成城市信息，并存入公共空间
