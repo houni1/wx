@@ -92,6 +92,7 @@ Component({
             wxAuthorization(params).then(subRes => {
               globalData.authorize_user_id = subRes.userId;
               globalData.iscover = subRes.status;
+              globalData.oldUser = subRes.oldUser;
               _this.goPage()  
               _this.triggerEvent('authResult', subRes.userId);
             })
