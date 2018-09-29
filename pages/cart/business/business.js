@@ -21,7 +21,7 @@ Page({
     network: true,
     formId: "",
     isAll: true,   // 是否显示全文
-    showTab:false
+    showTab:true
   },
   //头像预览
   preview_head(e) {
@@ -234,6 +234,13 @@ Page({
   onLoad: function (options) {
     let _this = this;
     wx.hideShareMenu()//隐藏右上角分享按钮
+   
+    if(options.reload){
+      this.setData({
+        currentPage:1,
+        list:[]
+      })
+    }
     let data = {
       currentPage: this.data.currentPage,
       userId: globalData.authorize_user_id,
@@ -309,18 +316,18 @@ Page({
     if(e.scrollTop > 200){
       wx.hideTabBar()
       this.setData({
-        showTab:true
+        showTab:false
       })
     }else{
       this.setData({
-        showTab:false
+        showTab:true
       })
       wx.showTabBar();
     }
   },
   showTab(){
     this.setData({
-      showTab:false
+      showTab:true
     })
     wx.showTabBar();
   },

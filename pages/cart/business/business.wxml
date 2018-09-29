@@ -73,7 +73,7 @@
   <!-- <view class='button' bindtap='send'>发布信息</view> -->
   <image class='button' bindtap='send' src='/images/send-info.png'></image>
 </view>
-<view class='showTab' bindtap='showTab' wx:if="{{showTab}}">
+<view class='showTab' bindtap='showTab' hidden="{{showTab}}">
   <image src='/images/bottomMenu.png'></image>
 </view>
 </label>
