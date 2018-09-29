@@ -24,3 +24,54 @@ z-index: 9999;
   padding-top: 10rpx;
   margin-bottom: 10rpx;
 }
+
+
+.shadow {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .4)
+}
+.shadow .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40rpx;
+  width: 500rpx;
+  background-color: #fff;
+}
+.shadow .content .ttl {
+  margin-bottom: 50rpx;
+  font-size: 35rpx;
+  color: #2c2c2c;
+}
+.shadow .content .desc {
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.shadow .btn-wrapper {
+  margin-top: 40rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #2c2c2c;
+}
+.shadow .btn-wrapper .confirm {
+  position: relative;
+  display: inline-block;
+  margin-left: 50rpx;
+  color: #1AAD16;
+}
+.shadow .btn-wrapper .confirm button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+}

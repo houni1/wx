@@ -16,3 +16,16 @@
     <text>车商圈</text>
   </view>
 </view>
+<!-- 获取地理位置弹窗 -->
+<view class='shadow' wx:if='{{isShowShadow}}'>
+  <view class='content border-box'>
+    <view class='ttl'>温馨提示</view>
+    <view class='desc'>推车猫申请获取您的位置信息</view>
+    <view class='btn-wrapper'>
+      <text class='cancle' data-isshow="{{false}}" bindtap='toggleShadow'>取消</text>
+      <view class='confirm' data-isshow="{{false}}" bindtap='toggleShadow'>
+        <button open-type="openSetting">打开授权</button>确定
+      </view>
+    </view>
+  </view>
+</view>

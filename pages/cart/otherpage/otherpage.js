@@ -95,9 +95,52 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // console.log('app.globalData', globalData)
+    // if (globalData.latitude == 0 || globalData.longitude == 0) {
+      this.getLocation();
+    // }
+    
   },
-
+  // 获取地理定位并转化成城市信息，并存入公共空间
+  getLocation() {
+    let _this = this;
+    wx.getLocation({
+      type: 'wgs84',
+      complete(res) {
+        let errMsg = res.errMsg;
+        console.log('errmsg', errMsg)
+        if (errMsg == "getLocation:ok") {
+          _this.setData({
+            latitude: res.latitude,
+            longitude: res.longitude
+          });
+          globalData.latitude = res.latitude
+          globalData.longitude = res.longitude
+          wx.getSetting({
+            success(res) {
+              if (!res.authSetting['scope.userLocation']) {
+                _this.setData({
+                  latitude: res.latitude,
+                  longitude: res.longitude
+                });
+              }
+            }
+          })
+        } else {
+          _this.setData({
+            isShowShadow: true
+          });
+        }
+      }
+    })
+  },
+  // 关闭弹窗
+  toggleShadow(e) {
+    let bool = e.currentTarget.dataset.isshow;
+    this.setData({
+      isShowShadow: bool
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

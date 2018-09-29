@@ -197,7 +197,6 @@ Page({
     // console.log(this.data.email)
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
-
       let params = {
         page: 1,                  // 当前页 [必传]
         brandId: '',              // 品牌id [非必传]
@@ -206,7 +205,7 @@ Page({
         phone: this.data.phone
       }
       bindingEnterprise(params).then(res => {
-        if (res.list.length > 0) {
+        if (res.type == 1) {
           _this.setData({
             onShelf: res.amount.onShelf || 0,
             unOnShelf: res.amount.unOnShelf || 0,
@@ -219,19 +218,45 @@ Page({
             userInfo: res.userInfo
           })
         } else {
+          wx.showToast({
+            title: '没有查询到此用户',
+            icon: 'none'
+          })
           _this.setData({
-            onShelf: res.amount.onShelf || 0,
-            unOnShelf: res.amount.unOnShelf || 0,
-            list: res.list,
-            lastPage: 1,
-            page: 1,
-            noData: true,
+            list: [],
+            nShelf: 0,
+            unOnShelf: 0,
+            userInfo: {},
             isShowBrand: true,
-            userInfo: res.userInfo
+            noData: true
           })
         }
+        // if (res.list.length > 0) {
+        //   _this.setData({
+        //     onShelf: res.amount.onShelf || 0,
+        //     unOnShelf: res.amount.unOnShelf || 0,
+        //     list: res.list,
+        //     lastPage: res.page.lastPage,
+        //     page: res.page.currentPage,
+        //     noData: false,
+        //     isShowBrand: false,
+        //     status: 1,
+        //     userInfo: res.userInfo
+        //   })
+        // } else {
+        //   _this.setData({
+        //     onShelf: res.amount.onShelf || 0,
+        //     unOnShelf: res.amount.unOnShelf || 0,
+        //     list: res.list,
+        //     lastPage: 1,
+        //     page: 1,
+        //     noData: true,
+        //     isShowBrand: true,
+        //     userInfo: res.userInfo
+        //   })
+        // }
       })
-      this.setData({
+      _this.setData({
         bindFlag: false,
         focusflag: false
       })
@@ -241,7 +266,7 @@ Page({
         icon: 'none',
         duration: 2000
       })
-      this.setData({
+      _this.setData({
         phone: ''
       })
     }

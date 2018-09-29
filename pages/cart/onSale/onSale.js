@@ -32,7 +32,10 @@ Page({
     network: true, // 无网络连接
     isShowShadow: false
   },
-  onShow: function () {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onShow: function (options) {
     var _this = this;
     // 按钮统计
     var tjParam = {
@@ -45,12 +48,6 @@ Page({
     buttonStat(tjParam).then(function (res) {
       // console.log(tjParam)
     }) 
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var _this = this;
     wx.getNetworkType({
       success(res) {
         if (res.networkType == "none") {
