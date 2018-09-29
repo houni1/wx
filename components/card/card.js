@@ -180,6 +180,7 @@ Component({
 
   // 进入我的名片
   inMyCard: function () {
+    console.log('进入我的名片按钮统计')
     let btnParams = {
       buttonType: '20',
       pageType: '3',
@@ -198,6 +199,7 @@ Component({
 
   // 创建我的名片
   createMyCard: function () {
+    console.log('创建我的名片按钮统计')
     let btnParams = {
       buttonType: '19',
       pageType: '3',
@@ -210,6 +212,7 @@ Component({
 
   // 授权触发的方法
   cartedmyCard(data) {
+    console.log('创建我的名片点击出弹框')
     let detail = data.detail,
       params = null;
     if (detail.errMsg == "getUserInfo:ok") {
@@ -250,7 +253,7 @@ Component({
             // console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
             if (globalData.authorize_user_id != '0') {
-              // console.log('跳转页面')
+              console.log('跳转页面')
               wx.reLaunch({
                 url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
               })

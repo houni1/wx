@@ -85,8 +85,11 @@
       <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259/2' mode="aspectFill"></image>
     </view>
   </view>
-  <view class='msg-box'>
-    <button wx:if="{{cardText == 0}}" bindtap='createMyCard' open-type="getUserInfo" bindgetuserinfo="cartedmyCard">创建我的名片</button>
-    <text wx:elif="{{cardText != 0}}" bindtap='inMyCard'>进入我的名片</text>
+  <button wx:if="{{cardText == 0}}" class='msg-box' open-type="getUserInfo" bindgetuserinfo="cartedmyCard" bindtap='createMyCard'>
+    <text>创建我的名片</text>
+  </button>
+  <view class='msg-box' wx:elif="{{cardText != 0}}" bindtap='inMyCard'>
+    <text>进入我的名片</text>
   </view>
+
 </view>
