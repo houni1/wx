@@ -119,7 +119,11 @@ Component({
     // 如果是app进入并且拒绝授权跳转至微信授权引导页面
     goPage () {
       // console.log('强制授权页面别人的id', globalData.saleId)
-      if (globalData.authorize_user_id == '0') {
+      if (globalData.authorize_user_id == '0' && globalData.source == '1') {
+        wx.redirectTo({
+          url: '/pages/cart/isallow/isallow'
+        })
+      } else if (globalData.authorize_user_id == '0' && globalData.source == '2' && globalData.saleId == '0') {
         wx.redirectTo({
           url: '/pages/cart/isallow/isallow'
         })
