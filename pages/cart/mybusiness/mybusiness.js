@@ -57,12 +57,15 @@ Page({
   quickcall(e) {
     let phone = e.currentTarget.dataset.phone;
     if (phone == "") {
-      wx.showToast({
-        title: "该用户暂无电话",
-        icon: 'none',
-        duration: 1500,
-        mask: false,
-      });
+      setTimeout(()=>{
+        wx.showToast({
+          title: "该用户暂无电话",
+          icon: 'none',
+          duration: 1500,
+          mask: false,
+        });
+      },500)
+ 
     } else {
       wx.showModal({
         title: '拨打电话',
