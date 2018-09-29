@@ -106,9 +106,11 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       complete(res) {
+        console.log(res)
         let errMsg = res.errMsg;
         console.log('errmsg', errMsg)
         if (errMsg == "getLocation:ok") {
+          
           _this.setData({
             latitude: res.latitude,
             longitude: res.longitude
@@ -117,7 +119,7 @@ Page({
           globalData.longitude = res.longitude
           wx.getSetting({
             success(res) {
-              if (!res.authSetting['scope.userLocation']) {
+              if (res.authSetting['scope.userLocation']) {
                 _this.setData({
                   latitude: res.latitude,
                   longitude: res.longitude
