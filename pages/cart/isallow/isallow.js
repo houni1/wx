@@ -99,28 +99,31 @@ Page({
           // console.log('强制授权页面传参', params)
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
-            globalData.oldUser = subRes.oldUser;
+            if (subRes.oldUser) {
+              globalData.oldUser = subRes.oldUser;
+            }
+            console.log('强制授权页面olduser', globalData.oldUser)
             // console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
             
             if (globalData.authorize_user_id != '0') {
 
               // console.log('跳转页面')
-              wx.reLaunch({
-                url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
-              })
+              // wx.reLaunch({
+              //   url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+              // })
 
-              // if (globalData.oldUser == '2') {
-              //   wx.reLaunch({
-              //     url: '/pages/cart/guide/guide'
-              //   })
-              // } 
-              // if (globalData.oldUser == '1') {
-              //   // console.log('跳转页面')
-              //   wx.reLaunch({
-              //     url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
-              //   })
-              // }
+              if (globalData.oldUser == '2') {
+                wx.reLaunch({
+                  url: '/pages/cart/guide/guide'
+                })
+              } 
+              if (globalData.oldUser == '1') {
+                // console.log('跳转页面')
+                wx.reLaunch({
+                  url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+                })
+              }
             }
           })
         }
