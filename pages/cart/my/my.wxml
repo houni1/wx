@@ -58,7 +58,7 @@
             </label>
 
               <!--跳转到我的使用帮助页面-->
-            <!-- <view class="border-bottom"></view>
+            <view class="border-bottom"></view>
 
             <label for="form_id">
               <view class="about-wrap clear-fix" bindtap="toHelp">
@@ -66,7 +66,7 @@
                   <view class="about-tuichemao left"> 使用帮助</view>
                   <image class="arrow-right cardcase-arrow" src="./images/arrow-right.png"></image>
               </view>
-            </label> -->
+            </label>
         </view>
 
         <!--更换绑定手机-->
