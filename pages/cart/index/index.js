@@ -207,7 +207,7 @@ Page({
   },
 
   // 拒绝覆盖
-  cancelBind: function () {
+  cancel: function () {
     this.setData({
       isCoverBox: false
     })
@@ -216,7 +216,7 @@ Page({
   },
 
   // 允许覆盖
-  sureBind: function () {
+  sure: function () {
     var params = {
       userId: globalData.authorize_user_id,
       saleId: globalData.saleId
