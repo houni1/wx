@@ -30,7 +30,7 @@
             wx:if='{{commonFn.handleWrap(item.information).lineNum > 6 && item.isAll}}'
             data-index='{{index}}'>显示全文</text>
           <text class='showClose' bindtap='showClose'
-            wx:if='{{!item.isAll}}'
+            wx:if='{{commonFn.handleWrap(item.information).lineNum > 6 && !item.isAll}}'
             data-index='{{index}}'>收起</text>
           <!-- <text class='showClose'>{{commonFn.getDomHeight('#title'+index)}}</text> -->
           <view class='img-group {{item.prices.length==4?"four":""}} {{item.prices.length!==4?"notfour":""}}' wx:if="{{item.prices!==[]}}">

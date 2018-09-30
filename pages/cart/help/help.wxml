@@ -17,7 +17,7 @@
                     <text class="title-info">{{content.vcard.title}}</text>
                 </view>
                 <view class="info-con">{{content.vcard.introduce}}</view>
-                 <view class="change-phone">去查看</view>
+                 <view class="change-phone" bindtap="goToCard">去查看</view>
             </view>
 
             <!--猫卫星-线索监控-->
@@ -27,7 +27,7 @@
                     <text class="title-info">{{content.satellite.title}}</text>
                 </view>
                 <view class="info-con">{{content.satellite.introduce}}</view>
-                 <view class="change-phone">去查看</view>
+                 <view class="change-phone" bindtap="goToCat">去查看</view>
             </view>
 
             <!--车商圈-行业内部打通-->
@@ -37,7 +37,7 @@
                     <text class="title-info">{{content.carCircle.title}}</text>
                 </view>
                 <view class="info-con">{{content.carCircle.introduce}}</view>
-                 <view class="change-phone">去查看</view>
+                 <view class="change-phone" bindtap="goToCircle">去查看</view>
             </view>
 
             <!--车源列表-多维度展示商品-->
@@ -47,7 +47,7 @@
                     <text class="title-info">{{content.auto.title}}</text>
                 </view>
                 <view class="info-con">{{content.auto.introduce}}</view>
-                 <view class="change-phone">去查看</view>
+                 <view class="change-phone" bindtap="goToCar">去查看</view>
             </view>
 
 
