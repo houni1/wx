@@ -83,10 +83,21 @@ Page({
   // 点击猫哥卫星列表头像进入对方名片页面
   toCard: function (e) {
     var saleId = e.currentTarget.dataset.checkid
-    globalData.saleId = saleId
-    wx.navigateTo({
-      url: '../otherpage/otherpage',
-    })
+    var linktype = e.currentTarget.dataset.linktype
+
+    console.log('linktype', linktype)
+
+    if (linktype == '1') {
+      globalData.saleId = saleId
+      wx.navigateTo({
+        url: '../otherpage/otherpage',
+      })
+    } else {
+      wx.showToast({
+        title: '该用户暂未开通名片',
+        icon: 'none'
+      })
+    }
   },
 
   /**

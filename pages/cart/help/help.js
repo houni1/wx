@@ -70,5 +70,36 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+
+  /* 跳往电子名片管理页面*/
+  goToCard(){
+      wx.navigateTo({
+          url:'../helpcard/helpcard'
+      })
+  },
+
+
+    /* 跳往猫卫星说明页面*/
+    goToCat() {
+        wx.navigateTo({
+            url: '../helpcat/helpcat'
+        })
+    },
+
+    /* 跳往车商圈说明页面*/
+    goToCircle() {
+        wx.navigateTo({
+            url: '../helpcircle/helpcircle'
+        })
+    },
+
+    /* 跳往车源列表管理页面*/
+    goToCar() {
+        wx.navigateTo({
+            url: '../helpcar/helpcar'
+        })
+    }
+
 })

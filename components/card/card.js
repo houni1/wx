@@ -189,12 +189,12 @@ Component({
     buttonStat(btnParams).then(res => {
       // console.log(res)
     })
-    wx.navigateTo({
-      url: '/pages/cart/card/card',
-    })
-    // wx.switchTab({
-    //   url: '/pages/cart/index/index'
+    // wx.navigateTo({
+    //   url: '/pages/cart/card/card',
     // })
+    wx.switchTab({
+      url: '/pages/cart/index/index'
+    })
   },
 
   // 创建我的名片
@@ -250,13 +250,23 @@ Component({
           // console.log('强制授权页面传参', params)
           wxAuthorization(params).then(subRes => {
             globalData.authorize_user_id = subRes.userId;
+            if (subRes.oldUser) {
+              globalData.oldUser = subRes.oldUser;
+            }
             // console.log('aaaa', globalData.authorize_user_id)
             // 强制授权页面点击微信授权允许按钮得到userid跳转到首页渲染数据
             if (globalData.authorize_user_id != '0') {
               console.log('跳转页面')
-              wx.reLaunch({
-                url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
-              })
+              if (globalData.oldUser == '2') {
+                wx.reLaunch({
+                  url: '/pages/cart/guide/guide'
+                })
+              }
+              if (globalData.oldUser == '1') {
+                wx.reLaunch({
+                  url: '/pages/cart/index/index?userId=' + globalData.authorize_user_id
+                })
+              }
             }
           })
         }

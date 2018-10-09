@@ -79,7 +79,7 @@
       <image data-imgurl="{{item}}" bindtap='lookpic' src='{{item}}/259/2' mode="aspectFill"></image>
     </view>
   </view>
-  <view class='msg-box' bindtap='toHome'>
+  <!-- <view class='msg-box' bindtap='toHome'>
     <text>进入首页</text>
-  </view>
+  </view> -->
 </view>
