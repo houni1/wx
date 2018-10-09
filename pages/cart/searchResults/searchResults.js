@@ -36,6 +36,7 @@ Page({
     saleId: '',        //  要覆盖的saleId,
     // 是否覆盖车商猫数据弹框
     isCoverBox: false,
+    resultType: 1       // 查询结果
   },
   onShow: function () {
     var _this = this;
@@ -228,7 +229,8 @@ Page({
             unOnShelf: 0,
             userInfo: {},
             isShowBrand: true,
-            noData: true
+            noData: true,
+            resultType: 0
           })
         }
         // if (res.list.length > 0) {

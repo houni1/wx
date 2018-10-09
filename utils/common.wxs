@@ -2,7 +2,6 @@
     // 去除尾部换行符
     var reg1 = getRegExp('\n+$', 'g');
     item1 = item.replace(reg1, '');
-    // console.log('去除尾部换行符',item1)
     // 匹配5个及以上换行符，多于5个截取多余的
     var reg_2 = getRegExp('\n{5,}', 'g');
     item1 = item1.replace(reg_2, '\n\n\n\n\n');
@@ -11,25 +10,18 @@
     var enterNum = 0;
     if (reg_1.test(item1)) {
       enterNum = item1.match(reg_1).length;
-      // console.log('enterNum', enterNum)
     }
     // 回车符代表的字符个数,一个回车代表20个字符
     var enterTotalNum = enterNum * 20;
-    // console.log('enterTotalNum', enterTotalNum)
     
     // item中总长度totalLength
     var totalLength = item1.length - enterNum + enterTotalNum
-    // console.log(totalLength)
     // 文本行数lineNum
     var lineNum = parseInt(totalLength / 20 + 1);
-    // console.log("lineNum", lineNum)
-    // var reg_2 = getRegExp(('&hc', 'g'))
     var obj = {
       "lineNum": lineNum,
       "str": item1.replace(reg1, '')
     }
-    // console.log('-----',obj.lineNum)
-    // console.log('====',obj.str)
     return obj
 
   }
