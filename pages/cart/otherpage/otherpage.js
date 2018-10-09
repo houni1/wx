@@ -10,7 +10,8 @@ Page({
     homeshow: true,
     carshow: false,
     bushow: false,
-    isIPhoneX:0
+    isIPhoneX:0,
+    showTab:true
   },
 
   /**
@@ -36,6 +37,9 @@ Page({
   },
   //首页显示
   tohome() {
+    this.setData({
+      showTab:true
+    })
     let btnParams = {
       buttonType: '39',
       pageType: '3',
@@ -98,7 +102,9 @@ Page({
     if (globalData.latitude == 0 || globalData.longitude == 0) {
       this.getLocation();
     }
-    
+    this.setData({
+      showTab:true
+    })
   },
   // 获取地理定位并转化成城市信息，并存入公共空间
   getLocation() {
@@ -160,9 +166,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    if (this.data.bushow) {
-      this.business = this.selectComponent("#business");
-    }
+   
     if (this.data.carshow) {
       this.getData = this.selectComponent("#othersCarInfo");
       this.getData.getBrandListData()
@@ -209,4 +213,19 @@ Page({
       }
     }
   },
+  onPageScroll(e){
+    let _this=this;
+    if (this.data.bushow) {
+      this.business = this.selectComponent("#business");
+      this.business.PageScroll(e)
+      this.setData({
+        showTab:_this.business.data.showTab
+      })
+    }
+  },
+  showTab(){
+    this.setData({
+      showTab:true
+    })
+  }
 })
