@@ -208,7 +208,7 @@ Page({
   },
 
   // 拒绝覆盖
-  cancelBind: function () {
+  cancel: function () {
     this.setData({
       isCoverBox: false
     })
@@ -217,7 +217,7 @@ Page({
   },
 
   // 允许覆盖
-  sureBind: function () {
+  sure: function () {
     var params = {
       userId: globalData.authorize_user_id,
       saleId: globalData.saleId
@@ -322,10 +322,20 @@ Page({
   // 点击猫哥卫星列表头像进入对方名片页面
   toCard: function (e) {
     var saleId = e.currentTarget.dataset.checkid
-    globalData.saleId = saleId
-    wx.navigateTo({
-      url: '../otherpage/otherpage',
-    })
+    var linktype = e.currentTarget.dataset.linktype
+    
+    console.log('linktype', linktype)
+    if (linktype == '1') {
+      globalData.saleId = saleId
+      wx.navigateTo({
+        url: '../otherpage/otherpage',
+      })
+    } else {
+      wx.showToast({
+        title: '该用户暂未开通名片',
+        icon: 'none'
+      })
+    }
   },
 
   // 获取用户手机号
