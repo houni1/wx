@@ -1,3 +1,4 @@
+<wxs module="commonFn" src="../../../utils/common.wxs"></wxs>
 <view class='share'>
   <view class='title'>
     <scroll-view class='wraper' scroll-x="true" style="white-space: nowrap;">
@@ -19,7 +20,16 @@
   <view class='content'>
     <view class='name'>{{nickname}}</view>
     <view class='date'>{{createdAt}}</view>
-    <view class='text'>{{information}}</view>
+    <!-- <view class='text'>{{information}}</view> -->
+
+    <text class="text {{commonFn.handleWrap(information,25).lineNum > 6 && isAll ? 'max-height' : ''}}">{{commonFn.handleWrap(information,25).str}}</text>
+          <text class='showClose' bindtap='showClose'
+            wx:if='{{commonFn.handleWrap(information,25).lineNum > 6 && isAll}}'
+            >显示全文</text>
+          <text class='showClose' bindtap='showClose'
+            wx:if='{{commonFn.handleWrap(information,25).lineNum > 6 && !isAll}}'
+            >收起</text>
+
     <view class='{{prices.length==4?"picture":""}}'>
       <block wx:for="{{prices}}" wx:key="index">
         <image src='{{item}}' class='{{prices.length>1?"moreimg":"oneimg"}}' ></image>

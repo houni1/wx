@@ -90,7 +90,7 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         let name = 'iPhone X'
-        if (res.model.indexOf(name) > -1 || res.system.indexOf("iOS 12.0") > -1) {
+        if (res.model.indexOf(name) > -1 || (res.screenHeight>800&&res.brand=="iPhone")) {
           _this.setData({
             iphoneX: "40%"
           })

@@ -17,7 +17,8 @@ Page({
     list: [],//海报图片容器
     isShowShadow: false,//是否显示弹窗
     userId: "",
-    circleId: ""
+    circleId: "",
+    isAll:true
   },
 
   /**
@@ -142,6 +143,13 @@ Page({
     this.setData({
       isShowShadow: false
     })
+  },
+  // 显示全文，收起
+  showClose: function(event){ 
+    this.data.isAll = !this.data.isAll
+    this.setData({
+      isAll:  this.data.isAll
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
