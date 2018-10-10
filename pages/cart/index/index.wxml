@@ -69,9 +69,9 @@
     </view>
     <view class='home-catlist'>
       <view class='catlist-title'>猫哥卫星</view>
-      <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}">
+      <view class='catli' wx:for="{{catlist}}" wx:key="{{index}}" data-linktype="{{item.linkType}}" data-checkid="{{item.checkId}}" bindtap='toCard'>
         <view class='catli-pic'>
-          <image data-linktype="{{item.linkType}}" data-checkid="{{item.checkId}}" bindtap='toCard' src='{{item.checkImg}}'></image>
+          <image src='{{item.checkImg}}'></image>
         </view>
         <view class='catli-info'>
           <view class='catli-info-top'>

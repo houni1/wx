@@ -299,5 +299,13 @@ Component({
     }, 500)
     
   },
+  makePhoneCall(e){
+    let phone=e.currentTarget.dataset.phone
+    if(phone){
+      wx.makePhoneCall({
+        phoneNumber: phone
+      })
+    }
+  }
 }
 })

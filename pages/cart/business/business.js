@@ -63,18 +63,9 @@ Page({
        },500)
      
     } else {
-      wx.showModal({
-        title: '拨打电话',
-        content: phone,
-        success: function (res) {
-          if (res.confirm) {
-            wx.makePhoneCall({
-              phoneNumber: phone
-            })
-          } else if (res.cancel) {
-          }
-        }
-      })
+        wx.makePhoneCall({
+          phoneNumber: phone
+        })
     }
 
   },
