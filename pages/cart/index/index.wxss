@@ -85,6 +85,11 @@
   padding-left: 21rpx;
 }
 .user-name {
+  width: 230rpx;
+  height: 98rpx;
+  white-space: nowrap;
+	overflow: hidden; 
+	text-overflow:ellipsis;
   font-size: 40rpx;
   font-weight: 600;
   color: #282c39;
