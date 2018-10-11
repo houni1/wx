@@ -221,9 +221,6 @@ Page({
        }
         
       })
-        
-     
-     
     } else {
       wx.showToast({
         title: '手机号格式有误，请重新输入',
