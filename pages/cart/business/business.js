@@ -320,15 +320,19 @@ Page({
     }
     let _this=this;
     if(e.scrollTop > 200){
-      wx.hideTabBar()
-      _this.setData({
-        showTab:false
-      })
+       if(this.data.showTab){
+          wx.hideTabBar()
+          _this.setData({
+             showTab: false
+          })
+       }
     }else{
-      _this.setData({
-        showTab:true
-      })
-      wx.showTabBar();
+       if(!this.data.showTab){
+          _this.setData({
+             showTab: true
+          })
+          wx.showTabBar();
+       }
     }
   },
   showTab(){

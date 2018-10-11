@@ -208,6 +208,7 @@ Component({
         list:  this.data.list
       });
     },
+    //页面滚动
     PageScroll(e){
       this.setData({
         scrollTop:e.scrollTop
@@ -217,13 +218,17 @@ Component({
       }
       let _this=this;
       if(e.scrollTop > 200){
-        _this.setData({
-          showTab:false
-        })
+        if(_this.data.showTab){
+           _this.setData({
+              showTab: false
+           })
+        }   
       }else{
-        _this.setData({
-          showTab:true
-        })
+         if (!_this.data.showTab){
+            _this.setData({
+               showTab: true
+            })
+         }
       }
     }
   },

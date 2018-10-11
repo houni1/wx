@@ -219,9 +219,11 @@ Page({
     if (this.data.bushow) {
       this.business = this.selectComponent("#business");
       this.business.PageScroll(e)
-      this.setData({
-        showTab:_this.business.data.showTab
-      })
+       if (this.data.showTab !== this.business.data.showTab){
+          this.setData({
+             showTab: _this.business.data.showTab
+          })
+      }
     }
   },
   showTab(){
