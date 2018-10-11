@@ -187,14 +187,7 @@ Page({
   // 点击弹框确定按钮获取在售车型
   sure: function () {
     var _this = this;
-    let btnParams = {
-      buttonType: '15',
-      pageType: '2',
-      appType: '1'
-    }
-    buttonStat(btnParams).then(res => {
-      // console.log(res)
-    })
+    
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
       let params = {
