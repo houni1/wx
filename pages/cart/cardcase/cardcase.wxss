@@ -36,5 +36,5 @@ page{position: absolute;
 .cardcase-permit{float:right;border:1px solid #ffcf10;background-color:#ffcf10;font-weight:bold;box-shadow:5rpx 5rpx 15rpx #ffe68f;}
 .cardcase-nothing{position: absolute;left: 50%; top: 35%;transform: translate(-50%, -50%);text-align:center;}
 .cardcase-no-data{width:180rpx;height:161rpx;}
-.no-cardcase{font-size:32rpx;color:#282c39;}
-.change-cardcase{font-size:32rpx;color:#a6a6a6;}
+.no-cardcase{margin-top:35rpx;font-size:32rpx;color:#282c39;font-weight:bold;}
+.change-cardcase{margin-top:20rpx;font-size:28rpx;color:#a6a6a6;}
