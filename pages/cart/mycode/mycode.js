@@ -140,7 +140,7 @@ Page({
         if (res.phone == '') {
           var phone = 'userInfo.phone'
           this.setData({
-            [phone]: '暂无'
+            [phone]: '暂无手机号'
           })
         }
       }
