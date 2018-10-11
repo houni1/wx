@@ -99,12 +99,10 @@ Page({
       userId: app.globalData.authorize_user_id
     }
     getUserInfo(params).then(function (res) {
-      console.log(res)
       _this.setData({
         isCover: res.isSync
       });
     })
-    console.log(_this.isCover)
   },
   /**
    * 页面顶部tab切换

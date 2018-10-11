@@ -57,7 +57,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     var _this = this;
     wx.getNetworkType({
       success(res) {
@@ -76,7 +75,6 @@ Page({
       phone: options.phone
     });
 
-    console.log('是否绑定',app.globalData.iscover)
 
     _this.getDataList();
 
@@ -128,7 +126,7 @@ Page({
    * 选择商品类型
    */
   goodsSelect: function (event) {
-    console.log(event.currentTarget.dataset.type)
+    // console.log(event.currentTarget.dataset.type)
     this.setData({
       showSelect: false,
       goodsSelectName: event.currentTarget.dataset.name,

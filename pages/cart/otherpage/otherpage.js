@@ -11,7 +11,10 @@ Page({
     carshow: false,
     bushow: false,
     isIPhoneX:0,
-    showTab:true
+    showTab:true,
+    latitude: '',
+    longitude: ''
+
   },
 
   /**
@@ -112,9 +115,7 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       complete(res) {
-        console.log(res)
         let errMsg = res.errMsg;
-        console.log('errmsg', errMsg)
         if (errMsg == "getLocation:ok") {
           
           _this.setData({
@@ -126,10 +127,10 @@ Page({
           wx.getSetting({
             success(res) {
               if (res.authSetting['scope.userLocation']) {
-                _this.setData({
-                  latitude: res.latitude,
-                  longitude: res.longitude
-                });
+                // _this.setData({
+                //   latitude: res.latitude,
+                //   longitude: res.longitude
+                // });
               }
             }
           })
