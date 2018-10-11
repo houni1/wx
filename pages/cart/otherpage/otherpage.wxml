@@ -2,7 +2,7 @@
 <othersCarInfo wx:if="{{carshow}}" id="othersCarInfo"></othersCarInfo>
 <business wx:if="{{bushow}}" id="business" bind:myevent="tohome"></business>
 
-<view class='tabBar' style="padding-bottom:{{isIPhoneX}}">
+<view class='tabBar' style="padding-bottom:{{isIPhoneX}}" hidden="{{!showTab}}">
   <view class='home ' style="color:{{homeshow?'#282c39':'#a6a6a6'}}" bindtap="tohome">
     <image src='{{homeshow?"./images/home1.png":"./images/home.png"}}'></image>
     <text>名片</text>
@@ -15,6 +15,9 @@
     <image src='{{bushow?"./images/business1.png":"./images/business.png"}}'></image>
     <text>车商圈</text>
   </view>
+</view>
+<view class='showTab' bindtap='showTab' hidden="{{showTab}}">
+  <image src='/images/bottomMenu.png'></image>
 </view>
 <!-- 获取地理位置弹窗 -->
 <view class='shadow' wx:if='{{isShowShadow}}'>

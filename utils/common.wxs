@@ -1,4 +1,5 @@
-  var handleWrap = function (item) {
+  var handleWrap = function (item,number) {
+    var num=number||20;
     // 去除尾部换行符
     var reg1 = getRegExp('\n+$', 'g');
     item1 = item.replace(reg1, '');
@@ -12,12 +13,12 @@
       enterNum = item1.match(reg_1).length;
     }
     // 回车符代表的字符个数,一个回车代表20个字符
-    var enterTotalNum = enterNum * 20;
+    var enterTotalNum = enterNum * num;
     
     // item中总长度totalLength
     var totalLength = item1.length - enterNum + enterTotalNum
     // 文本行数lineNum
-    var lineNum = parseInt(totalLength / 20 + 1);
+    var lineNum = parseInt(totalLength / num + 1);
     var obj = {
       "lineNum": lineNum,
       "str": item1.replace(reg1, '')
@@ -25,21 +26,8 @@
     return obj
 
   }
-  var getDomHeight = function (el) {
-    console.log('el----',el);
-    // return typeof el
-    //创建节点选择器
-    var query = wx.createSelectorQuery();
-    //选择id
-    console.log(query);
-    query.select(el).boundingClientRect();
-    query.exec(function (res) {
-      console.log('打印demo的元素的信息', res);
-      console.log('打印高度', res[0].height);
-      return res[0].height
-    })
-  }
+
 module.exports = {
-  handleWrap: handleWrap,
-  getDomHeight: getDomHeight
+  handleWrap: handleWrap
+
 }

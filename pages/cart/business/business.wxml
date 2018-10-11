@@ -23,8 +23,7 @@
             销售人气{{item.popularity}}
           </view>
         </view>
-        <view class="content">
-          <view class="content-title" style='opacity:0;position:absolute;z-index:-1'>{{item.information}}</view>     
+        <view class="content">     
           <text class="content-title {{commonFn.handleWrap(item.information).lineNum > 6 && item.isAll ? 'max-height' : ''}}">{{commonFn.handleWrap(item.information).str}}</text>
           <text class='showClose' bindtap='showClose'
             wx:if='{{commonFn.handleWrap(item.information).lineNum > 6 && item.isAll}}'

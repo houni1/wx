@@ -34,7 +34,7 @@ Page({
     wx.getSystemInfo({
       success: function(res) {
         let name = 'iPhone X'
-        if(res.model.indexOf(name) > -1||res.system.indexOf("iOS 12.0")>-1){
+        if(res.model.indexOf(name) > -1||(res.screenHeight>800&&res.brand=="iPhone")){
           _this.setData({
             iphoneX:"40%"
           })
@@ -140,7 +140,7 @@ Page({
         if (res.phone == '') {
           var phone = 'userInfo.phone'
           this.setData({
-            [phone]: '暂无'
+            [phone]: '暂无手机号'
           })
         }
       }

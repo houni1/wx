@@ -23,7 +23,10 @@ Component({
       lastPage: "",//总页数
     },
     currentPage: 1,
-    isAll: true   // 是否显示全文
+    isAll: true ,  // 是否显示全文
+    scrollTop:0,
+    maxScrollTop:0,
+    showTab:true
   },
 
   /**
@@ -68,18 +71,9 @@ Component({
           });
         },500)
       } else {
-        wx.showModal({
-          title: '拨打电话',
-          content: phone,
-          success: function (res) {
-            if (res.confirm) {
-              wx.makePhoneCall({
-                phoneNumber: phone
-              })
-            } else if (res.cancel) {
-            }
-          }
-        })
+          wx.makePhoneCall({
+            phoneNumber: phone
+          })
       }
     },
     //查看名片
@@ -140,8 +134,12 @@ Component({
 
     //上拉加载数据
     uploadData() {
+      let _this=this;
       let curpage = this.data.currentPage - 0 + 1;
       if (curpage > this.data.page.lastPage) {
+        _this.setData({
+          maxScrollTop:_this.data.scrollTop
+        })
         wx.showToast({
           title: "已没有更多内容",
           icon: 'none',
@@ -209,6 +207,24 @@ Component({
       this.setData({
         list:  this.data.list
       });
+    },
+    PageScroll(e){
+      this.setData({
+        scrollTop:e.scrollTop
+      })
+      if(this.data.currentPage==this.data.page.lastPage&&this.data.maxScrollTop-e.scrollTop<5&&this.data.page.lastPage!==1){
+        return
+      }
+      let _this=this;
+      if(e.scrollTop > 200){
+        _this.setData({
+          showTab:false
+        })
+      }else{
+        _this.setData({
+          showTab:true
+        })
+      }
     }
   },
   //组件实例化但节点树还未导入，因此这时不能用setData

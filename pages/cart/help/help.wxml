@@ -2,9 +2,7 @@
 <view wx-if="{{flag}}">
     <view class="abstract">
         <view class="abstract-title">{{content.problem}}</view>
-        <view class="abstract-con">
-          {{content.answer}}
-        </view>
+        <view class="abstract-con">{{content.answer}}</view>
     </view>
 
    

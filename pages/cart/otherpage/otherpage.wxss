@@ -9,6 +9,7 @@ position: fixed;
 bottom: 0;
 background: white;
 z-index: 9999;
+box-shadow:0 2rpx 8rpx #a7a7a7;
 }
 
 .tabBar .home,.tabBar .source,.tabBar .circle{
@@ -24,6 +25,17 @@ z-index: 9999;
   padding-top: 10rpx;
   margin-bottom: 10rpx;
 }
+.showTab{
+  width:67rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  right: 45rpx;
+  }
+  .showTab image{
+     width: 67rpx;
+     height: 100rpx
+  }
 
 
 .shadow {
