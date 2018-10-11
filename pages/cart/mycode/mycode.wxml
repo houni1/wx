@@ -59,7 +59,7 @@
   <view class='mail-box' style="top:{{iphoneX}}">
     <view class='mail-box-title'>请输入您的邮箱</view>
     <view class='mail-box-input'>
-      <input placeholder='请输入邮箱地址' bindinput='email' focus="focusflag" value='{{email}}'></input>
+      <input placeholder='请输入邮箱地址' bindinput='email' focus="focusflag" value='{{email}}' style="height:100%"></input>
     </view>
     <view class='mail-box-btns'>
       <text class='cancel-btn' bindtap='cancel'>取消</text>
