@@ -7,7 +7,7 @@ Page({
   data: {
     bindFlag: false,     // 输入企业账号弹框
     focusflag: false,      // 弹框弹起默认获取焦点
-    phone: '15622221111',            // 绑定企业的手机号
+    phone: '',            // 绑定企业的手机号
     iphoneX: "50%",
     userId: '',            // 当前用户Id [必传]
     toUserId: '',          // 被查看用户Id [必传]
@@ -36,7 +36,8 @@ Page({
     saleId: '',        //  要覆盖的saleId,
     // 是否覆盖车商猫数据弹框
     isCoverBox: false,
-    resultType: 1       // 查询结果
+    resultType: 1,       // 查询结果
+    iscover: 1
   },
   onShow: function () {
     var _this = this;
@@ -72,9 +73,10 @@ Page({
 
     _this.setData({
       userId: app.globalData.authorize_user_id,
-      toUserId: app.globalData.authorize_user_id,
       phone: options.phone
     });
+
+    console.log('是否绑定',app.globalData.iscover)
 
     _this.getDataList();
 
@@ -180,7 +182,7 @@ Page({
   // 获取弹框手机号
   phone: function (e) {
     this.setData({
-      phone: e.detail.value
+      phone: parseInt(e.detail.value)
     })
   },
 
@@ -195,7 +197,6 @@ Page({
     buttonStat(btnParams).then(res => {
       // console.log(res)
     })
-    // console.log(this.data.email)
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (phoneReg.test(this.data.phone)) {
       let params = {
@@ -216,50 +217,17 @@ Page({
             noData: false,
             isShowBrand: false,
             status: 1,
-            userInfo: res.userInfo
+            userInfo: res.userInfo,
+            bindFlag: false
           })
         } else {
           wx.showToast({
-            title: '没有查询到此用户',
+            title: '该账号未注册车商猫',
             icon: 'none'
           })
-          _this.setData({
-            list: [],
-            nShelf: 0,
-            unOnShelf: 0,
-            userInfo: {},
-            isShowBrand: true,
-            noData: true,
-            resultType: 0
-          })
         }
-        // if (res.list.length > 0) {
-        //   _this.setData({
-        //     onShelf: res.amount.onShelf || 0,
-        //     unOnShelf: res.amount.unOnShelf || 0,
-        //     list: res.list,
-        //     lastPage: res.page.lastPage,
-        //     page: res.page.currentPage,
-        //     noData: false,
-        //     isShowBrand: false,
-        //     status: 1,
-        //     userInfo: res.userInfo
-        //   })
-        // } else {
-        //   _this.setData({
-        //     onShelf: res.amount.onShelf || 0,
-        //     unOnShelf: res.amount.unOnShelf || 0,
-        //     list: res.list,
-        //     lastPage: 1,
-        //     page: 1,
-        //     noData: true,
-        //     isShowBrand: true,
-        //     userInfo: res.userInfo
-        //   })
-        // }
       })
       _this.setData({
-        bindFlag: false,
         focusflag: false
       })
     } else {

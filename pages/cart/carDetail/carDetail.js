@@ -1,4 +1,4 @@
-import { getCarDeatilData, autoDetails, buttonStat } from '../../../servies/services.js';
+import { getCarDeatilData, autoDetails, buttonStat, appAutoDetails } from '../../../servies/services.js';
 let WxParse = require('../../../utils/wxParse/wxParse.js');
 var app = getApp();
 Page({
@@ -56,7 +56,8 @@ Page({
       }
       buttonStat(tjParam).then(function (res) { 
         // console.log('在售车型商品图片区域')
-      }) 
+      })
+      _this.getData();
     } else if (enterType == "other") {
       var tjParam = {
         buttonType: 26,
@@ -67,9 +68,35 @@ Page({
       }
       buttonStat(tjParam).then(function (res) { 
         // console.log('其他车源商品图片区域')
-      }) 
+      })
+      _this.getData();
+    } else if (enterType == "searchResult") {
+      var _this = this;
+      // 获取车型详情信息
+      var params = {
+        dealerUserId: Number(this.data.toUserId),	    // 被查看用户Id [必传]
+        id: Number(this.data.id),	                // 车型Id [必传]
+        longitude: app.globalData.longitude,      // 当前用户经度 [必传]
+        latitude: app.globalData.latitude        // 当前用户纬度 [必传]
+      };
+      appAutoDetails(params).then(function (res) {
+        if (res) {
+          _this.setData({
+            flag: true,
+            dataInfo: res,
+            autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
+          })
+        }
+        // _this.setData({
+        //   dataInfo: res,
+        //   autoParam: res.autoParam.list ? res.autoParam.list[0].param : res.autoParam,
+        // });
+        if (!res.autoParam.list) {
+          var article = res.autoParam;
+          WxParse.wxParse('article', 'html', article, _this, 5);
+        }
+      })
     }
-    _this.getData();
   },
   getData(){
     var _this = this;

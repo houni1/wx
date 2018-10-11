@@ -30,7 +30,7 @@
   </view>
   <view class='carsList'>
     <view class='item' wx:for="{{ list }}" wx:key="item">
-      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{toUserId}}&id={{item.id}}&enterType=self">
+      <navigator hover-class="none" url="/pages/cart/carDetail/carDetail?userId={{userId}}&toUserId={{saleId}}&id={{item.id}}&enterType=searchResult">
         <view class='hotTag' hidden='{{ item.isHot != 1 }}'><image src='images/hotTag.png' mode='widthFix'></image></view>
         <view class='imgWrap'>
           <image wx:if="{{ item.cover }}" src='{{ item.cover }}/246' mode='aspectFit'></image>
@@ -62,16 +62,16 @@
   </view>
   <view class='noData' wx:if='{{ noData }}'>
     <image src='images/noData.png' mode='widthFix'></image>
-    <view class='btn-box' wx:if="{{ resultType == 1 }}">
+    <view class='btn-box' wx:if="{{ resultType == 1}}">
       <view class='btn' bindtap='bindbtn'>绑定企业</view>
     </view>
   </view>
 </view>
-<view class='mail-mark' wx:if="{{bindFlag}}">
+<view class='mail-mark' wx:if="{{bindFlag}}" catchtouchmove='true'>
   <view class='mail-box' style="top:{{iphoneX}}">
     <view class='mail-box-title'>请输入车商猫登录账号</view>
     <view class='mail-box-input'>
-      <input placeholder='请输入手机号' bindinput='phone' focus="focusflag" value='{{phone}}'></input>
+      <input placeholder='请输入手机号' type='number' bindinput='phone' focus="focusflag" value='{{phone}}' maxlength='11'></input>
     </view>
     <view class='mail-box-btns'>
       <text class='cancel-btn' bindtap='cancel'>取消</text>
@@ -79,7 +79,7 @@
     </view>
   </view>
 </view>
-<view class='bindCompany' wx:if='{{ !noData }}'>
+<view class='bindCompany' wx:if='{{ !noData}}'>
   <view class='btn-box'>
     <view class='btn' bindtap='bindCompany'>绑定企业</view>
   </view>
@@ -87,7 +87,7 @@
 <view class='shadow' wx:if='{{isCoverBox}}'>
   <view class='contain border-box'>
     <view class='ttl'>温馨提示</view>
-    <view class='desc'>是否将其替换为车商猫资料</view>
+    <view class='desc'>是否将车商猫信息同步</view>
     <view class='btn-wrapper'>
       <text class='cancle' bindtap='cancelBind'>取消</text>
       <view class='confirm' bindtap='sureBind'>确定</view>

@@ -7,14 +7,18 @@ let getOnSaleData = function (data) {
   return $get('/cart/auto/autoList', data)
 }
 
-// // 获取品牌列表
+// 获取品牌列表
 let getBrandList = function (data) {
   return $get('/cart/auto/brandList', data)
 }
 
-// // 获取车辆详情
+// 获取车辆详情
 let autoDetails = function (data) {
   return $get('/cart/auto/autoDetails', data)
+}
+// 获取车商猫账号内车辆详情
+let appAutoDetails = function (data) {
+  return $get('/cart/auto/appAutoDetails', data)
 }
 
 
@@ -214,5 +218,6 @@ export {
   addPhone,
   useHelp,
   bindingEnterprise,
-  deleteCircle
+  deleteCircle,
+  appAutoDetails
 };

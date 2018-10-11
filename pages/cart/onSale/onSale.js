@@ -1,4 +1,4 @@
-import { getOnSaleData, buttonStat, starStat, popStat, bindingEnterprise } from '../../../servies/services.js';
+import { getOnSaleData, buttonStat, starStat, popStat, bindingEnterprise, getUserInfo } from '../../../servies/services.js';
 var app = getApp();
 Page({
   /**
@@ -30,13 +30,17 @@ Page({
     formId: '',
     arrowColor: false,
     network: true, // 无网络连接
-    isShowShadow: false
+    isShowShadow: false,
+    isCover: ''              //  是否绑定过企业：1--绑定过，2--未绑定
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onShow: function (options) {
     var _this = this;
+    _this.setData({
+      bindFlag: false
+    });
     // 按钮统计
     var tjParam = {
       buttonType: 8,
@@ -89,6 +93,18 @@ Page({
         console.log("失败", e)
       }
     })
+
+    // 判断是否绑定过企业
+    var params = {
+      userId: app.globalData.authorize_user_id
+    }
+    getUserInfo(params).then(function (res) {
+      console.log(res)
+      _this.setData({
+        isCover: res.isSync
+      });
+    })
+    console.log(_this.isCover)
   },
   /**
    * 页面顶部tab切换
@@ -169,7 +185,7 @@ Page({
   // 获取弹框手机号
   phone: function (e) {
     this.setData({
-      phone: e.detail.value
+      phone: parseInt(e.detail.value)
     })
   },
 
@@ -198,7 +214,7 @@ Page({
          })
        } else {
          wx.showToast({
-            title: '没有查询到此用户',
+            title: '该账号未注册车商猫',
             icon: 'none'
          })
          _this.setData({

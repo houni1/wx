@@ -50,7 +50,7 @@
   </view>
   <view class='noData' wx:if='{{ noData }}'>
     <image src='images/noData.png' mode='widthFix'></image>
-    <view class='btn-box'>
+    <view class='btn-box' wx:if="{{isCover == 2}}">
       <view class='btn' bindtap='bindbtn'>绑定企业</view>
     </view>
   </view>
@@ -59,7 +59,7 @@
   <view class='mail-box' style="top:{{iphoneX}}">
     <view class='mail-box-title'>请输入车商猫登录账号</view>
     <view class='mail-box-input'>
-      <input placeholder='请输入手机号' bindinput='phone' focus="focusflag" value='{{phone}}'></input>
+      <input placeholder='请输入手机号' type='number' bindinput='phone' focus="focusflag" value='{{phone}}' maxlength='11'></input>
     </view>
     <view class='mail-box-btns'>
       <text class='cancel-btn' bindtap='cancel'>取消</text>

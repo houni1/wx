@@ -80,6 +80,7 @@ Page({
           // catlist: res.list,
           userInfo: res.userInfo
         })
+        console.log('-----',res)
         // 处理红点是否显示
         /*
         if (res.card > 0) {
