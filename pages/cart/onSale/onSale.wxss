@@ -232,6 +232,7 @@ button::after {
 
 .mail-box-input input {
   flex: 1;
+  height: 100%;
   font-size: 26rpx;
   color: #a6a6a6;
 }
