@@ -262,5 +262,10 @@ Page({
     buttonStat(tjParam).then(function (res) {
       // console.log("按钮统计成功")
     })
+  },
+  toIndex(){
+    wx.switchTab({
+      url: '/pages/cart/index/index'
+    })
   }
 })
