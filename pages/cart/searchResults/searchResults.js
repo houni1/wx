@@ -37,7 +37,8 @@ Page({
     // 是否覆盖车商猫数据弹框
     isCoverBox: false,
     resultType: 1,       // 查询结果
-    iscover: 1
+    iscover: 1,
+    newPhone: ''          // 重新查找时的电话
   },
   onShow: function () {
     var _this = this;
@@ -173,14 +174,14 @@ Page({
       focusflag: false
     })
     this.setData({
-      phone: ''
+      newPhone: ''
     })
   },
 
   // 获取弹框手机号
   phone: function (e) {
     this.setData({
-      phone: parseInt(e.detail.value)
+      newPhone: parseInt(e.detail.value)
     })
   },
 
@@ -189,14 +190,17 @@ Page({
     var _this = this;
     
     var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if (phoneReg.test(this.data.phone)) {
+    if (phoneReg.test(this.data.newPhone)) {
       let params = {
         page: 1,                  // 当前页 [必传]
         brandId: '',              // 品牌id [非必传]
         status: 1,                // 上下架状态 1上架 2下架 [非必传]
         type: '',                 // 1 自营 2 一猫 [非必传]
-        phone: this.data.phone
+        phone: _this.data.newPhone
       }
+      _this.setData({
+        phone: _this.data.newPhone
+      });
       bindingEnterprise(params).then(res => {
         if (res.type == 1) {
           _this.setData({
@@ -229,7 +233,7 @@ Page({
         duration: 2000
       })
       _this.setData({
-        phone: ''
+        newPhone: ''
       })
     }
   },
@@ -303,6 +307,7 @@ Page({
       phone: this.data.phone
     }
     bindingEnterprise(params).then(function (res) {
+      console.log('-----------',res)
       _this.setData({
         userInfo: res.userInfo
       });
