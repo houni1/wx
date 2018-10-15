@@ -48,15 +48,15 @@ App({
     // 是否是本人
     isMe: false,
     // 来源
-    source: '',
+    source: '',     // 1.app  2.微信（一猫汽车商城，车商猫电子名片）  3.阿拉丁统计
     // 链接上的id
-    saleId: 0,
+    saleId: 0,      // 用户分享的id
     // 微信唯一标识
     authorize_user_id: 0,
     // 是否覆盖信息
-    iscover: 0,
+    iscover: 0,    // 1.允许覆盖  2.已经覆盖过了
     // 判断新老用户
-    oldUser: 0,
+    oldUser: 0,   // 1.老用户 2.新用户
     // emaoCarShop
     kind: 0,
     latitude: 0,
