@@ -41,8 +41,8 @@
   <!-- 店铺位置信息 -->
   <view class='addressWrap flex-wrapper' wx:if="{{ userId != toUserId }}">
     <label for='form_id' class='flex flex1'>
-      <view class='photo' bindtap='storeStatistics' style='background-image:url({{ dataInfo.userInfo.headPortrait }});background-size: cover;'>
-      </view>
+      <view wx:if="{{dataInfo.userInfo.headPortrait}}" class='photo' bindtap='storeStatistics' style='background-image:url({{ dataInfo.userInfo.headPortrait }});background-size: cover;'></view>
+      <view wx:if="{{!dataInfo.userInfo.headPortrait}}" class='photo' bindtap='storeStatistics' style='background-image:url(images/defaultPhoto.png);background-size: cover;'></view>
       <view class='info flex-item' bindtap='storeStatistics'>
         <view class='flex'>
           <text class='name flex1'>{{ dataInfo.userInfo.nickname }}</text>
@@ -50,7 +50,6 @@
         </view>
         <view class='flex-wrapper flex-column-center'>
           <image wx:if="{{ dataInfo.userInfo.distance }}" class='iconAddress' src='images/address.png' mode='widthFix'></image>
-          
           <text class='addressName flex1'>{{ dataInfo.userInfo.address }}</text>
         </view>
       </view>
