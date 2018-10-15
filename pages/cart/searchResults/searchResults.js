@@ -19,7 +19,7 @@ Page({
     userInfo: {},             // 个人信息
     list: [],                 // 列表数据,
     brandId: '',              // 品牌id [非必传]
-    status: '1',              // 1上架 2下架 [非必传]
+    status: 1,                // 1上架 2下架 [非必传]
     page: 1,                  // 当前页 [必传]
     type: '',                 // 商品类型：''-全部商品, 1-自营, 2-一猫 [非必传]
     onShelf: 0,               // 已售出
@@ -194,8 +194,8 @@ Page({
       let params = {
         page: 1,                  // 当前页 [必传]
         brandId: '',              // 品牌id [非必传]
-        status: 1,                // 上下架状态 1上架 2下架 [非必传]
-        type: '',                 // 1 自营 2 一猫 [非必传]
+        status: _this.data.status,                // 上下架状态 1上架 2下架 [非必传]
+        type: _this.data.type,                 // 1 自营 2 一猫 [非必传]
         phone: _this.data.newPhone
       }
       _this.setData({
@@ -203,19 +203,30 @@ Page({
       });
       bindingEnterprise(params).then(res => {
         if (res.type == 1) {
-          _this.setData({
-            onShelf: res.amount.onShelf || 0,
-            unOnShelf: res.amount.unOnShelf || 0,
-            list: res.list,
-            lastPage: res.page.lastPage,
-            page: res.page.currentPage,
-            noData: false,
-            isShowBrand: false,
-            status: 1,
-            userInfo: res.userInfo,
-            bindFlag: false,
-            saleId: res.userInfo.saleId
-          })
+          if (res.list.length > 0) {
+            _this.setData({
+              onShelf: res.amount.onShelf || 0,
+              unOnShelf: res.amount.unOnShelf || 0,
+              list: res.list,
+              lastPage: res.page.lastPage,
+              page: res.page.currentPage,
+              noData: false,
+              isShowBrand: false,
+              userInfo: res.userInfo,
+              bindFlag: false,
+              saleId: res.userInfo.saleId
+            })
+          } else {
+            _this.setData({
+              list: res.list,
+              lastPage: 1,
+              page: 1,
+              noData: true,
+              bindFlag: false,
+              userInfo: res.userInfo
+            });
+          }
+          
         } else {
           wx.showToast({
             title: '该账号未注册车商猫',
