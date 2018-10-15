@@ -106,7 +106,7 @@ Page({
   },
   // 用户授权
   authResult(data) {
-    // console.log('授权后的id', globalData.authorize_user_id)
+    console.log('授权后的id', globalData.authorize_user_id)
     // console.log('saleId', globalData.saleId)
     console.log('oldUser', globalData.oldUser)
     // console.log('是否覆盖', globalData.iscover)
