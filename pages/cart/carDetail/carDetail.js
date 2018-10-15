@@ -36,7 +36,15 @@ Page({
   onLoad: function (options) {
     console.log('页面跳转',options)
     var _this = this;
-    var enterType = options.enterType;
+    var enterType
+    if (options.enterType) {
+      enterType = options.enterType;
+    } else if (app.globalData.authorize_user_id == options.saleId) {
+      enterType = 'self'
+    } else if (app.globalData.authorize_user_id != options.saleId) {
+      enterType = 'other'
+    }
+    
     this.setData({
       userId: app.globalData.authorize_user_id,
       toUserId: options.toUserId || options.saleId,
@@ -253,6 +261,6 @@ Page({
     }
     buttonStat(tjParam).then(function (res) {
       // console.log("按钮统计成功")
-    }) 
+    })
   }
 })

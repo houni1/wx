@@ -96,6 +96,7 @@ page {
 }
 .photo image {
   width: 100rpx;
+  height: 100rpx;
 }
 .addressWrap .info .name {
   font-size: 30rpx;
