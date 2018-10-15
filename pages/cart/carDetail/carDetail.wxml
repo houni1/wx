@@ -42,10 +42,10 @@
   <view class='addressWrap flex-wrapper' wx:if="{{ userId != toUserId }}">
     <label for='form_id' class='flex flex1'>
       <view wx:if="{{dataInfo.userInfo.headPortrait != ''}}" class='photo'>
-        <image src='{{dataInfo.userInfo.headPortrait}}' mode='aspectFill'></image>
+        <image src='{{dataInfo.userInfo.headPortrait}}/226/3' mode='widthFix'></image>
       </view>
       <view wx:if="{{dataInfo.userInfo.headPortrait == ''}}" class='photo'>
-        <image src='images/defaultPhoto.png' mode='aspectFill'></image>
+        <image src='images/defaultPhoto.png' mode='widthFix'></image>
       </view>
       <!-- <view class='photo' bindtap='storeStatistics' style='background-image: url(images/defaultPhoto.png);background-size: cover;'></view> -->
       <view class='info flex-item' bindtap='storeStatistics'>
