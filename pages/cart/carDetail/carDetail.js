@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    console.log(options)
+    console.log('页面跳转',options)
     var _this = this;
     var enterType = options.enterType;
     this.setData({
@@ -173,7 +173,6 @@ Page({
       buttonStat(tjParam).then(function (res) {
       // console.log("导航按钮统计成功")
       })
-      console.log(this.data.dataInfo)
       wx.openLocation({
         latitude: lat,
         longitude: lon,

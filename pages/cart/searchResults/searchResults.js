@@ -209,7 +209,8 @@ Page({
             isShowBrand: false,
             status: 1,
             userInfo: res.userInfo,
-            bindFlag: false
+            bindFlag: false,
+            saleId: res.userInfo.saleId
           })
         } else {
           wx.showToast({
