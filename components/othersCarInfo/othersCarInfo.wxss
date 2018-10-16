@@ -78,7 +78,7 @@ page {
 /* 列表 */
 .carsList {
   flex: 1;
-  overflow-x: auto;
+  overflow-y: auto;
 }
 .item {
   position: relative;

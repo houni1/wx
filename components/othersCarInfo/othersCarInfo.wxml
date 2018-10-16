@@ -46,7 +46,7 @@
     </navigator>
   </view>
   <!-- 车型列表弹窗 -->
-  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" hidden="{{s_move == false}}" catchtouchmove='true' bindtap="clickAround">
+  <view class="carNameList {{s_move && s_move == true ? 'opacity' : ''}}" hidden="{{s_move == false}}" bindtap="clickAround">
     <view class="thiv {{s_move && s_move == true ? 'move_t' : ''}}">
       <view class='flex-wrapper chooseBrand'>
         <view class='flex-item toChoose'>请选择</view>
