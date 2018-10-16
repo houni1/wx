@@ -1,14 +1,12 @@
 page {
   height: 100%;
-  padding-bottom: 138rpx;
   box-sizing: border-box;
   background: #fff;
 }
 .wrap {
   background:#fff; 
   overflow: hidden;
-  /* padding-bottom: 138rpx; */
-  /* padding-top: 84rpx; */
+  margin-bottom: 138rpx;
 }
 .flex {
   display: flex;

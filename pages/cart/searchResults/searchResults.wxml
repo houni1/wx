@@ -46,18 +46,6 @@
           </view>
         </view>
       </navigator>
-      <!-- <view class='shareBtn'>
-        <label for='form_id'>
-          <button open-type="share"
-            data-title="{{ item.autoName }}"
-            data-userId="{{userId}}"
-            data-toUserId='{{toUserId}}'
-            data-id='{{item.id}}'
-            data-cover='{{item.cover}}'>
-            <image src='images/fa.png' mode='widthFix'></image>
-          </button>
-        </label>
-      </view> -->
     </view>
   </view>
   <view class='noData' wx:if='{{ noData }}'>
