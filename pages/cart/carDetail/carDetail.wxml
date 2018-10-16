@@ -43,11 +43,12 @@
     <label for='form_id' class='flex flex1'>
       <view wx:if="{{dataInfo.userInfo.headPortrait != ''}}" class='photo'>
         <image src='{{dataInfo.userInfo.headPortrait}}/226/3' mode='widthFix'></image>
+        <!-- <view class='official' wx:if="{{dataInfo.userInfo.official == 1}}"><image src='images/v.png' mode='widthFix'></image></view> -->
       </view>
       <view wx:if="{{dataInfo.userInfo.headPortrait == ''}}" class='photo'>
         <image src='images/defaultPhoto.png' mode='widthFix'></image>
+        <!-- <view class='official' wx:if="{{dataInfo.userInfo.official == 1}}"><image src='images/v.png' mode='width'></image></view> -->
       </view>
-      <!-- <view class='photo' bindtap='storeStatistics' style='background-image: url(images/defaultPhoto.png);background-size: cover;'></view> -->
       <view class='info flex-item' bindtap='storeStatistics'>
         <view class='flex'>
           <text class='name flex1'>{{ dataInfo.userInfo.nickname }}</text>

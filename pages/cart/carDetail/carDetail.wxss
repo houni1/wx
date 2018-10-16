@@ -87,16 +87,17 @@ page {
   align-items: center;
 }
 .photo {
+  position: relative;
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   margin-right: 40rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 0 5rpx 5rpx #dedede;
 }
 .photo image {
   width: 100rpx;
-  /* height: 100rpx; */
+  border-radius: 50rpx;
 }
 .addressWrap .info .name {
   font-size: 30rpx;
@@ -296,4 +297,15 @@ button::after {
 }
 .box {
   height: 130rpx;
+}
+.official {
+  width: 38rpx;
+  height: 38rpx;
+  position: absolute;
+  right: -4rpx;
+  bottom: 0;
+}
+.official image {
+  width: 38rpx;
+  height: 38rpx;
 }

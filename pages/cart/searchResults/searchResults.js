@@ -223,7 +223,9 @@ Page({
               page: 1,
               noData: true,
               bindFlag: false,
-              userInfo: res.userInfo
+              userInfo: res.userInfo,
+              onShelf: res.amount.onShelf || 0,
+              unOnShelf: res.amount.unOnShelf || 0,
             });
           }
           
